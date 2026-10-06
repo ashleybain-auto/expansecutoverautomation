@@ -1,0 +1,17 @@
+[MASTER]
+extension-pkg-allow-list=pyodbc
+
+[BASIC]
+good-names=i,j,k,ex,_
+
+[FORMAT]
+max-line-length=100
+
+[DESIGN]
+max-args=8
+max-locals=20
+max-returns=8
+max-branches=15
+max-statements=60
+max-parents=7
+max-attributes=10

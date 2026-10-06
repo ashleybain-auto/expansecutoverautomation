@@ -1,0 +1,72 @@
+[
+  {
+    "domain": "AdmitSource",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "AdmitType",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "EmploymentStatus",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Ethnicity",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Language",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "PatientType",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Race",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Relationship",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Religion",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "State",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  }
+]

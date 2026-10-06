@@ -1,0 +1,50 @@
+{
+  "suite": {
+    "code": "ECCS",
+    "name": "Expanse Cutover Configuration Suite",
+    "publisherPrefix": "eccs",
+    "repository": "Expanse-ConfigTool-Factory"
+  },
+
+  "factory": {
+    "name": "Expanse ConfigTool Factory",
+    "code": "ECCS-FACTORY"
+  },
+
+  "environments": {
+    "development": "DevelopmentAuto"
+  },
+
+  "configTools": {
+    "registration": {
+      "code": "REG",
+      "name": "Registration"
+    }
+  },
+
+  "variants": {
+    "expanse": {
+      "code": "EXPANSE",
+      "name": "MEDITECH Expanse"
+    },
+    "nonmagic": {
+      "code": "NONMAGIC",
+      "name": "Non-Magic Expanse"
+    }
+  },
+
+  "solutions": {
+    "core": {
+      "displayName": "Expanse Cutover Configuration Suite - Core",
+      "uniqueName": "ExpanseCutoverConfigurationSuiteCore"
+    },
+    "registration": {
+      "displayName": "Expanse Cutover Configuration Suite - Registration",
+      "uniqueName": "ExpanseCutoverConfigurationSuiteRegistration"
+    },
+    "nonmagicRegistration": {
+      "displayName": "Expanse Cutover Configuration Suite - Non-Magic Registration",
+      "uniqueName": "ExpanseCutoverConfigurationSuiteNonMagicRegistration"
+    }
+  }
+}

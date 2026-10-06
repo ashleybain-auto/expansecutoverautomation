@@ -1,0 +1,133 @@
+{
+  "application": {
+    "code": "UPLOAD",
+    "name": "ECCS Upload and Source-to-Expanse DR Mapping"
+  },
+  "source": {
+    "type": "CSV",
+    "filename": "ECCS_Bulk_Mapping_Upload_Template.csv",
+    "encoding": "UTF-8",
+    "headerRow": 1,
+    "dataStartRow": 2
+  },
+  "columns": [
+    {
+      "sourceColumn": "Domain",
+      "role": "DOMAIN",
+      "required": true
+    },
+    {
+      "sourceColumn": "SourceSystem",
+      "role": "SOURCE_SYSTEM",
+      "required": true
+    },
+    {
+      "sourceColumn": "Facility_Source",
+      "role": "SOURCE_FACILITY",
+      "required": true
+    },
+    {
+      "sourceColumn": "Mnemonic_Source",
+      "role": "SOURCE_MNEMONIC",
+      "required": true
+    },
+    {
+      "sourceColumn": "Name_Source",
+      "role": "SOURCE_NAME_DESCRIPTION",
+      "required": true
+    },
+    {
+      "sourceColumn": "PA_Code_Source",
+      "role": "SOURCE_SECONDARY_KEY",
+      "required": false
+    },
+    {
+      "sourceColumn": "Active_Source",
+      "role": "SOURCE_ACTIVE",
+      "required": true
+    },
+    {
+      "sourceColumn": "Target_Environment",
+      "role": "TARGET_ENVIRONMENT",
+      "required": true
+    },
+    {
+      "sourceColumn": "Target_Facility",
+      "role": "TARGET_FACILITY",
+      "required": false
+    },
+    {
+      "sourceColumn": "Target_Mnemonic",
+      "role": "TARGET_MNEMONIC",
+      "required": false
+    },
+    {
+      "sourceColumn": "Target_Name",
+      "role": "TARGET_NAME_DESCRIPTION",
+      "required": false
+    },
+    {
+      "sourceColumn": "Target_PA_Code",
+      "role": "TARGET_SECONDARY_KEY",
+      "required": false
+    },
+    {
+      "sourceColumn": "Target_Active",
+      "role": "TARGET_ACTIVE",
+      "required": false
+    },
+    {
+      "sourceColumn": "Requested_Action",
+      "role": "REQUESTED_ACTION",
+      "required": true
+    },
+    {
+      "sourceColumn": "Source_Row_Id",
+      "role": "SOURCE_ROW_ID",
+      "required": true
+    }
+  ],
+  "workflow": [
+    "UPLOAD",
+    "STAGE",
+    "MAP",
+    "SCORE",
+    "REVIEW",
+    "APPROVE",
+    "COMMIT",
+    "AUDIT"
+  ],
+  "mapping": {
+    "sourceSystem": "SOURCE",
+    "targetSystem": "EXPANSE",
+    "targetObject": "DR"
+  },
+  "scoring": {
+    "facilityWeight": 30,
+    "mnemonicWeight": 30,
+    "nameDescriptionWeight": 20,
+    "secondaryKeyWeight": 10,
+    "activeWeight": 10
+  },
+  "grades": {
+    "PRIMARY": {
+      "minimumPercent": 0,
+      "maximumPercent": 25
+    },
+    "SECONDARY": {
+      "minimumPercent": 26,
+      "maximumPercent": 50
+    },
+    "TERTIARY": {
+      "minimumPercent": 51,
+      "maximumPercent": 75
+    },
+    "COMPLETE": {
+      "minimumPercent": 76,
+      "maximumPercent": 100
+    }
+  },
+  "approval": {
+    "requiredBeforeCommit": true
+  }
+}

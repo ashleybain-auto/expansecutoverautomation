@@ -1,0 +1,25 @@
+{
+  "scale": 100,
+  "weights": [
+    {
+      "field": "Facility",
+      "weight": 30
+    },
+    {
+      "field": "Mnemonic",
+      "weight": 30
+    },
+    {
+      "field": "NameDescription",
+      "weight": 20
+    },
+    {
+      "field": "PASecondaryKey",
+      "weight": 10
+    },
+    {
+      "field": "Active",
+      "weight": 10
+    }
+  ]
+}

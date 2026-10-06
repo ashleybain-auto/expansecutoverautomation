@@ -1,0 +1,2 @@
+Domain,SourceSystem,Facility_Source,Mnemonic_Source,Name_Source,PA_Code_Source,Active_Source,Target_Environment,Target_Facility,Target_Mnemonic,Target_Name,Target_PA_Code,Target_Active,Requested_Action,Source_Row_Id
+Registration,Source System,COCAG,ABSCESS,Abscess,,Y,DR,,,,,Y,Review,1

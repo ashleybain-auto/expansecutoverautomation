@@ -1,0 +1,55 @@
+Microsoft PowerPlatform CLI
+Version: 2.12.1+g0914bd1 (.NET Framework 4.8.9336.0)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Error: Not a valid command. Try running 'pac [command] help'.
+
+Hints: 
+  Parse failed on:            --version
+  Current command:            (None)
+  Is this a known command?    No, was it misspelled?
+  Is this a known argument?   Yes
+  Was it quote wrapped?       No, be sure to wrap values that contain spaces.
+
+Usage: pac [admin] [analytics] [application] [app-management] [auth] [authorization] [canvas] [catalog] [code] [connection] [connectivity] [connector] [copilot] [copilot-studio] [data] [dynamics] [env] [environment-management] [governance] [help] [licensing] [managed-identity] [model] [modelbuilder] [package] [pages] [pcf] [pipeline] [plugin] [power-apps] [power-automate] [power-fx] [power-pages] [resource-query] [solution] [telemetry] [tool] [user-management] [workflows-agent]
+
+  admin                       Work with your Power Platform Admin Account.
+  analytics                   (Preview) Retrieve and run Power Platform advisor recommendations and remediations.
+  application                 Commands for listing and installing available Dataverse applications from MicrosoftMarketplace.
+  app-management              (Preview) Discover and install Dynamics 365 application packages into environments.
+  auth                        Manage how you authenticate to various services.
+  authorization               (Preview) Manage Power Platform RBAC role definitions and scoped role assignments.
+  canvas                      Operating with Power Apps .msapp files.
+  catalog                     Commands for working with Catalog in Power Platform.
+  code                        (Preview) Commands to manage your code apps. For the latest features and improvements, use the npm-based Power Apps CLI instead. Learn more at https://aka.ms/pacodeapps.
+  connection                  Commands for working with Dataverse connection.
+  connectivity                (Preview) List an environment's connectors, connector details, and maker connections.
+  connector                   Commands for working with Power Platform Connectors.
+  copilot                     Tools and utilities for copilot management.
+  copilot-studio              (Preview) Administer Copilot Studio agents: quarantine, reassign, delete, and evaluate.
+  data                        Import and export data from Dataverse.
+  dynamics                    (Preview) Administer Finance and Operations environments, maintenance, and versions.
+  env                         Work with your Dataverse organization.
+  environment-management      (Preview) Manage environment lifecycle, governance, DR, SKU, and environment groups.
+  governance                  (Preview) Manage rule-based data policies and cross-tenant connection reports.
+  help                        Show help for the Microsoft Power Platform CLI.
+  licensing                   (Preview) Manage licensing, entitlements, capacity, billing policies, and allocations.
+  managed-identity            Commands for managing Managed Identity records for Dataverse components.
+  model                       Commands for working with model-driven apps.
+  modelbuilder                Code Generator for Dataverse APIs and Tables.
+  package                     Commands for working with Dataverse package projects.
+  pages                       Commands for working with Power Pages website.
+  pcf                         Commands for working with Power Apps component framework projects.
+  pipeline                    Work with Pipelines.
+  plugin                      Commands for working with Dataverse plug-in class library.
+  power-apps                  (Preview) List and inspect Power Apps across environments for admin governance.
+  power-automate              (Preview) Inspect Power Automate cloud flows, actions, and run history as an admin.
+  power-fx                    (Preview) Commands for working with Power Fx.
+  power-pages                 (Preview) Manage Power Pages sites, firewall, certificates, and custom domains.
+  resource-query              (Preview) Query environments, apps, flows, and resources across the tenant.
+  solution                    Commands for working with Dataverse solution projects.
+  telemetry                   Manage telemetry settings.
+  tool                        Power Platform tools that can be installed and launched.
+  user-management             (Preview) Assign the Power Platform system administrator role to a user.
+  workflows-agent             (Preview) Fulfill DSR export and delete requests for Power Automate and agent data.

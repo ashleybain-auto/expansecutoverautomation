@@ -1,0 +1,140 @@
+
+
+
+
+
+Sub RefreshData_Accommodations()
+
+     ' FOR THIS CODE TO WORK
+
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+
+     '
+
+     Dim CurFacSrc As String
+
+     CurFacSrc = "*ALL*"
+
+     
+
+     
+
+    Set CurWkBk = ActiveWorkbook
+
+
+
+    Dim Cur As Worksheet
+
+    Set Cur = Sheets("Accommodations")
+
+
+
+    id_FacilityMnem = InputBox("Provide the Source COC code." & _
+
+                     Chr(13) & "Type Division Mnemonic for all division facilities " & Chr(13) & "(CNDV,CPDV,CWDV,EFDV,FWDV,GCDV,MADV," & Chr(13) & "MNDV,NFDV,NTDV,SADV,SNDV,TRDV,WFDV)" & _
+
+                     Chr(13) & "Type *ALL* for all facilities", "Select Facility", CurFacSrc)
+
+    If id_FacilityMnem = "" Then
+
+        MsgBox "Data Not Refreshed"
+
+        Exit Sub
+
+    End If
+
+
+
+    Call OpenConnection
+
+
+
+    Dim Rs As ADODB.Recordset
+
+    Set Rs = New ADODB.Recordset
+
+    
+
+    Dim Cmd As New ADODB.Command
+
+    Set Cmd = Nothing
+
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_Source_Accommodations]"
+
+    Cmd.CommandType = adCmdStoredProc
+
+    Cmd.ActiveConnection = Cn
+
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+
+    Cmd.Parameters.Append (prm)
+
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+
+    Cmd.Parameters.Append (prm)
+
+    
+
+    Set Rs = Cmd.Execute
+
+    
+
+    Cur.Cells.Clear
+
+    Cur.Cells.Clear
+
+    Call PrepareAccommodationsSheet
+
+    Cur.Columns.NumberFormat = "@"
+
+    
+
+    For i = 0 To Rs.Fields.Count - 1
+
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+
+    Next i
+
+
+
+    Cur.Range("A4").CopyFromRecordset Rs
+
+    
+
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblAccommodations"
+
+    Cur.ListObjects("tblAccommodations").TableStyle = "TableStyleMedium15"
+
+    Cur.Select
+
+    Cur.Cells(1, 1).Select
+
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+
+    Cur.Cells(2, 3) = ""
+
+    CurWkBk.RefreshAll
+
+    Cur.Columns.AutoFit
+
+    
+
+    If Rs.State <> 0 Then Rs.Close
+
+    Call CloseConnection
+
+    
+
+    Call ApplyDataValidation_Accommodations(Cur)
+
+    
+
+
+
+        
+
+End Sub
+
+
+
+

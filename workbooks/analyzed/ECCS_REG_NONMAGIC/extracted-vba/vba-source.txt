@@ -1,0 +1,4799 @@
+===== ThisWorkbook.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/ThisWorkbook
+
+Attribute VB_Name = "ThisWorkbook"
+Attribute VB_Base = "0{00020819-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+Private Sub Workbook_Open()
+
+MsgBox "Click OK to begin Refreshing Spreadsheet."
+Application.Cursor = xlWait
+
+Messagebox = 6
+'Messagebox = MsgBox("Do you want to update user forms?", vbYesNo, "Update Yes/No")
+If Messagebox = 6 Then
+
+Dim lngFileCounter As Long, wbTarget As Workbook
+Dim myWorkbook As FileSystemObject
+Application.ScreenUpdating = False
+On Error Resume Next
+
+CurDirectory = "\\xrdcnpsvmdpt01_cfs_ag1.hca.corpad.net\SREShare\Expanse\ACOE_MTX\ExcelTool_REG_Cutover_ConfigTools\NonMagic_ConfigTool\book1.xlsb"
+CurCount = 0
+Do
+CurCount = CurCount + 1
+CurChar = Left(Right(CurDirectory, CurCount), 1)
+Loop Until CurCount >= Len(CurDirectory) Or CurChar = Application.PathSeparator
+
+If CurChar <> Application.PathSeparator Then
+Exit Sub
+End If
+
+CurDirectory = Left(CurDirectory, Len(CurDirectory) - CurCount) & Application.PathSeparator
+mySourcePath = CurDirectory
+    Set MyObject = New Scripting.FileSystemObject
+    Set mySource = MyObject.GetFolder(mySourcePath)
+
+For Each myFile In mySource.Files
+
+    'Search for files that we want to replace code module in
+            Set wbTarget = ActiveWorkbook
+            
+            'First we need to remove the existing module
+            CurModuleName = myFile.Name
+            CurModulePath = myFile.Path
+            
+            If LCase(Right(CurModuleName, 4)) = ".frm" Or _
+                LCase(Right(CurModuleName, 4)) = ".cls" Or _
+                LCase(Right(CurModuleName, 4)) = ".bas" Then
+            ModuleName = Left(CurModuleName, Len(CurModuleName) - 4)
+            ModulePath = CurModulePath
+            DoEvents
+'            On Error Resume Next
+    Do
+            ModPresent = True
+            Application.EnableEvents = False
+            wbTarget.VBProject.VBComponents.Remove wbTarget.VBProject.VBComponents(ModuleName)
+            DoEvents
+            Application.EnableEvents = True
+            ModPresent = False
+    On Error Resume Next
+    '- MODULE
+    Set MyModule = ActiveWorkbook.VBProject.VBComponents(ModuleName).CodeModule
+    If Err.Number = 0 Then
+        ModPresent = True
+    End If
+    Loop Until ModPresent = False
+'            On Error GoTo 0
+            'Now we can import the new module, save the workbook and close.
+            wbTarget.VBProject.VBComponents.Import ModulePath
+            End If
+            
+Next myFile
+
+
+
+
+    Dim VBAEditor As VBIDE.VBE
+    Dim vbProj As VBIDE.VBProject
+    Dim chkRef As VBIDE.Reference
+    Dim BoolExists As Boolean
+   ' Refer to the activedocument's VBA project.
+    Set CurRefArray = CreateObject("Scripting.Dictionary")
+    Set VBAEditor = Application.VBE
+    Set vbProj = ActiveWorkbook.VBProject
+    CurRefArray.Add "Scripting", "C:\Windows\SysWOW64\scrrun.dll"
+    CurRefArray.Add "SHDocVw", "C:\Windows\SysWOW64\ieframe.dll"
+    CurRefArray.Add "ADODB", "C:\Program Files (x86)\Common Files\System\ado\msado26.tlb"
+    CurRefArray.Add "Access", "C:\Program Files (x86)\Microsoft Office\Office15\MSACC.OLB"
+    CurRefArray.Add "DAO", "C:\Program Files (x86)\Common Files\microsoft shared\DAO\dao360.dll"
+    
+    For Each myKey In CurRefArray
+    DoEvents
+    For Each chkRef In vbProj.References
+    DoEvents
+        If chkRef.Name = myKey Then
+            BoolExists = True
+            GoTo CleanUp
+        End If
+    Next chkRef
+    PathArray = CurRefArray(myKey)
+    vbProj.References.AddFromFile PathArray
+CleanUp:
+    
+    Next myKey
+
+    Set vbProj = Nothing
+    Set VBAEditor = Nothing
+
+End If
+
+Application.Run ("RunUpdatesForCurrentVersion")
+
+Application.ScreenUpdating = True
+Application.Calculation = xlCalculationAutomatic
+Application.Cursor = xlDefault
+MsgBox "Ready to Begin."
+
+End Sub
+
+
+
+
+
+
+===== Sheet5.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet5
+
+Attribute VB_Name = "Sheet5"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet3.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet3
+
+Attribute VB_Name = "Sheet3"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet2.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet2
+
+Attribute VB_Name = "Sheet2"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet6.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet6
+
+Attribute VB_Name = "Sheet6"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet1.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet1
+
+Attribute VB_Name = "Sheet1"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet11.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet11
+
+Attribute VB_Name = "Sheet11"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet4.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet4
+
+Attribute VB_Name = "Sheet4"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet9.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet9
+
+Attribute VB_Name = "Sheet9"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== DeveloperFunctions.bas =====
+Source: xl/vbaProject.bin
+Stream: VBA/DeveloperFunctions
+
+Attribute VB_Name = "DeveloperFunctions"
+Sub RunUpdatesForCurrentVersion()
+
+    Call ModifyServerName("xrdcwddbsuip06") 'If server changes in the future, modify here
+    Call Setup_Worksheet_Instructions
+    Call PrepareStateSheet
+    Call PrepareReligionSheet
+    Call PrepareEthnicitySheet
+    Call PrepareEmploymentStatusSheet
+    Call PrepareRelationshipSheet
+    Call PrepareRaceSheet
+    Call PreparePatientTypeSheet
+    Call PrepareAdmitTypeSheet
+    Call PrepareAdmitSourceSheet
+    Call PrepareLanguageSheet
+
+End Sub
+
+Sub ModifyServerName(CurServerName As String)
+
+    If Sheets("Settings").Range("settingServer").Value <> CurServerName Then
+
+        Application.Calculation = xlCalculationManual
+        Application.Cursor = xlWait
+        Application.ScreenUpdating = False
+        
+        Sheets("Settings").Visible = True
+        
+        With Sheets("Settings").Range("settingServer").Validation
+            .Delete
+            .Add Type:=xlValidateInputOnly, AlertStyle:=xlValidAlertStop, Operator _
+            :=xlBetween
+            .IgnoreBlank = True
+            .InCellDropdown = True
+            .ShowInput = True
+            .ShowError = True
+        End With
+        
+        Sheets("Settings").Range("settingServer").Value = CurServerName
+        
+        Sheets("Settings").Visible = False
+        
+        Application.Calculation = xlCalculationAutomatic
+        Application.Cursor = xlDefault
+        Application.ScreenUpdating = True
+    
+    End If
+
+End Sub
+
+
+Sub Setup_Worksheet_Instructions()
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Set Cur = CurWkBk.Sheets("Instructions")
+    Cur.Select
+    'Speed Enhancing
+    Application.Calculation = xlCalculationManual
+    Application.Cursor = xlWait
+    Application.ScreenUpdating = False
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    
+    Cur.Cells.RowHeight = 15
+    
+    Cur.Range("A:A").Interior.Color = vbBlack
+    Cur.Columns("A:A").ColumnWidth = 0.83
+    
+    Cur.Columns("B:G").ColumnWidth = 9
+    
+    Cur.Range("H:H").Interior.Color = vbBlack
+    Cur.Columns("H:H").ColumnWidth = 0.83
+    
+    Cur.Range("O:O").Interior.Color = vbBlack
+    Cur.Columns("O:O").ColumnWidth = 0.83
+    
+    Cur.Range("A1:H1").Interior.Color = vbBlack
+    Cur.Rows("1:1").RowHeight = 7.5
+    
+    Dim BannerRow As Integer
+    Dim BtnRow As Integer
+    Dim BtnHeight As Integer
+    
+    BannerRow = 1
+    BtnRow = 2
+    BtnHeight = 2
+    BlockHeight = 4
+    
+    
+    'Create Buttons
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_AdmitSource", "Click Here to Refresh" & Chr(13) & "**REG Admit Source**", "RefreshData_AdmitSource"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_AdmitType", "Click Here to Refresh" & Chr(13) & "**REG Admit Type**", "RefreshData_AdmitType"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_RegEmploymentStatus", "Click Here to Refresh" & Chr(13) & "**REG Employment Status**", "RefreshData_EmploymentStatus"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_RegEthnicity", "Click Here to Refresh" & Chr(13) & "**REG Ethnicity**", "RefreshData_Ethnicity"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_Language", "Click Here to Refresh" & Chr(13) & "**REG Language**", "RefreshData_Language"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_PatientType", "Click Here to Refresh" & Chr(13) & "**REG Patient Type**", "RefreshData_PatientType"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_Race", "Click Here to Refresh" & Chr(13) & "**REG Race**", "RefreshData_Race"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_Relationship", "Click Here to Refresh" & Chr(13) & "**REG Relationship**", "RefreshData_Relationship"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_RegReligion", "Click Here to Refresh" & Chr(13) & "**REG Religion**", "RefreshData_Religion"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    AddButton CurWkBk, Cur, Cur.Range("B" & BtnRow & ":G" & BtnRow + BtnHeight), "Config_RegState", "Click Here to Refresh" & Chr(13) & "**REG State**", "RefreshData_State"
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    BannerRow = BannerRow + BlockHeight
+    BtnRow = BtnRow + BlockHeight
+    
+    'Create Change Log
+    With Cur.Range(Cur.Cells(BtnRow, 2), Cur.Cells(BtnRow + BlockHeight * 3, 7))
+        .HorizontalAlignment = xlLeft
+        .VerticalAlignment = xlTop
+        .WrapText = True
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = True
+    End With
+    Cur.Range("A" & BannerRow & ":H" & BannerRow).Interior.Color = vbBlack
+    Cur.Rows(BannerRow & ":" & BannerRow).RowHeight = 7.5
+    Cur.Cells(BtnRow, 2) = "Change Log:"
+    Cur.Cells(BtnRow, 2) = Cur.Cells(BtnRow, 2) & Chr(10) & Chr(10) & "2024-07-29: Added automatic refresh feature to address version control."
+    
+    'Speed Enhancing
+    Application.Calculation = xlCalculationAutomatic
+    Application.Cursor = xlDefault
+    Application.ScreenUpdating = True
+    
+    Cur.Select
+    Cur.Range("A1").Select
+    CurWkBk.RefreshAll
+End Sub
+
+Sub PrepareStateSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("State").Name
+    On Error GoTo 0
+    If TestSheetName <> "State" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "State"
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+    
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_State_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_State_ProcessUpdate", "Process Update(s)", "PushUpdates_State"
+
+End Sub
+
+Sub PrepareReligionSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("Religion").Name
+    On Error GoTo 0
+    If TestSheetName <> "Religion" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "Religion"
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+    
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_Religion_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_Religion_ProcessUpdate", "Process Update(s)", "PushUpdates_Religion"
+
+End Sub
+
+
+Sub PrepareEthnicitySheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("Ethnicity").Name
+    On Error GoTo 0
+    If TestSheetName <> "Ethnicity" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "Ethnicity"
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_Ethnicity_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_Ethnicity_ProcessUpdate", "Process Update(s)", "PushUpdates_Ethnicity"
+
+End Sub
+
+Sub PrepareEmploymentStatusSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("EmploymentStatus").Name
+    On Error GoTo 0
+    If TestSheetName <> "EmploymentStatus" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "EmploymentStatus"
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+    
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_EmploymentStatus_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_EmploymentStatus_ProcessUpdate", "Process Update(s)", "PushUpdates_EmploymentStatus"
+
+End Sub
+
+
+Sub PrepareRelationshipSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("Relationship").Name
+    On Error GoTo 0
+    If TestSheetName <> "Relationship" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "Relationship"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_Relationship_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_Relationship_ProcessUpdate", "Process Update(s)", "PushUpdates_Relationship"
+
+End Sub
+
+Sub PrepareRaceSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("Race").Name
+    On Error GoTo 0
+    If TestSheetName <> "Race" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "Race"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_Race_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_Race_ProcessUpdate", "Process Update(s)", "PushUpdates_Race"
+
+End Sub
+
+Sub PrepareLanguageSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("Language").Name
+    On Error GoTo 0
+    If TestSheetName <> "Language" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "Language"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_Language_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_Language_ProcessUpdate", "Process Update(s)", "PushUpdates_Language"
+
+End Sub
+
+Sub PreparePatientTypeSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("PatientType").Name
+    On Error GoTo 0
+    If TestSheetName <> "PatientType" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "PatientType"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_PatientType_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_PatientType_ProcessUpdate", "Process Update(s)", "PushUpdates_PatientType"
+
+End Sub
+
+Sub PrepareAdmitTypeSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("AdmitType").Name
+    On Error GoTo 0
+    If TestSheetName <> "AdmitType" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "AdmitType"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_AdmitType_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_AdmitType_ProcessUpdate", "Process Update(s)", "PushUpdates_AdmitType"
+
+End Sub
+
+Sub PrepareAdmitSourceSheet()
+    
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim Cur As Worksheet
+    Dim NewSheet As Worksheet
+    Dim TestSheetName As String
+    On Error Resume Next
+    TestSheetName = CurWkBk.Sheets("AdmitSource").Name
+    On Error GoTo 0
+    If TestSheetName <> "AdmitSource" Then
+        Application.DisplayAlerts = False
+        Set NewSheet = Sheets.Add
+        NewSheet.Name = "AdmitSource"
+        NewSheet.Move After:=Sheets(CurWkBk.Sheets.Count)
+        With NewSheet.Tab
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.799981688894314
+        End With
+        Set Cur = NewSheet
+        Application.DisplayAlerts = True
+    Else
+        Set Cur = CurWkBk.Sheets(TestSheetName)
+        Dim myShape As Shape
+        For Each myShape In Cur.Shapes
+            If myShape.Type = msoControlButton Then
+                myShape.Delete
+            End If
+        Next myShape
+    End If
+
+    CurBtnRow = 1
+    AddButton CurWkBk, Cur, Cur.Range("A" & CurBtnRow & ":A" & CurBtnRow + 1), "Btn_AdmitSource_Home", "Home", "Link_To_Home"
+    AddButton CurWkBk, Cur, Cur.Range("E" & CurBtnRow & ":F" & CurBtnRow + 1), "Btn_AdmitSource_ProcessUpdate", "Process Update(s)", "PushUpdates_AdmitSource"
+
+End Sub
+
+
+Sub ClearSheetsForDistribution()
+
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+    Dim mySheet As Worksheet
+    Dim MaxRows As String
+    Dim Cur As Worksheet
+    Set Cur = ActiveSheet
+    For Each mySheet In CurWkBk.Sheets
+        Hello = mySheet.Name
+        If mySheet.Tab.ThemeColor = xlThemeColorAccent1 Then
+        
+            mySheet.ListObjects(1).Sort.SortFields.Clear
+            mySheet.ListObjects(1).Range.AutoFilter
+            mySheet.ListObjects(1).Range.AutoFilter
+            MaxRows = mySheet.Range("A1").SpecialCells(xlCellTypeLastCell).Row
+            mySheet.Cells(4, 1) = "Deleting"
+            mySheet.Rows("4:" & MaxRows).Delete
+            mySheet.Select
+            mySheet.Range("A1").Select
+            mySheet.Range("A2").Select
+            mySheet.Range("A3").Select
+            mySheet.Range("A4").Select
+        End If
+    Next mySheet
+    Cur.Select
+    
+End Sub
+
+Sub AddButton(CurWkBk As Workbook, Cur As Worksheet, BtnRng As Range, CurBtnName As String, CurBtnText As String, CurBtnMacro As String)
+    
+    For i = 0 To BtnRng.Rows.Count
+        BtnRng.Rows(BtnRng.Row + i).RowHeight = 17
+    Next i
+    
+    Dim myShape As Shape
+    For Each myShape In Cur.Shapes
+        If myShape.Name = CurBtnName Then myShape.Delete
+    Next myShape
+
+    Dim CurBtn As Shape
+    Set CurBtn = Cur.Shapes.AddShape(msoShapeRectangle, BtnRng.Left + 3, BtnRng.Top + 3, BtnRng.Width - 6, BtnRng.Height - 6)
+    CurBtn.Name = CurBtnName
+    CurBtn.Fill.ForeColor.RGB = RGB(205, 225, 225)
+    CurBtn.OnAction = CurBtnMacro
+    CurBtn.TextFrame.Characters.Text = CurBtnText
+    CurBtn.TextFrame.HorizontalAlignment = xlHAlignCenter
+    With CurBtn.TextFrame.Characters.Font
+        .Name = "Calibri"
+        .FontStyle = "Bold"
+        .Size = 13
+        .Strikethrough = False
+        .Superscript = False
+        .Subscript = False
+        .OutlineFont = False
+        .Shadow = False
+        .Underline = xlUnderlineStyleNone
+        .ColorIndex = 1
+    End With
+
+End Sub
+
+
+===== Sheet12.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet12
+
+Attribute VB_Name = "Sheet12"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+Option Explicit
+
+
+
+===== Sheet7.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet7
+
+Attribute VB_Name = "Sheet7"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet8.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet8
+
+Attribute VB_Name = "Sheet8"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Sheet10.cls =====
+Source: xl/vbaProject.bin
+Stream: VBA/Sheet10
+
+Attribute VB_Name = "Sheet10"
+Attribute VB_Base = "0{00020820-0000-0000-C000-000000000046}"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Attribute VB_TemplateDerived = False
+Attribute VB_Customizable = True
+
+
+===== Reg_Crosswalks_ConfigTools.bas =====
+Source: xl/vbaProject.bin
+Stream: VBA/Reg_Crosswalks_ConfigTools
+
+Attribute VB_Name = "Reg_Crosswalks_ConfigTools"
+Public Server_Name As String
+Public Database_Name As String
+Public SQLStr As String
+Public Cn As New ADODB.Connection
+Public CurWkBk As Workbook
+Public id_FacilityMnem As String
+Public CurUser34 As String
+
+Private Sub OpenConnection()
+        Dim Ins As Worksheet
+        Set Ins = Sheets("Instructions")
+        Server_Name = Sheets("Settings").Range("settingServer")     ' Enter your server name here
+        Database_Name = Range("settingDB") ' Enter your database name here
+        CurUser34 = Trim(UCase(Environ("UserName")))
+        Cn.Open ("Driver={SQL Server};Server=" & Server_Name & ";Database=" & Database_Name & ";")
+        Cn.CommandTimeout = 300
+End Sub
+
+Private Sub CloseConnection()
+        If Cn.State <> 0 Then Cn.Close
+End Sub
+
+Sub Utility_ApplyFormating_UneditableFields(Cur As Worksheet, CurRng As Range)
+    Dim CurScreenUpdateSetting As Boolean
+    CurScreenUpdateSetting = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+    With Cur.Range(CurRng.Address)
+        With .Interior
+            .Pattern = xlSolid
+            .PatternColorIndex = xlAutomatic
+            .ThemeColor = xlThemeColorAccent6
+            .TintAndShade = 0.599993896298105
+            .PatternTintAndShade = 0
+        End With
+        
+    ' Alignment formatting
+    .HorizontalAlignment = xlLeft
+    .VerticalAlignment = xlTop
+
+    End With
+    Application.ScreenUpdating = CurScreenUpdateSetting
+End Sub
+
+Sub Utility_ApplyFormating_EditableFields(Cur As Worksheet, CurRng As Range)
+    Dim CurScreenUpdateSetting As Boolean
+    CurScreenUpdateSetting = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+    With Cur.Range(CurRng.Address)
+        With .Interior
+            .Pattern = xlSolid
+            .PatternColorIndex = xlAutomatic
+            .ThemeColor = xlThemeColorAccent1
+            .TintAndShade = 0.599993896298105
+            .PatternTintAndShade = 0
+        End With
+        
+    ' Alignment formatting
+    .HorizontalAlignment = xlLeft
+    .VerticalAlignment = xlTop
+    End With
+    Application.ScreenUpdating = CurScreenUpdateSetting
+End Sub
+
+Sub Utility_ApplyFormatting_DateTime(Cur As Worksheet, CurRng As Range)
+    Dim CurScreenUpdateSetting As Boolean
+    CurScreenUpdateSetting = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+
+    With Cur.Range(CurRng.Address)
+        ' Date + Time display format
+        .NumberFormat = "mm/dd/yyyy hh:mm:ss"
+        
+    End With
+
+    Application.ScreenUpdating = CurScreenUpdateSetting
+End Sub
+
+
+Sub Utility_ApplyDataValidation(Cur As Worksheet, CurRng As Range, CurListOfOptionsSeparatedByCommas As String)
+    Dim CurScreenUpdateSetting As Boolean
+    CurScreenUpdateSetting = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+    With Cur.Range(CurRng.Address).Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:=xlBetween, Formula1:=CurListOfOptionsSeparatedByCommas
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+    End With
+    Application.ScreenUpdating = CurScreenUpdateSetting
+End Sub
+
+Sub Link_To_Home()
+
+    Dim CurWkBk As Workbook
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Ins As Worksheet
+    Set Ins = CurWkBk.Sheets("Instructions")
+    
+    Ins.Select
+ 
+End Sub
+
+Sub Utility_ProgressBar(CurIteration As Long, CurMaxIteration As Long)
+    DoEvents
+    Application.ScreenUpdating = True
+    Application.StatusBar = "Processing: " & CurIteration & " out of " & CurMaxIteration
+    Application.ScreenUpdating = False
+    DoEvents
+End Sub
+
+Sub RefreshData_State()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("State")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_State]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareStateSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblState"
+    Cur.ListObjects("tblState").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_State(Cur)
+        
+End Sub
+
+
+Private Sub ApplyDataValidation_State(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblState").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblState[[FacilityMnem_Target]:[State_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblState[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblState[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblState[[State_Code_Target]:[State_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblState[Action To Take]"), "None,Update")
+
+End Sub
+
+Sub PushUpdates_State()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("State")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurStateCodeSource As String
+    Dim CurStateDescriptionSource As String
+    
+    Dim CurStateCodeTarget As String
+    Dim CurStateDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblState").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblState[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblState[FacilityMnem_Target]").Rows(i))
+                CurStateCodeSource = Trim(Cur.Range("tblState[State_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurStateCodeSource
+                
+                CurStateDescriptionSource = Trim(Cur.Range("tblState[State_Description_Source]").Rows(i))
+                CurStateCodeTarget = Trim(Cur.Range("tblState[State_Code_Target]").Rows(i))
+                CurStateDescriptionTarget = Trim(Cur.Range("tblState[State_Description_Target]").Rows(i))
+                
+                CurValue = CurStateDescriptionSource & vbTab & CurStateCodeTarget & vbTab & CurStateDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_State(dUpdateItem)
+    End If
+
+    Call RefreshData_State
+
+End Sub
+
+Private Sub UpdateMapping_State(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurStateCodeSource As String
+    Dim CurStateDescriptionSource As String
+    
+    Dim CurStateCodeTarget As String
+    Dim CurStateDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurStateCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurStateDescriptionSource = ValueArray(0)
+        CurStateCodeTarget = ValueArray(1)
+        CurStateDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_State]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@statecode_src", adVarChar, adParamInput, 25, CurStateCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@statedesc_src", adVarChar, adParamInput, 255, CurStateDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@statecode_tar", adVarChar, adParamInput, 25, CurStateCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@statedesc_tar", adVarChar, adParamInput, 255, CurStateDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+
+Sub RefreshData_Religion()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Religion")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_Religion]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareReligionSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblReligion"
+    Cur.ListObjects("tblReligion").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_Religion(Cur)
+            
+End Sub
+
+Private Sub ApplyDataValidation_Religion(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblReligion").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblReligion[[FacilityMnem_Target]:[Religion_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblReligion[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblReligion[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblReligion[[Religion_Code_Target]:[Religion_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblReligion[Action To Take]"), "None,Update")
+
+End Sub
+
+
+Sub PushUpdates_Religion()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Religion")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurReligionCodeSource As String
+    Dim CurReligionDescriptionSource As String
+    
+    Dim CurReligionCodeTarget As String
+    Dim CurReligionDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblReligion").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblReligion[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblReligion[FacilityMnem_Target]").Rows(i))
+                CurReligionCodeSource = Trim(Cur.Range("tblReligion[Religion_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurReligionCodeSource
+                
+                CurReligionDescriptionSource = Trim(Cur.Range("tblReligion[Religion_Description_Source]").Rows(i))
+                CurReligionCodeTarget = Trim(Cur.Range("tblReligion[Religion_Code_Target]").Rows(i))
+                CurReligionDescriptionTarget = Trim(Cur.Range("tblReligion[Religion_Description_Target]").Rows(i))
+                
+                CurValue = CurReligionDescriptionSource & vbTab & CurReligionCodeTarget & vbTab & CurReligionDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_Religion(dUpdateItem)
+    End If
+
+    Call RefreshData_Religion
+
+End Sub
+
+Private Sub UpdateMapping_Religion(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurReligionCodeSource As String
+    Dim CurReligionDescriptionSource As String
+    
+    Dim CurReligionCodeTarget As String
+    Dim CurReligionDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+            CurFacTar = KeyArray(0)
+            CurReligionCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+            CurReligionDescriptionSource = ValueArray(0)
+            CurReligionCodeTarget = ValueArray(1)
+            CurReligionDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_Religion]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@religioncode_src", adVarChar, adParamInput, 255, CurReligionCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@religiondesc_src", adVarChar, adParamInput, 255, CurReligionDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@religioncode_tar", adVarChar, adParamInput, 255, CurReligionCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@religiondesc_tar", adVarChar, adParamInput, 255, CurReligionDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+        
+        Set Rs = Cmd.Execute
+        
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_Ethnicity()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Ethnicity")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_Ethnicity]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareEthnicitySheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblEthnicity"
+    Cur.ListObjects("tblEthnicity").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_Ethnicity(Cur)
+
+        
+End Sub
+
+Private Sub ApplyDataValidation_Ethnicity(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblEthnicity").Rows.Count
+
+     'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblEthnicity[[FacilityMnem_Target]:[Ethnicity_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblEthnicity[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblEthnicity[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblEthnicity[[Ethnicity_Code_Target]:[Ethnicity_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblEthnicity[Action To Take]"), "None,Update")
+
+End Sub
+
+Sub PushUpdates_Ethnicity()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Ethnicity")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurEthnicityCodeSource As String
+    Dim CurEthnicityDescriptionSource As String
+    
+    Dim CurEthnicityCodeTarget As String
+    Dim CurEthnicityDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblEthnicity").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblEthnicity[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblEthnicity[FacilityMnem_Target]").Rows(i))
+                CurEthnicityCodeSource = Trim(Cur.Range("tblEthnicity[Ethnicity_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurEthnicityCodeSource
+                
+                CurEthnicityDescriptionSource = Trim(Cur.Range("tblEthnicity[Ethnicity_Description_Source]").Rows(i))
+                CurEthnicityCodeTarget = Trim(Cur.Range("tblEthnicity[Ethnicity_Code_Target]").Rows(i))
+                CurEthnicityDescriptionTarget = Trim(Cur.Range("tblEthnicity[Ethnicity_Description_Target]").Rows(i))
+                
+                CurValue = CurEthnicityDescriptionSource & vbTab & CurEthnicityCodeTarget & vbTab & CurEthnicityDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_Ethnicity(dUpdateItem)
+    End If
+
+    Call RefreshData_Ethnicity
+
+End Sub
+
+Private Sub UpdateMapping_Ethnicity(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurEthnicityCodeSource As String
+    Dim CurEthnicityDescriptionSource As String
+    
+    Dim CurEthnicityCodeTarget As String
+    Dim CurEthnicityDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurEthnicityCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurEthnicityDescriptionSource = ValueArray(0)
+        CurEthnicityCodeTarget = ValueArray(1)
+        CurEthnicityDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_Ethnicity]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@ethnicitycode_src", adVarChar, adParamInput, 255, CurEthnicityCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@ethnicitydesc_src", adVarChar, adParamInput, 255, CurEthnicityDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@ethnicitycode_tar", adVarChar, adParamInput, 255, CurEthnicityCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@ethnicitydesc_tar", adVarChar, adParamInput, 255, CurEthnicityDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_EmploymentStatus()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("EmploymentStatus")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_EmploymentStatus]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareEmploymentStatusSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblEmploymentStatus"
+    Cur.ListObjects("tblEmploymentStatus").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_EmploymentStatus(Cur)
+            
+End Sub
+
+Private Sub ApplyDataValidation_EmploymentStatus(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblEmploymentStatus").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblEmploymentStatus[[FacilityMnem_Target]:[EmploymentStatus_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblEmploymentStatus[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblEmploymentStatus[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblEmploymentStatus[[EmploymentStatus_Code_Target]:[EmploymentStatus_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblEmploymentStatus[Action To Take]"), "None,Update")
+
+End Sub
+
+Sub PushUpdates_EmploymentStatus()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("EmploymentStatus")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurEmploymentStatusCodeSource As String
+    Dim CurEmploymentStatusDescriptionSource As String
+    
+    Dim CurEmploymentStatusCodeTarget As String
+    Dim CurEmploymentStatusDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblEmploymentStatus").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblEmploymentStatus[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblEmploymentStatus[FacilityMnem_Target]").Rows(i))
+                CurEmploymentStatusCodeSource = Trim(Cur.Range("tblEmploymentStatus[EmploymentStatus_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurEmploymentStatusCodeSource
+                
+                CurEmploymentStatusDescriptionSource = Trim(Cur.Range("tblEmploymentStatus[EmploymentStatus_Description_Source]").Rows(i))
+                CurEmploymentStatusCodeTarget = Trim(Cur.Range("tblEmploymentStatus[EmploymentStatus_Code_Target]").Rows(i))
+                CurEmploymentStatusDescriptionTarget = Trim(Cur.Range("tblEmploymentStatus[EmploymentStatus_Description_Target]").Rows(i))
+                
+                CurValue = CurEmploymentStatusDescriptionSource & vbTab & CurEmploymentStatusCodeTarget & vbTab & CurEmploymentStatusDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_EmploymentStatus(dUpdateItem)
+    End If
+
+    Call RefreshData_EmploymentStatus
+
+End Sub
+
+Private Sub UpdateMapping_EmploymentStatus(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurEmploymentStatusCodeSource As String
+    Dim CurEmploymentStatusDescriptionSource As String
+    
+    Dim CurEmploymentStatusCodeTarget As String
+    Dim CurEmploymentStatusDescriptionTarget As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+            CurFacTar = KeyArray(0)
+            CurEmploymentStatusCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+            CurEmploymentStatusDescriptionSource = ValueArray(0)
+            CurEmploymentStatusCodeTarget = ValueArray(1)
+            CurEmploymentStatusDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_EmploymentStatus]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@employmentstatuscode_src", adVarChar, adParamInput, 25, CurEmploymentStatusCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@employmentstatusdesc_src", adVarChar, adParamInput, 25, CurEmploymentStatusDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@employmentstatuscode_tar", adVarChar, adParamInput, 25, CurEmploymentStatusCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@employmentstatusdesc_tar", adVarChar, adParamInput, 25, CurEmploymentStatusDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_Relationship()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Relationship")
+
+    id_NetworkMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_NetworkMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_Relationship]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Cmd.CommandTimeout = 300
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareRelationshipSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblRelationship"
+    Cur.ListObjects("tblRelationship").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_Relationship(Cur)
+         
+End Sub
+
+Private Sub ApplyDataValidation_Relationship(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblRelationship").Rows.Count
+
+     'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblRelationship[[FacilityMnem_Target]:[Relationship_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblRelationship[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblRelationship[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblRelationship[[Relationship_Code_Target]:[Relationship_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblRelationship[Action To Take]"), "None,Update")
+    
+
+End Sub
+
+Sub PushUpdates_Relationship()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Relationship")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurRelationshipCodeSource As String
+    Dim CurRelationshipDescriptionSource As String
+    
+    Dim CurRelationshipCodeTarget As String
+    Dim CurRelationshipDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblRelationship").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblRelationship[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblRelationship[FacilityMnem_Target]").Rows(i))
+                CurRelationshipCodeSource = Trim(Cur.Range("tblRelationship[Relationship_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurRelationshipCodeSource
+                
+                CurRelationshipDescriptionSource = Trim(Cur.Range("tblRelationship[Relationship_Description_Source]").Rows(i))
+                CurRelationshipCodeTarget = Trim(Cur.Range("tblRelationship[Relationship_Code_Target]").Rows(i))
+                CurRelationshipDescriptionTarget = Trim(Cur.Range("tblRelationship[Relationship_Description_Target]").Rows(i))
+                
+                CurValue = CurRelationshipDescriptionSource & vbTab & CurRelationshipCodeTarget & vbTab & CurRelationshipDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_Relationship(dUpdateItem)
+    End If
+
+    Call RefreshData_Relationship
+
+End Sub
+
+Private Sub UpdateMapping_Relationship(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurRelationshipCodeSource As String
+    Dim CurRelationshipDescriptionSource As String
+    
+    Dim CurRelationshipCodeTarget As String
+    Dim CurRelationshipDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+      
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurRelationshipCodeSource = KeyArray(1)
+        
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurRelationshipDescriptionSource = ValueArray(0)
+        CurRelationshipCodeTarget = ValueArray(1)
+        CurRelationshipDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_Relationship]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@relationshipcode_src", adVarChar, adParamInput, 255, CurRelationshipCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@relationshipdesc_src", adVarChar, adParamInput, 255, CurRelationshipDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@relationshipcode_tar", adVarChar, adParamInput, 25, CurRelationshipCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@relationshipdesc_tar", adVarChar, adParamInput, 255, CurRelationshipDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_Race()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Race")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_Race]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Cmd.CommandTimeout = 300
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareRaceSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblRace"
+    Cur.ListObjects("tblRace").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_Race(Cur)
+    
+
+        
+End Sub
+
+Sub RefreshData_Language()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Language")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_Language]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Cmd.CommandTimeout = 300
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareRaceSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblLanguage"
+    Cur.ListObjects("tblLanguage").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_Language(Cur)
+    
+
+        
+End Sub
+
+
+Private Sub ApplyDataValidation_Race(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblRace").Rows.Count
+
+     'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblRace[[FacilityMnem_Target]:[Race_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblRace[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblRace[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblRace[[Race_Code_Target]:[Race_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblRace[Action To Take]"), "None,Update")
+
+End Sub
+
+Private Sub ApplyDataValidation_Language(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblLanguage").Rows.Count
+
+     'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblLanguage[[FacilityMnem_Target]:[Language_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblLanguage[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblLanguage[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblLanguage[[Language_Code_Target]:[Language_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblLanguage[Action To Take]"), "None,Update")
+
+End Sub
+
+
+Sub PushUpdates_Race()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Race")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurRaceCodeSource As String
+    Dim CurRaceDescriptionSource As String
+    
+    Dim CurRaceCodeTarget As String
+    Dim CurRaceDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblRace").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblRace[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblRace[FacilityMnem_Target]").Rows(i))
+                CurRaceCodeSource = Trim(Cur.Range("tblRace[Race_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurRaceCodeSource
+                
+                CurRaceDescriptionSource = Trim(Cur.Range("tblRace[Race_Description_Source]").Rows(i))
+                CurRaceCodeTarget = Trim(Cur.Range("tblRace[Race_Code_Target]").Rows(i))
+                CurRaceDescriptionTarget = Trim(Cur.Range("tblRace[Race_Description_Target]").Rows(i))
+                
+                CurValue = CurRaceDescriptionSource & vbTab & CurRaceCodeTarget & vbTab & CurRaceDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_Race(dUpdateItem)
+    End If
+
+    Call RefreshData_Race
+
+End Sub
+
+Sub PushUpdates_Language()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("Language")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurLanguageCodeSource As String
+    Dim CurLanguageDescriptionSource As String
+    
+    Dim CurLanguageCodeTarget As String
+    Dim CurLanguageDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblLanguage").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblLanguage[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblLanguage[FacilityMnem_Target]").Rows(i))
+                CurLanguageCodeSource = Trim(Cur.Range("tblLanguage[Language_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurLanguageCodeSource
+                
+                CurLanguageDescriptionSource = Trim(Cur.Range("tblLanguage[Language_Description_Source]").Rows(i))
+                CurLanguageCodeTarget = Trim(Cur.Range("tblLanguage[Language_Code_Target]").Rows(i))
+                CurLanguageDescriptionTarget = Trim(Cur.Range("tblLanguage[Language_Description_Target]").Rows(i))
+                
+                CurValue = CurLanguageDescriptionSource & vbTab & CurLanguageCodeTarget & vbTab & CurLanguageDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_Language(dUpdateItem)
+    End If
+
+    Call RefreshData_Language
+
+End Sub
+
+
+Private Sub UpdateMapping_Race(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurRaceCodeSource As String
+    Dim CurRaceDescriptionSource As String
+    
+    Dim CurRaceCodeTarget As String
+    Dim CurRaceDescriptionTarget As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+        
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurRaceCodeSource = KeyArray(1)
+        
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurRaceDescriptionSource = ValueArray(0)
+        CurRaceCodeTarget = ValueArray(1)
+        CurRaceDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_Race]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facilitymnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@racecode_src", adVarChar, adParamInput, 25, CurRaceCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@racedesc_src", adVarChar, adParamInput, 255, CurRaceDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@racecode_tar", adVarChar, adParamInput, 25, CurRaceCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@racedesc_tar", adVarChar, adParamInput, 255, CurRaceDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+        
+        Set Rs = Cmd.Execute
+        
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Private Sub UpdateMapping_Language(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurLanguageCodeSource As String
+    Dim CurLanguageDescriptionSource As String
+    
+    Dim CurLanguageCodeTarget As String
+    Dim CurLanguageDescriptionTarget As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+        
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurLanguageCodeSource = KeyArray(1)
+        
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurLanguageDescriptionSource = ValueArray(0)
+        CurLanguageCodeTarget = ValueArray(1)
+        CurLanguageDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_Language]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facilitymnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@langcode_src", adVarChar, adParamInput, 25, CurLanguageCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@langdesc_src", adVarChar, adParamInput, 255, CurLanguageDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@langcode_tar", adVarChar, adParamInput, 25, CurLanguageCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@langdesc_tar", adVarChar, adParamInput, 255, CurLanguageDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+        
+        Set Rs = Cmd.Execute
+        
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_PatientType()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("PatientType")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_PatientType]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PreparePatientTypeSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblPatientType"
+    Cur.ListObjects("tblPatientType").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_PatientType(Cur)
+        
+End Sub
+
+
+Private Sub ApplyDataValidation_PatientType(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblPatientType").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblPatientType[[FacilityMnem_Target]:[PatientType_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblPatientType[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblPatientType[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblPatientType[[PatientType_Code_Target]:[PatientType_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblPatientType[Action To Take]"), "None,Update")
+    
+End Sub
+
+Sub PushUpdates_PatientType()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("PatientType")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurPatientTypeCodeSource As String
+    Dim CurPatientTypeDescriptionSource As String
+    
+    Dim CurPatientTypeCodeTarget As String
+    Dim CurPatientTypeDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblPatientType").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblPatientType[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblPatientType[FacilityMnem_Target]").Rows(i))
+                CurPatientTypeCodeSource = Trim(Cur.Range("tblPatientType[PatientType_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurPatientTypeCodeSource
+                
+                CurPatientTypeDescriptionSource = Trim(Cur.Range("tblPatientType[PatientType_Description_Source]").Rows(i))
+                CurPatientTypeCodeTarget = Trim(Cur.Range("tblPatientType[PatientType_Code_Target]").Rows(i))
+                CurPatientTypeDescriptionTarget = Trim(Cur.Range("tblPatientType[PatientType_Description_Target]").Rows(i))
+                
+                CurValue = CurPatientTypeDescriptionSource & vbTab & CurPatientTypeCodeTarget & vbTab & CurPatientTypeDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_PatientType(dUpdateItem)
+    End If
+
+    Call RefreshData_PatientType
+
+End Sub
+
+Private Sub UpdateMapping_PatientType(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurPatientTypeCodeSource As String
+    Dim CurPatientTypeDescriptionSource As String
+    
+    Dim CurPatientTypeCodeTarget As String
+    Dim CurPatientTypeDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurPatientTypeCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurPatientTypeDescriptionSource = ValueArray(0)
+        CurPatientTypeCodeTarget = ValueArray(1)
+        CurPatientTypeDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_PatientType]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@patienttypecode_src", adVarChar, adParamInput, 255, CurPatientTypeCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@patienttypedesc_src", adVarChar, adParamInput, 255, CurPatientTypeDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@patienttypecode_tar", adVarChar, adParamInput, 255, CurPatientTypeCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@patienttypedesc_tar", adVarChar, adParamInput, 255, CurPatientTypeDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+Sub RefreshData_AdmitType()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("AdmitType")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_AdmitType]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Cmd.CommandTimeout = 300
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareAdmitTypeSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblAdmitType"
+    Cur.ListObjects("tblAdmitType").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_AdmitType(Cur)
+         
+End Sub
+
+
+Private Sub ApplyDataValidation_AdmitType(Cur As Worksheet)
+
+
+    MaxRows = Cur.Range("tblAdmitType").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblAdmitType[[FacilityMnem_Target]:[AdmitType_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblAdmitType[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblAdmitType[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblAdmitType[[AdmitType_Code_Target]:[AdmitType_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblAdmitType[Action To Take]"), "None,Update")
+
+End Sub
+
+
+Sub PushUpdates_AdmitType()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("AdmitType")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurAdmitTypeCodeSource As String
+    Dim CurAdmitTypeDescriptionSource As String
+    
+    Dim CurAdmitTypeCodeTarget As String
+    Dim CurAdmitTypeDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblAdmitType").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblAdmitType[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblAdmitType[FacilityMnem_Target]").Rows(i))
+                CurAdmitTypeCodeSource = Trim(Cur.Range("tblAdmitType[AdmitType_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurAdmitTypeCodeSource
+                
+                CurAdmitTypeDescriptionSource = Trim(Cur.Range("tblAdmitType[AdmitType_Description_Source]").Rows(i))
+                CurAdmitTypeCodeTarget = Trim(Cur.Range("tblAdmitType[AdmitType_Code_Target]").Rows(i))
+                CurAdmitTypeDescriptionTarget = Trim(Cur.Range("tblAdmitType[AdmitType_Description_Target]").Rows(i))
+                
+                CurValue = CurAdmitTypeDescriptionSource & vbTab & CurAdmitTypeCodeTarget & vbTab & CurAdmitTypeDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_AdmitType(dUpdateItem)
+    End If
+
+    Call RefreshData_AdmitType
+
+End Sub
+
+Private Sub UpdateMapping_AdmitType(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurAdmitTypeCodeSource As String
+    Dim CurAdmitTypeDescriptionSource As String
+    
+    Dim CurAdmitTypeCodeTarget As String
+    Dim CurAdmitTypeDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim Values() As String
+ '   Dim prm As ADODB.Parameter
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    
+      
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurAdmitTypeCodeSource = KeyArray(1)
+        
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurAdmitTypeDescriptionSource = ValueArray(0)
+        CurAdmitTypeCodeTarget = ValueArray(1)
+        CurAdmitTypeDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_AdmitType]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+             
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admittypecode_src", adVarChar, adParamInput, 255, CurAdmitTypeCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admittypedesc_src", adVarChar, adParamInput, 255, CurAdmitTypeDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admittypecode_tar", adVarChar, adParamInput, 255, CurAdmitTypeCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admittypedesc_tar", adVarChar, adParamInput, 255, CurAdmitTypeDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+        
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+
+Sub RefreshData_AdmitSource()
+     ' FOR THIS CODE TO WORK
+     ' In VBE you need to go Tools References and check Microsoft Active X Data Objects 2.x library
+     '
+     Dim CurFacSrc As String
+     CurFacSrc = "*ALL*"
+     
+    Set CurWkBk = ActiveWorkbook
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("AdmitSource")
+
+    id_FacilityMnem = InputBox("Provide the Wave Code and/or Facility Mnemonic." & Chr(13) & _
+                    Chr(13) & "Below formats are accepted" & Chr(13) & _
+                    Chr(13) & "  - Wave Code: {WAVE}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC, 2D)" & Chr(13) & _
+                    Chr(13) & "  - Facility Mnem : {FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMCH, COCBM)" & Chr(13) & _
+                    Chr(13) & "  - Wave and Facility: {WAVE}*{FAC}-{FAC}" & Chr(13) & _
+                    Chr(9) & "e.g. (CMC*CMCH, 2D*COCBM-COCCL)" & Chr(13) & _
+                    Chr(13) & "  - ALL facilities" & Chr(13) & _
+                    Chr(9) & "*ALL*", "Select Facility", CurFacSrc)
+    If id_FacilityMnem = "" Then
+        MsgBox "Data Not Refreshed"
+        Exit Sub
+    End If
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_Xwalk_NonMagic_AdmitSource]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, id_FacilityMnem)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Call PrepareStateSheet
+    Cur.Columns.NumberFormat = "@"
+    
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(3, i + 1) = Rs.Fields(i).Name
+    Next i
+
+    Cur.Range("A4").CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(3, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) + 2, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = "tblAdmitSource"
+    Cur.ListObjects("tblAdmitSource").TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Cells(1, 3) = "Excel Refreshed: " & Now
+    Cur.Cells(2, 3) = ""
+    CurWkBk.RefreshAll
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+    
+    Call ApplyDataValidation_AdmitSource(Cur)
+    
+        
+End Sub
+
+
+Private Sub ApplyDataValidation_AdmitSource(Cur As Worksheet)
+
+    MaxRows = Cur.Range("tblAdmitSource").Rows.Count
+
+    'Change Cell colors to Green to indicate NOT to disturb the cells
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblAdmitSource[[FacilityMnem_Target]:[AdmitSource_Description_Source]]"))
+    Call Utility_ApplyFormating_UneditableFields(Cur, Cur.Range("tblAdmitSource[[Update_User]:[Update_Datetime]]"))
+    
+    'Display Date Time correctly
+    Call Utility_ApplyFormatting_DateTime(Cur, Cur.Range("tblAdmitSource[Update_Datetime]"))
+    
+    'Change Cell colors to Blue to indicate which cells to modify
+    Call Utility_ApplyFormating_EditableFields(Cur, Cur.Range("tblAdmitSource[[AdmitSource_Code_Target]:[AdmitSource_Description_Target]]"))
+    
+    'Add Data Validation for Actions to Take
+    Call Utility_ApplyDataValidation(Cur, Cur.Range("tblAdmitSource[Action To Take]"), "None,Update")
+
+End Sub
+
+
+Sub PushUpdates_AdmitSource()
+
+    Dim Cur As Worksheet
+    Set Cur = Sheets("AdmitSource")
+
+    Dim dUpdateItem As New Scripting.Dictionary
+    Dim CurFacTar As String
+    Dim CurAdmitSourceCodeSource As String
+    Dim CurAdmitSourceDescriptionSource As String
+    
+    Dim CurAdmitSourceCodeTarget As String
+    Dim CurAdmitSourceDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+    
+    Dim CurCountUpdate As Long
+    
+    MaxRows = Cur.Range("tblAdmitSource").Rows.Count
+    For i = 1 To MaxRows
+        CurActionToTake = Trim(Cur.Range("tblAdmitSource[Action To Take]").Rows(i))
+            'Update
+            If CurActionToTake = "Update" Then
+            
+                If CurActionToTake = "Update" Then CurCountUpdate = CurCountUpdate + 1
+                
+                CurFacTar = Trim(Cur.Range("tblAdmitSource[FacilityMnem_Target]").Rows(i))
+                CurAdmitSourceCodeSource = Trim(Cur.Range("tblAdmitSource[AdmitSource_Code_Source]").Rows(i))
+                
+                CurKey = CurFacTar & vbTab & CurAdmitSourceCodeSource
+                
+                CurAdmitSourceDescriptionSource = Trim(Cur.Range("tblAdmitSource[AdmitSource_Description_Source]").Rows(i))
+                CurAdmitSourceCodeTarget = Trim(Cur.Range("tblAdmitSource[AdmitSource_Code_Target]").Rows(i))
+                CurAdmitSourceDescriptionTarget = Trim(Cur.Range("tblAdmitSource[AdmitSource_Description_Target]").Rows(i))
+                
+                CurValue = CurAdmitSourceDescriptionSource & vbTab & CurAdmitSourceCodeTarget & vbTab & CurAdmitSourceDescriptionTarget
+                           
+                If dUpdateItem.Exists(CurKey) = False Then
+                    dUpdateItem.Add CurKey, CurValue
+                End If
+            End If
+          
+    Next i
+    
+    Dim UserResponse As Long
+    If dUpdateItem.Count > 0 Then
+    
+        UserConfirmationText = "You are about to ..."
+        If CurCountUpdate > 0 Then UserConfirmationText = UserConfirmationText & Chr(13) & "Update: " & CStr(CurCountUpdate)
+        
+        UserConfirmationText = UserConfirmationText & Chr(13) & Chr(13) & "Are you sure?"
+    
+        UserResponse = MsgBox(UserConfirmationText, vbYesNoCancel, "User Confirmation")
+        If UserResponse <> vbYes Then
+            MsgBox "User Cancelled. Nothing happened."
+            Exit Sub
+        End If
+       
+        Call UpdateMapping_AdmitSource(dUpdateItem)
+    End If
+
+    Call RefreshData_AdmitSource
+
+End Sub
+
+
+Private Sub UpdateMapping_AdmitSource(dUpdateItem As Scripting.Dictionary)
+    Dim CurFacTar As String
+    Dim CurAdmitSourceCodeSource As String
+    Dim CurAdmitSourceDescriptionSource As String
+    
+    Dim CurAdmitSourceCodeTarget As String
+    Dim CurAdmitSourceDescriptionTarget As String
+    
+    Dim CurActionToTake As String
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Dim Cmd As New ADODB.Command
+    For Each myKey In dUpdateItem
+    
+        KeyArray = Split(myKey, vbTab)
+        CurFacTar = KeyArray(0)
+        CurAdmitSourceCodeSource = KeyArray(1)
+       
+        ValueArray = Split(dUpdateItem(myKey), vbTab)
+        CurAdmitSourceDescriptionSource = ValueArray(0)
+        CurAdmitSourceCodeTarget = ValueArray(1)
+        CurAdmitSourceDescriptionTarget = ValueArray(2)
+        
+        Set Rs = New ADODB.Recordset
+        Set Cmd = Nothing
+        Cmd.CommandText = "[dbo].[UI_Excel_Update_Xwalk_NonMagic_AdmitSource]"
+        Cmd.CommandType = adCmdStoredProc
+        Cmd.ActiveConnection = Cn
+        Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacTar)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admitsourcecode_src", adVarChar, adParamInput, 255, CurAdmitSourceCodeSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admitsourcedesc_src", adVarChar, adParamInput, 255, CurAdmitSourceDescriptionSource)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admitsourcecode_tar", adVarChar, adParamInput, 255, CurAdmitSourceCodeTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@admitsourcedesc_tar", adVarChar, adParamInput, 255, CurAdmitSourceDescriptionTarget)
+        Cmd.Parameters.Append (prm)
+        Set prm = Cmd.CreateParameter("@usersec34", adVarChar, adParamInput, 255, CurUser34)
+        Cmd.Parameters.Append (prm)
+       
+        Set Rs = Cmd.Execute
+    
+        CurRecordCount = CurRecordCount + 1
+        If LastOperationDateTime = Empty Then LastOperationDateTime = Now
+        If Now - LastOperationDateTime > ((1 / 24 / 60 / 60) * 1) Then
+            Call Utility_ProgressBar(CDec(CurRecordCount), dUpdateItem.Count)
+            LastOperationDateTime = Now
+        End If
+    
+    Next myKey
+    
+    Application.ScreenUpdating = True
+    Application.StatusBar = False
+    DoEvents
+    
+    If Rs.State <> 0 Then Rs.Close
+    Call CloseConnection
+
+End Sub
+
+
+
+===== Reg_ExportSpreadsheet.bas =====
+Source: xl/vbaProject.bin
+Stream: VBA/Reg_ExportSpreadsheet
+
+Attribute VB_Name = "Reg_ExportSpreadsheet"
+Public Server_Name As String
+Public Database_Name As String
+Public SQLStr As String
+Public Cn As New ADODB.Connection
+Public CurWkBk As Workbook
+Public TarWkBk As Workbook
+Public id_FacilityMnem As String
+Public CurUser34 As String
+
+Public CurDivMnem As String
+Public CurDivName As String
+Public CurNetworkMnem_Source As String
+Public CurNetworkSharepointDestination As String
+Public CurNetworkMnem_Target As String
+Public CurFacSrcName As String
+Public CurCOID_Source As String
+Public CurCOID_Target As String
+Public CurUnitNumber_Source As String
+Public CurUnitNumber_Target As String
+Public CurFacilityMnem_Source As String
+Public CurFacilityMnem_Target As String
+Public CurPrefixAcctNum_Source As String
+Public CurPrefixAcctNum_Target As String
+Public CurPrefixMRN_Source As String
+Public CurPrefixMRN_Target As String
+
+Public CountOfFacilities As Integer
+Const CurPassword As String = "MtxAuto12!"
+
+
+
+Private Sub OpenConnection()
+        If Cn.State > 0 Then Cn.Close
+        Cn.Open ("Driver={SQL Server};Server=" & Server_Name & ";Database=" & Database_Name & ";")
+End Sub
+
+Private Sub CloseConnection()
+        If Cn.State <> 0 Then Cn.Close
+End Sub
+
+
+Sub Generate_Export_File_For_Sharepoint()
+        Dim CurWkBk As Workbook
+    Set CurWkBk = Application.Workbooks(ActiveWorkbook.Name)
+    
+    'Prompt User for Market to Export
+    Dim CurNetwork As String
+    CurNetwork = InputBox("What Market Mnemonic should be created?", "Meditech Magic - Market Mnemonic", "2A*TNA")
+    If CurNetwork = "" Or CurNetwork = "False" Then
+        MsgBox "Operation Cancelled"
+        Exit Sub
+    End If
+    
+    Application.ScreenUpdating = False
+    Application.Cursor = xlWait
+    Application.Calculation = xlCalculationManual
+    
+    'Capture Variables for Connections
+    Dim Ins As Worksheet
+    Set Ins = CurWkBk.Sheets("Instructions")
+    Server_Name = Sheets("Settings").Range("settingServer")     ' Enter your server name here
+    Database_Name = Range("settingDB") ' Enter your database name here
+    CurUser34 = Trim(UCase(Environ("UserName")))
+    
+    
+    Dim TarWkBk As Workbook
+    
+    Application.DisplayAlerts = False
+    If TarWkBk Is Nothing Then
+        Set TarWkBk = Application.Workbooks.Add
+    End If
+'    Call SaveWorkbook_SharepointDestination(TarWkBk, CurNetwork, "Reg_Dictionary_Crosswalk_MTX_" & CurNetwork & ".xlsx")
+    
+'    If CurNetworkSharepointDestination = "" Then
+'        MsgBox "Please supply valid Network Mnemonic."
+'        Application.ScreenUpdating = True
+'        Application.Cursor = xlDefault
+'        Application.Calculation = xlCalculationAutomatic
+'        Exit Sub
+'    End If
+    
+    TarWkBk.Sheets(1).Name = "Table of Contents"
+    
+    'Identify Facilities
+    Call BuildSheet_TableOfContents(TarWkBk, TarWkBk.Sheets(1), CurNetwork)
+    
+    Call SortWorksheetsTabs(TarWkBk)
+    Call ReorganizeTableOfContentsTab(TarWkBk, TarWkBk.Sheets(1))
+    
+    Call CloseConnection
+    
+'    TarWkBk.Protect Structure:=True, Windows:=False, Password:=CurPassword
+    Call SaveWorkbook_SharepointDestination(TarWkBk, CurNetwork, "Reg_Dictionary_Crosswalk_MTX_" & CurNetwork & ".xlsx")
+
+    Application.ScreenUpdating = True
+    Application.Cursor = xlDefault
+    Application.Calculation = xlCalculationAutomatic
+
+End Sub
+
+
+Sub SaveWorkbook_SharepointDestination(TarWkBk As Workbook, CurNetworkMnem As String, CurFileName As String)
+
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_RegDisc_MarketSharepointDestinationURL]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@org", adVarChar, adParamInput, 25, CurNetworkMnem)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+
+    CurNetworkSharepointDestination = ""
+    Do While Rs.EOF = False
+        CurNetworkSharepointDestination = Rs.Fields("MarketSharepointDestinationURL_Source").Value
+        Rs.MoveNext
+    Loop
+
+    If CurNetworkSharepointDestination = "" Then
+        Exit Sub
+    End If
+
+    CurFileName = Replace(CurFileName, "*", "_")
+    CurFilePath = CurNetworkSharepointDestination & CurFileName
+'    hello = InputBox("testing", , CurFilePath)
+    
+        On Error Resume Next
+        
+'                Hello = InputBox("", "", CurFilePath)
+        TarWkBk.SaveAs CurFilePath, 51
+        
+        On Error GoTo 0
+        If TarWkBk.Name <> CurFileName Then
+            CurUserAddTimeStamp = MsgBox("The Sharepoint file is open currently, would you like to add a Time Stamp to the file name to save the document? If No, then the file will not be saved.", vbYesNo, "File is Open already")
+            If CurUserAddTimeStamp = vbYes Then
+                CurYear = CStr(Year(Now))
+                CurMonth = CStr(Month(Now))
+                If CDec(CurMonth) < 10 Then CurMonth = "0" & CurMonth
+                CurDay = CStr(Day(Now))
+                If CDec(CurDay) < 10 Then CurDay = "0" & CurDay
+                CurHour = CStr(Hour(Now))
+                If CDec(CurHour) < 10 Then CurHour = "0" & CurHour
+                CurMin = CStr(Minute(Now))
+                If CDec(CurMin) < 10 Then CurMin = "0" & CurMin
+                CurSecond = CStr(Second(Now))
+                If CDec(CurSecond) < 10 Then CurSecond = "0" & CurSecond
+                CurDateTime = CurYear & CurMonth & CurDay & CurHour & CurMin & CurSecond
+                
+                CurFilePath = CurNetworkSharepointDestination & Left(CurFileName, Len(CurFileName) - 5) & "_" & CurDateTime & Right(CurFileName, 5)
+                
+                TarWkBk.SaveAs CurFilePath, 51
+            End If
+            
+        End If
+        
+    Application.DisplayAlerts = True
+
+
+End Sub
+
+
+
+
+
+Sub BuildSheet_TableOfContents(TarWkBk As Workbook, Cur As Worksheet, CurOrganization As String)
+    
+    Call OpenConnection
+
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportDim_RegDisc_Organization]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@org", adVarChar, adParamInput, 25, CurOrganization)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Dim TOCrow As Integer
+    Cur.Cells.Clear
+    Cur.Cells.Clear
+    Cur.Columns.NumberFormat = "@"
+    TOCrow = TOCrow + 1
+    Cur.Cells(TOCrow, 1) = "Table of Contents"
+    TOCrow = TOCrow + 1
+    Cur.Cells(TOCrow, 1) = "Dictionary"
+    Cur.Cells(TOCrow, 2) = "Facility"
+    
+    'Cur.Hyperlinks.Add Anchor:=Cur.Cells(1, 2), Address:="", SubAddress:= _
+    '"Instructions!$A$1", TextToDisplay:="Instructions"
+    
+    Do While Rs.EOF = False
+        CountOfFacilities = CountOfFacilities + 1
+        CurDivMnem = Rs.Fields("DivisionMnem").Value
+        CurDivName = Rs.Fields("DivisionName").Value
+        CurNetworkMnem_Source = Rs.Fields("NetworkMnem_Source").Value
+        CurNetworkMnem_Target = Rs.Fields("NetworkMnem_Target").Value
+        CurFacSrcName = Rs.Fields("FacilityShortName").Value
+        CurCOID_Source = Rs.Fields("FacilityCOID_Source").Value
+        CurCOID_Target = Rs.Fields("FacilityCOID_Target").Value
+        CurUnitNumber_Source = Rs.Fields("FacilityUnitNumber_Source").Value
+        CurUnitNumber_Target = Rs.Fields("FacilityUnitNumber_Target").Value
+        CurFacilityMnem_Source = Rs.Fields("FacilityMnem_Source").Value
+        CurFacilityMnem_Target = Rs.Fields("FacilityMnem_Target").Value
+        CurPrefixAcctNum_Source = Rs.Fields("PrefixAccountNumber_Source").Value
+        CurPrefixAcctNum_Target = Rs.Fields("PrefixAccountNumber_Target").Value
+        CurPrefixMRN_Source = Rs.Fields("PrefixMedicalRecordNumber_Source").Value
+        CurPrefixMRN_Target = Rs.Fields("PrefixMedicalRecordNumber_Target").Value
+        TOCrow = TOCrow + 1
+        Cur.Cells(TOCrow, 1) = "Accomodations"
+        Cur.Cells(TOCrow, 2) = CurFacSrcName
+        Call BuildFacilitySheet_Accommodations(TarWkBk _
+                                , CurDivMnem _
+                                , CurDivName _
+                                , CurNetworkMnem_Source _
+                                , CurNetworkMnem_Target _
+                                , CurFacSrcName _
+                                , CurCOID_Source _
+                                , CurCOID_Target _
+                                , CurUnitNumber_Source _
+                                , CurUnitNumber_Target _
+                                , CurFacilityMnem_Source _
+                                , CurFacilityMnem_Target _
+                                , CurPrefixAcctNum_Source _
+                                , CurPrefixAcctNum_Target _
+                                , CurPrefixMRN_Source _
+                                , CurPrefixMRN_Target _
+                                , TOCrow)
+        TOCrow = TOCrow + 1
+        Cur.Cells(TOCrow, 1) = "Locations"
+        Cur.Cells(TOCrow, 2) = CurFacSrcName
+        Call BuildFacilitySheet_Locations(TarWkBk _
+                                , CurDivMnem _
+                                , CurDivName _
+                                , CurNetworkMnem_Source _
+                                , CurNetworkMnem_Target _
+                                , CurFacSrcName _
+                                , CurCOID_Source _
+                                , CurCOID_Target _
+                                , CurUnitNumber_Source _
+                                , CurUnitNumber_Target _
+                                , CurFacilityMnem_Source _
+                                , CurFacilityMnem_Target _
+                                , CurPrefixAcctNum_Source _
+                                , CurPrefixAcctNum_Target _
+                                , CurPrefixMRN_Source _
+                                , CurPrefixMRN_Target _
+                                , TOCrow)
+        TOCrow = TOCrow + 1
+        Cur.Cells(TOCrow, 1) = "Services"
+        Cur.Cells(TOCrow, 2) = CurFacSrcName
+        Call BuildFacilitySheet_Services(TarWkBk _
+                                , CurDivMnem _
+                                , CurDivName _
+                                , CurNetworkMnem_Source _
+                                , CurNetworkMnem_Target _
+                                , CurFacSrcName _
+                                , CurCOID_Source _
+                                , CurCOID_Target _
+                                , CurUnitNumber_Source _
+                                , CurUnitNumber_Target _
+                                , CurFacilityMnem_Source _
+                                , CurFacilityMnem_Target _
+                                , CurPrefixAcctNum_Source _
+                                , CurPrefixAcctNum_Target _
+                                , CurPrefixMRN_Source _
+                                , CurPrefixMRN_Target _
+                                , TOCrow)
+        TOCrow = TOCrow + 1
+        Cur.Cells(TOCrow, 1) = "RoomBed"
+        Cur.Cells(TOCrow, 2) = CurFacSrcName
+        Call BuildFacilitySheet_RoomBed(TarWkBk _
+                                , CurDivMnem _
+                                , CurDivName _
+                                , CurNetworkMnem_Source _
+                                , CurNetworkMnem_Target _
+                                , CurFacSrcName _
+                                , CurCOID_Source _
+                                , CurCOID_Target _
+                                , CurUnitNumber_Source _
+                                , CurUnitNumber_Target _
+                                , CurFacilityMnem_Source _
+                                , CurFacilityMnem_Target _
+                                , CurPrefixAcctNum_Source _
+                                , CurPrefixAcctNum_Target _
+                                , CurPrefixMRN_Source _
+                                , CurPrefixMRN_Target _
+                                , TOCrow)
+
+        Rs.MoveNext
+    Loop
+    
+    Dim Rst As ADODB.Recordset
+    Set Rst = New ADODB.Recordset
+    
+    Dim Cmnd As New ADODB.Command
+    Set Cmnd = Nothing
+    Cmnd.CommandText = "[dbo].[UI_Excel_Select_SourceToTargetMarket]"
+    Cmnd.CommandType = adCmdStoredProc
+    Cmnd.ActiveConnection = Cn
+    Set prm = Cmnd.CreateParameter("@networkmnem", adVarChar, adParamInput, 25, CurOrganization)
+    Cmnd.Parameters.Append (prm)
+    
+    Set Rst = Cmnd.Execute
+    
+    Do While Rst.EOF = False
+
+        'CurNetworkMnem_Source = Rst.Fields("NetworkMnem_Source").Value
+        'CurNetworkMnem_Target = Rst.Fields("NetworkMnem_Target").Value
+        
+        CurNetworkMnem_Source = CurOrganization
+        CurNetworkMnem_Target = CurOrganization
+        
+        
+        TOCrow = TOCrow + 1
+        Cur.Cells(TOCrow, 1) = "Insurance"
+        Cur.Cells(TOCrow, 2) = CurNetworkMnem_Target
+        Call BuildFacilitySheet_Insurance(TarWkBk _
+                                , CurDivMnem _
+                                , CurDivName _
+                                , CurNetworkMnem_Source _
+                                , CurNetworkMnem_Target _
+                                , CurFacSrcName _
+                                , CurCOID_Source _
+                                , CurCOID_Target _
+                                , CurUnitNumber_Source _
+                                , CurUnitNumber_Target _
+                                , CurFacilityMnem_Source _
+                                , CurFacilityMnem_Target _
+                                , CurPrefixAcctNum_Source _
+                                , CurPrefixAcctNum_Target _
+                                , CurPrefixMRN_Source _
+                                , CurPrefixMRN_Target _
+                                , TOCrow)
+        
+        Rst.MoveNext
+    Loop
+
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    
+    If Rs.State <> 0 Then Rs.Close
+    If Rst.State <> 0 Then Rst.Close
+
+End Sub
+
+
+
+
+Sub BuildFacilitySheet_Accommodations(TarWkBk As Workbook _
+                                , CurDivMnem As String _
+                                , CurDivName As String _
+                                , CurNetworkMnem_Source As String _
+                                , CurNetworkMnem_Target As String _
+                                , CurFacSrcName As String _
+                                , CurCOID_Source As String _
+                                , CurCOID_Target As String _
+                                , CurUnitNumber_Source As String _
+                                , CurUnitNumber_Target As String _
+                                , CurFacilityMnem_Source As String _
+                                , CurFacilityMnem_Target As String _
+                                , CurPrefixAcctNum_Source As String _
+                                , CurPrefixAcctNum_Target As String _
+                                , CurPrefixMRN_Source As String _
+                                , CurPrefixMRN_Target As String _
+                                , TableOfContentsRow As Integer _
+                                )
+    
+    Dim Cur As Worksheet
+    Set Cur = TarWkBk.Sheets.Add
+    Cur.Name = "Accomm-" & Left(CurFacSrcName, 23)
+    CurTableName = "tblAccommodations_" & CStr(CountOfFacilities)
+    MergeWidth = 3
+    Cur.Tab.Color = vbGreen
+    
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = 1
+    Cur.Hyperlinks.Add Anchor:=Cur.Cells(NewRow, 2), Address:="", SubAddress:= _
+    "'Table of Contents'!$A$1", TextToDisplay:="Return to Table of Contents"
+    Cur.Cells(NewRow, 2).Font.Bold = True
+    
+    TarWkBk.Sheets("Table of Contents").Hyperlinks.Add Anchor:=TarWkBk.Sheets("Table of Contents").Cells(TableOfContentsRow, 2), Address:="", SubAddress:="'" & Cur.Name & "'!$A$1", TextToDisplay:=CurFacSrcName
+    
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "HIS"
+    Cur.Cells(NewRow, 2) = "Legacy"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Expanse"
+    
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Dictionary"
+    Cur.Cells(NewRow, 2) = "Accommodation"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Accommodation"
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Name"
+    Cur.Cells(NewRow, 2) = CurFacSrcName
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacSrcName
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Unit Number"
+    Cur.Cells(NewRow, 2) = CurUnitNumber_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurUnitNumber_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "COID"
+    Cur.Cells(NewRow, 2) = CurCOID_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurCOID_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Code"
+    Cur.Cells(NewRow, 2) = CurFacilityMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacilityMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Account Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixAcctNum_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixAcctNum_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Medical Record Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixMRN_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixMRN_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Market"
+    Cur.Cells(NewRow, 2) = CurNetworkMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurNetworkMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+
+    
+    
+    
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportXwalk_Source_Accommodation_ByFacility]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, CurFacilityMnem_Source)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacilityMnem_Target)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = NewRow + 1
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(NewRow, i + 2) = Rs.Fields(i).Name
+    Next i
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+
+    NewRow = NewRow + 1
+    Cur.Range("B" & NewRow).CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(NewRow - 1, 2), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("B:B")) - 10 + NewRow - 2, Application.WorksheetFunction.CountA(Cur.Range("11:11")) + 1)), , xlYes).Name = CurTableName
+    Cur.ListObjects(CurTableName).TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    Cur.Range(CurTableName).HorizontalAlignment = xlCenter
+
+    
+    'Color code the Table
+    For i = 1 To Cur.Range(CurTableName & "[#Headers]").Columns.Count
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Source") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+        
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Target") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+    Next i
+    
+    'Move the UpdatedDate Column to the top and delete column
+    Cur.Cells(1, MergeWidth + 3) = Cur.Range(CurTableName & "[UpdatedDate]").Rows(1).Value
+    Cur.Range(CurTableName & "[UpdatedDate]").Delete
+    
+'    Cur.Protect DrawingObjects:=False, Contents:=True, Scenarios:= _
+'        False, AllowSorting:=True, AllowFiltering:=True, AllowUsingPivotTables:= _
+'        True, Password:=CurPassword
+    
+    If Rs.State <> 0 Then Rs.Close
+
+End Sub
+
+
+Sub BuildFacilitySheet_Services(TarWkBk As Workbook _
+                                , CurDivMnem As String _
+                                , CurDivName As String _
+                                , CurNetworkMnem_Source As String _
+                                , CurNetworkMnem_Target As String _
+                                , CurFacSrcName As String _
+                                , CurCOID_Source As String _
+                                , CurCOID_Target As String _
+                                , CurUnitNumber_Source As String _
+                                , CurUnitNumber_Target As String _
+                                , CurFacilityMnem_Source As String _
+                                , CurFacilityMnem_Target As String _
+                                , CurPrefixAcctNum_Source As String _
+                                , CurPrefixAcctNum_Target As String _
+                                , CurPrefixMRN_Source As String _
+                                , CurPrefixMRN_Target As String _
+                                , TableOfContentsRow As Integer _
+                                )
+    
+    Dim Cur As Worksheet
+    Set Cur = TarWkBk.Sheets.Add
+    Cur.Name = "Services-" & Left(CurFacSrcName, 20)
+    CurTableName = "tblServices_" & CStr(CountOfFacilities)
+    MergeWidth = 3
+    Cur.Tab.Color = vbGreen
+
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = 1
+    Cur.Hyperlinks.Add Anchor:=Cur.Cells(NewRow, 2), Address:="", SubAddress:= _
+    "'Table of Contents'!$A$1", TextToDisplay:="Return to Table of Contents"
+    Cur.Cells(NewRow, 2).Font.Bold = True
+    
+    TarWkBk.Sheets("Table of Contents").Hyperlinks.Add Anchor:=TarWkBk.Sheets("Table of Contents").Cells(TableOfContentsRow, 2), Address:="", SubAddress:="'" & Cur.Name & "'!$A$1", TextToDisplay:=CurFacSrcName
+    
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "HIS"
+    Cur.Cells(NewRow, 2) = "Legacy"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Expanse"
+    
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Dictionary"
+    Cur.Cells(NewRow, 2) = "Services"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Services"
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Name"
+    Cur.Cells(NewRow, 2) = CurFacSrcName
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacSrcName
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Unit Number"
+    Cur.Cells(NewRow, 2) = CurUnitNumber_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurUnitNumber_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "COID"
+    Cur.Cells(NewRow, 2) = CurCOID_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurCOID_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Code"
+    Cur.Cells(NewRow, 2) = CurFacilityMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacilityMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Account Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixAcctNum_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixAcctNum_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Medical Record Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixMRN_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixMRN_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Market"
+    Cur.Cells(NewRow, 2) = CurNetworkMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurNetworkMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+
+    
+    
+    
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportXwalk_Source_Services_ByFacility]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, CurFacilityMnem_Source)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacilityMnem_Target)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = NewRow + 1
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(NewRow, i + 2) = Rs.Fields(i).Name
+    Next i
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+
+    NewRow = NewRow + 1
+    Cur.Range("B" & NewRow).CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(NewRow - 1, 2), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("B:B")) - 10 + NewRow - 2, Application.WorksheetFunction.CountA(Cur.Range("11:11")) + 1)), , xlYes).Name = CurTableName
+    Cur.ListObjects(CurTableName).TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    Cur.Range(CurTableName).HorizontalAlignment = xlCenter
+
+    
+    'Color code the Table
+    For i = 1 To Cur.Range(CurTableName & "[#Headers]").Columns.Count
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Source") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+        
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Target") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+    
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Express") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .Color = 15773696
+                .TintAndShade = 0
+                .PatternTintAndShade = 0
+            End With
+        End If
+    
+    Next i
+    
+    'Move the UpdatedDate Column to the top and delete column
+    Cur.Cells(1, MergeWidth + 3) = Cur.Range(CurTableName & "[UpdatedDate]").Rows(1).Value
+    Cur.Range(CurTableName & "[UpdatedDate]").Delete
+    
+'    Cur.Protect DrawingObjects:=False, Contents:=True, Scenarios:= _
+'        False, AllowSorting:=True, AllowFiltering:=True, AllowUsingPivotTables:= _
+'        True, Password:=CurPassword
+        
+    If Rs.State <> 0 Then Rs.Close
+    TarWkBk.Sheets("Table of Contents").Move before:=TarWkBk.Sheets(1)
+    
+
+End Sub
+
+
+Sub BuildFacilitySheet_Locations(TarWkBk As Workbook _
+                                , CurDivMnem As String _
+                                , CurDivName As String _
+                                , CurNetworkMnem_Source As String _
+                                , CurNetworkMnem_Target As String _
+                                , CurFacSrcName As String _
+                                , CurCOID_Source As String _
+                                , CurCOID_Target As String _
+                                , CurUnitNumber_Source As String _
+                                , CurUnitNumber_Target As String _
+                                , CurFacilityMnem_Source As String _
+                                , CurFacilityMnem_Target As String _
+                                , CurPrefixAcctNum_Source As String _
+                                , CurPrefixAcctNum_Target As String _
+                                , CurPrefixMRN_Source As String _
+                                , CurPrefixMRN_Target As String _
+                                , TableOfContentsRow As Integer _
+                                )
+    
+    Dim Cur As Worksheet
+    Set Cur = TarWkBk.Sheets.Add
+    Cur.Name = "Locations-" & Left(CurFacSrcName, 20)
+    CurTableName = "tblLocations_" & CStr(CountOfFacilities)
+    MergeWidth = 4
+    Cur.Tab.Color = vbGreen
+
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = 1
+    Cur.Hyperlinks.Add Anchor:=Cur.Cells(NewRow, 2), Address:="", SubAddress:= _
+    "'Table of Contents'!$A$1", TextToDisplay:="Return to Table of Contents"
+    Cur.Cells(NewRow, 2).Font.Bold = True
+    
+    TarWkBk.Sheets("Table of Contents").Hyperlinks.Add Anchor:=TarWkBk.Sheets("Table of Contents").Cells(TableOfContentsRow, 2), Address:="", SubAddress:="'" & Cur.Name & "'!$A$1", TextToDisplay:=CurFacSrcName
+    
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "HIS"
+    Cur.Cells(NewRow, 2) = "Legacy"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Expanse"
+    
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Dictionary"
+    Cur.Cells(NewRow, 2) = "Locations"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Locations"
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Name"
+    Cur.Cells(NewRow, 2) = CurFacSrcName
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacSrcName
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Unit Number"
+    Cur.Cells(NewRow, 2) = CurUnitNumber_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurUnitNumber_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "COID"
+    Cur.Cells(NewRow, 2) = CurCOID_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurCOID_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Code"
+    Cur.Cells(NewRow, 2) = CurFacilityMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacilityMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Account Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixAcctNum_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixAcctNum_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Medical Record Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixMRN_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixMRN_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Market"
+    Cur.Cells(NewRow, 2) = CurNetworkMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurNetworkMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+
+    
+    
+    
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportXwalk_Source_Location_ByFacility]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, CurFacilityMnem_Source)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacilityMnem_Target)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = NewRow + 1
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(NewRow, i + 2) = Rs.Fields(i).Name
+    Next i
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+
+    NewRow = NewRow + 1
+    Cur.Range("B" & NewRow).CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(NewRow - 1, 2), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("B:B")) - 10 + NewRow - 2, Application.WorksheetFunction.CountA(Cur.Range("11:11")) + 1)), , xlYes).Name = CurTableName
+    Cur.ListObjects(CurTableName).TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    Cur.Range(CurTableName).HorizontalAlignment = xlCenter
+
+    
+    'Color code the Table
+    For i = 1 To Cur.Range(CurTableName & "[#Headers]").Columns.Count
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Source") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+        
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Target") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+    
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Express") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .Color = 15773696
+                .TintAndShade = 0
+                .PatternTintAndShade = 0
+            End With
+        End If
+    
+    Next i
+    
+    'Move the UpdatedDate Column to the top and delete column
+    Cur.Cells(1, MergeWidth + 3) = Cur.Range(CurTableName & "[UpdatedDate]").Rows(1).Value
+    Cur.Range(CurTableName & "[UpdatedDate]").Delete
+    
+'    Cur.Protect DrawingObjects:=False, Contents:=True, Scenarios:= _
+'        False, AllowSorting:=True, AllowFiltering:=True, AllowUsingPivotTables:= _
+'        True, Password:=CurPassword
+        
+    If Rs.State <> 0 Then Rs.Close
+    TarWkBk.Sheets("Table of Contents").Move before:=TarWkBk.Sheets(1)
+    
+
+End Sub
+
+
+''' Added for Insurance
+
+Sub BuildFacilitySheet_Insurance(TarWkBk As Workbook _
+                                , CurDivMnem As String _
+                                , CurDivName As String _
+                                , CurNetworkMnem_Source As String _
+                                , CurNetworkMnem_Target As String _
+                                , CurFacSrcName As String _
+                                , CurCOID_Source As String _
+                                , CurCOID_Target As String _
+                                , CurUnitNumber_Source As String _
+                                , CurUnitNumber_Target As String _
+                                , CurFacilityMnem_Source As String _
+                                , CurFacilityMnem_Target As String _
+                                , CurPrefixAcctNum_Source As String _
+                                , CurPrefixAcctNum_Target As String _
+                                , CurPrefixMRN_Source As String _
+                                , CurPrefixMRN_Target As String _
+                                , TableOfContentsRow As Integer _
+                                )
+    
+    Dim Cur As Worksheet
+    Set Cur = TarWkBk.Sheets.Add
+    Cur.Name = Replace("Insurance-" & Left(CurNetworkMnem_Target, 23), "*", "_")
+    CurTableName = "tblInsurance_" & CStr(CountOfFacilities)
+    MergeWidth = 3
+    Cur.Tab.Color = vbGreen
+    
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = 1
+    Cur.Hyperlinks.Add Anchor:=Cur.Cells(NewRow, 1), Address:="", SubAddress:= _
+    "'Table of Contents'!$A$1", TextToDisplay:="Return to Table of Contents"
+    Cur.Cells(NewRow, 1).Font.Bold = True
+
+    With Cur.Range(Cur.Cells(1, 1), Cur.Cells(1, 4))
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Cur.Range(Cur.Cells(1, 1), Cur.Cells(1, 4)).Merge
+    
+    
+    TarWkBk.Sheets("Table of Contents").Hyperlinks.Add Anchor:=TarWkBk.Sheets("Table of Contents").Cells(TableOfContentsRow, 2), Address:="", SubAddress:="'" & Cur.Name & "'!$A$1", TextToDisplay:=CurNetworkMnem_Target
+    
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+        
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = CurNetworkMnem_Source
+    Cur.Cells(NewRow, 2 + MergeWidth) = CurNetworkMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 1), Cur.Cells(NewRow, 1 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 2 + MergeWidth), Cur.Cells(NewRow, 12 + MergeWidth + MergeWidth)))
+    
+    
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportXwalk_Source_Insurance_ByMarket]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@networkmnem", adVarChar, adParamInput, 25, CurNetworkMnem_Target)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = NewRow + 1
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(NewRow, i + 1) = Rs.Fields(i).Name
+    Next i
+ '   With Cur.Cells(NewRow, 1).Interior
+ '       .Pattern = xlSolid
+ '       .PatternColorIndex = xlAutomatic
+ '       .ThemeColor = xlThemeColorDark2
+ '       .TintAndShade = -0.249977111117893
+ '       .PatternTintAndShade = 0
+ '   End With
+
+    NewRow = NewRow + 1
+    If Rs.Fields.Count > 0 Then
+        
+        Cur.Range("A" & NewRow).CopyFromRecordset Rs
+    
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(NewRow - 1, 1), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("A:A")) - 1 + NewRow - 1, Application.WorksheetFunction.CountA(Cur.Range("3:3")))), , xlYes).Name = CurTableName
+    Cur.ListObjects(CurTableName).TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    Cur.Range(CurTableName).HorizontalAlignment = xlCenter
+
+    
+    'Color code the Table
+    For i = 1 To Cur.Range(CurTableName & "[#Headers]").Columns.Count
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Source") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+            
+            With Cur.Range(CurTableName).Columns(i).Offset(1).Resize(Cur.Range(CurTableName).Rows.Count - 1).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.899981688894314 ' Lighter color for data
+            End With
+        End If
+        
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Target") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+            
+            With Cur.Range(CurTableName).Columns(i).Offset(1).Resize(Cur.Range(CurTableName).Rows.Count - 1).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.899981688894314 ' Lighter color for data
+            End With
+        End If
+    Next i
+    
+    'Move the UpdatedDate Column to the top and delete column
+    Cur.Cells(1, 5) = Cur.Range(CurTableName & "[UpdatedDate]").Rows(1).Value
+    Cur.Range(CurTableName & "[UpdatedDate]").Delete
+    
+    Else
+    
+        Cur.Range("A" & NewRow) = "No Data"
+    
+    End If
+    
+'    Cur.Protect DrawingObjects:=False, Contents:=True, Scenarios:= _
+'        False, AllowSorting:=True, AllowFiltering:=True, AllowUsingPivotTables:= _
+'        True, Password:=CurPassword
+    
+    If Rs.State <> 0 Then Rs.Close
+
+End Sub
+
+Sub BuildFacilitySheet_RoomBed(TarWkBk As Workbook _
+                                , CurDivMnem As String _
+                                , CurDivName As String _
+                                , CurNetworkMnem_Source As String _
+                                , CurNetworkMnem_Target As String _
+                                , CurFacSrcName As String _
+                                , CurCOID_Source As String _
+                                , CurCOID_Target As String _
+                                , CurUnitNumber_Source As String _
+                                , CurUnitNumber_Target As String _
+                                , CurFacilityMnem_Source As String _
+                                , CurFacilityMnem_Target As String _
+                                , CurPrefixAcctNum_Source As String _
+                                , CurPrefixAcctNum_Target As String _
+                                , CurPrefixMRN_Source As String _
+                                , CurPrefixMRN_Target As String _
+                                , TableOfContentsRow As Integer _
+                                )
+    
+    Dim Cur As Worksheet
+    Set Cur = TarWkBk.Sheets.Add
+    Cur.Name = "RoomBed-" & Left(CurFacSrcName, 23)
+    CurTableName = "tblRoomBed_" & CStr(CountOfFacilities)
+    MergeWidth = 5
+    Cur.Tab.Color = vbGreen
+    
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = 1
+    Cur.Hyperlinks.Add Anchor:=Cur.Cells(NewRow, 2), Address:="", SubAddress:= _
+    "'Table of Contents'!$A$1", TextToDisplay:="Return to Table of Contents"
+    Cur.Cells(NewRow, 2).Font.Bold = True
+    
+    TarWkBk.Sheets("Table of Contents").Hyperlinks.Add Anchor:=TarWkBk.Sheets("Table of Contents").Cells(TableOfContentsRow, 2), Address:="", SubAddress:="'" & Cur.Name & "'!$A$1", TextToDisplay:=CurFacSrcName
+    
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "HIS"
+    Cur.Cells(NewRow, 2) = "Legacy"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "Expanse"
+    
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Dictionary"
+    Cur.Cells(NewRow, 2) = "RoomBed"
+    Cur.Cells(NewRow, 3 + MergeWidth) = "RoomBed"
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Name"
+    Cur.Cells(NewRow, 2) = CurFacSrcName
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacSrcName
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Unit Number"
+    Cur.Cells(NewRow, 2) = CurUnitNumber_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurUnitNumber_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "COID"
+    Cur.Cells(NewRow, 2) = CurCOID_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurCOID_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Facility Code"
+    Cur.Cells(NewRow, 2) = CurFacilityMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurFacilityMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Account Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixAcctNum_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixAcctNum_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Medical Record Prefix"
+    Cur.Cells(NewRow, 2) = CurPrefixMRN_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurPrefixMRN_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+    NewRow = NewRow + 1
+    Cur.Cells(NewRow, 1) = "Market"
+    Cur.Cells(NewRow, 2) = CurNetworkMnem_Source
+    Cur.Cells(NewRow, 3 + MergeWidth) = CurNetworkMnem_Target
+    Call Helper_FormatTopSectionOfCrosswalks( _
+        Cur.Cells(NewRow, 1), _
+        Cur.Range(Cur.Cells(NewRow, 2), Cur.Cells(NewRow, 2 + MergeWidth)), _
+        Cur.Range(Cur.Cells(NewRow, 3 + MergeWidth), Cur.Cells(NewRow, 3 + MergeWidth + MergeWidth)))
+    
+
+    
+    
+    
+    Dim Rs As ADODB.Recordset
+    Set Rs = New ADODB.Recordset
+    
+    Dim Cmd As New ADODB.Command
+    Set Cmd = Nothing
+    Cmd.CommandText = "[dbo].[UI_Excel_Select_ExportXwalk_Source_Room_and_Bed_ByFacility]"
+    Cmd.CommandType = adCmdStoredProc
+    Cmd.ActiveConnection = Cn
+    Set prm = Cmd.CreateParameter("@facmnem_src", adVarChar, adParamInput, 25, CurFacilityMnem_Source)
+    Cmd.Parameters.Append (prm)
+    Set prm = Cmd.CreateParameter("@facmnem_tar", adVarChar, adParamInput, 25, CurFacilityMnem_Target)
+    Cmd.Parameters.Append (prm)
+    
+    Set Rs = Cmd.Execute
+    
+    Cur.Columns.NumberFormat = "@"
+    
+    NewRow = NewRow + 1
+    For i = 0 To Rs.Fields.Count - 1
+        Cur.Cells(NewRow, i + 2) = Rs.Fields(i).Name
+    Next i
+    With Cur.Cells(NewRow, 1).Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+
+    NewRow = NewRow + 1
+    Cur.Range("B" & NewRow).CopyFromRecordset Rs
+    
+    Cur.ListObjects.Add(xlSrcRange, Cur.Range(Cur.Cells(NewRow - 1, 2), Cur.Cells(Application.WorksheetFunction.CountA(Cur.Range("B:B")) - 10 + NewRow - 2, Application.WorksheetFunction.CountA(Cur.Range("11:11")) + 1)), , xlYes).Name = CurTableName
+    Cur.ListObjects(CurTableName).TableStyle = "TableStyleMedium15"
+    Cur.Select
+    Cur.Cells(1, 1).Select
+    Cur.Columns.AutoFit
+    Cur.Range(CurTableName).HorizontalAlignment = xlCenter
+
+    
+    'Color code the Table
+    For i = 1 To Cur.Range(CurTableName & "[#Headers]").Columns.Count
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Source") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+        
+        If InStr(Cur.Range(CurTableName & "[#Headers]").Columns(i), "Target") > 0 Then
+            With Cur.Range(CurTableName).Columns(i).Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .ThemeColor = xlThemeColorAccent2
+                .TintAndShade = 0.799981688894314
+                .PatternTintAndShade = 0
+            End With
+        End If
+    Next i
+    
+    'Move the UpdatedDate Column to the top and delete column
+    Cur.Cells(1, MergeWidth + 3) = Cur.Range(CurTableName & "[UpdatedDate]").Rows(1).Value
+    Cur.Range(CurTableName & "[UpdatedDate]").Delete
+    
+'    Cur.Protect DrawingObjects:=False, Contents:=True, Scenarios:= _
+'        False, AllowSorting:=True, AllowFiltering:=True, AllowUsingPivotTables:= _
+'        True, Password:=CurPassword
+    
+    If Rs.State <> 0 Then Rs.Close
+
+End Sub
+
+Sub Helper_FormatTopSectionOfCrosswalks(FirstColumnRange As Range, LegacyRange As Range, ExpanseRange As Range)
+
+    With FirstColumnRange.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark2
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+
+    With LegacyRange
+            .Merge
+            .Interior.Pattern = xlSolid
+            .Interior.PatternColorIndex = xlAutomatic
+            .Interior.Color = 5296274
+            .Interior.TintAndShade = 0
+            .Interior.PatternTintAndShade = 0
+            .Font.Bold = True
+            .HorizontalAlignment = xlCenter
+    End With
+    
+    With ExpanseRange
+            .Merge
+            .Interior.Pattern = xlSolid
+            .Interior.PatternColorIndex = xlAutomatic
+            .Interior.ThemeColor = xlThemeColorAccent2
+            .Interior.TintAndShade = 0.399975585192419
+            .Interior.PatternTintAndShade = 0
+            .Font.Bold = True
+            .HorizontalAlignment = xlCenter
+    End With
+End Sub
+
+
+
+Sub SortWorksheetsTabs(CurWkBk As Workbook)
+Application.ScreenUpdating = False
+Dim ShCount As Integer, i As Integer, j As Integer
+ShCount = CurWkBk.Sheets.Count
+
+For i = 1 To ShCount - 1
+    For j = i + 1 To ShCount
+        If UCase(CurWkBk.Sheets(j).Name) < UCase(CurWkBk.Sheets(i).Name) Then
+            CurWkBk.Sheets(j).Move before:=CurWkBk.Sheets(i)
+        End If
+    Next j
+Next i
+
+CurWkBk.Sheets("Table of Contents").Move before:=CurWkBk.Sheets(1)
+Application.ScreenUpdating = True
+End Sub
+
+
+Sub ReorganizeTableOfContentsTab(CurWkBk As Workbook, Cur As Worksheet)
+Application.ScreenUpdating = False
+Application.Cursor = xlWait
+Application.Calculation = xlCalculationManual
+
+Dim Dxwalks As New Scripting.Dictionary
+Dim DxwalksAddr As New Scripting.Dictionary
+Dim DxwalksCol As New Scripting.Dictionary
+MaxRows = Application.WorksheetFunction.CountA(Cur.Range("A:A"))
+For i = 3 To MaxRows
+    CurXwalk = Cur.Cells(i, 1)
+    CurLink = Cur.Cells(i, 2)
+    CurCellAddr = Cur.Cells(i, 1).Address & vbTab & Cur.Cells(i, 2).Address
+    If Dxwalks.Exists(CurXwalk) = False Then
+        CurCol = (DxwalksCol.Count) Mod 2
+        Dxwalks.Add CurXwalk, 1
+        DxwalksCol.Add CurXwalk, CurCol
+        
+        CurAddrKey = CurXwalk & vbTab & 1
+        DxwalksAddr.Add CurAddrKey, CurCellAddr
+    Else
+        Dxwalks(CurXwalk) = Dxwalks(CurXwalk) + 1
+        
+        CurAddrKey = CurXwalk & vbTab & Dxwalks(CurXwalk)
+        DxwalksAddr.Add CurAddrKey, CurCellAddr
+    End If
+Next i
+
+'Place Columns
+NewRowCol1 = 1
+NewRowCol2 = 1
+
+'''Commented code a few lines below to display Table of Contents is shifted here
+NewCol = 4
+                With Cur.Cells(NewRowCol1, NewCol + 4)
+                    .Value = "Table of Contents"
+                    .Font.Name = "Calibri"
+                    .Font.Size = 14
+                    .Font.Strikethrough = False
+                    .Font.Superscript = False
+                    .Font.Subscript = False
+                    .Font.OutlineFont = False
+                    .Font.Shadow = False
+                    .Font.Underline = xlUnderlineStyleNone
+                    .Font.ThemeColor = xlThemeColorLight1
+                    .Font.TintAndShade = 0
+                    .Font.ThemeFont = xlThemeFontMinor
+                    .Font.Bold = True
+                End With
+
+For Each myKey In Dxwalks
+    CurCol = DxwalksCol(myKey)
+    For i = 1 To Dxwalks(myKey)
+        
+        CurAddrKey = myKey & vbTab & i
+        AddressArray = Split(DxwalksAddr(CurAddrKey), vbTab)
+        
+        If CurCol = 0 Then
+            NewCol = 4
+            If i = 1 Then
+'                With Cur.Cells(NewRowCol1, NewCol + 4)
+'                    .Value = "Table of Contents"
+'                    .Font.Name = "Calibri"
+'                    .Font.Size = 14
+'                    .Font.Strikethrough = False
+'                    .Font.Superscript = False
+'                    .Font.Subscript = False
+'                    .Font.OutlineFont = False
+'                    .Font.Shadow = False
+'                    .Font.Underline = xlUnderlineStyleNone
+'                    .Font.ThemeColor = xlThemeColorLight1
+'                    .Font.TintAndShade = 0
+'                    .Font.ThemeFont = xlThemeFontMinor
+'                    .Font.Bold = True
+'                End With
+                NewRowCol1 = NewRowCol1 + 2
+                Cur.Cells(NewRowCol1, NewCol + 4) = myKey
+                Cur.Cells(NewRowCol1, NewCol + 5) = "URL"
+                
+                With Cur.Range(Cur.Cells(NewRowCol1, NewCol + 4), Cur.Cells(NewRowCol1, NewCol + 5))
+                    .Interior.Pattern = xlSolid
+                    .Interior.PatternColorIndex = xlAutomatic
+                    .Interior.ThemeColor = xlThemeColorDark2
+                    .Interior.TintAndShade = -9.99786370433668E-02
+                    .Interior.PatternTintAndShade = 0
+                    .Font.Bold = True
+                End With
+                
+            End If
+            NewRowCol1 = NewRowCol1 + 1
+            Cur.Range(AddressArray(0)).Copy
+            Range(Cur.Cells(NewRowCol1, NewCol + 4).Address).PasteSpecial xlPasteAll
+            Cur.Range(AddressArray(1)).Copy
+            Range(Cur.Cells(NewRowCol1, NewCol + 5).Address).PasteSpecial xlPasteAll
+        End If
+        
+        If CurCol = 1 Then
+            NewCol = 7
+            If i = 1 Then
+                NewRowCol2 = NewRowCol2 + 2
+                Cur.Cells(NewRowCol2, NewCol + 4) = myKey
+                Cur.Cells(NewRowCol2, NewCol + 5) = "URL"
+                With Cur.Range(Cur.Cells(NewRowCol2, NewCol + 4), Cur.Cells(NewRowCol2, NewCol + 5))
+                    .Interior.Pattern = xlSolid
+                    .Interior.PatternColorIndex = xlAutomatic
+                    .Interior.ThemeColor = xlThemeColorDark2
+                    .Interior.TintAndShade = -9.99786370433668E-02
+                    .Interior.PatternTintAndShade = 0
+                    .Font.Bold = True
+                End With
+            End If
+            NewRowCol2 = NewRowCol2 + 1
+            Cur.Range(AddressArray(0)).Copy
+            Range(Cur.Cells(NewRowCol2, NewCol + 4).Address).PasteSpecial xlPasteAll
+            Cur.Range(AddressArray(1)).Copy
+            Range(Cur.Cells(NewRowCol2, NewCol + 5).Address).PasteSpecial xlPasteAll
+        End If
+        
+    Next i
+    
+
+Next myKey
+    Cur.Columns("H:L").EntireColumn.AutoFit
+    Cur.Columns("J:J").ColumnWidth = 0.83
+    Cur.Columns("A:G").Delete
+
+
+
+End Sub

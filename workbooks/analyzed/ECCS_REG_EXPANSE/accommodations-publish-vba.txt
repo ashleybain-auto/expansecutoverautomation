@@ -1,0 +1,126 @@
+
+
+
+
+
+Sub PushUpdates_Accommodations()
+
+
+
+    Dim Cur As Worksheet
+
+    Set Cur = Sheets("Accommodations")
+
+
+
+    Dim dUpdateItem As New Scripting.Dictionary
+
+    Dim CurFacSrc As String
+
+    Dim CurFacTar As String
+
+    Dim CurAccommodationsMnemSource As String
+
+    
+
+    Dim CurAccommodationsMnemTarget As String
+
+    Dim CurAccommodationsNameTarget As String
+
+    Dim CurAccommodationsPAcodeTarget As String
+
+    Dim CurActiveFlagTarget As String
+
+
+
+    Dim CurVisibleToUsersTarget As String
+
+    Dim CurExcludeFromUsersTarget As String
+
+    
+
+    Dim CurActionToTake As String
+
+    
+
+    MaxRows = Cur.Range("tblAccommodations").Rows.Count
+
+    For i = 1 To MaxRows
+
+        CurActionToTake = Trim(Cur.Range("tblAccommodations[Action To Take]").Rows(i))
+
+            'Update
+
+            If CurActionToTake = "Update" Then
+
+                CurFacSrc = Trim(Cur.Range("tblAccommodations[FacilityMnem_Source]").Rows(i))
+
+                CurFacTar = Trim(Cur.Range("tblAccommodations[FacilityMnem_Target]").Rows(i))
+
+                CurAccommodationsMnemSource = Trim(Cur.Range("tblAccommodations[Accommodation_Mnem_Source]").Rows(i))
+
+                
+
+                CurKey = CurFacSrc & vbTab & CurFacTar & vbTab & CurAccommodationsMnemSource
+
+                
+
+                CurAccommodationsMnemTarget = Trim(Cur.Range("tblAccommodations[Accommodation_Mnem_Target]").Rows(i))
+
+                CurAccommodationsNameTarget = Trim(Cur.Range("tblAccommodations[Accommodation_Name_Target]").Rows(i))
+
+                CurAccommodationsPAcodeTarget = Trim(Cur.Range("tblAccommodations[PA_Code_Target]").Rows(i))
+
+                
+
+                CurActiveFlagTarget = Trim(Cur.Range("tblAccommodations[Active_Target]").Rows(i))
+
+                CurVisibleToUsersTarget = Trim(Cur.Range("tblAccommodations[DisplayCurrentValues]").Rows(i))
+
+                CurExcludeFromUsersTarget = Trim(Cur.Range("tblAccommodations[ExcludeFromSharepoint]").Rows(i))
+
+                
+
+                CurValue = CurAccommodationsMnemTarget & vbTab & CurAccommodationsNameTarget & vbTab & CurAccommodationsPAcodeTarget & vbTab & _
+
+                CurActiveFlagTarget & vbTab & _
+
+                CurVisibleToUsersTarget & vbTab & CurExcludeFromUsersTarget
+
+                           
+
+                If dUpdateItem.Exists(CurKey) = False Then
+
+                    dUpdateItem.Add CurKey, CurValue
+
+                End If
+
+            End If
+
+          
+
+    Next i
+
+    
+
+    If dUpdateItem.Count > 0 Then
+
+        Call UpdateMapping_Accommodations(dUpdateItem)
+
+    End If
+
+
+
+
+
+    Call RefreshData_Accommodations
+
+
+
+
+
+End Sub
+
+
+
+

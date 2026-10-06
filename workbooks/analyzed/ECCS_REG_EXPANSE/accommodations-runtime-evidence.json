@@ -1,0 +1,29 @@
+{
+  "suite": "ECCS",
+  "configTool": "REG",
+  "variant": "EXPANSE",
+  "domain": "Accommodations",
+  "sourceWorkbook": "Mapping_Expanse_REG_Domain.xlsb",
+  "sourceVba": "api-test-vba-source.txt",
+  "legacyOperations": {
+    "refresh": {
+      "procedure": "RefreshData_Accommodations",
+      "databaseObjects": [],
+      "sqlStatements": [],
+      "parameters": []
+    },
+    "publish": {
+      "procedure": "PushUpdates_Accommodations",
+      "databaseObjects": [],
+      "sqlStatements": [],
+      "parameters": []
+    }
+  },
+  "runtimeTarget": {
+    "read": null,
+    "validate": null,
+    "publish": null,
+    "audit": null,
+    "rollback": null
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source_workbook": "No CNET-specific source workbook supplied",
+  "primary_sheet": null,
+  "schema_status": "shell prepared; CNET schema/config source not included in attached zips",
+  "fields": {},
+  "secondary_sheets": {},
+  "note": "Field names are copied from the supplied workbook headers when provided. No business data rows are included."
+}

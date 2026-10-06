@@ -1,0 +1,1 @@
+If no repository-native commands can be found, state this explicitly and mark all validation as unverified rather than inferring generic commands.

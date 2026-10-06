@@ -1,0 +1,89 @@
+{
+  "application": {
+    "code": "UPLOAD",
+    "name": "ECCS - Upload & Mapping POC",
+    "environment": "DevelopmentAuto"
+  },
+  "shell": {
+    "source": "ECCS - Registration POC.msapp",
+    "artifact": "ECCS - Upload & Mapping POC.msapp"
+  },
+  "screens": [
+    "scrUpload",
+    "scrStage",
+    "scrMap",
+    "scrScore",
+    "scrReview",
+    "scrApprove",
+    "scrCommit",
+    "scrAudit"
+  ],
+  "navigation": [
+    {
+      "label": "Upload",
+      "screen": "scrUpload"
+    },
+    {
+      "label": "Stage",
+      "screen": "scrStage"
+    },
+    {
+      "label": "Map",
+      "screen": "scrMap"
+    },
+    {
+      "label": "Score",
+      "screen": "scrScore"
+    },
+    {
+      "label": "Review",
+      "screen": "scrReview"
+    },
+    {
+      "label": "Approve",
+      "screen": "scrApprove"
+    },
+    {
+      "label": "Commit",
+      "screen": "scrCommit"
+    },
+    {
+      "label": "Audit",
+      "screen": "scrAudit"
+    }
+  ],
+  "dataSources": {
+    "staging": "ECCS Upload Staging",
+    "candidates": "ECCS Mapping Candidates",
+    "results": "ECCS Mapping Results",
+    "audit": "ECCS Mapping Audit"
+  },
+  "scoring": {
+    "facility": 30,
+    "mnemonic": 30,
+    "nameDescription": 20,
+    "paSecondaryKey": 10,
+    "active": 10
+  },
+  "grading": {
+    "primary": {
+      "minimum": 0,
+      "maximum": 25
+    },
+    "secondary": {
+      "minimum": 26,
+      "maximum": 50
+    },
+    "tertiary": {
+      "minimum": 51,
+      "maximum": 75
+    },
+    "complete": {
+      "minimum": 76,
+      "maximum": 100
+    }
+  },
+  "commit": {
+    "approvalRequired": true
+  }
+}

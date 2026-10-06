@@ -1,0 +1,78 @@
+{
+  "filename": "Mapping_Expanse_REG_Domain.xlsb",
+  "extension": ".xlsb",
+  "sha256": "dde01e2cf3d331d98f66e592c8f7fd7c9c079b2a6e977ae9625d70c7ce10c6d4",
+  "file_size_bytes": 911386,
+  "worksheets": [
+    {
+      "name": "Instructions",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "ErrorCategories",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Accommodations",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Locations",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Services",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Insurance",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "RoomBed",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "DischargeDisposition",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "InsAuthStatus",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "FinancialApprover",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "County",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "FinancialClass",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "AdmitSource",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Settings",
+      "visibility": "unknown",
+      "classification": "unknown"
+    }
+  ]
+}

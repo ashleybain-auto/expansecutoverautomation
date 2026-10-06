@@ -1,0 +1,29 @@
+{
+  "scale": 100,
+  "tiers": [
+    {
+      "code": "PRIMARY",
+      "label": "Primary",
+      "minimum": 0,
+      "maximum": 25
+    },
+    {
+      "code": "SECONDARY",
+      "label": "Secondary",
+      "minimum": 26,
+      "maximum": 50
+    },
+    {
+      "code": "TERTIARY",
+      "label": "Tertiary",
+      "minimum": 51,
+      "maximum": 75
+    },
+    {
+      "code": "COMPLETE",
+      "label": "Complete",
+      "minimum": 76,
+      "maximum": 100
+    }
+  ]
+}

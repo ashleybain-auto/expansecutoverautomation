@@ -1,0 +1,86 @@
+[
+  {
+    "domain": "Accommodations",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "AdmitSource",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "County",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "DischargeDisposition",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "ErrorCategories",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "FinancialApprover",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "FinancialClass",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "InsAuthStatus",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Insurance",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Locations",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "RoomBed",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  },
+  {
+    "domain": "Services",
+    "actions": [
+      "PUBLISH",
+      "REFRESH"
+    ]
+  }
+]

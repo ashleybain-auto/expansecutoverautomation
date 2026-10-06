@@ -1,0 +1,17 @@
+{
+  "folders": [
+    { "name": "ECCS ConfigTool Factory", "path": "." },
+    { "name": "Canvas App - Active", "path": "canvas/active" },
+    { "name": "Canvas Demo References", "path": "canvas/reference" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/bin": true,
+      "**/obj": true
+    }
+  }
+}

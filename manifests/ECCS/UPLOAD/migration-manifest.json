@@ -1,0 +1,138 @@
+{
+  "suite": {
+    "code": "ECCS",
+    "name": "Expanse Cutover Configuration Suite",
+    "publisherPrefix": "eccs",
+    "repository": "Expanse-ConfigTool-Factory"
+  },
+  "factory": {
+    "name": "Expanse ConfigTool Factory",
+    "code": "ECCS-FACTORY"
+  },
+  "configTool": {
+    "code": "UPLOAD",
+    "name": "Bulk Upload and Source-to-Expanse DR Mapping",
+    "variant": "EXPANSE"
+  },
+  "source": {
+    "type": "CSV",
+    "name": "ECCS_Bulk_Mapping_Upload_Template.csv",
+    "extension": ".csv"
+  },
+  "workflow": [
+    "UPLOAD",
+    "STAGE",
+    "MAP",
+    "SCORE",
+    "REVIEW",
+    "APPROVE",
+    "COMMIT",
+    "AUDIT"
+  ],
+  "matchGrades": [
+    {
+      "code": "PRIMARY",
+      "name": "Primary",
+      "minimumPercent": 0,
+      "maximumPercent": 25
+    },
+    {
+      "code": "SECONDARY",
+      "name": "Secondary",
+      "minimumPercent": 26,
+      "maximumPercent": 50
+    },
+    {
+      "code": "TERTIARY",
+      "name": "Tertiary",
+      "minimumPercent": 51,
+      "maximumPercent": 75
+    },
+    {
+      "code": "COMPLETE",
+      "name": "Complete",
+      "minimumPercent": 76,
+      "maximumPercent": 100
+    }
+  ],
+  "scoring": {
+    "scale": 100,
+    "weights": [
+      {
+        "field": "Facility",
+        "weightPercent": 30
+      },
+      {
+        "field": "Mnemonic",
+        "weightPercent": 30
+      },
+      {
+        "field": "NameDescription",
+        "weightPercent": 20
+      },
+      {
+        "field": "PASecondaryKey",
+        "weightPercent": 10
+      },
+      {
+        "field": "Active",
+        "weightPercent": 10
+      }
+    ]
+  },
+  "mapping": {
+    "sourceSystem": "SOURCE",
+    "targetSystem": "EXPANSE",
+    "targetObject": "DR",
+    "candidateStrategy": "weighted-field-match",
+    "allowManualOverride": true,
+    "requireApprovalBeforeCommit": true
+  },
+  "actions": [
+    "UPLOAD",
+    "STAGE",
+    "MAP",
+    "SCORE",
+    "REVIEW",
+    "APPROVE",
+    "COMMIT",
+    "AUDIT"
+  ],
+  "integrations": {
+    "dataverse": {
+      "required": true,
+      "tables": [
+        "ECCS Upload Batches",
+        "ECCS Upload Staging",
+        "ECCS Mapping Candidates",
+        "ECCS Mapping Results",
+        "ECCS Mapping Audit"
+      ]
+    },
+    "powerAutomate": {
+      "flows": [
+        "ECCS Upload Parse and Stage",
+        "ECCS Build Mapping Candidates",
+        "ECCS Commit Approved Mapping"
+      ]
+    },
+    "canvasApp": {
+      "name": "ECCS - Upload & Mapping POC",
+      "shellSource": "ECCS - Registration POC.msapp"
+    }
+  },
+  "acceptanceCriteria": [
+    "Upload a source CSV or XLSX file",
+    "Create an identifiable upload batch",
+    "Stage source rows",
+    "Map source fields to Expanse target fields",
+    "Generate target candidates",
+    "Calculate weighted match score",
+    "Assign Primary, Secondary, Tertiary, or Complete grade",
+    "Allow manual mapping override",
+    "Review mappings before commit",
+    "Require explicit approval before DR commit",
+    "Commit approved mappings",
+    "Capture audit information"
+  ]
+}

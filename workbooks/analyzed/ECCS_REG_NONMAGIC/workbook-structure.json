@@ -1,0 +1,68 @@
+{
+  "filename": "Mapping_NonMagic_Expanse_REG_Domain.xlsb",
+  "extension": ".xlsb",
+  "sha256": "fc71e0685f748b7cd4c74a2cd663cf97727a91eb8e4da44379c3e808eac1dd99",
+  "file_size_bytes": 196743,
+  "worksheets": [
+    {
+      "name": "Instructions",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "AdmitSource",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "AdmitType",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "EmploymentStatus",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Ethnicity",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "PatientType",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Race",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Relationship",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Religion",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "State",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Language",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Settings",
+      "visibility": "unknown",
+      "classification": "unknown"
+    }
+  ]
+}

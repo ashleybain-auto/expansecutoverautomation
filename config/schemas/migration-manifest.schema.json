@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECCS Migration Manifest",
+  "type": "object",
+  "required": [
+    "suite",
+    "configTool",
+    "source",
+    "domains",
+    "integrations",
+    "validation",
+    "audit",
+    "migration"
+  ],
+  "properties": {
+    "suite": {
+      "type": "object",
+      "required": [
+        "code",
+        "name",
+        "publisherPrefix"
+      ]
+    },
+    "configTool": {
+      "type": "object",
+      "required": [
+        "code",
+        "name",
+        "variant"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "workbook",
+        "extension",
+        "sha256"
+      ]
+    },
+    "domains": {
+      "type": "array"
+    },
+    "integrations": {
+      "type": "object",
+      "required": [
+        "sql",
+        "api"
+      ]
+    },
+    "validation": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "migration": {
+      "type": "object",
+      "required": [
+        "status"
+      ]
+    }
+  }
+}

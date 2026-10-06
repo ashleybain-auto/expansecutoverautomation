@@ -1,0 +1,22 @@
+{
+  "name": "Expanse Cutover Automation - CNET",
+  "domain": "Cutover Nursing Entry Tool (CNET)",
+  "module": "CNET",
+  "module_key": "cnet",
+  "record_label": "CNET Configuration",
+  "slug": "cnet",
+  "source": "No CNET-specific source workbook supplied",
+  "primary_sheet": null,
+  "sheets": [],
+  "schema_status": "shell prepared; CNET schema/config source not included in attached zips",
+  "configured_from_attached_sources": false,
+  "source_workbook_metadata": {},
+  "workbook_settings": {},
+  "hub_linkage": {
+    "registry_file": "canvas/module-registry.json",
+    "context_contract_file": "canvas/navigation-context.json",
+    "launch_mode": "app",
+    "target_app_id_env_var": "ECCS_APPID_CNET",
+    "landing_screen": "scrModuleMain"
+  }
+}

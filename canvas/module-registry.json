@@ -1,0 +1,202 @@
+{
+  "hub_app": {
+    "name": "ECCS - Registration POC",
+    "path": "canvas/ECCS - Registration POC.msapp",
+    "hub_screen": "scrModuleHub",
+    "default_visibility_rule": "true"
+  },
+  "shared_context": {
+    "required": [
+      "targetModuleKey",
+      "facility",
+      "recordKey",
+      "targetEnvironment",
+      "sourceScreen",
+      "searchText"
+    ]
+  },
+  "modules": [
+    {
+      "name": "Registration Core",
+      "module_key": "registration_core",
+      "launch_mode": "screen",
+      "target": {
+        "screen": "scrRegistrationCore",
+        "landing_screen": "scrRegistrationCore"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_registration_core"
+      }
+    },
+    {
+      "name": "CNET",
+      "module_key": "cnet",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_CNET",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_cnet_config"
+      }
+    },
+    {
+      "name": "Emergency Department",
+      "module_key": "emergency_department",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_EMERGENCY_DEPARTMENT",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_ed_config"
+      }
+    },
+    {
+      "name": "MIS Provider",
+      "module_key": "mis_provider",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_MIS_PROVIDER",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_mis_provider_config"
+      }
+    },
+    {
+      "name": "Non-Med Consults",
+      "module_key": "non_med_consults",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_CONSULTS",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_consults_config"
+      }
+    },
+    {
+      "name": "Non-Med Diet",
+      "module_key": "non_med_diet",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_DIET",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_diet_config"
+      }
+    },
+    {
+      "name": "Non-Med EKG",
+      "module_key": "non_med_ekg",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_EKG",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_ekg_config"
+      }
+    },
+    {
+      "name": "Non-Med Level of Care",
+      "module_key": "non_med_level_of_care",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_LEVEL_OF_CARE",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_loc_config"
+      }
+    },
+    {
+      "name": "Non-Med Nursing",
+      "module_key": "non_med_nursing",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_NURSING",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_nursing_config"
+      }
+    },
+    {
+      "name": "Non-Med OE",
+      "module_key": "non_med_oe",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_OE",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_oe_config"
+      }
+    },
+    {
+      "name": "Non-Med RAD",
+      "module_key": "non_med_rad",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_RAD",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_rad_config"
+      }
+    },
+    {
+      "name": "Non-Med RT/PT/OT",
+      "module_key": "non_med_rt_pt_ot",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_NON_MED_RT_PT_OT",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_non_med_rt_pt_ot_config"
+      }
+    },
+    {
+      "name": "Registration PTAC",
+      "module_key": "registration_ptac",
+      "launch_mode": "app",
+      "target": {
+        "app_id_env_var": "ECCS_APPID_REGISTRATION_PTAC",
+        "landing_screen": "scrModuleMain"
+      },
+      "visibility_rule": "true",
+      "dataverse_binding": {
+        "status": "required",
+        "source": "eccs_registration_ptac_config"
+      }
+    }
+  ]
+}

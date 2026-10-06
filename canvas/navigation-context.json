@@ -1,0 +1,38 @@
+{
+  "payload_contract": {
+    "required": {
+      "targetModuleKey": "Destination registry module key for navigation",
+      "facility": "Current facility mnemonic from hub filter",
+      "recordKey": "Current selected record key",
+      "targetEnvironment": "LIVE | TEST | ZCON",
+      "sourceScreen": "Hub screen name",
+      "searchText": "Hub search text"
+    },
+    "optional": {
+      "returnRecordKey": "Record to reselect when returning to hub",
+      "returnToast": "Optional status message",
+      "launchUtc": "UTC timestamp for telemetry",
+      "targetScreen": "Module landing screen name",
+      "hubScreen": "Hub screen destination name for return links"
+    }
+  },
+  "hub_patterns": {
+    "module_items_source": "module-registry.json",
+    "context_record_contract": "contextRecord must already include facility, recordKey, targetEnvironment, sourceScreen, and searchText",
+    "hub_screen_source": "Set varHubScreenName from module-registry.json hub_app.hub_screen and map it once to hubScreenObject for Navigate()",
+    "patch_nav_context": "{targetModuleKey: ThisItem.module_key, launchUtc: Text(DateAdd(Now(), -TimeZoneOffset(Now()), TimeUnit.Minutes), \"yyyy-mm-ddThh:mm:ssZ\"), targetScreen: ThisItem.target.landing_screen}",
+    "on_select_screen": "Set(varNavContext, Patch(contextRecord, patch_nav_context)); Navigate(ThisItem.target.screen, ScreenTransition.Fade, varNavContext)",
+    "on_select_app": "Set(varNavContext, Patch(contextRecord, patch_nav_context)); Set(varTargetAppId, LookUp(colModuleAppIds, key = ThisItem.target.app_id_env_var).appId); Launch(Concatenate('https://apps.powerapps.com/play/', varTargetAppId, '?tenantId=', varTenantId, '&source=moduleHub', '&targetModuleKey=', EncodeUrl(varNavContext.targetModuleKey), '&moduleScreen=', EncodeUrl(varNavContext.targetScreen), '&facility=', EncodeUrl(varNavContext.facility), '&recordKey=', EncodeUrl(varNavContext.recordKey), '&targetEnvironment=', EncodeUrl(varNavContext.targetEnvironment), '&sourceScreen=', EncodeUrl(varNavContext.sourceScreen), '&hubScreen=', EncodeUrl(varHubScreenName), '&searchText=', EncodeUrl(varNavContext.searchText), '&launchUtc=', EncodeUrl(varNavContext.launchUtc)))"
+  },
+  "module_patterns": {
+    "app_on_start": "Set(varNavContext, {targetModuleKey: Param('targetModuleKey'), targetScreen: Param('moduleScreen'), facility: Param('facility'), recordKey: Coalesce(Param('returnRecordKey'), Param('recordKey')), targetEnvironment: Param('targetEnvironment'), sourceScreen: Coalesce(Param('sourceScreen'), Param('hubScreen'), 'scrModuleHub'), hubScreen: Coalesce(Param('hubScreen'), 'scrModuleHub'), searchText: Param('searchText'), returnRecordKey: Param('returnRecordKey'), returnToast: Param('returnToast'), launchUtc: Param('launchUtc')});",
+    "return_to_hub": "Navigate(hubScreenObject, ScreenTransition.None, varNavContext) for in-app modules; Set(varEffectiveReturnRecordKey, Coalesce(varCurrentRecordKey, varNavContext.returnRecordKey, varNavContext.recordKey)); Launch(Concatenate(hubAppUrl, '?tenantId=', varTenantId, '&hubScreen=', EncodeUrl(varHubScreenName), '&targetModuleKey=', EncodeUrl(varNavContext.targetModuleKey), '&facility=', EncodeUrl(varNavContext.facility), '&recordKey=', EncodeUrl(varNavContext.recordKey), '&returnRecordKey=', EncodeUrl(varEffectiveReturnRecordKey), '&targetEnvironment=', EncodeUrl(varNavContext.targetEnvironment), '&sourceScreen=', EncodeUrl(varNavContext.sourceScreen), '&searchText=', EncodeUrl(varNavContext.searchText), '&returnToast=', EncodeUrl(Coalesce(varNavContext.returnToast, 'Saved')), '&moduleScreen=', EncodeUrl(varNavContext.targetScreen), '&launchUtc=', EncodeUrl(varNavContext.launchUtc))) for separate module apps",
+    "preserve_state": "Persist varNavContext and reapply facility filter, selected record, and search text on hub re-entry"
+  },
+  "dataverse_rebind_checklist": [
+    "Replace starter data sources with module-specific Dataverse tables",
+    "Map facility/source/target/action fields to real Dataverse columns",
+    "Update Patch() payload types to match Dataverse schema",
+    "Verify save/refresh/lineage display against the bound Dataverse table"
+  ]
+}

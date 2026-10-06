@@ -1,0 +1,120 @@
+# ============================================================
+# Expanse Cutover Automation Suite
+# Local and transient files excluded from source control
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# .NET / compiled output
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local VS Code state
+.vscode/*.log
+.vscode/settings.local.json
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Power Platform / PAC temporary files
+.pac/
+.auth/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Historical Power Apps remediation artifacts
+*REPAIR*.msapp
+*BATCHFIX*.msapp
+*READINESS*.msapp
+*UI-TEST*.msapp
+*Screen5-Component-Contract*.txt
+*Screen5-Component-Usage*.txt
+*Screen5-Component-Repair-Source*.txt
+*Screen5*Search*.txt
+*Screen5*Schema*.txt
+
+# Test / diagnostic output
+*.log
+test-results/
+coverage/
+tmp/
+temp/
+
+# Secrets and credentials
+.env
+.env.*
+*.secret
+*.secrets
+secrets/
+credentials/
+*.pfx
+*.p12
+*.key
+
+# Microsoft Office temporary files
+~$*.docx
+~$*.xlsx
+~$*.xlsb
+
+# Local PowerShell history
+ConsoleHost_history.txt
+
+# ============================================================
+# ECCS clean repository additional exclusions
+# ============================================================
+
+# Local VS Code / machine-specific configuration
+.vscode/.gitconfig
+.vscode/.mcp.json
+.vscode/mcp.json
+.vscode/MyOrganizationCrmSdkTypes.cs
+.vscode/backgroundTaskHost.sln
+.vscode/.git-for-windows-updater
+
+# Generated Python package metadata
+*.egg-info/
+
+# Source-control audit generated locally
+SOURCE-CONTROL-PRESTAGE-AUDIT.txt
+
+# Historical Registration unpack/remediation source.
+# Retained locally as reference; not authoritative source.
+canvas/reference/registration-source/
+
+
+# ============================================================
+# ECCS generated/reference exclusions
+# ============================================================
+
+# Generated source-data extracts are reproducible build artifacts
+generated/poc/
+
+# Empty/nonfunctional Dataverse Web API placeholder
+power-platform/Dataverse WebAPI CommonFunctions.ps1
+
+# Local staged-baseline diagnostic
+GIT-STAGED-BASELINE.txt
+

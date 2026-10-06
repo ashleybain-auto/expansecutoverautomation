@@ -1,0 +1,25 @@
+{
+  "app": "Expanse Cutover Automation - CNET",
+  "source": "No CNET-specific source workbook supplied",
+  "common_functions": [
+    "single-select facility filtering",
+    "text search against source mnemonic and source description/name",
+    "results gallery with selected-record state",
+    "current source configuration display",
+    "proposed target configuration using Classic/TextInput@2.3.2",
+    "Action To Take selector",
+    "unsaved-change detection, Save and Cancel/Revert workflow",
+    "Patch + Refresh save pattern with update user/date-time capture",
+    "Target Match NO MATCH red/bold warning treatment",
+    "active-environment sync confirmation for LIVE/TEST/ZCON dated matches",
+    "ECCS lineage display retained from the Registration POC shell"
+  ],
+  "source_specific_functions": [],
+  "formula_templates": {
+    "gallery_items": "Replace the starter Accommodation Data Clone source with the domain table and apply the domain field mapping from this package.",
+    "facility_items": "Replace FacilityMnem_Source with the domain facility field.",
+    "save_patch": "Patch the mapped target columns and Action To Take field using the real Dataverse type.",
+    "match_logic": "No target-match field was supplied; add the domain match field before enabling sync confirmation."
+  },
+  "implementation_notes": []
+}

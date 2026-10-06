@@ -1,0 +1,1547 @@
+{
+  "compiler": {
+    "name": "ECCS Workbook Compiler",
+    "version": "0.1.0"
+  },
+  "workbook": {
+    "filename": "Mapping_Expanse_REG_Domain.xlsb",
+    "extension": ".xlsb",
+    "sha256": "dde01e2cf3d331d98f66e592c8f7fd7c9c079b2a6e977ae9625d70c7ce10c6d4",
+    "file_size_bytes": 911386
+  },
+  "worksheets": [
+    {
+      "name": "Instructions",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "ErrorCategories",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Accommodations",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Locations",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Services",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Insurance",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "RoomBed",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "DischargeDisposition",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "InsAuthStatus",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "FinancialApprover",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "County",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "FinancialClass",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "AdmitSource",
+      "visibility": "unknown",
+      "classification": "unknown"
+    },
+    {
+      "name": "Settings",
+      "visibility": "unknown",
+      "classification": "unknown"
+    }
+  ],
+  "procedures": [
+    {
+      "name": "Workbook_Open",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 20
+    },
+    {
+      "name": "RunUpdatesForCurrentVersion",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 544
+    },
+    {
+      "name": "ModifyServerName",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 578
+    },
+    {
+      "name": "Setup_Worksheet_Instructions",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 642
+    },
+    {
+      "name": "PrepareAccommodationsSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 942
+    },
+    {
+      "name": "PrepareLocationsSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1016
+    },
+    {
+      "name": "PrepareServicesSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1090
+    },
+    {
+      "name": "PrepareInsuranceSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1166
+    },
+    {
+      "name": "PrepareRoomBedSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1240
+    },
+    {
+      "name": "PrepareErrorCategoriesSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1314
+    },
+    {
+      "name": "PrepareDischargeDispositionSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1386
+    },
+    {
+      "name": "PrepareCountySheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1460
+    },
+    {
+      "name": "PrepareInsAuthStatusSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1534
+    },
+    {
+      "name": "PrepareFinancialApproverSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1608
+    },
+    {
+      "name": "PrepareFinancialClassSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1682
+    },
+    {
+      "name": "PrepareAdmitSourceSheet",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1756
+    },
+    {
+      "name": "ClearSheetsForDistribution",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1830
+    },
+    {
+      "name": "AddButton",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 1890
+    },
+    {
+      "name": "OpenConnection",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2012
+    },
+    {
+      "name": "CloseConnection",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2032
+    },
+    {
+      "name": "Utility_ApplyFormating_UneditableFields",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2040
+    },
+    {
+      "name": "Utility_ApplyFormating_NotCurrentFields",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2068
+    },
+    {
+      "name": "Utility_ApplyFormating_EditableFields",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2128
+    },
+    {
+      "name": "Utility_ApplyDataValidation",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2156
+    },
+    {
+      "name": "Utility_ApplyFormating_LeftTopAlignment",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2194
+    },
+    {
+      "name": "Utility_ApplyFormating_ColumnWordWrapBuffer",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2232
+    },
+    {
+      "name": "Link_To_Home",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2264
+    },
+    {
+      "name": "Utility_ProgressBar",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2294
+    },
+    {
+      "name": "RefreshData_ErrorCategories",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 2310
+    },
+    {
+      "name": "ApplyDataValidation_ErrorCategories",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2426
+    },
+    {
+      "name": "PushUpdates_ErrorCategories",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 2466
+    },
+    {
+      "name": "UpdateMapping_ErrorCategories",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2568
+    },
+    {
+      "name": "RefreshData_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 2704
+    },
+    {
+      "name": "ApplyDataValidation_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 2840
+    },
+    {
+      "name": "PushUpdates_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 2898
+    },
+    {
+      "name": "UpdateMapping_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 3020
+    },
+    {
+      "name": "InsertMapping_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 3192
+    },
+    {
+      "name": "RefreshData_Locations",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 3324
+    },
+    {
+      "name": "ApplyDataValidation_Locations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 3454
+    },
+    {
+      "name": "PushUpdates_Locations",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 3544
+    },
+    {
+      "name": "UpdateMapping_Locations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 3674
+    },
+    {
+      "name": "InsertMapping_Locations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 3872
+    },
+    {
+      "name": "InsertMapping_Services",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 4008
+    },
+    {
+      "name": "RefreshData_Services",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 4146
+    },
+    {
+      "name": "ApplyDataValidation_Services",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 4286
+    },
+    {
+      "name": "PushUpdates_Services",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 4346
+    },
+    {
+      "name": "UpdateMapping_Services",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 4474
+    },
+    {
+      "name": "RefreshData_Insurance",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 4650
+    },
+    {
+      "name": "ApplyDataValidation_Insurance",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 4784
+    },
+    {
+      "name": "PushUpdates_Insurance",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 4844
+    },
+    {
+      "name": "UpdateMapping_Insurance",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 4990
+    },
+    {
+      "name": "RefreshData_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 5242
+    },
+    {
+      "name": "ApplyDataValidation_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 5468
+    },
+    {
+      "name": "PushUpdates_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 5536
+    },
+    {
+      "name": "UpdateMapping_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 5664
+    },
+    {
+      "name": "InsertMapping_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 5870
+    },
+    {
+      "name": "RefreshData_DischargeDisposition",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 6026
+    },
+    {
+      "name": "ApplyDataValidation_DischargeDisposition",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 6158
+    },
+    {
+      "name": "PushUpdates_DischargeDisposition",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 6198
+    },
+    {
+      "name": "UpdateMapping_DischargeDisposition",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 6308
+    },
+    {
+      "name": "RefreshData_County",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 6456
+    },
+    {
+      "name": "ApplyDataValidation_County",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 6594
+    },
+    {
+      "name": "PushUpdates_County",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 6656
+    },
+    {
+      "name": "UpdateMapping_County",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 6774
+    },
+    {
+      "name": "InsertMapping_County",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 6896
+    },
+    {
+      "name": "RefreshData_InsAuthStatus",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 6996
+    },
+    {
+      "name": "RefreshData_FinancialApprover",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 7130
+    },
+    {
+      "name": "ApplyDataValidation_FinancialApprover",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7264
+    },
+    {
+      "name": "ApplyDataValidation_InsAuthStatus",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7322
+    },
+    {
+      "name": "PushUpdates_FinancialApprover",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 7378
+    },
+    {
+      "name": "UpdateMapping_FinancialApprover",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7486
+    },
+    {
+      "name": "InsertMapping_FinancialApprover",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7594
+    },
+    {
+      "name": "RefreshData_FinancialClass",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 7684
+    },
+    {
+      "name": "RefreshData_AdmitSource",
+      "procedure_type": "Sub",
+      "classification": "REFRESH",
+      "line_number": 7820
+    },
+    {
+      "name": "ApplyDataValidation_FinancialClass",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7952
+    },
+    {
+      "name": "ApplyDataValidation_AdmitSource",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 7990
+    },
+    {
+      "name": "PushUpdates_FinancialClass",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 8028
+    },
+    {
+      "name": "PushUpdates_AdmitSource",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 8132
+    },
+    {
+      "name": "UpdateMapping_FinancialClass",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 8228
+    },
+    {
+      "name": "UpdateMapping_AdmitSource",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 8416
+    },
+    {
+      "name": "PushUpdates_InsAuthStatus",
+      "procedure_type": "Sub",
+      "classification": "PUBLISH",
+      "line_number": 8584
+    },
+    {
+      "name": "UpdateMapping_InsAuthStatus",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 8710
+    },
+    {
+      "name": "InsertMapping_InsAuthStatus",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 8850
+    },
+    {
+      "name": "OpenConnection",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9030
+    },
+    {
+      "name": "CloseConnection",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9044
+    },
+    {
+      "name": "Utility_Export_File_ApplyFormating_LeftTopAlignment",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9052
+    },
+    {
+      "name": "Generate_Export_File_For_Sharepoint",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9090
+    },
+    {
+      "name": "SaveWorkbook_SharepointDestination",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9210
+    },
+    {
+      "name": "BuildSheet_TableOfContents",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9342
+    },
+    {
+      "name": "BuildFacilitySheet_Accommodations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 9722
+    },
+    {
+      "name": "BuildFacilitySheet_Services",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 10140
+    },
+    {
+      "name": "BuildFacilitySheet_Locations",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 10578
+    },
+    {
+      "name": "BuildFacilitySheet_Insurance",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 11022
+    },
+    {
+      "name": "BuildFacilitySheet_RoomBed",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 11350
+    },
+    {
+      "name": "Helper_FormatTopSectionOfCrosswalks",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 11762
+    },
+    {
+      "name": "SortWorksheetsTabs",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 11828
+    },
+    {
+      "name": "ReorganizeTableOfContentsTab",
+      "procedure_type": "Sub",
+      "classification": "OTHER",
+      "line_number": 11866
+    }
+  ],
+  "domains": [
+    {
+      "domain": "Accommodations",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "AdmitSource",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "County",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "DischargeDisposition",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "ErrorCategories",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "FinancialApprover",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "FinancialClass",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "InsAuthStatus",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Insurance",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Locations",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "RoomBed",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Services",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    }
+  ],
+  "sql_references": [
+    {
+      "type": "ADODB_CONNECTION",
+      "value": "ADODB.Connection",
+      "line_number": 2005
+    },
+    {
+      "type": "ADODB_CONNECTION",
+      "value": "ADODB.Connection",
+      "line_number": 8981
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 2355
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 2599
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 2761
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 3061
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 3273
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 3379
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 3719
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 3957
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 4095
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 4203
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 4513
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 4705
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 5041
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 5387
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 5705
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 5971
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 6081
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 6339
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 6513
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 6799
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 6921
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7049
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7183
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7509
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7617
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7743
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 7875
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 8267
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 8455
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 8743
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 8879
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 9229
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 9367
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 9621
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 9997
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 10409
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 10847
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 11165
+    },
+    {
+      "type": "ADODB_COMMAND",
+      "value": "ADODB.Command",
+      "line_number": 11619
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2349
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2351
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2597
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2623
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2755
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 2757
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3059
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3093
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3271
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3277
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3373
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3375
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3717
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3761
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3955
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 3961
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4093
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4099
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4197
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4199
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4511
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4549
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4699
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 4701
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5039
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5091
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5381
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5383
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5703
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5743
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5969
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 5975
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6075
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6077
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6337
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6371
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6507
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6509
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6797
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6823
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6919
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 6945
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7043
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7045
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7177
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7179
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7507
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7529
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7615
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7637
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7737
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7739
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7869
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 7871
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8265
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8319
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8453
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8487
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8741
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8769
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8877
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 8905
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9223
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9225
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9361
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9363
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9615
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9617
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9991
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 9993
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 10403
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 10405
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 10841
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 10843
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 11159
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 11161
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 11613
+    },
+    {
+      "type": "ADODB_RECORDSET",
+      "value": "ADODB.Recordset",
+      "line_number": 11615
+    },
+    {
+      "type": "ADODB_PARAMETER",
+      "value": "ADODB.Parameter",
+      "line_number": 2589
+    },
+    {
+      "type": "ADODB_PARAMETER",
+      "value": "ADODB.Parameter",
+      "line_number": 6329
+    },
+    {
+      "type": "ADODB_PARAMETER",
+      "value": "ADODB.Parameter",
+      "line_number": 8257
+    },
+    {
+      "type": "ADODB_PARAMETER",
+      "value": "ADODB.Parameter",
+      "line_number": 8445
+    },
+    {
+      "type": "SQL_VARIABLE",
+      "value": "SQLStr",
+      "line_number": 2003
+    },
+    {
+      "type": "SQL_VARIABLE",
+      "value": "SQLStr",
+      "line_number": 8979
+    },
+    {
+      "type": "SQL_OPEN",
+      "value": "Cn.Open (",
+      "line_number": 2027
+    },
+    {
+      "type": "SQL_OPEN",
+      "value": "Cn.Open (",
+      "line_number": 9041
+    },
+    {
+      "type": "SQL_DRIVER",
+      "value": "Driver={SQL Server}",
+      "line_number": 2027
+    },
+    {
+      "type": "SQL_DRIVER",
+      "value": "Driver={SQL Server}",
+      "line_number": 9041
+    },
+    {
+      "type": "SERVER_SETTING",
+      "value": "Sheets(\"Settings\").Range(\"settingServer\")",
+      "line_number": 585
+    },
+    {
+      "type": "SERVER_SETTING",
+      "value": "Sheets(\"Settings\").Range(\"settingServer\")",
+      "line_number": 601
+    },
+    {
+      "type": "SERVER_SETTING",
+      "value": "Sheets(\"Settings\").Range(\"settingServer\")",
+      "line_number": 621
+    },
+    {
+      "type": "SERVER_SETTING",
+      "value": "Sheets(\"Settings\").Range(\"settingServer\")",
+      "line_number": 2021
+    },
+    {
+      "type": "SERVER_SETTING",
+      "value": "Sheets(\"Settings\").Range(\"settingServer\")",
+      "line_number": 9133
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 2001
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 2023
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 2027
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 8977
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 9041
+    },
+    {
+      "type": "DATABASE_NAME",
+      "value": "Database_Name",
+      "line_number": 9135
+    }
+  ],
+  "api_references": [],
+  "mappings": [],
+  "settings": [],
+  "actions": [
+    {
+      "domain": "Accommodations",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "AdmitSource",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "County",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "DischargeDisposition",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "ErrorCategories",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "FinancialApprover",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "FinancialClass",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "InsAuthStatus",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Insurance",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Locations",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "RoomBed",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    },
+    {
+      "domain": "Services",
+      "actions": [
+        "PUBLISH",
+        "REFRESH"
+      ]
+    }
+  ],
+  "warnings": [],
+  "unsupported": []
+}
