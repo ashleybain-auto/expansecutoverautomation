@@ -1,0 +1,86 @@
+diff --git "a/C:\\Users\\QXA4067\\Project - CLEAN\\ExpanseCutoverAutomationSuite-10.6.2026\\validation\\step-105\\105.3C-backup\\cmpDrpdwnFiltersFacilityWksG.BEFORE.pa.yaml" "b/C:\\Users\\QXA4067\\Project - CLEAN\\ExpanseCutoverAutomationSuite-10.6.2026\\validation\\step-105\\105.3C-Locations-source\\Src\\Components\\cmpDrpdwnFiltersFacilityWksG.pa.yaml"
+index e4c45da..62f88fa 100644
+--- "a/C:\\Users\\QXA4067\\Project - CLEAN\\ExpanseCutoverAutomationSuite-10.6.2026\\validation\\step-105\\105.3C-backup\\cmpDrpdwnFiltersFacilityWksG.BEFORE.pa.yaml"	
++++ "b/C:\\Users\\QXA4067\\Project - CLEAN\\ExpanseCutoverAutomationSuite-10.6.2026\\validation\\step-105\\105.3C-Locations-source\\Src\\Components\\cmpDrpdwnFiltersFacilityWksG.pa.yaml"	
+@@ -141,6 +141,76 @@ ComponentDefinitions:
+                           }
+                       ),
+ 
++                  "Locations",
++                      ForAll(
++                          Filter(
++                              Locations,
++                              IsBlank(gblSelectedFacility) ||
++                              'Source Facility Mnemonic' = gblSelectedFacility
++                          ),
++                          {
++                              RecordKey:
++                                  Coalesce(
++                                      'Source Facility Mnemonic',
++                                      ""
++                                  ) &
++                                  "|" &
++                                  Coalesce(
++                                      'Source Location Mnemonic',
++                                      ""
++                                  ),
++                              WorksheetName: "Locations",
++
++                              SourceFacility: Coalesce(
++                                  'Source Facility Mnemonic',
++                                  ""
++                              ),
++                              SourceMnemonic: Coalesce(
++                                  'Source Location Mnemonic',
++                                  ""
++                              ),
++                              SourceName: Coalesce(
++                                  'Source Location Name',
++                                  ""
++                              ),
++                              SourcePACode: Coalesce(
++                                  'Source PA Code',
++                                  ""
++                              ),
++                              SourceActive: Coalesce(
++                                  'Source Location Active',
++                                  ""
++                              ),
++
++                              TargetFacility: Coalesce(
++                                  'Target Facility Mnemonic',
++                                  ""
++                              ),
++                              TargetMnemonic: Coalesce(
++                                  'Target Location Mnemonic',
++                                  ""
++                              ),
++                              TargetName: Coalesce(
++                                  'Target Location Name',
++                                  ""
++                              ),
++                              TargetPACode: Coalesce(
++                                  'Target PA Code',
++                                  ""
++                              ),
++                              TargetActive: Coalesce(
++                                  'Target Location Active',
++                                  ""
++                              ),
++                              TargetMatchMtx: Coalesce(
++                                  'Target Match Matrix',
++                                  ""
++                              ),
++
++                              ReadOnly: false
++                          }
++                      ),
++
+                   FirstN(
+                       Table(
+                           {
+@@ -390,3 +460,4 @@ ComponentDefinitions:
+             Width: =200
+             X: =5
+             Y: =68
++

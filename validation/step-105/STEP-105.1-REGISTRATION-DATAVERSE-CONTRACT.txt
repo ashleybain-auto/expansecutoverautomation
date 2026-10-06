@@ -1,0 +1,377 @@
+============================================================
+ECCS STEP 105.1 - REGISTRATION DATAVERSE CONTRACT
+============================================================
+
+SOURCE APP
+canvas/active/ECCS - Registration Cutover Config - CLEAN-RESUME.msapp
+
+GIT BRANCH
+feature/registration-pilot
+
+MATCH COUNT
+360
+
+============================================================
+REGISTRATION / DATAVERSE REFERENCES
+============================================================
+
+Src\_EditorState.pa.yaml | Line 17 | - scrAccommodations
+Src\_EditorState.pa.yaml | Line 21 | - cmpDrpdwnFiltersFacilityWksG
+Src\App.pa.yaml | Line 47 | WorksheetName: "Accommodations",
+Src\App.pa.yaml | Line 48 | TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+Src\App.pa.yaml | Line 48 | TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+Src\App.pa.yaml | Line 49 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\App.pa.yaml | Line 49 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\App.pa.yaml | Line 49 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\App.pa.yaml | Line 50 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\App.pa.yaml | Line 50 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\App.pa.yaml | Line 50 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\App.pa.yaml | Line 51 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\App.pa.yaml | Line 51 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\App.pa.yaml | Line 51 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\App.pa.yaml | Line 52 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\App.pa.yaml | Line 52 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\App.pa.yaml | Line 52 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\App.pa.yaml | Line 56 | WorksheetName: "Locations",
+Src\App.pa.yaml | Line 57 | TotalRecords: CountRows(Filter(Locations, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\App.pa.yaml | Line 58 | NoMatchRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\App.pa.yaml | Line 59 | TestRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\App.pa.yaml | Line 60 | ZconRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\App.pa.yaml | Line 61 | LiveRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\App.pa.yaml | Line 65 | WorksheetName: "Services",
+Src\App.pa.yaml | Line 66 | TotalRecords: CountRows(Filter(Services, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\App.pa.yaml | Line 67 | NoMatchRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\App.pa.yaml | Line 68 | TestRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\App.pa.yaml | Line 69 | ZconRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\App.pa.yaml | Line 70 | LiveRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\App.pa.yaml | Line 74 | WorksheetName: "Insurance",
+Src\App.pa.yaml | Line 75 | TotalRecords: CountRows(Filter(Insurances, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\App.pa.yaml | Line 76 | NoMatchRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\App.pa.yaml | Line 77 | TestRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\App.pa.yaml | Line 78 | ZconRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\App.pa.yaml | Line 79 | LiveRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\App.pa.yaml | Line 83 | WorksheetName: "RoomBed",
+Src\App.pa.yaml | Line 102 | TotalRecords: CountRows(Filter('Insurance Auths', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+Src\App.pa.yaml | Line 103 | NoMatchRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix Note' = "NO MATCH")),
+Src\App.pa.yaml | Line 104 | TestRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "TEST"))),
+Src\App.pa.yaml | Line 105 | ZconRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "ZCON"))),
+Src\App.pa.yaml | Line 106 | LiveRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "LIVE")))
+Src\cmpECCSConfigurations.pa.yaml | Line 35 | 'Accommodation Data Clone',
+Src\cmpECCSConfigurations.pa.yaml | Line 37 | FacilityMnem_Source = gblSelectedFacility
+Src\cmpECCSConfigurations.pa.yaml | Line 41 | SourceFacility: Coalesce(FacilityMnem_Source, ""),
+Src\cmpECCSConfigurations.pa.yaml | Line 46 | TargetFacility: Coalesce(FacilityMnem_Target, ""),
+Src\cmpECCSConfigurations.pa.yaml | Line 51 | TargetMatchMtx: Coalesce(TargetMatchMtx, "")
+Src\Components\cmpAppPageTemplateG.pa.yaml | Line 40 | SelectedRecord:
+Src\Components\cmpAppPageTemplateG.pa.yaml | Line 61 | SelectedRecord: ="Text"
+Src\Components\cmpAppPageTemplateGlbl.pa.yaml | Line 33 | SelectedRecord:
+Src\Components\cmpAppPageTemplateGlbl.pa.yaml | Line 54 | SelectedRecord: ="Text"
+Src\Components\cmpAppPageTemplateGlobal.pa.yaml | Line 26 | FacilityMnemonicName:
+Src\Components\cmpAppPageTemplateGlobal.pa.yaml | Line 40 | SelectedRecords:
+Src\Components\cmpAppPageTemplateGlobal.pa.yaml | Line 54 | SelectedRecords: ="Text"
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 15 | FacilityMnemonicName:
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 29 | SelectedRecord:
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 43 | SelectedRecord: ="Text"
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 67 | 'dim.Ref.Organizations',
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 104 | gblSelectedNetworkMnemonic,
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 122 | - drpFacilityMnemName:
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 131 | 'dim.Ref.Organizations',
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 150 | drpFacilityMnemName.Selected.'Facility Mnemonic'
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 153 | gblSelectedNetworkMnemonic,
+Src\Components\cmpDrpdwnFiltersFacilityG.pa.yaml | Line 154 | drpFacilityMnemName.Selected.'Network Mnemonic'
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 10 | cmpDrpdwnFiltersFacilityWksG:
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 27 | FacilityMnemonicName:
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 41 | SelectedRecord:
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 62 | SelectedRecord: =galWaveFacilityWkstGlobal.Selected
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 84 | "Accommodations",
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 87 | 'Accommodation Data Clone',
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 89 | FacilityMnem_Source = gblSelectedFacility
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 93 | WorksheetName: "Accommodations",
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 96 | FacilityMnem_Source,
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 116 | FacilityMnem_Target,
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 135 | TargetMatchMtx: Coalesce(
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 136 | TargetMatchMtx,
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 159 | TargetMatchMtx: "",
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 253 | 'dim.Ref.Organizations',
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 290 | gblSelectedNetworkMnemonic,
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 308 | - drpFacilityMnemNameG:
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 317 | 'dim.Ref.Organizations',
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 336 | drpFacilityMnemNameG.Selected.'Facility Mnemonic'
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 339 | gblSelectedNetworkMnemonic,
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 340 | drpFacilityMnemNameG.Selected.'Network Mnemonic'
+Src\Components\cmpDrpdwnFiltersFacilityWksG.pa.yaml | Line 366 | 'Reg Config Categories',
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 39 | TargetMatchMtx: ""
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 42 | SelectedRecord:
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 63 | SelectedRecord: =galBoardRecords.Selected
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 370 | galBoardRecords.Selected.TargetMatchMtx,
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 382 | galBoardRecords.Selected.TargetMatchMtx,
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 390 | Text: =galBoardRecords.Selected.TargetMatchMtx
+Src\Components\cmpECCSConfigurationBoard.pa.yaml | Line 424 | scrAccommodations,
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 33 | SelectedRecord:
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 46 | SelectedRecord: |-
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 426 | 'dim.Ref.Organizations',
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 461 | 'dim.Ref.Organizations',
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 470 | WorksheetName: "Accommodations",
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 471 | TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 471 | TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 472 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 472 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 472 | NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 473 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 473 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 473 | TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 474 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 474 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 474 | ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 475 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 475 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 475 | LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 479 | WorksheetName: "Locations",
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 480 | TotalRecords: CountRows(Filter(Locations, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 481 | NoMatchRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 482 | TestRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 483 | ZconRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 484 | LiveRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 488 | WorksheetName: "Services",
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 489 | TotalRecords: CountRows(Filter(Services, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 490 | NoMatchRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 491 | TestRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 492 | ZconRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 493 | LiveRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 497 | WorksheetName: "Insurance",
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 498 | TotalRecords: CountRows(Filter(Insurances, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 499 | NoMatchRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 500 | TestRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 501 | ZconRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 502 | LiveRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 506 | WorksheetName: "RoomBed",
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 525 | TotalRecords: CountRows(Filter('Insurance Auths', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 526 | NoMatchRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix Note' = "NO MATCH")),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 527 | TestRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "TEST"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 528 | ZconRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "ZCON"))),
+Src\Components\cmpECCSCutoverReadinessDsh.pa.yaml | Line 529 | LiveRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "LIVE")))
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 62 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 63 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 64 | Refresh('dim.Ref.Organizations');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 65 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 66 | Refresh(Services);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 67 | Refresh(Insurances);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 70 | Refresh('Insurance Auths');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 74 | scrAccommodations,
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 75 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 76 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 77 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 79 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 80 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 81 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 83 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 84 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 85 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 87 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 88 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 89 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 91 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 92 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 93 | Refresh('dim.Ref.Organizations');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 94 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 95 | Refresh(Services);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 96 | Refresh(Insurances);
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 99 | Refresh('Insurance Auths');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 104 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 105 | Refresh('dim.Ref.Organizations')
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 128 | scrAccommodations,
+Src\Components\cmpECCSNavigationBarSide.pa.yaml | Line 131 | scrAccommodations,
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 60 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 61 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 62 | Refresh('dim.Ref.Organizations');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 63 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 64 | Refresh(Services);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 65 | Refresh(Insurances);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 68 | Refresh('Insurance Auths');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 72 | scrAccommodations,
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 73 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 74 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 75 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 77 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 78 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 79 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 81 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 82 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 83 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 85 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 86 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 87 | Refresh('dim.Ref.Organizations'),
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 89 | Refresh('Accommodation Data Clone');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 90 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 91 | Refresh('dim.Ref.Organizations');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 92 | Refresh(Locations);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 93 | Refresh(Services);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 94 | Refresh(Insurances);
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 97 | Refresh('Insurance Auths');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 102 | Refresh('Reg Config Categories');
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 103 | Refresh('dim.Ref.Organizations')
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 126 | scrAccommodations,
+Src\Components\cmpECCSNavigationBarTop.pa.yaml | Line 129 | scrAccommodations,
+Src\scrAccommodations.pa.yaml | Line 10 | scrAccommodations:
+Src\scrAccommodations.pa.yaml | Line 93 | "REG Accommodations"
+Src\scrAccommodations.pa.yaml | Line 110 | - cmpDrpdwnFiltersFacilityWksG_1:
+Src\scrAccommodations.pa.yaml | Line 112 | ComponentName: cmpDrpdwnFiltersFacilityWksG
+Src\scrAccommodations.pa.yaml | Line 116 | FacilityMnemonicName: ="Text"
+Src\scrAccommodations.pa.yaml | Line 132 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceMnemonic,
+Src\scrAccommodations.pa.yaml | Line 132 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceMnemonic,
+Src\scrAccommodations.pa.yaml | Line 159 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceFacility,
+Src\scrAccommodations.pa.yaml | Line 159 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceFacility,
+Src\scrAccommodations.pa.yaml | Line 236 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceActive,
+Src\scrAccommodations.pa.yaml | Line 236 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceActive,
+Src\scrAccommodations.pa.yaml | Line 261 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourcePACode,
+Src\scrAccommodations.pa.yaml | Line 261 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourcePACode,
+Src\scrAccommodations.pa.yaml | Line 287 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceName,
+Src\scrAccommodations.pa.yaml | Line 287 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.SourceName,
+Src\scrAccommodations.pa.yaml | Line 310 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetActive,
+Src\scrAccommodations.pa.yaml | Line 310 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetActive,
+Src\scrAccommodations.pa.yaml | Line 341 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetPACode,
+Src\scrAccommodations.pa.yaml | Line 341 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetPACode,
+Src\scrAccommodations.pa.yaml | Line 367 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetName,
+Src\scrAccommodations.pa.yaml | Line 367 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetName,
+Src\scrAccommodations.pa.yaml | Line 393 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMnemonic,
+Src\scrAccommodations.pa.yaml | Line 393 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMnemonic,
+Src\scrAccommodations.pa.yaml | Line 420 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetFacility,
+Src\scrAccommodations.pa.yaml | Line 420 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetFacility,
+Src\scrAccommodations.pa.yaml | Line 467 | 'Accommodation Data Clone',
+Src\scrAccommodations.pa.yaml | Line 468 | FacilityMnem_Source = gblSelectedAccommodation.SourceFacility &&
+Src\scrAccommodations.pa.yaml | Line 504 | 'Accommodation Data Clone',
+Src\scrAccommodations.pa.yaml | Line 505 | FacilityMnem_Source = gblSelectedAccommodation.SourceFacility &&
+Src\scrAccommodations.pa.yaml | Line 592 | 'Accommodation Data Clone',
+Src\scrAccommodations.pa.yaml | Line 593 | FacilityMnem_Source = gblSelectedAccommodation.SourceFacility &&
+Src\scrAccommodations.pa.yaml | Line 627 | 'Accommodation Data Clone',
+Src\scrAccommodations.pa.yaml | Line 629 | 'Accommodation Data Clone',
+Src\scrAccommodations.pa.yaml | Line 630 | FacilityMnem_Source = gblSelectedAccommodation.SourceFacility &&
+Src\scrAccommodations.pa.yaml | Line 636 | FacilityMnem_Target: txtTargetFacility.Text,
+Src\scrAccommodations.pa.yaml | Line 653 | Refresh('Accommodation Data Clone')
+Src\scrAccommodations.pa.yaml | Line 671 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 671 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 671 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 683 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 683 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 683 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 694 | MatchText: cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx
+Src\scrAccommodations.pa.yaml | Line 694 | MatchText: cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx
+Src\scrAccommodations.pa.yaml | Line 694 | MatchText: cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx
+Src\scrAccommodations.pa.yaml | Line 707 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 707 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 707 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx,
+Src\scrAccommodations.pa.yaml | Line 719 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrAccommodations.pa.yaml | Line 719 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrAccommodations.pa.yaml | Line 719 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrAccommodations.pa.yaml | Line 726 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrAccommodations.pa.yaml | Line 726 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrAccommodations.pa.yaml | Line 726 | cmpDrpdwnFiltersFacilityWksG_1.SelectedRecord.TargetMatchMtx = "NO MATCH",
+Src\scrProviderCrosswalks.pa.yaml | Line 125 | - FacilityMnem_Source_DataCard3:
+Src\scrProviderCrosswalks.pa.yaml | Line 131 | DataField: ="eccs_facilitymnemonic"
+Src\scrProviderCrosswalks.pa.yaml | Line 132 | Default: =ThisItem.FacilityMnem_Source
+Src\scrProviderCrosswalks.pa.yaml | Line 133 | DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,FacilityMnem_Source)
+Src\scrProviderCrosswalks.pa.yaml | Line 199 | - TargetMatchMtx_DataCard2:
+Src\scrProviderCrosswalks.pa.yaml | Line 206 | Default: =ThisItem.TargetMatchMtx
+Src\scrProviderCrosswalks.pa.yaml | Line 207 | DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,TargetMatchMtx)
+Src\scrRegistrationLaunchpad.pa.yaml | Line 25 | "REG Accommodations"
+Src\scrRegistrationLaunchpad.pa.yaml | Line 132 | scrAccommodations,
+Src\scrRegistrationLaunchpad.pa.yaml | Line 150 | 'Accommodation Data Clone',
+Src\scrRegistrationLaunchpad.pa.yaml | Line 151 | Active_Source = 'Active_Source (Accommodation Data Clone)'.Y
+Src\scrRegistrationLaunchpad.pa.yaml | Line 180 | 'Accommodation Data Clone',
+Src\scrRegistrationLaunchpad.pa.yaml | Line 181 | TargetMatchMtx <> "NO MATCH"
+Src\scrRegistrationLaunchpad.pa.yaml | Line 210 | 'Accommodation Data Clone',
+Src\scrRegistrationLaunchpad.pa.yaml | Line 211 | TargetMatchMtx = "NO MATCH"
+Src\scrWorksheetResults.pa.yaml | Line 17 | ComponentName: cmpDrpdwnFiltersFacilityWksG
+Src\scrWorksheetResults.pa.yaml | Line 21 | FacilityMnemonicName: ="Text"
+Src\srcMatchDashboard.pa.yaml | Line 105 | "Accommodations",
+Src\srcMatchDashboard.pa.yaml | Line 108 | 'Accommodation Data Clone',
+Src\srcMatchDashboard.pa.yaml | Line 109 | FacilityMnem_Source = gblSelectedFacility
+Src\srcMatchDashboard.pa.yaml | Line 112 | TargetMatchMtx: Coalesce(TargetMatchMtx, "")
+Src\srcMatchDashboard.pa.yaml | Line 115 | "Locations",
+Src\srcMatchDashboard.pa.yaml | Line 118 | Locations,
+Src\srcMatchDashboard.pa.yaml | Line 122 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 125 | "Services",
+Src\srcMatchDashboard.pa.yaml | Line 128 | Services,
+Src\srcMatchDashboard.pa.yaml | Line 132 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 135 | "Insurance",
+Src\srcMatchDashboard.pa.yaml | Line 138 | Insurances,
+Src\srcMatchDashboard.pa.yaml | Line 142 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 145 | "RoomBed",
+Src\srcMatchDashboard.pa.yaml | Line 152 | TargetMatchMtx: Coalesce('Target Match Status', "")
+Src\srcMatchDashboard.pa.yaml | Line 159 | 'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 162 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 168 | 'Insurance Auths',
+Src\srcMatchDashboard.pa.yaml | Line 169 | 'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 172 | TargetMatchMtx: Coalesce('Target Match Matrix Note', "")
+Src\srcMatchDashboard.pa.yaml | Line 179 | 'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 182 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 189 | 'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 192 | TargetMatchMtx: Coalesce('Target Match Matrix', "")
+Src\srcMatchDashboard.pa.yaml | Line 199 | 'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 202 | TargetMatchMtx: Coalesce('Match Status', "")
+Src\srcMatchDashboard.pa.yaml | Line 208 | TargetMatchMtx: ""
+Src\srcMatchDashboard.pa.yaml | Line 216 | TargetMatchMtx = "NO MATCH",
+Src\srcMatchDashboard.pa.yaml | Line 218 | TargetMatchMtx,
+Src\srcMatchDashboard.pa.yaml | Line 341 | "Accommodations",
+Src\srcMatchDashboard.pa.yaml | Line 344 | 'Accommodation Data Clone',
+Src\srcMatchDashboard.pa.yaml | Line 346 | FacilityMnem_Source = gblSelectedFacility
+Src\srcMatchDashboard.pa.yaml | Line 350 | WorksheetName: "Accommodations",
+Src\srcMatchDashboard.pa.yaml | Line 353 | FacilityMnem_Source,
+Src\srcMatchDashboard.pa.yaml | Line 373 | FacilityMnem_Target,
+Src\srcMatchDashboard.pa.yaml | Line 392 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 393 | TargetMatchMtx,
+Src\srcMatchDashboard.pa.yaml | Line 401 | "Locations",
+Src\srcMatchDashboard.pa.yaml | Line 404 | Locations,
+Src\srcMatchDashboard.pa.yaml | Line 419 | WorksheetName: "Locations",
+Src\srcMatchDashboard.pa.yaml | Line 462 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 471 | "Services",
+Src\srcMatchDashboard.pa.yaml | Line 474 | Services,
+Src\srcMatchDashboard.pa.yaml | Line 489 | WorksheetName: "Services",
+Src\srcMatchDashboard.pa.yaml | Line 530 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 539 | "Insurance",
+Src\srcMatchDashboard.pa.yaml | Line 542 | Insurances,
+Src\srcMatchDashboard.pa.yaml | Line 557 | WorksheetName: "Insurance",
+Src\srcMatchDashboard.pa.yaml | Line 600 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 609 | "RoomBed",
+Src\srcMatchDashboard.pa.yaml | Line 637 | WorksheetName: "RoomBed",
+Src\srcMatchDashboard.pa.yaml | Line 676 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 689 | IsBlank(gblSelectedNetworkMnemonic) ||
+Src\srcMatchDashboard.pa.yaml | Line 691 | gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 737 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 749 | 'Insurance Auths',
+Src\srcMatchDashboard.pa.yaml | Line 750 | IsBlank(gblSelectedNetworkMnemonic) ||
+Src\srcMatchDashboard.pa.yaml | Line 752 | gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 762 | 'Insurance Authorization Status Mnemonic Source',
+Src\srcMatchDashboard.pa.yaml | Line 772 | 'Insurance Authorization Status Mnemonic Source',
+Src\srcMatchDashboard.pa.yaml | Line 776 | 'Insurance Authorization Status Name Source',
+Src\srcMatchDashboard.pa.yaml | Line 787 | 'Insurance Authorization Status Mnemonic Target',
+Src\srcMatchDashboard.pa.yaml | Line 791 | 'Insurance Authorization Status Name Target',
+Src\srcMatchDashboard.pa.yaml | Line 799 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 812 | IsBlank(gblSelectedNetworkMnemonic) ||
+Src\srcMatchDashboard.pa.yaml | Line 814 | gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 855 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 868 | IsBlank(gblSelectedNetworkMnemonic) ||
+Src\srcMatchDashboard.pa.yaml | Line 870 | gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 918 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 931 | IsBlank(gblSelectedNetworkMnemonic) ||
+Src\srcMatchDashboard.pa.yaml | Line 933 | gblSelectedNetworkMnemonic
+Src\srcMatchDashboard.pa.yaml | Line 981 | TargetMatchMtx: Coalesce(
+Src\srcMatchDashboard.pa.yaml | Line 1005 | TargetMatchMtx: "",
+Src\srcMatchDashboard.pa.yaml | Line 1015 | TargetMatchMtx = "NO MATCH",
+Src\srcMatchDashboard.pa.yaml | Line 1017 | TargetMatchMtx,
+Src\srcMatchDashboard.pa.yaml | Line 1028 | scrAccommodations,
+Src\srcMatchDashboard.pa.yaml | Line 1098 | scrAccommodations,
+Src\srcMatchDashboard.pa.yaml | Line 1202 | ThisItem.TargetMatchMtx = "NO MATCH",
+Src\srcMatchDashboard.pa.yaml | Line 1211 | IsBlank(ThisItem.TargetMatchMtx),
+Src\srcMatchDashboard.pa.yaml | Line 1213 | ThisItem.TargetMatchMtx
+Src\srcMatchDashboard.pa.yaml | Line 1224 | IsBlank(ThisItem.TargetMatchMtx) ||
+Src\srcMatchDashboard.pa.yaml | Line 1225 | ThisItem.TargetMatchMtx = "NO MATCH",
+Src\srcMatchDashboard.pa.yaml | Line 1232 | IsBlank(ThisItem.TargetMatchMtx) ||
+Src\srcMatchDashboard.pa.yaml | Line 1233 | ThisItem.TargetMatchMtx = "NO MATCH",
+Src\srcMatchDashboard.pa.yaml | Line 1242 | ThisItem.TargetMatchMtx,
+Src\srcMatchDashboard.pa.yaml | Line 1258 | 'Reg Config Categories',
+Src\srcMatchDashboard.pa.yaml | Line 1321 | 'dim.Ref.Organizations',
+Src\srcMatchDashboard.pa.yaml | Line 1340 | gblSelectedNetworkMnemonic,
+Src\srcMatchDashboard.pa.yaml | Line 1342 | 'dim.Ref.Organizations',
+Src\srcMatchDashboard.pa.yaml | Line 1397 | 'dim.Ref.Organizations',
+Src\srcMatchDashboard.pa.yaml | Line 1450 | gblSelectedNetworkMnemonic,
+Src\srcMatchDashboard.pa.yaml | Line 1507 | gblSelectedNetworkMnemonic,

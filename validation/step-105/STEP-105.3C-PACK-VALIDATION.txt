@@ -1,0 +1,15 @@
+============================================================
+ECCS STEP 105.3C - LOCATIONS CANDIDATE PACK VALIDATION
+============================================================
+
+Candidate:
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\validation\step-105\ECCS - Registration Cutover Config - 105.3C-Locations.msapp
+
+Package entry count:
+52
+
+Source YAML entry count:
+19
+
+Git branch:
+feature/registration-pilot

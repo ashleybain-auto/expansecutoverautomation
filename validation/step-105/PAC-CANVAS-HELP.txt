@@ -1,0 +1,18 @@
+Microsoft PowerPlatform CLI
+Version: 2.12.2+ga6b1ffa (.NET 10.0.12)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Help: 
+Operating with Power Apps .msapp files.
+
+Commands: 
+Usage: pac canvas [download] [list] [pack] [unpack] [create]
+
+  download     Download canvas app as .msapp file
+  list         List canvas apps
+  pack         (Preview) Pack sources into an msapp file
+  unpack       (Preview) Extract an msapp file into sources
+  create       Generate a canvas app from a custom connector
+
+

@@ -1,0 +1,1371 @@
+============================================================
+ECCS STEP 105.3B - LOCATIONS PATCH SOURCE
+============================================================
+
+GIT BRANCH
+feature/registration-pilot
+
+============================================================
+CURRENT SHARED COMPONENT
+============================================================
+
+----- COMPONENT MATCH LINE 65 -----
+    51:         DataType: Text
+    52:         Default: ="Text"
+    53:       WorksheetName:
+    54:         PropertyKind: Input
+    55:         DisplayName: WorksheetName
+    56:         Description: '"Worksheet Name"'
+    57:         RaiseOnReset: true
+    58:         DataType: Text
+    59:         Default: ="Text"
+    60:     Properties:
+    61:       Height: =500
+    62:       SelectedRecord: =galWaveFacilityWkstGlobal.Selected
+    63:       Width: =625
+    64:     Children:
+    65:       - galWaveFacilityWkstGlobal:
+    66:           Control: Gallery@2.15.0
+    67:           Variant: BrowseLayout_Vertical_TwoTextVariant_ver5.0
+    68:           Properties:
+    69:             BorderColor: =ColorValue("#03173E")
+    70:             Height: =349
+    71:             Items: |-
+    72:               =Switch(
+    73:                   Substitute(
+    74:                       Trim(
+    75:                           Coalesce(
+    76:                               gblSelectedWorksheet,
+    77:                               ""
+    78:                           )
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+   107:                               SourcePACode: Coalesce(
+   108:                                   PA_Code_Source,
+   109:                                   ""
+   110:                               ),
+   111:                               SourceActive: Text(
+   112:                                   Active_Source
+   113:                               ),
+   114: 
+   115:                               TargetFacility: Coalesce(
+   116:                                   FacilityMnem_Target,
+   117:                                   ""
+   118:                               ),
+   119:                               TargetMnemonic: Coalesce(
+   120:                                   Accommodation_Mnem_Target,
+   121:                                   ""
+   122:                               ),
+   123:                               TargetName: Coalesce(
+   124:                                   Accommodation_Name_Target,
+   125:                                   ""
+   126:                               ),
+   127:                               TargetPACode: Coalesce(
+   128:                                   PA_Code_Target,
+   129:                                   ""
+   130:                               ),
+   131:                               TargetActive: Coalesce(
+   132:                                   Active_Target_Value,
+   133:                                   ""
+   134:                               ),
+   135:                               TargetMatchMtx: Coalesce(
+   136:                                   TargetMatchMtx,
+   137:                                   ""
+   138:                               ),
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   FirstN(
+   145:                       Table(
+   146:                           {
+   147:                               RecordKey: "",
+   148:                               WorksheetName: "",
+   149:                               SourceFacility: "",
+   150:                               SourceMnemonic: "",
+   151:                               SourceName: "",
+   152:                               SourcePACode: "",
+   153:                               SourceActive: "",
+   154:                               TargetFacility: "",
+   155:                               TargetMnemonic: "",
+   156:                               TargetName: "",
+   157:                               TargetPACode: "",
+   158:                               TargetActive: "",
+   159:                               TargetMatchMtx: "",
+   160:                               ReadOnly: true
+   161:                           }
+   162:                       ),
+   163:                       0
+   164:                   )
+   165:               )
+   166:             TemplateSize: =50
+   167:             Width: =625
+   168:             Y: =151
+   169:           Children:
+   170:             - scrFilterGalleryG:
+   171:                 Control: Label@2.5.1
+   172:                 Properties:
+   173:                   BorderColor: =RGBA(0, 0, 0, 1)
+   174:                   Color: =RGBA(50, 49, 48, 1)
+   175:                   Font: =Font.Arial
+   176:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   177:                   Height: =Self.Size * 1.8
+   178:                   OnSelect: =Select(Parent)
+   179:                   PaddingBottom: =0
+   180:                   PaddingLeft: =0
+   181:                   PaddingRight: =0
+   182:                   PaddingTop: =0
+   183:                   Size: =11
+   184:                   Text: =ThisItem.RecordKey
+   185:                   VerticalAlign: =VerticalAlign.Top
+   186:                   Width: =Parent.TemplateWidth - 86
+   187:                   X: =16
+   188:                   Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + subWkstSelectGlobal.Size * 1.8)) / 2
+   189:             - subWkstSelectGlobal:
+   190:                 Control: Label@2.5.1
+   191:                 Properties:
+   192:                   BorderColor: =RGBA(0, 0, 0, 1)
+   193:                   FocusedBorderThickness: =2
+   194:                   Font: =Font.Arial
+   195:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   196:                   Height: =Self.Size * 1.8
+   197:                   OnSelect: =Select(Parent)
+   198:                   PaddingBottom: =0
+   199:                   PaddingLeft: =0
+   200:                   PaddingRight: =0
+   201:                   PaddingTop: =0
+   202:                   Size: =11
+   203:                   Text: =
+   204:                   VerticalAlign: =VerticalAlign.Top
+   205:                   Width: =scrFilterGalleryG.Width
+   206:                   X: =scrFilterGalleryG.X
+   207:                   Y: =scrFilterGalleryG.Y + scrFilterGalleryG.Height
+   208:             - NextArrow6:
+   209:                 Control: Classic/Icon@2.5.0
+   210:                 Properties:
+   211:                   AccessibleLabel: =Self.Tooltip
+   212:                   BorderColor: =ColorValue("#03173E")
+   213:                   Color: =RGBA(166, 166, 166, 1)
+   214:                   Height: =50
+   215:                   Icon: =Icon.ChevronRight
+   216:                   OnSelect: =Select(Parent)
+
+----- COMPONENT MATCH LINE 71 -----
+    57:         RaiseOnReset: true
+    58:         DataType: Text
+    59:         Default: ="Text"
+    60:     Properties:
+    61:       Height: =500
+    62:       SelectedRecord: =galWaveFacilityWkstGlobal.Selected
+    63:       Width: =625
+    64:     Children:
+    65:       - galWaveFacilityWkstGlobal:
+    66:           Control: Gallery@2.15.0
+    67:           Variant: BrowseLayout_Vertical_TwoTextVariant_ver5.0
+    68:           Properties:
+    69:             BorderColor: =ColorValue("#03173E")
+    70:             Height: =349
+    71:             Items: |-
+    72:               =Switch(
+    73:                   Substitute(
+    74:                       Trim(
+    75:                           Coalesce(
+    76:                               gblSelectedWorksheet,
+    77:                               ""
+    78:                           )
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+   107:                               SourcePACode: Coalesce(
+   108:                                   PA_Code_Source,
+   109:                                   ""
+   110:                               ),
+   111:                               SourceActive: Text(
+   112:                                   Active_Source
+   113:                               ),
+   114: 
+   115:                               TargetFacility: Coalesce(
+   116:                                   FacilityMnem_Target,
+   117:                                   ""
+   118:                               ),
+   119:                               TargetMnemonic: Coalesce(
+   120:                                   Accommodation_Mnem_Target,
+   121:                                   ""
+   122:                               ),
+   123:                               TargetName: Coalesce(
+   124:                                   Accommodation_Name_Target,
+   125:                                   ""
+   126:                               ),
+   127:                               TargetPACode: Coalesce(
+   128:                                   PA_Code_Target,
+   129:                                   ""
+   130:                               ),
+   131:                               TargetActive: Coalesce(
+   132:                                   Active_Target_Value,
+   133:                                   ""
+   134:                               ),
+   135:                               TargetMatchMtx: Coalesce(
+   136:                                   TargetMatchMtx,
+   137:                                   ""
+   138:                               ),
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   FirstN(
+   145:                       Table(
+   146:                           {
+   147:                               RecordKey: "",
+   148:                               WorksheetName: "",
+   149:                               SourceFacility: "",
+   150:                               SourceMnemonic: "",
+   151:                               SourceName: "",
+   152:                               SourcePACode: "",
+   153:                               SourceActive: "",
+   154:                               TargetFacility: "",
+   155:                               TargetMnemonic: "",
+   156:                               TargetName: "",
+   157:                               TargetPACode: "",
+   158:                               TargetActive: "",
+   159:                               TargetMatchMtx: "",
+   160:                               ReadOnly: true
+   161:                           }
+   162:                       ),
+   163:                       0
+   164:                   )
+   165:               )
+   166:             TemplateSize: =50
+   167:             Width: =625
+   168:             Y: =151
+   169:           Children:
+   170:             - scrFilterGalleryG:
+   171:                 Control: Label@2.5.1
+   172:                 Properties:
+   173:                   BorderColor: =RGBA(0, 0, 0, 1)
+   174:                   Color: =RGBA(50, 49, 48, 1)
+   175:                   Font: =Font.Arial
+   176:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   177:                   Height: =Self.Size * 1.8
+   178:                   OnSelect: =Select(Parent)
+   179:                   PaddingBottom: =0
+   180:                   PaddingLeft: =0
+   181:                   PaddingRight: =0
+   182:                   PaddingTop: =0
+   183:                   Size: =11
+   184:                   Text: =ThisItem.RecordKey
+   185:                   VerticalAlign: =VerticalAlign.Top
+   186:                   Width: =Parent.TemplateWidth - 86
+   187:                   X: =16
+   188:                   Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + subWkstSelectGlobal.Size * 1.8)) / 2
+   189:             - subWkstSelectGlobal:
+   190:                 Control: Label@2.5.1
+   191:                 Properties:
+   192:                   BorderColor: =RGBA(0, 0, 0, 1)
+   193:                   FocusedBorderThickness: =2
+   194:                   Font: =Font.Arial
+   195:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   196:                   Height: =Self.Size * 1.8
+   197:                   OnSelect: =Select(Parent)
+   198:                   PaddingBottom: =0
+   199:                   PaddingLeft: =0
+   200:                   PaddingRight: =0
+   201:                   PaddingTop: =0
+   202:                   Size: =11
+   203:                   Text: =
+   204:                   VerticalAlign: =VerticalAlign.Top
+   205:                   Width: =scrFilterGalleryG.Width
+   206:                   X: =scrFilterGalleryG.X
+   207:                   Y: =scrFilterGalleryG.Y + scrFilterGalleryG.Height
+   208:             - NextArrow6:
+   209:                 Control: Classic/Icon@2.5.0
+   210:                 Properties:
+   211:                   AccessibleLabel: =Self.Tooltip
+   212:                   BorderColor: =ColorValue("#03173E")
+   213:                   Color: =RGBA(166, 166, 166, 1)
+   214:                   Height: =50
+   215:                   Icon: =Icon.ChevronRight
+   216:                   OnSelect: =Select(Parent)
+   217:                   PaddingBottom: =16
+   218:                   PaddingLeft: =16
+   219:                   PaddingRight: =16
+   220:                   PaddingTop: =16
+   221:                   Tooltip: ="View item details"
+   222:                   Width: =50
+
+----- COMPONENT MATCH LINE 84 -----
+    70:             Height: =349
+    71:             Items: |-
+    72:               =Switch(
+    73:                   Substitute(
+    74:                       Trim(
+    75:                           Coalesce(
+    76:                               gblSelectedWorksheet,
+    77:                               ""
+    78:                           )
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+   107:                               SourcePACode: Coalesce(
+   108:                                   PA_Code_Source,
+   109:                                   ""
+   110:                               ),
+   111:                               SourceActive: Text(
+   112:                                   Active_Source
+   113:                               ),
+   114: 
+   115:                               TargetFacility: Coalesce(
+   116:                                   FacilityMnem_Target,
+   117:                                   ""
+   118:                               ),
+   119:                               TargetMnemonic: Coalesce(
+   120:                                   Accommodation_Mnem_Target,
+   121:                                   ""
+   122:                               ),
+   123:                               TargetName: Coalesce(
+   124:                                   Accommodation_Name_Target,
+   125:                                   ""
+   126:                               ),
+   127:                               TargetPACode: Coalesce(
+   128:                                   PA_Code_Target,
+   129:                                   ""
+   130:                               ),
+   131:                               TargetActive: Coalesce(
+   132:                                   Active_Target_Value,
+   133:                                   ""
+   134:                               ),
+   135:                               TargetMatchMtx: Coalesce(
+   136:                                   TargetMatchMtx,
+   137:                                   ""
+   138:                               ),
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   FirstN(
+   145:                       Table(
+   146:                           {
+   147:                               RecordKey: "",
+   148:                               WorksheetName: "",
+   149:                               SourceFacility: "",
+   150:                               SourceMnemonic: "",
+   151:                               SourceName: "",
+   152:                               SourcePACode: "",
+   153:                               SourceActive: "",
+   154:                               TargetFacility: "",
+   155:                               TargetMnemonic: "",
+   156:                               TargetName: "",
+   157:                               TargetPACode: "",
+   158:                               TargetActive: "",
+   159:                               TargetMatchMtx: "",
+   160:                               ReadOnly: true
+   161:                           }
+   162:                       ),
+   163:                       0
+   164:                   )
+   165:               )
+   166:             TemplateSize: =50
+   167:             Width: =625
+   168:             Y: =151
+   169:           Children:
+   170:             - scrFilterGalleryG:
+   171:                 Control: Label@2.5.1
+   172:                 Properties:
+   173:                   BorderColor: =RGBA(0, 0, 0, 1)
+   174:                   Color: =RGBA(50, 49, 48, 1)
+   175:                   Font: =Font.Arial
+   176:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   177:                   Height: =Self.Size * 1.8
+   178:                   OnSelect: =Select(Parent)
+   179:                   PaddingBottom: =0
+   180:                   PaddingLeft: =0
+   181:                   PaddingRight: =0
+   182:                   PaddingTop: =0
+   183:                   Size: =11
+   184:                   Text: =ThisItem.RecordKey
+   185:                   VerticalAlign: =VerticalAlign.Top
+   186:                   Width: =Parent.TemplateWidth - 86
+   187:                   X: =16
+   188:                   Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + subWkstSelectGlobal.Size * 1.8)) / 2
+   189:             - subWkstSelectGlobal:
+   190:                 Control: Label@2.5.1
+   191:                 Properties:
+   192:                   BorderColor: =RGBA(0, 0, 0, 1)
+   193:                   FocusedBorderThickness: =2
+   194:                   Font: =Font.Arial
+   195:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   196:                   Height: =Self.Size * 1.8
+   197:                   OnSelect: =Select(Parent)
+   198:                   PaddingBottom: =0
+   199:                   PaddingLeft: =0
+   200:                   PaddingRight: =0
+   201:                   PaddingTop: =0
+   202:                   Size: =11
+   203:                   Text: =
+   204:                   VerticalAlign: =VerticalAlign.Top
+   205:                   Width: =scrFilterGalleryG.Width
+   206:                   X: =scrFilterGalleryG.X
+   207:                   Y: =scrFilterGalleryG.Y + scrFilterGalleryG.Height
+   208:             - NextArrow6:
+   209:                 Control: Classic/Icon@2.5.0
+   210:                 Properties:
+   211:                   AccessibleLabel: =Self.Tooltip
+   212:                   BorderColor: =ColorValue("#03173E")
+   213:                   Color: =RGBA(166, 166, 166, 1)
+   214:                   Height: =50
+   215:                   Icon: =Icon.ChevronRight
+   216:                   OnSelect: =Select(Parent)
+   217:                   PaddingBottom: =16
+   218:                   PaddingLeft: =16
+   219:                   PaddingRight: =16
+   220:                   PaddingTop: =16
+   221:                   Tooltip: ="View item details"
+   222:                   Width: =50
+   223:                   X: =Parent.TemplateWidth - Self.Width - 12
+   224:                   Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+   225:             - Separator6:
+   226:                 Control: Rectangle@2.3.0
+   227:                 Properties:
+   228:                   BorderColor: =ColorValue("#03173E")
+   229:                   Fill: =RGBA(255, 255, 255, 1)
+   230:                   Height: =2
+   231:                   OnSelect: =Select(Parent)
+   232:                   Width: =Parent.TemplateWidth
+   233:                   Y: =Parent.TemplateHeight - Self.Height
+   234:             - Rectangle5:
+   235:                 Control: Rectangle@2.3.0
+
+----- COMPONENT MATCH LINE 93 -----
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+   107:                               SourcePACode: Coalesce(
+   108:                                   PA_Code_Source,
+   109:                                   ""
+   110:                               ),
+   111:                               SourceActive: Text(
+   112:                                   Active_Source
+   113:                               ),
+   114: 
+   115:                               TargetFacility: Coalesce(
+   116:                                   FacilityMnem_Target,
+   117:                                   ""
+   118:                               ),
+   119:                               TargetMnemonic: Coalesce(
+   120:                                   Accommodation_Mnem_Target,
+   121:                                   ""
+   122:                               ),
+   123:                               TargetName: Coalesce(
+   124:                                   Accommodation_Name_Target,
+   125:                                   ""
+   126:                               ),
+   127:                               TargetPACode: Coalesce(
+   128:                                   PA_Code_Target,
+   129:                                   ""
+   130:                               ),
+   131:                               TargetActive: Coalesce(
+   132:                                   Active_Target_Value,
+   133:                                   ""
+   134:                               ),
+   135:                               TargetMatchMtx: Coalesce(
+   136:                                   TargetMatchMtx,
+   137:                                   ""
+   138:                               ),
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   FirstN(
+   145:                       Table(
+   146:                           {
+   147:                               RecordKey: "",
+   148:                               WorksheetName: "",
+   149:                               SourceFacility: "",
+   150:                               SourceMnemonic: "",
+   151:                               SourceName: "",
+   152:                               SourcePACode: "",
+   153:                               SourceActive: "",
+   154:                               TargetFacility: "",
+   155:                               TargetMnemonic: "",
+   156:                               TargetName: "",
+   157:                               TargetPACode: "",
+   158:                               TargetActive: "",
+   159:                               TargetMatchMtx: "",
+   160:                               ReadOnly: true
+   161:                           }
+   162:                       ),
+   163:                       0
+   164:                   )
+   165:               )
+   166:             TemplateSize: =50
+   167:             Width: =625
+   168:             Y: =151
+   169:           Children:
+   170:             - scrFilterGalleryG:
+   171:                 Control: Label@2.5.1
+   172:                 Properties:
+   173:                   BorderColor: =RGBA(0, 0, 0, 1)
+   174:                   Color: =RGBA(50, 49, 48, 1)
+   175:                   Font: =Font.Arial
+   176:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   177:                   Height: =Self.Size * 1.8
+   178:                   OnSelect: =Select(Parent)
+   179:                   PaddingBottom: =0
+   180:                   PaddingLeft: =0
+   181:                   PaddingRight: =0
+   182:                   PaddingTop: =0
+   183:                   Size: =11
+   184:                   Text: =ThisItem.RecordKey
+   185:                   VerticalAlign: =VerticalAlign.Top
+   186:                   Width: =Parent.TemplateWidth - 86
+   187:                   X: =16
+   188:                   Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + subWkstSelectGlobal.Size * 1.8)) / 2
+   189:             - subWkstSelectGlobal:
+   190:                 Control: Label@2.5.1
+   191:                 Properties:
+   192:                   BorderColor: =RGBA(0, 0, 0, 1)
+   193:                   FocusedBorderThickness: =2
+   194:                   Font: =Font.Arial
+   195:                   FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+   196:                   Height: =Self.Size * 1.8
+   197:                   OnSelect: =Select(Parent)
+   198:                   PaddingBottom: =0
+   199:                   PaddingLeft: =0
+   200:                   PaddingRight: =0
+   201:                   PaddingTop: =0
+   202:                   Size: =11
+   203:                   Text: =
+   204:                   VerticalAlign: =VerticalAlign.Top
+   205:                   Width: =scrFilterGalleryG.Width
+   206:                   X: =scrFilterGalleryG.X
+   207:                   Y: =scrFilterGalleryG.Y + scrFilterGalleryG.Height
+   208:             - NextArrow6:
+   209:                 Control: Classic/Icon@2.5.0
+   210:                 Properties:
+   211:                   AccessibleLabel: =Self.Tooltip
+   212:                   BorderColor: =ColorValue("#03173E")
+   213:                   Color: =RGBA(166, 166, 166, 1)
+   214:                   Height: =50
+   215:                   Icon: =Icon.ChevronRight
+   216:                   OnSelect: =Select(Parent)
+   217:                   PaddingBottom: =16
+   218:                   PaddingLeft: =16
+   219:                   PaddingRight: =16
+   220:                   PaddingTop: =16
+   221:                   Tooltip: ="View item details"
+   222:                   Width: =50
+   223:                   X: =Parent.TemplateWidth - Self.Width - 12
+   224:                   Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+   225:             - Separator6:
+   226:                 Control: Rectangle@2.3.0
+   227:                 Properties:
+   228:                   BorderColor: =ColorValue("#03173E")
+   229:                   Fill: =RGBA(255, 255, 255, 1)
+   230:                   Height: =2
+   231:                   OnSelect: =Select(Parent)
+   232:                   Width: =Parent.TemplateWidth
+   233:                   Y: =Parent.TemplateHeight - Self.Height
+   234:             - Rectangle5:
+   235:                 Control: Rectangle@2.3.0
+   236:                 Properties:
+   237:                   BorderColor: =ColorValue("#03173E")
+   238:                   Fill: =RGBA(0, 89, 178, 1)
+   239:                   Height: =Parent.TemplateHeight - Separator6.Height
+   240:                   OnSelect: =Select(Parent)
+   241:                   Visible: =ThisItem.IsSelected
+   242:                   Width: =4
+   243:       - drpWaveSubWaveG:
+   244:           Control: ModernDropdown@1.0.3
+
+----- COMPONENT MATCH LINE 249 -----
+   235:                 Control: Rectangle@2.3.0
+   236:                 Properties:
+   237:                   BorderColor: =ColorValue("#03173E")
+   238:                   Fill: =RGBA(0, 89, 178, 1)
+   239:                   Height: =Parent.TemplateHeight - Separator6.Height
+   240:                   OnSelect: =Select(Parent)
+   241:                   Visible: =ThisItem.IsSelected
+   242:                   Width: =4
+   243:       - drpWaveSubWaveG:
+   244:           Control: ModernDropdown@1.0.3
+   245:           Properties:
+   246:             Font: =Font.Arial
+   247:             Height: =26
+   248:             ItemDisplayText: =ThisItem.Value
+   249:             Items: |-
+   250:               =Sort(
+   251:                   Distinct(
+   252:                       Filter(
+   253:                           'dim.Ref.Organizations',
+   254:                           !IsBlank('Wave Number') &&
+   255:                           'Wave Number' <> "Wave" &&
+   256:                           'Wave Number' <> "NULL" &&
+   257:                           !IsBlank('SubWave2 Code') &&
+   258:                           'SubWave2 Code' <> "SubWave" &&
+   259:                           'SubWave2 Code' <> "NULL"
+   260:                       ),
+   261:                       'Wave Number' & " - " & 'SubWave2 Code'
+   262:                   ),
+   263:                   Value,
+   264:                   SortOrder.Ascending
+   265:               )
+   266:             OnChange: |-
+   267:               =Set(
+   268:                   gblSelectedWaveNumber,
+   269:                   First(
+   270:                       Split(
+   271:                           drpWaveSubWaveG.Selected.Value,
+   272:                           " - "
+   273:                       )
+   274:                   ).Value
+   275:               );
+   276:               Set(
+   277:                   gblSelectedSubWaveCode,
+   278:                   Last(
+   279:                       Split(
+   280:                           drpWaveSubWaveG.Selected.Value,
+   281:                           " - "
+   282:                       )
+   283:                   ).Value
+   284:               );
+   285:               Set(
+   286:                   gblSelectedFacility,
+   287:                   Blank()
+   288:               );
+   289:               Set(
+   290:                   gblSelectedNetworkMnemonic,
+   291:                   Blank()
+   292:               )
+   293:             Size: =12
+   294:             Width: =210
+   295:             X: =8
+   296:             Y: =32
+   297:       - lblGlbWaveSubwaveG:
+   298:           Control: ModernText@1.0.0
+   299:           Properties:
+   300:             Color: =ColorValue("#03173E")
+   301:             Font: =Font.Arial
+   302:             FontWeight: =FontWeight.Semibold
+   303:             Size: =13
+   304:             Text: ="WAVE - SUBWAVE"
+   305:             Width: =240
+   306:             X: =5
+   307:             Y: =3
+   308:       - drpFacilityMnemNameG:
+   309:           Control: ModernDropdown@1.0.3
+   310:           Properties:
+   311:             Font: =Font.Arial
+   312:             Height: =26
+   313:             ItemDisplayText: =ThisItem.'Facility Mnemonic'
+   314:             Items: |-
+   315:               =Sort(
+   316:                   Filter(
+   317:                       'dim.Ref.Organizations',
+   318:                       !IsBlank('Facility Mnemonic') &&
+   319:                       'Facility Mnemonic' <> "Facility Mnemonic" &&
+   320:                       'Facility Mnemonic' <> "NULL" &&
+   321:                       (
+   322:                           IsBlank(gblSelectedWaveNumber) ||
+   323:                           'Wave Number' = gblSelectedWaveNumber
+   324:                       ) &&
+   325:                       (
+   326:                           IsBlank(gblSelectedSubWaveCode) ||
+   327:                           'SubWave2 Code' = gblSelectedSubWaveCode
+   328:                       )
+   329:                   ),
+   330:                   'Facility Mnemonic',
+   331:                   SortOrder.Ascending
+   332:               )
+   333:             OnChange: |-
+   334:               =Set(
+   335:                   gblSelectedFacility,
+   336:                   drpFacilityMnemNameG.Selected.'Facility Mnemonic'
+   337:               );
+   338:               Set(
+   339:                   gblSelectedNetworkMnemonic,
+   340:                   drpFacilityMnemNameG.Selected.'Network Mnemonic'
+   341:               )
+   342:             Size: =12
+   343:             Width: =285
+   344:             X: =325
+   345:             Y: =32
+   346:       - lblGlbFacilityMneNameG:
+   347:           Control: ModernText@1.0.0
+   348:           Properties:
+   349:             Color: =ColorValue("#03173E")
+   350:             Font: =Font.Arial
+   351:             FontWeight: =FontWeight.Semibold
+   352:             Size: =13
+   353:             Text: ="FACILITY MNEMONIC/NAME"
+   354:             Width: =250
+   355:             X: =325
+   356:             Y: =3
+   357:       - drpRegWorksheetG:
+   358:           Control: ModernDropdown@1.0.3
+   359:           Properties:
+   360:             Font: =Font.Arial
+   361:             Height: =26
+   362:             ItemDisplayText: =ThisItem.'Reg Worksheet Name'
+   363:             Items: |-
+   364:               =Sort(
+   365:                   Filter(
+   366:                       'Reg Config Categories',
+   367:                       'Reg Worksheet Name' <> "REG ALL" &&
+   368:                       'Reg Worksheet Name' <> "REG [INSERT-UPLOAD]"
+   369:                   ),
+   370:                   'Reg Worksheet Name',
+   371:                   SortOrder.Ascending
+   372:               )
+   373:             OnChange: |-
+   374:               =Set(
+   375:                   gblSelectedWorksheet,
+   376:                   drpRegWorksheetG.Selected.'Reg Worksheet Name'
+   377:               )
+   378:             Size: =12
+   379:             X: =8
+   380:             Y: =102
+   381:       - lblRegWorksheetsG:
+   382:           Control: ModernText@1.0.0
+   383:           Properties:
+   384:             Color: =ColorValue("#03173E")
+   385:             Font: =Font.Arial
+   386:             FontWeight: =FontWeight.Semibold
+   387:             Height: =34
+   388:             Size: =13
+   389:             Text: ="REG WORKSHEET NAME"
+   390:             Width: =200
+   391:             X: =5
+   392:             Y: =68
+
+----- COMPONENT MATCH LINE 314 -----
+   300:             Color: =ColorValue("#03173E")
+   301:             Font: =Font.Arial
+   302:             FontWeight: =FontWeight.Semibold
+   303:             Size: =13
+   304:             Text: ="WAVE - SUBWAVE"
+   305:             Width: =240
+   306:             X: =5
+   307:             Y: =3
+   308:       - drpFacilityMnemNameG:
+   309:           Control: ModernDropdown@1.0.3
+   310:           Properties:
+   311:             Font: =Font.Arial
+   312:             Height: =26
+   313:             ItemDisplayText: =ThisItem.'Facility Mnemonic'
+   314:             Items: |-
+   315:               =Sort(
+   316:                   Filter(
+   317:                       'dim.Ref.Organizations',
+   318:                       !IsBlank('Facility Mnemonic') &&
+   319:                       'Facility Mnemonic' <> "Facility Mnemonic" &&
+   320:                       'Facility Mnemonic' <> "NULL" &&
+   321:                       (
+   322:                           IsBlank(gblSelectedWaveNumber) ||
+   323:                           'Wave Number' = gblSelectedWaveNumber
+   324:                       ) &&
+   325:                       (
+   326:                           IsBlank(gblSelectedSubWaveCode) ||
+   327:                           'SubWave2 Code' = gblSelectedSubWaveCode
+   328:                       )
+   329:                   ),
+   330:                   'Facility Mnemonic',
+   331:                   SortOrder.Ascending
+   332:               )
+   333:             OnChange: |-
+   334:               =Set(
+   335:                   gblSelectedFacility,
+   336:                   drpFacilityMnemNameG.Selected.'Facility Mnemonic'
+   337:               );
+   338:               Set(
+   339:                   gblSelectedNetworkMnemonic,
+   340:                   drpFacilityMnemNameG.Selected.'Network Mnemonic'
+   341:               )
+   342:             Size: =12
+   343:             Width: =285
+   344:             X: =325
+   345:             Y: =32
+   346:       - lblGlbFacilityMneNameG:
+   347:           Control: ModernText@1.0.0
+   348:           Properties:
+   349:             Color: =ColorValue("#03173E")
+   350:             Font: =Font.Arial
+   351:             FontWeight: =FontWeight.Semibold
+   352:             Size: =13
+   353:             Text: ="FACILITY MNEMONIC/NAME"
+   354:             Width: =250
+   355:             X: =325
+   356:             Y: =3
+   357:       - drpRegWorksheetG:
+   358:           Control: ModernDropdown@1.0.3
+   359:           Properties:
+   360:             Font: =Font.Arial
+   361:             Height: =26
+   362:             ItemDisplayText: =ThisItem.'Reg Worksheet Name'
+   363:             Items: |-
+   364:               =Sort(
+   365:                   Filter(
+   366:                       'Reg Config Categories',
+   367:                       'Reg Worksheet Name' <> "REG ALL" &&
+   368:                       'Reg Worksheet Name' <> "REG [INSERT-UPLOAD]"
+   369:                   ),
+   370:                   'Reg Worksheet Name',
+   371:                   SortOrder.Ascending
+   372:               )
+   373:             OnChange: |-
+   374:               =Set(
+   375:                   gblSelectedWorksheet,
+   376:                   drpRegWorksheetG.Selected.'Reg Worksheet Name'
+   377:               )
+   378:             Size: =12
+   379:             X: =8
+   380:             Y: =102
+   381:       - lblRegWorksheetsG:
+   382:           Control: ModernText@1.0.0
+   383:           Properties:
+   384:             Color: =ColorValue("#03173E")
+   385:             Font: =Font.Arial
+   386:             FontWeight: =FontWeight.Semibold
+   387:             Height: =34
+   388:             Size: =13
+   389:             Text: ="REG WORKSHEET NAME"
+   390:             Width: =200
+   391:             X: =5
+   392:             Y: =68
+
+----- COMPONENT MATCH LINE 363 -----
+   349:             Color: =ColorValue("#03173E")
+   350:             Font: =Font.Arial
+   351:             FontWeight: =FontWeight.Semibold
+   352:             Size: =13
+   353:             Text: ="FACILITY MNEMONIC/NAME"
+   354:             Width: =250
+   355:             X: =325
+   356:             Y: =3
+   357:       - drpRegWorksheetG:
+   358:           Control: ModernDropdown@1.0.3
+   359:           Properties:
+   360:             Font: =Font.Arial
+   361:             Height: =26
+   362:             ItemDisplayText: =ThisItem.'Reg Worksheet Name'
+   363:             Items: |-
+   364:               =Sort(
+   365:                   Filter(
+   366:                       'Reg Config Categories',
+   367:                       'Reg Worksheet Name' <> "REG ALL" &&
+   368:                       'Reg Worksheet Name' <> "REG [INSERT-UPLOAD]"
+   369:                   ),
+   370:                   'Reg Worksheet Name',
+   371:                   SortOrder.Ascending
+   372:               )
+   373:             OnChange: |-
+   374:               =Set(
+   375:                   gblSelectedWorksheet,
+   376:                   drpRegWorksheetG.Selected.'Reg Worksheet Name'
+   377:               )
+   378:             Size: =12
+   379:             X: =8
+   380:             Y: =102
+   381:       - lblRegWorksheetsG:
+   382:           Control: ModernText@1.0.0
+   383:           Properties:
+   384:             Color: =ColorValue("#03173E")
+   385:             Font: =Font.Arial
+   386:             FontWeight: =FontWeight.Semibold
+   387:             Height: =34
+   388:             Size: =13
+   389:             Text: ="REG WORKSHEET NAME"
+   390:             Width: =200
+   391:             X: =5
+   392:             Y: =68
+
+============================================================
+PROVEN LOCATIONS ADAPTER FROM MATCH DASHBOARD
+============================================================
+
+----- LOCATIONS MATCH LINE 115 -----
+    81:             Width: =340
+    82:             X: =275
+    83:             Y: =152
+    84:           Children:
+    85:             - lblMatchCount:
+    86:                 Control: ModernText@1.0.0
+    87:                 Properties:
+    88:                   Align: =Align.Right
+    89:                   Font: =Font.Arial
+    90:                   Height: =53
+    91:                   Text: |-
+    92:                     =CountRows(
+    93:                         Filter(
+    94:                             Switch(
+    95:                                 Substitute(
+    96:                                     Trim(
+    97:                                         Coalesce(
+    98:                                             gblSelectedWorksheet,
+    99:                                             ""
+   100:                                         )
+   101:                                     ),
+   102:                                     "REG ",
+   103:                                     ""
+   104:                                 ),
+   105:                                 "Accommodations",
+   106:                                     ForAll(
+   107:                                         Filter(
+   108:                                             'Accommodation Data Clone',
+   109:                                             FacilityMnem_Source = gblSelectedFacility
+   110:                                         ),
+   111:                                         {
+   112:                                             TargetMatchMtx: Coalesce(TargetMatchMtx, "")
+   113:                                         }
+   114:                                     ),
+   115:                                 "Locations",
+   116:                                     ForAll(
+   117:                                         Filter(
+   118:                                             Locations,
+   119:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   120:                                         ),
+   121:                                         {
+   122:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   123:                                         }
+   124:                                     ),
+   125:                                 "Services",
+   126:                                     ForAll(
+   127:                                         Filter(
+   128:                                             Services,
+   129:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   130:                                         ),
+   131:                                         {
+   132:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   133:                                         }
+   134:                                     ),
+   135:                                 "Insurance",
+   136:                                     ForAll(
+   137:                                         Filter(
+   138:                                             Insurances,
+   139:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   140:                                         ),
+   141:                                         {
+   142:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   143:                                         }
+   144:                                     ),
+   145:                                 "RoomBed",
+   146:                                     ForAll(
+   147:                                         Filter(
+   148:                                             'Room Beds',
+   149:                                             'Source Facility Code' = gblSelectedFacility
+   150:                                         ),
+   151:                                         {
+   152:                                             TargetMatchMtx: Coalesce('Target Match Status', "")
+   153:                                         }
+   154:                                     ),
+   155:                                 "Discharge Disposition",
+   156:                                     ForAll(
+   157:                                         Filter(
+   158:                                             'Discharge Dispositions',
+   159:                                             'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+   160:                                         ),
+   161:                                         {
+   162:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   163:                                         }
+   164:                                     ),
+   165:                                 "Ins Auth Status",
+   166:                                     ForAll(
+   167:                                         Filter(
+   168:                                             'Insurance Auths',
+   169:                                             'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+   170:                                         ),
+   171:                                         {
+   172:                                             TargetMatchMtx: Coalesce('Target Match Matrix Note', "")
+   173:                                         }
+   174:                                     ),
+   175:                                 "Financial Approver",
+   176:                                     ForAll(
+   177:                                         Filter(
+   178:                                             'Financial Approvers',
+   179:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   180:                                         ),
+   181:                                         {
+   182:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   183:                                         }
+   184:                                     ),
+   185:                                 "Financial Class",
+   186:                                     ForAll(
+   187:                                         Filter(
+   188:                                             'Financial Classes',
+   189:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   190:                                         ),
+   191:                                         {
+   192:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   193:                                         }
+   194:                                     ),
+   195:                                 "Admit Source",
+   196:                                     ForAll(
+   197:                                         Filter(
+   198:                                             'Admit Source Mapping',
+   199:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   200:                                         ),
+   201:                                         {
+   202:                                             TargetMatchMtx: Coalesce('Match Status', "")
+   203:                                         }
+   204:                                     ),
+   205:                                 FirstN(
+   206:                                     Table(
+
+----- LOCATIONS MATCH LINE 401 -----
+   367:                                   ),
+   368:                                   SourceActive: Text(
+   369:                                       Active_Source
+   370:                                   ),
+   371: 
+   372:                                   TargetFacility: Coalesce(
+   373:                                       FacilityMnem_Target,
+   374:                                       ""
+   375:                                   ),
+   376:                                   TargetMnemonic: Coalesce(
+   377:                                       Accommodation_Mnem_Target,
+   378:                                       ""
+   379:                                   ),
+   380:                                   TargetName: Coalesce(
+   381:                                       Accommodation_Name_Target,
+   382:                                       ""
+   383:                                   ),
+   384:                                   TargetPACode: Coalesce(
+   385:                                       PA_Code_Target,
+   386:                                       ""
+   387:                                   ),
+   388:                                   TargetActive: Coalesce(
+   389:                                       Active_Target_Value,
+   390:                                       ""
+   391:                                   ),
+   392:                                   TargetMatchMtx: Coalesce(
+   393:                                       TargetMatchMtx,
+   394:                                       ""
+   395:                                   ),
+   396: 
+   397:                                   ReadOnly: false
+   398:                               }
+   399:                           ),
+   400: 
+   401:                       "Locations",
+   402:                           ForAll(
+   403:                               Filter(
+   404:                                   Locations,
+   405:                                   IsBlank(gblSelectedFacility) ||
+   406:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   407:                               ),
+   408:                               {
+   409:                                   RecordKey:
+   410:                                       Coalesce(
+   411:                                           'Source Facility Mnemonic',
+   412:                                           ""
+   413:                                       ) &
+   414:                                       "|" &
+   415:                                       Coalesce(
+   416:                                           'Source Location Mnemonic',
+   417:                                           ""
+   418:                                       ),
+   419:                                   WorksheetName: "Locations",
+   420: 
+   421:                                   SourceFacility: Coalesce(
+   422:                                       'Source Facility Mnemonic',
+   423:                                       ""
+   424:                                   ),
+   425:                                   SourceMnemonic: Coalesce(
+   426:                                       'Source Location Mnemonic',
+   427:                                       ""
+   428:                                   ),
+   429:                                   SourceName: Coalesce(
+   430:                                       'Source Location Name',
+   431:                                       ""
+   432:                                   ),
+   433:                                   SourcePACode: Coalesce(
+   434:                                       'Source PA Code',
+   435:                                       ""
+   436:                                   ),
+   437:                                   SourceActive: Coalesce(
+   438:                                       'Source Location Active',
+   439:                                       ""
+   440:                                   ),
+   441: 
+   442:                                   TargetFacility: Coalesce(
+   443:                                       'Target Facility Mnemonic',
+   444:                                       ""
+   445:                                   ),
+   446:                                   TargetMnemonic: Coalesce(
+   447:                                       'Target Location Mnemonic',
+   448:                                       ""
+   449:                                   ),
+   450:                                   TargetName: Coalesce(
+   451:                                       'Target Location Name',
+   452:                                       ""
+   453:                                   ),
+   454:                                   TargetPACode: Coalesce(
+   455:                                       'Target PA Code',
+   456:                                       ""
+   457:                                   ),
+   458:                                   TargetActive: Coalesce(
+   459:                                       'Target Location Active',
+   460:                                       ""
+   461:                                   ),
+   462:                                   TargetMatchMtx: Coalesce(
+   463:                                       'Target Match Matrix',
+   464:                                       ""
+   465:                                   ),
+   466: 
+   467:                                   ReadOnly: false
+   468:                               }
+   469:                           ),
+   470: 
+   471:                       "Services",
+   472:                           ForAll(
+   473:                               Filter(
+   474:                                   Services,
+   475:                                   IsBlank(gblSelectedFacility) ||
+   476:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   477:                               ),
+   478:                               {
+   479:                                   RecordKey:
+   480:                                       Coalesce(
+   481:                                           'Source Facility Mnemonic',
+   482:                                           ""
+   483:                                       ) &
+   484:                                       "|" &
+   485:                                       Coalesce(
+   486:                                           'Source Service Mnemonic',
+   487:                                           ""
+   488:                                       ),
+   489:                                   WorksheetName: "Services",
+   490: 
+   491:                                   SourceFacility: Coalesce(
+   492:                                       'Source Facility Mnemonic',
+
+----- LOCATIONS MATCH LINE 419 -----
+   385:                                       PA_Code_Target,
+   386:                                       ""
+   387:                                   ),
+   388:                                   TargetActive: Coalesce(
+   389:                                       Active_Target_Value,
+   390:                                       ""
+   391:                                   ),
+   392:                                   TargetMatchMtx: Coalesce(
+   393:                                       TargetMatchMtx,
+   394:                                       ""
+   395:                                   ),
+   396: 
+   397:                                   ReadOnly: false
+   398:                               }
+   399:                           ),
+   400: 
+   401:                       "Locations",
+   402:                           ForAll(
+   403:                               Filter(
+   404:                                   Locations,
+   405:                                   IsBlank(gblSelectedFacility) ||
+   406:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   407:                               ),
+   408:                               {
+   409:                                   RecordKey:
+   410:                                       Coalesce(
+   411:                                           'Source Facility Mnemonic',
+   412:                                           ""
+   413:                                       ) &
+   414:                                       "|" &
+   415:                                       Coalesce(
+   416:                                           'Source Location Mnemonic',
+   417:                                           ""
+   418:                                       ),
+   419:                                   WorksheetName: "Locations",
+   420: 
+   421:                                   SourceFacility: Coalesce(
+   422:                                       'Source Facility Mnemonic',
+   423:                                       ""
+   424:                                   ),
+   425:                                   SourceMnemonic: Coalesce(
+   426:                                       'Source Location Mnemonic',
+   427:                                       ""
+   428:                                   ),
+   429:                                   SourceName: Coalesce(
+   430:                                       'Source Location Name',
+   431:                                       ""
+   432:                                   ),
+   433:                                   SourcePACode: Coalesce(
+   434:                                       'Source PA Code',
+   435:                                       ""
+   436:                                   ),
+   437:                                   SourceActive: Coalesce(
+   438:                                       'Source Location Active',
+   439:                                       ""
+   440:                                   ),
+   441: 
+   442:                                   TargetFacility: Coalesce(
+   443:                                       'Target Facility Mnemonic',
+   444:                                       ""
+   445:                                   ),
+   446:                                   TargetMnemonic: Coalesce(
+   447:                                       'Target Location Mnemonic',
+   448:                                       ""
+   449:                                   ),
+   450:                                   TargetName: Coalesce(
+   451:                                       'Target Location Name',
+   452:                                       ""
+   453:                                   ),
+   454:                                   TargetPACode: Coalesce(
+   455:                                       'Target PA Code',
+   456:                                       ""
+   457:                                   ),
+   458:                                   TargetActive: Coalesce(
+   459:                                       'Target Location Active',
+   460:                                       ""
+   461:                                   ),
+   462:                                   TargetMatchMtx: Coalesce(
+   463:                                       'Target Match Matrix',
+   464:                                       ""
+   465:                                   ),
+   466: 
+   467:                                   ReadOnly: false
+   468:                               }
+   469:                           ),
+   470: 
+   471:                       "Services",
+   472:                           ForAll(
+   473:                               Filter(
+   474:                                   Services,
+   475:                                   IsBlank(gblSelectedFacility) ||
+   476:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   477:                               ),
+   478:                               {
+   479:                                   RecordKey:
+   480:                                       Coalesce(
+   481:                                           'Source Facility Mnemonic',
+   482:                                           ""
+   483:                                       ) &
+   484:                                       "|" &
+   485:                                       Coalesce(
+   486:                                           'Source Service Mnemonic',
+   487:                                           ""
+   488:                                       ),
+   489:                                   WorksheetName: "Services",
+   490: 
+   491:                                   SourceFacility: Coalesce(
+   492:                                       'Source Facility Mnemonic',
+   493:                                       ""
+   494:                                   ),
+   495:                                   SourceMnemonic: Coalesce(
+   496:                                       'Source Service Mnemonic',
+   497:                                       ""
+   498:                                   ),
+   499:                                   SourceName: Coalesce(
+   500:                                       'Source Service Name',
+   501:                                       ""
+   502:                                   ),
+   503:                                   SourcePACode: Coalesce(
+   504:                                       'Source Service PA Code',
+   505:                                       ""
+   506:                                   ),
+   507:                                   SourceActive: Text(
+   508:                                       'Source Active Status'
+   509:                                   ),
+   510: 

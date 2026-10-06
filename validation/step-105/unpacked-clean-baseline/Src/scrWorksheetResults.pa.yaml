@@ -1,0 +1,99 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrWorksheetResults:
+    Properties:
+      Fill: =RGBA(232, 232, 232, 1)
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+    Children:
+      - cmpDrpdwnFiltersFacilityWks_Bulk:
+          Control: CanvasComponent
+          ComponentName: cmpDrpdwnFiltersFacilityWksG
+          Properties:
+            BoardSubtitle: ="Text"
+            BoardTitle: ="Text"
+            FacilityMnemonicName: ="Text"
+            Height: =150
+            Records: ="Text"
+            WaveSubwave: ="Text"
+            Width: =900
+            WorksheetName: ="Text"
+            Y: =88
+      - Import2:
+          Control: Import@2.1.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            Fill: =RGBA(0, 51, 102, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+            PressedBorderColor: =ColorFade(Self.BorderColor, -20%)
+            PressedFill: =ColorFade(Self.Fill, -20%)
+            X: =1167
+            Y: =133
+      - Export2:
+          Control: Export@2.1.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            Fill: =RGBA(0, 51, 102, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+            PressedBorderColor: =ColorFade(Self.BorderColor, -20%)
+            PressedFill: =ColorFade(Self.Fill, -20%)
+            X: =1167
+            Y: =220
+      - shpWorkSheetHeader:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =ColorValue("#03173E")
+            Height: =88
+            Width: =1366
+      - lblResultTitle:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =Color.White
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =48
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =20
+            Text: ="Expanse Cutover & Configuration Suite"
+            Width: =500
+            X: =28
+      - lblResultSubtitle:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#E05929")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            Text: ="Registration | Worksheet Bulk Import/Export"
+            Width: =477
+            X: =28
+            Y: =38
+      - cmpECCSNavigationBar_5:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            Width: =620
+            X: =696
+            Y: =26

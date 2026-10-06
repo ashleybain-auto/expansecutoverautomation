@@ -1,0 +1,106 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmpAppPageTemplateGlobal:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    CustomProperties:
+      BoardSubtitle:
+        PropertyKind: Input
+        DisplayName: Board Subtitle
+        Description: '"Expanse Automation"'
+        DataType: Text
+        Default: ="Expanse Automation"
+      BoardTitle:
+        PropertyKind: Input
+        DisplayName: Board Title
+        Description: '"Expanse Cutover Automation Configuration Suite"'
+        DataType: Text
+        Default: ="Expanse Cutover Automation Configuration Suite"
+      FacilityMnemonicName:
+        PropertyKind: Input
+        DisplayName: Facility Mnemonic Name
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+      Records:
+        PropertyKind: Input
+        DisplayName: Records
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+      SelectedRecords:
+        PropertyKind: Output
+        DisplayName: Selected.Records
+        Description: A custom property
+        DataType: Text
+      WaveSubwave:
+        PropertyKind: Input
+        DisplayName: Wave-Subwave
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+    Properties:
+      Height: =700
+      SelectedRecords: ="Text"
+      Width: =1200
+    Children:
+      - lblAppHeader1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =ColorValue("#03173E")
+            Height: =85
+            Width: =1200
+      - lblAppSideHeader1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: |
+              =ColorValue("#03173E")
+            Height: =700
+            Width: =100
+      - imgHCALOGO_Global:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =45
+            Image: =HCA_Healthcare_Logo_Extracted
+            Width: =90
+            X: =7
+            Y: =7
+      - lblBoardSubtitleGlobal:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#E05929")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =46
+            Size: =12
+            Text: ="Expanse Automation"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =90
+            X: =7
+            Y: =52
+      - lblBoardTitle_Global:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =Color.White
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =46
+            Size: =17
+            Text: ="Expanse Cutover Automation Configuration Suite"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =497
+            X: =105
+            Y: =6

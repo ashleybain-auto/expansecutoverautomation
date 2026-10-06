@@ -1,0 +1,163 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+App:
+  Properties:
+    OnStart: |-
+      =Set(
+          gblDashboardExpanded,
+          false
+      );
+      Set(
+          gblSelectedMatchCategory,
+          ""
+      );
+      Set(
+          gblSelectedWorksheet,
+          ""
+      );
+      ClearCollect(
+          colMatchDashboard,
+          {
+              MatchCategory: "NO MATCH",
+              DisplayLabel: "No Match"
+          },
+          {
+              MatchCategory: "TEST",
+              DisplayLabel: "TEST"
+          },
+          {
+              MatchCategory: "ZCON",
+              DisplayLabel: "ZCON"
+          },
+          {
+              MatchCategory: "LIVE",
+              DisplayLabel: "LIVE"
+          }
+      );
+      ClearCollect(
+          colRegReadiness,
+
+          {
+              WorksheetName: "Accommodations",
+              TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+              TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+              ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+              LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+          },
+
+          {
+              WorksheetName: "Locations",
+              TotalRecords: CountRows(Filter(Locations, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+              NoMatchRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Services",
+              TotalRecords: CountRows(Filter(Services, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+              NoMatchRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Insurance",
+              TotalRecords: CountRows(Filter(Insurances, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+              NoMatchRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "RoomBed",
+              TotalRecords: CountRows(Filter('Room Beds', IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Status' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "TEST"))),
+              ZconRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "ZCON"))),
+              LiveRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Discharge Disposition",
+              TotalRecords: CountRows(Filter('Discharge Dispositions', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Ins Auth Status",
+              TotalRecords: CountRows(Filter('Insurance Auths', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix Note' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "TEST"))),
+              ZconRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "ZCON"))),
+              LiveRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Financial Approver",
+              TotalRecords: CountRows(Filter('Financial Approvers', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Financial Class",
+              TotalRecords: CountRows(Filter('Financial Classes', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+              ZconRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+              LiveRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+          },
+
+          {
+              WorksheetName: "Admit Source",
+              TotalRecords: CountRows(Filter('Admit Source Mapping', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+              NoMatchRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Match Status' = "NO MATCH")),
+              TestRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "TEST"))),
+              ZconRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "ZCON"))),
+              LiveRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "LIVE")))
+          }
+      );
+      ClearCollect(
+          colECCSCutoverSchedule,
+          {
+              EventName: "3A UAT - EFL",
+              Phase: "UAT",
+              StartDate: DateTimeValue("2026-09-03T00:00:00"),
+              FinishDate: DateTimeValue("2026-09-11T00:00:00")
+          },
+          {
+              EventName: "3A Go Live - EFL",
+              Phase: "Go Live",
+              StartDate: DateTimeValue("2026-10-15T00:00:00"),
+              FinishDate: DateTimeValue("2026-10-15T00:00:00")
+          },
+          {
+              EventName: "3B UAT - NTX",
+              Phase: "UAT",
+              StartDate: DateTimeValue("2026-12-07T00:00:00"),
+              FinishDate: DateTimeValue("2026-12-11T00:00:00")
+          },
+          {
+              EventName: "3B Go Live - NTX",
+              Phase: "Go Live",
+              StartDate: DateTimeValue("2027-01-14T00:00:00"),
+              FinishDate: DateTimeValue("2027-01-14T00:00:00")
+          }
+      )
+    Theme: =PowerAppsTheme

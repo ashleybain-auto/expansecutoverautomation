@@ -1,0 +1,98 @@
+============================================================
+ECCS STEP 105.3C.3 - DUPLICATE BRANCH LOCATION CHECK
+============================================================
+
+GALLERY START LINE: 65
+TEMPLATE LINE: 236
+
+============================================================
+ACCOMMODATIONS OCCURRENCES
+============================================================
+
+----- MATCH LINE 84 -----
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+
+----- MATCH LINE 93 -----
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+
+============================================================
+LOCATIONS OCCURRENCES
+============================================================
+
+----- MATCH LINE 144 -----
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   "Locations",
+   145:                       ForAll(
+   146:                           Filter(
+   147:                               Locations,
+   148:                               IsBlank(gblSelectedFacility) ||
+   149:                               'Source Facility Mnemonic' = gblSelectedFacility
+   150:                           ),
+   151:                           {
+   152:                               RecordKey:
+   153:                                   Coalesce(
+   154:                                       'Source Facility Mnemonic',
+   155:                                       ""
+   156:                                   ) &
+   157:                                   "|" &
+
+----- MATCH LINE 162 -----
+   157:                                   "|" &
+   158:                                   Coalesce(
+   159:                                       'Source Location Mnemonic',
+   160:                                       ""
+   161:                                   ),
+   162:                               WorksheetName: "Locations",
+   163: 
+   164:                               SourceFacility: Coalesce(
+   165:                                   'Source Facility Mnemonic',
+   166:                                   ""
+   167:                               ),
+   168:                               SourceMnemonic: Coalesce(
+   169:                                   'Source Location Mnemonic',
+   170:                                   ""
+   171:                               ),
+   172:                               SourceName: Coalesce(
+   173:                                   'Source Location Name',
+   174:                                   ""
+   175:                               ),

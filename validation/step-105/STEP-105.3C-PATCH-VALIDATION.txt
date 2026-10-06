@@ -1,0 +1,200 @@
+============================================================
+ECCS STEP 105.3C - PATCH VALIDATION
+============================================================
+
+GALLERY START LINE
+65
+
+GALLERY ITEMS END LINE
+236
+
+ACCOMMODATIONS BRANCH COUNT
+2
+
+LOCATIONS BRANCH COUNT
+2
+
+SERVICES BRANCH COUNT
+0
+
+SOURCE LOCATION MNEMONIC REFERENCES
+2
+
+TARGET LOCATION MNEMONIC REFERENCES
+1
+
+============================================================
+GALWAVEFACILITYWKSTGLOBAL ITEMS SOURCE
+============================================================
+
+    65:       - galWaveFacilityWkstGlobal:
+    66:           Control: Gallery@2.15.0
+    67:           Variant: BrowseLayout_Vertical_TwoTextVariant_ver5.0
+    68:           Properties:
+    69:             BorderColor: =ColorValue("#03173E")
+    70:             Height: =349
+    71:             Items: |-
+    72:               =Switch(
+    73:                   Substitute(
+    74:                       Trim(
+    75:                           Coalesce(
+    76:                               gblSelectedWorksheet,
+    77:                               ""
+    78:                           )
+    79:                       ),
+    80:                       "REG ",
+    81:                       ""
+    82:                   ),
+    83: 
+    84:                   "Accommodations",
+    85:                       ForAll(
+    86:                           Filter(
+    87:                               'Accommodation Data Clone',
+    88:                               IsBlank(gblSelectedFacility) ||
+    89:                               FacilityMnem_Source = gblSelectedFacility
+    90:                           ),
+    91:                           {
+    92:                               RecordKey: Text(ECCS_Clone_RowId),
+    93:                               WorksheetName: "Accommodations",
+    94: 
+    95:                               SourceFacility: Coalesce(
+    96:                                   FacilityMnem_Source,
+    97:                                   ""
+    98:                               ),
+    99:                               SourceMnemonic: Coalesce(
+   100:                                   Accommodation_Mnem_Source,
+   101:                                   ""
+   102:                               ),
+   103:                               SourceName: Coalesce(
+   104:                                   Accommodation_Name_Source,
+   105:                                   ""
+   106:                               ),
+   107:                               SourcePACode: Coalesce(
+   108:                                   PA_Code_Source,
+   109:                                   ""
+   110:                               ),
+   111:                               SourceActive: Text(
+   112:                                   Active_Source
+   113:                               ),
+   114: 
+   115:                               TargetFacility: Coalesce(
+   116:                                   FacilityMnem_Target,
+   117:                                   ""
+   118:                               ),
+   119:                               TargetMnemonic: Coalesce(
+   120:                                   Accommodation_Mnem_Target,
+   121:                                   ""
+   122:                               ),
+   123:                               TargetName: Coalesce(
+   124:                                   Accommodation_Name_Target,
+   125:                                   ""
+   126:                               ),
+   127:                               TargetPACode: Coalesce(
+   128:                                   PA_Code_Target,
+   129:                                   ""
+   130:                               ),
+   131:                               TargetActive: Coalesce(
+   132:                                   Active_Target_Value,
+   133:                                   ""
+   134:                               ),
+   135:                               TargetMatchMtx: Coalesce(
+   136:                                   TargetMatchMtx,
+   137:                                   ""
+   138:                               ),
+   139: 
+   140:                               ReadOnly: false
+   141:                           }
+   142:                       ),
+   143: 
+   144:                   "Locations",
+   145:                       ForAll(
+   146:                           Filter(
+   147:                               Locations,
+   148:                               IsBlank(gblSelectedFacility) ||
+   149:                               'Source Facility Mnemonic' = gblSelectedFacility
+   150:                           ),
+   151:                           {
+   152:                               RecordKey:
+   153:                                   Coalesce(
+   154:                                       'Source Facility Mnemonic',
+   155:                                       ""
+   156:                                   ) &
+   157:                                   "|" &
+   158:                                   Coalesce(
+   159:                                       'Source Location Mnemonic',
+   160:                                       ""
+   161:                                   ),
+   162:                               WorksheetName: "Locations",
+   163: 
+   164:                               SourceFacility: Coalesce(
+   165:                                   'Source Facility Mnemonic',
+   166:                                   ""
+   167:                               ),
+   168:                               SourceMnemonic: Coalesce(
+   169:                                   'Source Location Mnemonic',
+   170:                                   ""
+   171:                               ),
+   172:                               SourceName: Coalesce(
+   173:                                   'Source Location Name',
+   174:                                   ""
+   175:                               ),
+   176:                               SourcePACode: Coalesce(
+   177:                                   'Source PA Code',
+   178:                                   ""
+   179:                               ),
+   180:                               SourceActive: Coalesce(
+   181:                                   'Source Location Active',
+   182:                                   ""
+   183:                               ),
+   184: 
+   185:                               TargetFacility: Coalesce(
+   186:                                   'Target Facility Mnemonic',
+   187:                                   ""
+   188:                               ),
+   189:                               TargetMnemonic: Coalesce(
+   190:                                   'Target Location Mnemonic',
+   191:                                   ""
+   192:                               ),
+   193:                               TargetName: Coalesce(
+   194:                                   'Target Location Name',
+   195:                                   ""
+   196:                               ),
+   197:                               TargetPACode: Coalesce(
+   198:                                   'Target PA Code',
+   199:                                   ""
+   200:                               ),
+   201:                               TargetActive: Coalesce(
+   202:                                   'Target Location Active',
+   203:                                   ""
+   204:                               ),
+   205:                               TargetMatchMtx: Coalesce(
+   206:                                   'Target Match Matrix',
+   207:                                   ""
+   208:                               ),
+   209: 
+   210:                               ReadOnly: false
+   211:                           }
+   212:                       ),
+   213: 
+   214:                   FirstN(
+   215:                       Table(
+   216:                           {
+   217:                               RecordKey: "",
+   218:                               WorksheetName: "",
+   219:                               SourceFacility: "",
+   220:                               SourceMnemonic: "",
+   221:                               SourceName: "",
+   222:                               SourcePACode: "",
+   223:                               SourceActive: "",
+   224:                               TargetFacility: "",
+   225:                               TargetMnemonic: "",
+   226:                               TargetName: "",
+   227:                               TargetPACode: "",
+   228:                               TargetActive: "",
+   229:                               TargetMatchMtx: "",
+   230:                               ReadOnly: true
+   231:                           }
+   232:                       ),
+   233:                       0
+   234:                   )
+   235:               )

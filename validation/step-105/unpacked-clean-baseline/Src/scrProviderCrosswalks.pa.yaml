@@ -1,0 +1,761 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrProviderCrosswalks:
+    Properties:
+      Fill: =RGBA(232, 232, 232, 1)
+      Height: =700
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      Width: =1200
+    Children:
+      - cmpECCSNavigationBar_1:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            Width: =620
+            X: =570
+            Y: =45
+      - cmpHeaderSidePanelGlobal_1:
+          Control: CanvasComponent
+          ComponentName: cmpAppPageTemplateG
+          Properties:
+            BoardSubtitle: ="Expanse Automation"
+            BoardTitle: ="Expanse Cutover Automation Configuration Suite"
+            Height: =700
+            HubName: ="Provider Crosswalks"
+            Records: ="Text"
+            WaveSubwaveFacility: ="Text"
+            Width: =1200
+            WorksheetName: ="Text"
+      - frmProviderCrosswalk:
+          Control: Form@2.4.4
+          Variant: Modern
+          Layout: Vertical
+          Properties:
+            AcceptsFocus: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            DataSource: =Filter('Provider Crosswalks', 'Provider Crosswalks (Views)'.'Provider Crosswalk Lookup View')
+            DefaultMode: =FormMode.View
+            NumberOfColumns: =4
+            Width: =1094
+            X: =106
+            Y: =85
+          Children:
+            - WaveAssigned_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_waveassigned"
+                  Default: =ThisItem.WaveAssigned
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,WaveAssigned)
+                  Width: =273
+                  X: =0
+                  Y: =0
+                Children:
+                  - DataCardKey13:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue12:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+            - FacilityShortName_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_facilityname"
+                  Default: =ThisItem.FacilityShortName
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,FacilityShortName)
+                  Width: =273
+                  X: =1
+                  Y: =0
+                Children:
+                  - DataCardKey30:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue29:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+            - FacilityMnem_Source_DataCard3:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_facilitymnemonic"
+                  Default: =ThisItem.FacilityMnem_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,FacilityMnem_Source)
+                  Width: =273
+                  X: =2
+                  Y: =0
+                Children:
+                  - DataCardKey43:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue42:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+            - Provider Crosswalk_DataCard1:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_providercrosswalkid"
+                  Default: =ThisItem.'Provider Crosswalk'
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,'Provider Crosswalk')
+                  Width: =273
+                  X: =3
+                  Y: =0
+                Children:
+                  - DataCardKey21:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue20:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey21.Y + DataCardKey21.Height + 4
+            - TargetMatchMtx_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_targetmatchmatrix"
+                  Default: =ThisItem.TargetMatchMtx
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,TargetMatchMtx)
+                  Width: =273
+                  X: =0
+                  Y: =1
+                Children:
+                  - DataCardKey39:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue38:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey39.Y + DataCardKey39.Height + 4
+            - UserMnemonic_Source_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_usermnemonicsource"
+                  Default: =ThisItem.UserMnemonic_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,UserMnemonic_Source)
+                  Width: =273
+                  X: =1
+                  Y: =1
+                Children:
+                  - DataCardKey12:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue11:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey12.Y + DataCardKey12.Height + 4
+            - Provider34_Source_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_provider34code"
+                  Default: =ThisItem.Provider34_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,Provider34_Source)
+                  Width: =273
+                  X: =2
+                  Y: =1
+                Children:
+                  - DataCardKey35:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue34:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey35.Y + DataCardKey35.Height + 4
+            - UserMnemonic_Target_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_usermnemonictarget"
+                  Default: =ThisItem.UserMnemonic34_Target
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,UserMnemonic34_Target)
+                  Width: =273
+                  X: =3
+                  Y: =1
+                Children:
+                  - DataCardKey11:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue10:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey11.Y + DataCardKey11.Height + 4
+            - ProviderMnemonic_Source_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_providermnemonic"
+                  Default: =ThisItem.ProviderMnemonic_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderMnemonic_Source)
+                  Width: =273
+                  X: =0
+                  Y: =2
+                Children:
+                  - DataCardKey36:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue35:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey36.Y + DataCardKey36.Height + 4
+            - ProviderName_Source_DataCard3:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_providername"
+                  Default: =ThisItem.ProviderName_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderName_Source)
+                  Width: =273
+                  X: =1
+                  Y: =2
+                Children:
+                  - DataCardKey37:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue36:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey37.Y + DataCardKey37.Height + 4
+            - ProviderNpiNum_Source_DataCard3:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_providernpinumber"
+                  Default: =ThisItem.ProviderNpiNum_Source
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderNpiNum_Source)
+                  Width: =273
+                  X: =2
+                  Y: =2
+                Children:
+                  - DataCardKey38:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue37:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey38.Y + DataCardKey38.Height + 4
+            - DB_RecordCount_PHA_Active_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_phaactiverecordcount"
+                  Default: =ThisItem.DB_RecordCount_PHA_Active
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_PHA_Active)
+                  Width: =273
+                  X: =3
+                  Y: =2
+                Children:
+                  - DataCardKey32:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue31:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey32.Y + DataCardKey32.Height + 4
+            - DB_RecordCount_PHA_History_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_phahistoryrecordcount"
+                  Default: =ThisItem.DB_RecordCount_PHA_History
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_PHA_History)
+                  Width: =273
+                  X: =0
+                  Y: =3
+                Children:
+                  - DataCardKey31:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue30:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+            - DB_RecordCount_OM_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_omrecordcount"
+                  Default: =ThisItem.DB_RecordCount_OM
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_OM)
+                  Width: =273
+                  X: =1
+                  Y: =3
+                Children:
+                  - DataCardKey33:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue32:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey33.Y + DataCardKey33.Height + 4
+            - OM_Target_OrderingProviderFlag_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_orderingproviderflag"
+                  Default: =ThisItem.OM_Target_OrderingProviderFlag
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,OM_Target_OrderingProviderFlag)
+                  Width: =273
+                  X: =2
+                  Y: =3
+                Children:
+                  - DataCardKey34:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue33:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey34.Y + DataCardKey34.Height + 4
+            - DB_RecordCount_REG_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_regrecordcount"
+                  Default: =ThisItem.DB_RecordCount_REG
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_REG)
+                  Width: =273
+                  X: =3
+                  Y: =3
+                Children:
+                  - DataCardKey28:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue27:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey28.Y + DataCardKey28.Height + 4
+            - REG_Target_AdmittingProviderFlag_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_admittingproviderflag"
+                  Default: =ThisItem.REG_Target_AdmittingProviderFlag
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,REG_Target_AdmittingProviderFlag)
+                  Width: =273
+                  X: =0
+                  Y: =4
+                Children:
+                  - DataCardKey40:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue39:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey40.Y + DataCardKey40.Height + 4
+            - DB_RecordCount_REG_Admit_DataCard2:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="eccs_regadmitrecordcount"
+                  Default: =ThisItem.DB_RecordCount_REG_Admit
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_REG_Admit)
+                  Width: =273
+                  X: =1
+                  Y: =4
+                Children:
+                  - DataCardKey29:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue28:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+            - Modified On_DataCard1:
+                Control: TypedDataCard@1.0.7
+                Variant: ModernTextualView
+                IsLocked: true
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  DataField: ="modifiedon"
+                  Default: =ThisItem.'Modified On'
+                  DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,'Modified On')
+                  Width: =273
+                  X: =2
+                  Y: =4
+                Children:
+                  - DataCardKey20:
+                      Control: ModernText@1.0.0
+                      MetadataKey: FieldName
+                      Properties:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                  - DataCardValue19:
+                      Control: ModernTextInput@1.1.2
+                      MetadataKey: FieldValue
+                      Properties:
+                        AccessibleLabel: =Parent.DisplayName
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.View
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey20.Y + DataCardKey20.Height + 4
+            - DataCard1:
+                Control: TypedDataCard@1.0.7
+                Variant: BlankCard
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  Width: =273
+                  X: =3
+                  Y: =4

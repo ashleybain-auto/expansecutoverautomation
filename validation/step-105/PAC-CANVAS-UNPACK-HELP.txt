@@ -1,0 +1,17 @@
+Microsoft PowerPlatform CLI
+Version: 2.12.2+ga6b1ffa (.NET 10.0.12)
+Online documentation: https://aka.ms/PowerPlatformCLI
+Feedback, Suggestions, Issues: https://github.com/microsoft/powerplatform-build-tools/discussions
+
+Help: 
+(Preview) Extract an msapp file into sources
+
+Commands: 
+Usage: pac canvas unpack --msapp [--sources] [--layout] [--overwrite]
+
+  --msapp                     Path to .msapp file
+  --sources                   Directory to sources to be unpacked
+  --layout                    The layout to use for the sources directory. Note: 'Experimental' layout is deprecated and will be removed in a future release. Use 'SourceCode' layout for the latest supported layout.
+                              Values: Experimental, SourceCode
+  --overwrite                 Allow file overwrite
+
