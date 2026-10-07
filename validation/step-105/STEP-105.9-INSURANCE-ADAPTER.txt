@@ -1,0 +1,112 @@
+============================================================
+STEP 105.9 - INSURANCE ADAPTER
+============================================================
+
+MATCH LINE: 539
+
+   535:                                   ReadOnly: false
+   536:                               }
+   537:                           ),
+   538: 
+   539:                       "Insurance",
+   540:                           ForAll(
+   541:                               Filter(
+   542:                                   Insurances,
+   543:                                   IsBlank(gblSelectedFacility) ||
+   544:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   545:                               ),
+   546:                               {
+   547:                                   RecordKey:
+   548:                                       Coalesce(
+   549:                                           'Source Facility Mnemonic',
+   550:                                           ""
+   551:                                       ) &
+   552:                                       "|" &
+   553:                                       Coalesce(
+   554:                                           'Source Mnemonic',
+   555:                                           ""
+   556:                                       ),
+   557:                                   WorksheetName: "Insurance",
+   558: 
+   559:                                   SourceFacility: Coalesce(
+   560:                                       'Source Facility Mnemonic',
+   561:                                       ""
+   562:                                   ),
+   563:                                   SourceMnemonic: Coalesce(
+   564:                                       'Source Mnemonic',
+   565:                                       ""
+   566:                                   ),
+   567:                                   SourceName: Coalesce(
+   568:                                       'Source Description',
+   569:                                       ""
+   570:                                   ),
+   571:                                   SourcePACode: Coalesce(
+   572:                                       'Source PA Code',
+   573:                                       ""
+   574:                                   ),
+   575:                                   SourceActive: Coalesce(
+   576:                                       'Source Active Status',
+   577:                                       ""
+   578:                                   ),
+   579: 
+   580:                                   TargetFacility: Coalesce(
+   581:                                       'Target Facility Mnemonic',
+   582:                                       ""
+   583:                                   ),
+   584:                                   TargetMnemonic: Coalesce(
+   585:                                       'Target Mnemonic',
+   586:                                       ""
+   587:                                   ),
+   588:                                   TargetName: Coalesce(
+   589:                                       'Target Description',
+   590:                                       ""
+   591:                                   ),
+   592:                                   TargetPACode: Coalesce(
+   593:                                       'Target PA Code',
+   594:                                       ""
+   595:                                   ),
+   596:                                   TargetActive: Coalesce(
+   597:                                       'Target Active Status',
+   598:                                       ""
+   599:                                   ),
+   600:                                   TargetMatchMtx: Coalesce(
+   601:                                       'Target Match Matrix',
+   602:                                       ""
+   603:                                   ),
+   604: 
+   605:                                   ReadOnly: false
+   606:                               }
+   607:                           ),
+   608: 
+   609:                       "RoomBed",
+   610:                           ForAll(
+   611:                               Filter(
+   612:                                   'Room Beds',
+   613:                                   IsBlank(gblSelectedFacility) ||
+   614:                                   'Source Facility Code' = gblSelectedFacility
+   615:                               ),
+   616:                               {
+   617:                                   RecordKey:
+   618:                                       Coalesce(
+   619:                                           'Source Facility Code',
+   620:                                           ""
+   621:                                       ) &
+   622:                                       "|" &
+   623:                                       Coalesce(
+   624:                                           'Source Location Code',
+   625:                                           ""
+   626:                                       ) &
+   627:                                       "|" &
+   628:                                       Coalesce(
+   629:                                           'Source Room Code',
+   630:                                           ""
+   631:                                       ) &
+   632:                                       "|" &
+   633:                                       Coalesce(
+   634:                                           'Source Bed Code',
+   635:                                           ""
+   636:                                       ),
+   637:                                   WorksheetName: "RoomBed",
+   638: 
+   639:                                   SourceFacility: Coalesce(
+   640:                                       'Source Facility Code',

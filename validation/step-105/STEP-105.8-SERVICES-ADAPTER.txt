@@ -1,0 +1,342 @@
+============================================================
+STEP 105.8 - SERVICES ADAPTER
+============================================================
+
+----- SERVICES MATCH LINE 125 -----
+   116:                                     ForAll(
+   117:                                         Filter(
+   118:                                             Locations,
+   119:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   120:                                         ),
+   121:                                         {
+   122:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   123:                                         }
+   124:                                     ),
+   125:                                 "Services",
+   126:                                     ForAll(
+   127:                                         Filter(
+   128:                                             Services,
+   129:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   130:                                         ),
+   131:                                         {
+   132:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   133:                                         }
+   134:                                     ),
+   135:                                 "Insurance",
+   136:                                     ForAll(
+   137:                                         Filter(
+   138:                                             Insurances,
+   139:                                             'Source Facility Mnemonic' = gblSelectedFacility
+   140:                                         ),
+   141:                                         {
+   142:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   143:                                         }
+   144:                                     ),
+   145:                                 "RoomBed",
+   146:                                     ForAll(
+   147:                                         Filter(
+   148:                                             'Room Beds',
+   149:                                             'Source Facility Code' = gblSelectedFacility
+   150:                                         ),
+   151:                                         {
+   152:                                             TargetMatchMtx: Coalesce('Target Match Status', "")
+   153:                                         }
+   154:                                     ),
+   155:                                 "Discharge Disposition",
+   156:                                     ForAll(
+   157:                                         Filter(
+   158:                                             'Discharge Dispositions',
+   159:                                             'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+   160:                                         ),
+   161:                                         {
+   162:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   163:                                         }
+   164:                                     ),
+   165:                                 "Ins Auth Status",
+   166:                                     ForAll(
+   167:                                         Filter(
+   168:                                             'Insurance Auths',
+   169:                                             'Network Mnemonic Source' = gblSelectedNetworkMnemonic
+   170:                                         ),
+   171:                                         {
+   172:                                             TargetMatchMtx: Coalesce('Target Match Matrix Note', "")
+   173:                                         }
+   174:                                     ),
+   175:                                 "Financial Approver",
+   176:                                     ForAll(
+   177:                                         Filter(
+   178:                                             'Financial Approvers',
+   179:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   180:                                         ),
+   181:                                         {
+   182:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   183:                                         }
+   184:                                     ),
+   185:                                 "Financial Class",
+   186:                                     ForAll(
+   187:                                         Filter(
+   188:                                             'Financial Classes',
+   189:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   190:                                         ),
+   191:                                         {
+   192:                                             TargetMatchMtx: Coalesce('Target Match Matrix', "")
+   193:                                         }
+   194:                                     ),
+   195:                                 "Admit Source",
+   196:                                     ForAll(
+   197:                                         Filter(
+   198:                                             'Admit Source Mapping',
+   199:                                             'Source Network Mnemonic' = gblSelectedNetworkMnemonic
+   200:                                         ),
+   201:                                         {
+   202:                                             TargetMatchMtx: Coalesce('Match Status', "")
+   203:                                         }
+   204:                                     ),
+   205:                                 FirstN(
+   206:                                     Table(
+   207:                                         {
+   208:                                             TargetMatchMtx: ""
+   209:                                         }
+   210:                                     ),
+   211:                                     0
+   212:                                 )
+   213:                             ),
+   214:                             If(
+   215:                                 ThisItem.MatchCategory = "NO MATCH",
+   216:                                 TargetMatchMtx = "NO MATCH",
+   217:                                 StartsWith(
+   218:                                     TargetMatchMtx,
+   219:                                     ThisItem.MatchCategory
+   220:                                 )
+   221:                             )
+   222:                         )
+   223:                     ) & " records"
+   224:                   Width: =107
+   225:                   X: =199
+   226:                   Y: =5
+
+----- SERVICES MATCH LINE 471 -----
+   462:                                   TargetMatchMtx: Coalesce(
+   463:                                       'Target Match Matrix',
+   464:                                       ""
+   465:                                   ),
+   466: 
+   467:                                   ReadOnly: false
+   468:                               }
+   469:                           ),
+   470: 
+   471:                       "Services",
+   472:                           ForAll(
+   473:                               Filter(
+   474:                                   Services,
+   475:                                   IsBlank(gblSelectedFacility) ||
+   476:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   477:                               ),
+   478:                               {
+   479:                                   RecordKey:
+   480:                                       Coalesce(
+   481:                                           'Source Facility Mnemonic',
+   482:                                           ""
+   483:                                       ) &
+   484:                                       "|" &
+   485:                                       Coalesce(
+   486:                                           'Source Service Mnemonic',
+   487:                                           ""
+   488:                                       ),
+   489:                                   WorksheetName: "Services",
+   490: 
+   491:                                   SourceFacility: Coalesce(
+   492:                                       'Source Facility Mnemonic',
+   493:                                       ""
+   494:                                   ),
+   495:                                   SourceMnemonic: Coalesce(
+   496:                                       'Source Service Mnemonic',
+   497:                                       ""
+   498:                                   ),
+   499:                                   SourceName: Coalesce(
+   500:                                       'Source Service Name',
+   501:                                       ""
+   502:                                   ),
+   503:                                   SourcePACode: Coalesce(
+   504:                                       'Source Service PA Code',
+   505:                                       ""
+   506:                                   ),
+   507:                                   SourceActive: Text(
+   508:                                       'Source Active Status'
+   509:                                   ),
+   510: 
+   511:                                   TargetFacility: Coalesce(
+   512:                                       'Target Facility Mnemonic',
+   513:                                       ""
+   514:                                   ),
+   515:                                   TargetMnemonic: Coalesce(
+   516:                                       'Target Service Mnemonic',
+   517:                                       ""
+   518:                                   ),
+   519:                                   TargetName: Coalesce(
+   520:                                       'Target Service Name',
+   521:                                       ""
+   522:                                   ),
+   523:                                   TargetPACode: Coalesce(
+   524:                                       'Target Service PA Code',
+   525:                                       ""
+   526:                                   ),
+   527:                                   TargetActive: Text(
+   528:                                       'Target Active Status'
+   529:                                   ),
+   530:                                   TargetMatchMtx: Coalesce(
+   531:                                       'Target Match Matrix',
+   532:                                       ""
+   533:                                   ),
+   534: 
+   535:                                   ReadOnly: false
+   536:                               }
+   537:                           ),
+   538: 
+   539:                       "Insurance",
+   540:                           ForAll(
+   541:                               Filter(
+   542:                                   Insurances,
+   543:                                   IsBlank(gblSelectedFacility) ||
+   544:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   545:                               ),
+   546:                               {
+   547:                                   RecordKey:
+   548:                                       Coalesce(
+   549:                                           'Source Facility Mnemonic',
+   550:                                           ""
+   551:                                       ) &
+   552:                                       "|" &
+   553:                                       Coalesce(
+   554:                                           'Source Mnemonic',
+   555:                                           ""
+   556:                                       ),
+   557:                                   WorksheetName: "Insurance",
+   558: 
+   559:                                   SourceFacility: Coalesce(
+   560:                                       'Source Facility Mnemonic',
+   561:                                       ""
+   562:                                   ),
+   563:                                   SourceMnemonic: Coalesce(
+   564:                                       'Source Mnemonic',
+   565:                                       ""
+   566:                                   ),
+   567:                                   SourceName: Coalesce(
+   568:                                       'Source Description',
+   569:                                       ""
+   570:                                   ),
+   571:                                   SourcePACode: Coalesce(
+   572:                                       'Source PA Code',
+
+----- SERVICES MATCH LINE 489 -----
+   480:                                       Coalesce(
+   481:                                           'Source Facility Mnemonic',
+   482:                                           ""
+   483:                                       ) &
+   484:                                       "|" &
+   485:                                       Coalesce(
+   486:                                           'Source Service Mnemonic',
+   487:                                           ""
+   488:                                       ),
+   489:                                   WorksheetName: "Services",
+   490: 
+   491:                                   SourceFacility: Coalesce(
+   492:                                       'Source Facility Mnemonic',
+   493:                                       ""
+   494:                                   ),
+   495:                                   SourceMnemonic: Coalesce(
+   496:                                       'Source Service Mnemonic',
+   497:                                       ""
+   498:                                   ),
+   499:                                   SourceName: Coalesce(
+   500:                                       'Source Service Name',
+   501:                                       ""
+   502:                                   ),
+   503:                                   SourcePACode: Coalesce(
+   504:                                       'Source Service PA Code',
+   505:                                       ""
+   506:                                   ),
+   507:                                   SourceActive: Text(
+   508:                                       'Source Active Status'
+   509:                                   ),
+   510: 
+   511:                                   TargetFacility: Coalesce(
+   512:                                       'Target Facility Mnemonic',
+   513:                                       ""
+   514:                                   ),
+   515:                                   TargetMnemonic: Coalesce(
+   516:                                       'Target Service Mnemonic',
+   517:                                       ""
+   518:                                   ),
+   519:                                   TargetName: Coalesce(
+   520:                                       'Target Service Name',
+   521:                                       ""
+   522:                                   ),
+   523:                                   TargetPACode: Coalesce(
+   524:                                       'Target Service PA Code',
+   525:                                       ""
+   526:                                   ),
+   527:                                   TargetActive: Text(
+   528:                                       'Target Active Status'
+   529:                                   ),
+   530:                                   TargetMatchMtx: Coalesce(
+   531:                                       'Target Match Matrix',
+   532:                                       ""
+   533:                                   ),
+   534: 
+   535:                                   ReadOnly: false
+   536:                               }
+   537:                           ),
+   538: 
+   539:                       "Insurance",
+   540:                           ForAll(
+   541:                               Filter(
+   542:                                   Insurances,
+   543:                                   IsBlank(gblSelectedFacility) ||
+   544:                                   'Source Facility Mnemonic' = gblSelectedFacility
+   545:                               ),
+   546:                               {
+   547:                                   RecordKey:
+   548:                                       Coalesce(
+   549:                                           'Source Facility Mnemonic',
+   550:                                           ""
+   551:                                       ) &
+   552:                                       "|" &
+   553:                                       Coalesce(
+   554:                                           'Source Mnemonic',
+   555:                                           ""
+   556:                                       ),
+   557:                                   WorksheetName: "Insurance",
+   558: 
+   559:                                   SourceFacility: Coalesce(
+   560:                                       'Source Facility Mnemonic',
+   561:                                       ""
+   562:                                   ),
+   563:                                   SourceMnemonic: Coalesce(
+   564:                                       'Source Mnemonic',
+   565:                                       ""
+   566:                                   ),
+   567:                                   SourceName: Coalesce(
+   568:                                       'Source Description',
+   569:                                       ""
+   570:                                   ),
+   571:                                   SourcePACode: Coalesce(
+   572:                                       'Source PA Code',
+   573:                                       ""
+   574:                                   ),
+   575:                                   SourceActive: Coalesce(
+   576:                                       'Source Active Status',
+   577:                                       ""
+   578:                                   ),
+   579: 
+   580:                                   TargetFacility: Coalesce(
+   581:                                       'Target Facility Mnemonic',
+   582:                                       ""
+   583:                                   ),
+   584:                                   TargetMnemonic: Coalesce(
+   585:                                       'Target Mnemonic',
+   586:                                       ""
+   587:                                   ),
+   588:                                   TargetName: Coalesce(
+   589:                                       'Target Description',
+   590:                                       ""
