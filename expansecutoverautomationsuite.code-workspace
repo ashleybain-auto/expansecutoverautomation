@@ -13,5 +13,13 @@
       "**/bin": true,
       "**/obj": true
     }
+  },
+  "extensions": {
+    "recommendations": [
+      "docker.docker",
+      "ms-azuretools.vscode-docker",
+      "miramac.vscode-exec-node",
+      "primafuture.open-php-html-js-in-browser"
+    ]
   }
 }
