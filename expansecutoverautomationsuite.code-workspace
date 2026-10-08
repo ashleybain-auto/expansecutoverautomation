@@ -1,8 +1,20 @@
 {
   "folders": [
-    { "name": "ECCS ConfigTool Factory", "path": "." },
-    { "name": "Canvas App - Active", "path": "canvas/active" },
-    { "name": "Canvas Demo References", "path": "canvas/reference" }
+    {
+      "name": "ECCS ConfigTool Factory",
+      "path": "."
+    },
+    {
+      "name": "Canvas App - Active",
+      "path": "canvas/active"
+    },
+    {
+      "name": "Canvas Demo References",
+      "path": "canvas/reference"
+    },
+    {
+      "path": "../../node"
+    }
   ],
   "settings": {
     "files.exclude": {
