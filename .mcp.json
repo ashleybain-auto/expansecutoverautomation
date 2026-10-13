@@ -1,0 +1,45 @@
+{
+	"mcpServers": {
+		"com.microsoft/azure": {
+			"type": "local",
+			"command": "dnx",
+			"args": [
+				"Azure.Mcp@3.0.0-beta.44",
+				"--yes",
+				"--",
+				"server",
+				"start"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"com.microsoft/microsoft-fabric": {
+			"type": "local",
+			"command": "dnx",
+			"args": [
+				"Microsoft.Fabric.Mcp@1.4.0",
+				"--yes",
+				"--",
+				"server",
+				"start"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"com.microsoft/nuget": {
+			"type": "local",
+			"command": "dnx",
+			"args": [
+				"NuGet.Mcp.Server@1.4.16",
+				"--yes",
+				"--source",
+				"https://api.nuget.org/v3/index.json"
+			],
+			"tools": [
+				"*"
+			]
+		}
+	}
+}
