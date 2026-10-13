@@ -1,0 +1,73 @@
+cmpAppPageTemplateGlobal As CanvasComponent:
+    BoardSubtitle: ="Expanse Automation"
+    BoardTitle: ="Expanse Cutover Automation Configuration Suite"
+    ChildTabPriority: =true
+    ContentLanguage: =""
+    EnableChildFocus: =true
+    FacilityMnemonicName: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =700
+    Records: ="Text"
+    SelectedRecords: ="Text"
+    Visible: =true
+    WaveSubwave: ="Text"
+    Width: =1200
+    X: =0
+    Y: =0
+
+    lblAppHeader1 As rectangle:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Fill: |-
+            =ColorValue("#03173E")
+        Height: =85
+        Width: =1200
+        ZIndex: =1
+
+    lblAppSideHeader1 As rectangle:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Fill: |
+            =ColorValue("#03173E")
+        Height: =700
+        Width: =100
+        ZIndex: =2
+
+    imgHCALOGO_Global As image:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =45
+        Image: =HCA_Healthcare_Logo_Extracted
+        Width: =90
+        X: =7
+        Y: =7
+        ZIndex: =3
+
+    lblBoardSubtitleGlobal As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =46
+        Size: =12
+        Text: ="Expanse Automation"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =90
+        X: =7
+        Y: =52
+        ZIndex: =4
+
+    lblBoardTitle_Global As modernText:
+        BorderStyle: =""
+        Color: =Color.White
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =17
+        Text: ="Expanse Cutover Automation Configuration Suite"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =497
+        X: =105
+        Y: =6
+        ZIndex: =5
+

@@ -116,30 +116,7 @@ ComponentDefinitions:
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Semibold
             Text: |-
-              =With(
-                  {
-                      nextEvent: First(
-                          Sort(
-                              Filter(
-                                  colECCSCutoverSchedule,
-                                  StartDate >= Today()
-                              ),
-                              StartDate,
-                              SortOrder.Ascending
-                          )
-                      )
-                  },
-                  If(
-                      IsBlank(nextEvent.StartDate),
-                      "No milestone scheduled",
-                      nextEvent.EventName &
-                      " | " &
-                      Text(
-                          nextEvent.StartDate,
-                          "[$-en-US]mmmm d, yyyy"
-                      )
-                  )
-              )
+              =If(IsEmpty(colECCSCutoverSchedule), "No milestone scheduled", With({nextEvent: First(Sort(Filter(colECCSCutoverSchedule, StartDate >= Today()), StartDate, SortOrder.Ascending))}, If(IsBlank(nextEvent.StartDate), "No milestone scheduled", nextEvent.EventName & " | " & Text(nextEvent.StartDate, "[$-en-US]mmmm d, yyyy"))))
             Width: =310
             X: =890
             Y: =83
@@ -153,49 +130,7 @@ ComponentDefinitions:
             Height: =45
             Size: =22
             Text: |-
-              =With(
-                  {
-                      nextEvent: First(
-                          Sort(
-                              Filter(
-                                  colECCSCutoverSchedule,
-                                  StartDate >= Now()
-                              ),
-                              StartDate,
-                              SortOrder.Ascending
-                          )
-                      )
-                  },
-                  If(
-                      IsBlank(nextEvent.StartDate),
-                      "COUNTDOWN NOT CONFIGURED",
-                      With(
-                          {
-                              totalMinutes: DateDiff(
-                                  Now(),
-                                  nextEvent.StartDate,
-                                  TimeUnit.Minutes
-                              )
-                          },
-                          If(
-                              totalMinutes <= 0,
-                              "EVENT ACTIVE",
-                              Int(totalMinutes / 1440) &
-                              "d " &
-                              Mod(
-                                  Int(totalMinutes / 60),
-                                  24
-                              ) &
-                              "h " &
-                              Mod(
-                                  totalMinutes,
-                                  60
-                              ) &
-                              "m"
-                          )
-                      )
-                  )
-              )
+              =If(IsEmpty(colECCSCutoverSchedule), "COUNTDOWN NOT CONFIGURED", With({nextEvent: First(Sort(Filter(colECCSCutoverSchedule, StartDate >= Now()), StartDate, SortOrder.Ascending))}, If(IsBlank(nextEvent.StartDate), "COUNTDOWN NOT CONFIGURED", With({mins: DateDiff(Now(), nextEvent.StartDate, TimeUnit.Minutes)}, If(mins <= 0, "EVENT ACTIVE", Text(Int(mins / 1440)) & "d " & Text(Mod(Int(mins / 60), 24)) & "h " & Text(Mod(mins, 60)) & "m")))))
             Width: =210
             X: =940
             Y: =114

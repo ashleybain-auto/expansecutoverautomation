@@ -1,0 +1,124 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_facilityrecords",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_facilityrecord",
+    "MaxGetRowsCount": 1000,
+    "Name": "Facility Record",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_coid": "COID",
+      "eccs_databasemnemonic": "DatabaseMnem",
+      "eccs_facilityactivestatus": "FacilityActive",
+      "eccs_facilitymnemonic": "FacilityMnem",
+      "eccs_facilityname": "FacilityName",
+      "eccs_facilityrecord_AsyncOperations": "System Jobs",
+      "eccs_facilityrecord_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_facilityrecord_DeletedItemReferences": "Deleted Record References",
+      "eccs_facilityrecord_DuplicateBaseRecord": "Duplicate Records (eccs_facilityrecord_DuplicateBaseRecord)",
+      "eccs_facilityrecord_DuplicateMatchingRecord": "Duplicate Records (eccs_facilityrecord_DuplicateMatchingRecord)",
+      "eccs_facilityrecord_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_facilityrecord_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_facilityrecord_ProcessSession": "Process Sessions",
+      "eccs_facilityrecord_SyncErrors": "Sync Errors",
+      "eccs_facilityrecordid": "Facility Record",
+      "eccs_networkmnemonic": "NetworkMnem",
+      "eccs_updatedatetime": "UpdateDateTime",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Facility Record",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Facility Record (Views)",
+    "Name": "_eccs_facilityrecord_views",
+    "RelatedEntityName": "Facility Record",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1d940c39-58ab-4fef-a4f8-b5c602b2f904": "Facility Record Lookup View",
+      "74ee0bd9-d4a1-4a61-abeb-7bc3b658ee1c": "Facility Record Associated View",
+      "80364039-da5f-4973-8c71-5630ecb654d1": "Active Facility Record",
+      "a880736b-7109-4431-b088-e900524593ea": "Facility Record Advanced Find View",
+      "bc40fa74-bfab-424b-9b70-042e89ef10f6": "Inactive Facility Record"
+    }
+  },
+  {
+    "DisplayName": "FacilityActive (Facility Record)",
+    "Name": "eccs_facilityrecord_eccs_facilityactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Y",
+      "1": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_facilityactivestatus",
+        "OptionSetReferenceEntityName": "Facility Record"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_facilityactivestatus",
+    "RelatedEntityName": "Facility Record",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Facility Record)",
+    "Name": "eccs_facilityrecord_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Facility Record"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Facility Record",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Facility Record)",
+    "Name": "eccs_facilityrecord_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Facility Record"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Facility Record",
+    "Type": "OptionSetInfo"
+  }
+]

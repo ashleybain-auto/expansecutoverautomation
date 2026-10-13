@@ -1,0 +1,44 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentExtraMetadata": {
+    "ComponentDescription": "Site Navigation"
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "Site Navigation",
+    "IsWidget": false,
+    "Name": "cmpECCSNavigationBarTop",
+    "TemplateGuid": "7bac561208fe46f8b88c8abe2d620aef"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "OnReportsSelect",
+      "Hidden": false,
+      "Name": "OnReportsSelect",
+      "PropertyDataTypeKey": "Void",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "70",
+        "PropertyScopeRulesKey": []
+      },
+      "Tooltip": "Opens the configured reporting destination when REPORTS is selected",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Void\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "639275098330832625",
+  "Name": "7bac561208fe46f8b88c8abe2d620aef",
+  "OverridableProperties": {},
+  "Version": "1.0"
+}

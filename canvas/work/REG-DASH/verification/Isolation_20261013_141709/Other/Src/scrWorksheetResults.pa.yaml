@@ -1,0 +1,100 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrWorksheetResults:
+    Properties:
+      Fill: =RGBA(232, 232, 232, 1)
+      Height: |+
+        =700
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      Width: =1200
+    Children:
+      - cmpECCSNavigationBarTop_2:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            OnReportsSelect: =
+            Width: =620
+            X: =567
+            Y: =24
+      - cmpDrpdwnFiltersFacilityWksG_2:
+          Control: CanvasComponent
+          ComponentName: cmpDrpdwnFiltersFacilityWksG
+          Properties:
+            BoardSubtitle: ="Registration | Worksheet Bulk Import/Export"
+            BoardTitle: ="Text"
+            FacilityMnemonicName: =gblSelectedFacility
+            Height: =603
+            Records: ="Text"
+            WaveSubwave: |-
+              =Coalesce(
+                  gblSelectedWaveNumber,
+                  ""
+              ) &
+              If(
+                  !IsBlank(gblSelectedSubWaveCode),
+                  " - " & gblSelectedSubWaveCode,
+                  ""
+              )
+            Width: =614
+            WorksheetName: =gblSelectedWorksheet
+            X: =108
+            Y: =85
+      - cmpAppPageTemplateG_1:
+          Control: CanvasComponent
+          ComponentName: cmpAppPageTemplateG
+          Properties:
+            BoardSubtitle: ="Expanse Automation"
+            BoardTitle: ="Expanse Cutover Automation Configuration Suite"
+            Height: =700
+            HubName: ="Text"
+            Records: ="Text"
+            WaveSubwaveFacility: ="Text"
+            Width: =1200
+            WorksheetName: ="Text"
+      - lblResultSubtitle:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#E05929")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            Text: ="Registration | Worksheet Bulk Import/Export"
+            Width: =477
+            X: =108
+            Y: =42
+      - Rectangle2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =Color.White
+            Height: =615
+            Width: =464
+            X: =735
+            Y: =85
+      - lblImport:
+          Control: ModernText@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Size: =16
+            Text: ="Import"
+            X: =745
+            Y: =101
+      - lblExport:
+          Control: ModernText@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Size: =16
+            Text: ="Export"
+            X: =1049
+            Y: =101

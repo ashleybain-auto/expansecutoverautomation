@@ -1,0 +1,131 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_eccsreadinesssummaries",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_eccsreadinesssummary",
+    "MaxGetRowsCount": 1000,
+    "Name": "ECCS Readiness Status Summaries",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_datacurrent": "Data Current",
+      "eccs_dataeffectivedate": "Data As Of",
+      "eccs_eccsreadinesssummary_AsyncOperations": "System Jobs",
+      "eccs_eccsreadinesssummary_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_eccsreadinesssummary_connections1": "Connections (eccs_eccsreadinesssummary_connections1)",
+      "eccs_eccsreadinesssummary_connections2": "Connections (eccs_eccsreadinesssummary_connections2)",
+      "eccs_eccsreadinesssummary_DeletedItemReferences": "Deleted Record References",
+      "eccs_eccsreadinesssummary_DuplicateBaseRecord": "Duplicate Records (eccs_eccsreadinesssummary_DuplicateBaseRecord)",
+      "eccs_eccsreadinesssummary_DuplicateMatchingRecord": "Duplicate Records (eccs_eccsreadinesssummary_DuplicateMatchingRecord)",
+      "eccs_eccsreadinesssummary_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_eccsreadinesssummary_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_eccsreadinesssummary_ProcessSession": "Process Sessions",
+      "eccs_eccsreadinesssummary_SyncErrors": "Sync Errors",
+      "eccs_eccsreadinesssummaryid": "ECCS Readiness Summary",
+      "eccs_facilitycode": "Facility Mnemonic",
+      "eccs_facilityscope": "Facility Scope",
+      "eccs_readinessstatus": "Readiness Status",
+      "eccs_recordquantity": "Record Count",
+      "eccs_snapshotidentifier": "Snapshot ID",
+      "eccs_summaryname": "Summary Name",
+      "eccs_synchronizationbatchid": "Sync Batch ID",
+      "eccs_wavesubwave": "Wave Subwave",
+      "eccs_worksheetscope": "Worksheet Scope",
+      "eccs_worksheettitle": "Worksheet Name",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "ECCS Readiness Status Summaries",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ECCS Readiness Status Summaries (Views)",
+    "Name": "_eccs_eccsreadinesssummary_views",
+    "RelatedEntityName": "ECCS Readiness Status Summaries",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0f6afd37-9faa-4a82-b2f2-fe35ddacd037": "ECCS Readiness Summary Associated View",
+      "172db2f4-3f9e-47fd-9857-d61614a27245": "ECCS Readiness Summary Lookup View",
+      "49c82300-4b27-46ae-99ca-5c3e5abd8d6c": "ECCS Readiness Summary Advanced Find View",
+      "79aadb8b-9dc2-4d4f-bde3-944dcafa43f1": "Inactive ECCS Readiness Summaries",
+      "add693c2-c4ac-40c4-926c-d3ac7921c912": "Active ECCS Readiness Summaries"
+    }
+  },
+  {
+    "DisplayName": "Data Current (ECCS Readiness Status Summaries)",
+    "Name": "eccs_eccsreadinesssummary_eccs_datacurrent",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_datacurrent",
+        "OptionSetReferenceEntityName": "ECCS Readiness Status Summaries"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "eccs_datacurrent",
+    "RelatedEntityName": "ECCS Readiness Status Summaries",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (ECCS Readiness Status Summaries)",
+    "Name": "eccs_eccsreadinesssummary_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Status Summaries"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "ECCS Readiness Status Summaries",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (ECCS Readiness Status Summaries)",
+    "Name": "eccs_eccsreadinesssummary_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Status Summaries"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "ECCS Readiness Status Summaries",
+    "Type": "OptionSetInfo"
+  }
+]
