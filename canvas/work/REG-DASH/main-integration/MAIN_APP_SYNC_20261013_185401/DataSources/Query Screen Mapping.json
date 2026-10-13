@@ -1,0 +1,118 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_queryscreenmappings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_queryscreenmapping",
+    "MaxGetRowsCount": 1000,
+    "Name": "Query Screen Mapping",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_groupresponsetargetmatchmatrix": "Group Response Target Match Matrix",
+      "eccs_orderpresenceindicator": "Order Presence Indicator",
+      "eccs_queryscreenmapping_AsyncOperations": "System Jobs",
+      "eccs_queryscreenmapping_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_queryscreenmapping_DeletedItemReferences": "Deleted Record References",
+      "eccs_queryscreenmapping_DuplicateBaseRecord": "Duplicate Records (eccs_queryscreenmapping_DuplicateBaseRecord)",
+      "eccs_queryscreenmapping_DuplicateMatchingRecord": "Duplicate Records (eccs_queryscreenmapping_DuplicateMatchingRecord)",
+      "eccs_queryscreenmapping_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_queryscreenmapping_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_queryscreenmapping_ProcessSession": "Process Sessions",
+      "eccs_queryscreenmapping_SyncErrors": "Sync Errors",
+      "eccs_queryscreenmappingid": "Query Screen Mapping",
+      "eccs_querytargetmatchmatrix": "Query Target Match Matrix",
+      "eccs_secondarytargetquerymnemonic": "Secondary Target Query Mnemonic",
+      "eccs_sourcefacilitymnemonic": "Source Facility Mnemonic",
+      "eccs_sourcegroupresponseelementdescript": "Source Group Response Element Description",
+      "eccs_sourcegroupresponseelementmnemonic": "Source Group Response Element Mnemonic",
+      "eccs_sourcegroupresponsemnemonic": "Source Group Response Mnemonic",
+      "eccs_sourcequerydescription": "Source Query Description",
+      "eccs_sourcequerymnemonic": "Source Query Mnemonic",
+      "eccs_sourcequerymultiyesno": "Source Query Multi-YesNo",
+      "eccs_sourcequerypointer": "Source Query Pointer",
+      "eccs_sourcequerytype": "Source Query Type",
+      "eccs_sourcescreenmnemonic": "Source Screen Mnemonic",
+      "eccs_sourcescreentype": "Source Screen Type",
+      "eccs_targetgroupresponseelementmnemonic": "Target Group Response Element Mnemonic",
+      "eccs_targetquerymnemonic": "Target Query Mnemonic",
+      "eccs_targetqueryvaluetype": "Target Query Value Type",
+      "eccs_targetscreenmnemonic": "Target Screen Mnemonic",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Query Screen Mapping",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Query Screen Mapping (Views)",
+    "Name": "_eccs_queryscreenmapping_views",
+    "RelatedEntityName": "Query Screen Mapping",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "06c9ce73-fa6d-42b0-8691-cf9b966d87cc": "Query Screen Mapping Advanced Find View",
+      "14da6473-04f7-40e6-aae0-0bf7f79c5e82": "Query Screen Mapping Associated View",
+      "4175c2b1-61c8-409d-9451-df60b7812bce": "Query Screen Mapping Lookup View",
+      "49dc732c-c3ab-4069-bfe0-a9c9403a68b5": "Active Query Screen Mapping",
+      "9bb95a18-32c7-4052-bb9f-612d4ed64aab": "Inactive Query Screen Mapping"
+    }
+  },
+  {
+    "DisplayName": "Status (Query Screen Mapping)",
+    "Name": "eccs_queryscreenmapping_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Query Screen Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Query Screen Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Query Screen Mapping)",
+    "Name": "eccs_queryscreenmapping_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Query Screen Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Query Screen Mapping",
+    "Type": "OptionSetInfo"
+  }
+]

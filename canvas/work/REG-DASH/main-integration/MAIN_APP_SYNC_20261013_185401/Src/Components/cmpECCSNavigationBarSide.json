@@ -1,0 +1,30 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentExtraMetadata": {
+    "ComponentDescription": "Site Navigation"
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "Site Navigation",
+    "IsWidget": false,
+    "Name": "cmpECCSNavigationBarSide",
+    "TemplateGuid": "41f7061bcd834e45b2d22c9e3275d3da"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "639275311340139244",
+  "Name": "41f7061bcd834e45b2d22c9e3275d3da",
+  "OverridableProperties": {},
+  "Version": "1.0"
+}

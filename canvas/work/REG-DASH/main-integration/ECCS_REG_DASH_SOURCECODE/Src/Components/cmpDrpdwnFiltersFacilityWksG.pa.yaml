@@ -38,6 +38,12 @@ ComponentDefinitions:
         RaiseOnReset: true
         DataType: Text
         Default: ="Text"
+      ResetSelections:
+        PropertyKind: Event
+        DisplayName: Reset Selections
+        Description: A custom property
+        ReturnType: None
+        Default: =true
       SelectedRecord:
         PropertyKind: Output
         DisplayName: Selected Record
@@ -487,8 +493,9 @@ ComponentDefinitions:
           Properties:
             Font: =Font.'Open Sans'
             ItemDisplayText: =ThisItem.'Facility Mnemonic'
-            Items: |-
-              =Sort(
+            Items: |
+              =
+              Sort(
                   Filter(
                       'dim.Ref.Organizations',
                       !IsBlank('Facility Mnemonic') &&
@@ -536,8 +543,9 @@ ComponentDefinitions:
           Properties:
             Font: =Font.'Open Sans'
             ItemDisplayText: =ThisItem.'Reg Worksheet Name'
-            Items: |-
-              =Sort(
+            Items: |
+              =
+              Sort(
                   Filter(
                       'Reg Config Categories',
                       'Reg Worksheet Name' <> "REG ALL" &&

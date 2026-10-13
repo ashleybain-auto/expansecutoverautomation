@@ -1522,6 +1522,7 @@ Screens:
           ComponentName: cmpECCSNavigationBarTop
           Properties:
             Height: =36
+            OnRefreshSelect: =false
             OnReportsSelect: =
             Width: =620
             X: =701

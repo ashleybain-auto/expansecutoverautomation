@@ -1,0 +1,104 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_serverconfiguration1s",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_serverconfiguration1",
+    "MaxGetRowsCount": 1000,
+    "Name": "Server Configuration",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_databaseenvironment": "Database Environment",
+      "eccs_databasename": "Database Name",
+      "eccs_environmentsetting": "Environment Setting",
+      "eccs_serverconfiguration1_AsyncOperations": "System Jobs",
+      "eccs_serverconfiguration1_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_serverconfiguration1_DeletedItemReferences": "Deleted Record References",
+      "eccs_serverconfiguration1_DuplicateBaseRecord": "Duplicate Records (eccs_serverconfiguration1_DuplicateBaseRecord)",
+      "eccs_serverconfiguration1_DuplicateMatchingRecord": "Duplicate Records (eccs_serverconfiguration1_DuplicateMatchingRecord)",
+      "eccs_serverconfiguration1_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_serverconfiguration1_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_serverconfiguration1_ProcessSession": "Process Sessions",
+      "eccs_serverconfiguration1_SyncErrors": "Sync Errors",
+      "eccs_serverconfiguration1id": "Server Configuration",
+      "eccs_serverenvironment": "Server Environment",
+      "eccs_servername": "Server Name",
+      "eccs_serversetting": "Server Setting",
+      "eccs_settingtype": "Setting Type",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Server Configuration",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Server Configuration (Views)",
+    "Name": "_eccs_serverconfiguration1_views",
+    "RelatedEntityName": "Server Configuration",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0caec7f2-cb8d-4a9b-9f3c-cfbbd1e1019a": "Active Server Configuration",
+      "0d21d18c-0c0d-44d0-a190-4dbc84d6da63": "Server Configuration Advanced Find View",
+      "17231a9b-6a29-4eb6-bb1a-4fb5bba2fe26": "Inactive Server Configuration",
+      "4dbb6563-080e-4c91-82d5-299c1b952da6": "Server Configuration Associated View",
+      "b8b68630-80a6-4830-b827-510270f01cc0": "Server Configuration Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Server Configuration)",
+    "Name": "eccs_serverconfiguration1_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Server Configuration"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Server Configuration",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Server Configuration)",
+    "Name": "eccs_serverconfiguration1_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Server Configuration"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Server Configuration",
+    "Type": "OptionSetInfo"
+  }
+]

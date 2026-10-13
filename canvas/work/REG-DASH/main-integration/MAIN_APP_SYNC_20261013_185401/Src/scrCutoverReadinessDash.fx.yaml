@@ -1,0 +1,84 @@
+scrCutoverReadinessDash As screen:
+    ContentLanguage: =""
+    Fill: |-
+        =ColorValue("#F5F6F7")
+    Height: =700
+    OnVisible: |
+        =
+        Refresh('ECCS Readiness Snapshots');
+        Refresh('ECCS Readiness Status Summaries');
+        Refresh('ECCS Readiness Exceptions');
+        
+        ClearCollect(
+            colECCSReadinessSnapshots,
+            'ECCS Readiness Snapshots'
+        );
+        
+        ClearCollect(
+            colECCSReadinessSummary,
+            'ECCS Readiness Status Summaries'
+        );
+        
+        ClearCollect(
+            colECCSReadinessExceptions,
+            'ECCS Readiness Exceptions'
+        )
+    Width: =1200
+
+    cmpECCSCutoverReadinessDsh_1 As cmpECCSCutoverReadinessDsh:
+        CutoverSchedule: =colECCSCutoverSchedule
+        ReadinessExceptions: |
+            =
+            ForAll(
+                'ECCS Readiness Exceptions' As exc,
+                {
+                    'Facility Mnemonic': exc.'Facility Mnemonic',
+                    'Worksheet Name': exc.'Worksheet Name',
+                    'Source Mnemonic': exc.'Source Mnemonic',
+                    'Readiness Status': exc.'Readiness Status'
+                }
+            )
+        ReadinessSnapshots: |
+            =
+            ForAll(
+                'ECCS Readiness Snapshots' As snap,
+                {
+                    'Total Records': snap.'Total Records',
+                    'Mapped Records': snap.'Mapped Records',
+                    'No Match Records': snap.'No Match Records',
+                    'Readiness Percentage': snap.'Readiness Percentage',
+                    'Facility Mnemonic': snap.'Facility Mnemonic',
+                    'Worksheet Name': snap.'Worksheet Name',
+                    'Data Current': snap.'Data Current'
+                }
+            )
+        ReadinessSummaries: |
+            =
+            ForAll(
+                'ECCS Readiness Status Summaries' As summary,
+                {
+                    'Worksheet Name': summary.'Worksheet Name',
+                    'Facility Mnemonic': summary.'Facility Mnemonic',
+                    'Readiness Status': summary.'Readiness Status',
+                    'Record Count': summary.'Record Count'
+                }
+            )
+        ZIndex: =1
+
+    cmpECCSNavigationBar_Readiness As cmpECCSNavigationBarTop:
+        OnRefreshSelect: |-
+            =
+            Set(gblSelectedMatchCategory, Blank());
+            Set(gblSelectedWorksheet, Blank());
+            Set(gblDashboardExpanded, false);
+            Set(gblSelectedAccommodation, Blank())
+        OnReportsSelect: |-
+            =              Launch(
+                "https://app.powerbi.com/groups/me/reports/39bad50d-8b49-4db2-a199-2800a3bc53da/c6a949ff475c2b687530?ctid=335a6d75-c3eb-4b1a-ac08-d49338816ca0",
+                {},
+                LaunchTarget.New
+            )
+        X: =580
+        Y: =20
+        ZIndex: =2
+

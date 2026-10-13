@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_changelogentries",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_changelogentry",
+    "MaxGetRowsCount": 1000,
+    "Name": "Change Log Entry",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_changelogdetails": "Change Log Details",
+      "eccs_changelogentry_AsyncOperations": "System Jobs",
+      "eccs_changelogentry_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_changelogentry_DeletedItemReferences": "Deleted Record References",
+      "eccs_changelogentry_DuplicateBaseRecord": "Duplicate Records (eccs_changelogentry_DuplicateBaseRecord)",
+      "eccs_changelogentry_DuplicateMatchingRecord": "Duplicate Records (eccs_changelogentry_DuplicateMatchingRecord)",
+      "eccs_changelogentry_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_changelogentry_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_changelogentry_ProcessSession": "Process Sessions",
+      "eccs_changelogentry_SyncErrors": "Sync Errors",
+      "eccs_changelogentryid": "Change Log Entry",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Change Log Entry",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Change Log Entry (Views)",
+    "Name": "_eccs_changelogentry_views",
+    "RelatedEntityName": "Change Log Entry",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "44949d73-5aff-494b-9a52-456f55b982b1": "Change Log Entry Advanced Find View",
+      "9a43d46c-ac73-4fef-bd39-10f183f7c0aa": "Change Log Entry Associated View",
+      "c48a626d-e6d9-4376-9239-20e13bb42bd8": "Change Log Entry Lookup View",
+      "c8c3bbbb-91b1-46d8-8901-952c42d716bd": "Active Change Log Entry",
+      "d9360500-423a-4eec-9c4d-7115a3caef1f": "Inactive Change Log Entry"
+    }
+  },
+  {
+    "DisplayName": "Status (Change Log Entry)",
+    "Name": "eccs_changelogentry_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Change Log Entry"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Change Log Entry",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Change Log Entry)",
+    "Name": "eccs_changelogentry_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Change Log Entry"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Change Log Entry",
+    "Type": "OptionSetInfo"
+  }
+]

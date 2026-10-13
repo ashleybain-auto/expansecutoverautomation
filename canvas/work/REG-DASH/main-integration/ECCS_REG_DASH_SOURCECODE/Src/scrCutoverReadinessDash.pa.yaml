@@ -38,13 +38,46 @@ Screens:
           Control: CanvasComponent
           ComponentName: cmpECCSCutoverReadinessDsh
           Properties:
-            ReadinessSnapshots: =Table({ 'Total Records': 0, 'Mapped Records': 0, 'No Match Records': 0, 'Readiness Percentage': 0, 'Facility Mnemonic': "", 'Worksheet Name': "", 'Data Current': true })
-            ReadinessSummaries: =Table({ 'Worksheet Name': "", 'Facility Mnemonic': "", 'Readiness Status': "", 'Record Count': 0 })
-            ReadinessExceptions: =Table({ 'Facility Mnemonic': "", 'Worksheet Name': "", 'Source Mnemonic': "", 'Readiness Status': "" })
             BoardSubtitle: ="Text"
             BoardTitle: ="Text"
             CutoverSchedule: =colECCSCutoverSchedule
             Height: =700
+            ReadinessExceptions: |+
+              =
+              ForAll(
+                  'ECCS Readiness Exceptions' As exc,
+                  {
+                      'Facility Mnemonic': exc.'Facility Mnemonic',
+                      'Worksheet Name': exc.'Worksheet Name',
+                      'Source Mnemonic': exc.'Source Mnemonic',
+                      'Readiness Status': exc.'Readiness Status'
+                  }
+              )
+            ReadinessSnapshots: |+
+              =
+              ForAll(
+                  'ECCS Readiness Snapshots' As snap,
+                  {
+                      'Total Records': snap.'Total Records',
+                      'Mapped Records': snap.'Mapped Records',
+                      'No Match Records': snap.'No Match Records',
+                      'Readiness Percentage': snap.'Readiness Percentage',
+                      'Facility Mnemonic': snap.'Facility Mnemonic',
+                      'Worksheet Name': snap.'Worksheet Name',
+                      'Data Current': snap.'Data Current'
+                  }
+              )
+            ReadinessSummaries: |+
+              =
+              ForAll(
+                  'ECCS Readiness Status Summaries' As summary,
+                  {
+                      'Worksheet Name': summary.'Worksheet Name',
+                      'Facility Mnemonic': summary.'Facility Mnemonic',
+                      'Readiness Status': summary.'Readiness Status',
+                      'Record Count': summary.'Record Count'
+                  }
+              )
             Record: ="Text"
             WaveSubwave: ="Text"
             Width: =1200
@@ -53,6 +86,12 @@ Screens:
           ComponentName: cmpECCSNavigationBarTop
           Properties:
             Height: =36
+            OnRefreshSelect: |-
+              =
+              Set(gblSelectedMatchCategory, Blank());
+              Set(gblSelectedWorksheet, Blank());
+              Set(gblDashboardExpanded, false);
+              Set(gblSelectedAccommodation, Blank())
             OnReportsSelect: |-
               =              Launch(
                   "https://app.powerbi.com/groups/me/reports/39bad50d-8b49-4db2-a199-2800a3bc53da/c6a949ff475c2b687530?ctid=335a6d75-c3eb-4b1a-ac08-d49338816ca0",

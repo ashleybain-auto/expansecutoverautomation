@@ -62,6 +62,7 @@ Screens:
           ComponentName: cmpECCSNavigationBarTop
           Properties:
             Height: =36
+            OnRefreshSelect: =false
             OnReportsSelect: =
             Width: =620
             X: =720
@@ -119,6 +120,7 @@ Screens:
             FacilityMnemonicName: =gblSelectedFacility
             Height: =650
             Records: ="Text"
+            ResetSelections: =
             WaveSubwave: |-
               =Coalesce(
                   gblSelectedWaveNumber,

@@ -12,6 +12,12 @@ ComponentDefinitions:
     Description: Site Navigation
     AccessAppScope: true
     CustomProperties:
+      OnRefreshSelect:
+        PropertyKind: Event
+        DisplayName: OnRefreshSelect
+        Description: Reset current screen selections and refresh data
+        ReturnType: None
+        Default: =false
       OnReportsSelect:
         PropertyKind: Event
         DisplayName: OnReportsSelect
@@ -60,7 +66,7 @@ ComponentDefinitions:
           Properties:
             Font: =Font.'Open Sans'
             Icon: ="ArrowSync"
-            OnSelect: |-
+            OnSelect: |
               =Switch(
                   App.ActiveScreen,
                   scrRegistrationLaunchpad,

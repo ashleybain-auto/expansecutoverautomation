@@ -1,0 +1,81 @@
+scrWorksheetResults As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(232, 232, 232, 1)
+    Height: |
+        =700
+    Width: =1200
+
+    cmpDrpdwnFiltersFacilityWksG_2 As cmpDrpdwnFiltersFacilityWksG:
+        BoardSubtitle: ="Registration | Worksheet Bulk Import/Export"
+        FacilityMnemonicName: =gblSelectedFacility
+        Height: =603
+        ResetSelections: =true
+        WaveSubwave: |-
+            =Coalesce(
+                gblSelectedWaveNumber,
+                ""
+            ) &
+            If(
+                !IsBlank(gblSelectedSubWaveCode),
+                " - " & gblSelectedSubWaveCode,
+                ""
+            )
+        Width: =614
+        WorksheetName: =gblSelectedWorksheet
+        X: =108
+        Y: =85
+        ZIndex: =1
+
+    cmpAppPageTemplateG_1 As cmpAppPageTemplateG:
+        ZIndex: =2
+
+    lblResultSubtitle As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Text: ="Registration | Worksheet Bulk Import/Export"
+        Width: =477
+        X: =108
+        Y: =42
+        ZIndex: =3
+
+    Rectangle2 As rectangle:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Fill: =Color.White
+        Height: =615
+        Width: =464
+        X: =735
+        Y: =85
+        ZIndex: =4
+
+    lblImport As modernText:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Size: =16
+        Text: ="Import"
+        X: =745
+        Y: =101
+        ZIndex: =5
+
+    lblExport As modernText:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Size: =16
+        Text: ="Export"
+        X: =1049
+        Y: =101
+        ZIndex: =6
+
+    cmpECCSNavigationBarTop_2 As cmpECCSNavigationBarTop:
+        OnRefreshSelect: =false
+        OnReportsSelect: =
+        X: =567
+        Y: =24
+        ZIndex: =7
+

@@ -1,0 +1,142 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_eccsreadinessexceptionses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_eccsreadinessexceptions",
+    "MaxGetRowsCount": 1000,
+    "Name": "ECCS Readiness Exceptions",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_dataasofdate": "Data As Of",
+      "eccs_datacurrent": "Data Current",
+      "eccs_eccsreadinessexceptions_ActivityPointers": "Activities",
+      "eccs_eccsreadinessexceptions_adx_inviteredemptions": "Invite Redemptions",
+      "eccs_eccsreadinessexceptions_adx_portalcomments": "Portal Comments",
+      "eccs_eccsreadinessexceptions_Appointments": "Appointments",
+      "eccs_eccsreadinessexceptions_AsyncOperations": "System Jobs",
+      "eccs_eccsreadinessexceptions_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_eccsreadinessexceptions_chats": "Teams chats",
+      "eccs_eccsreadinessexceptions_connections1": "Connections (eccs_eccsreadinessexceptions_connections1)",
+      "eccs_eccsreadinessexceptions_connections2": "Connections (eccs_eccsreadinessexceptions_connections2)",
+      "eccs_eccsreadinessexceptions_DeletedItemReferences": "Deleted Record References",
+      "eccs_eccsreadinessexceptions_DuplicateBaseRecord": "Duplicate Records (eccs_eccsreadinessexceptions_DuplicateBaseRecord)",
+      "eccs_eccsreadinessexceptions_DuplicateMatchingRecord": "Duplicate Records (eccs_eccsreadinessexceptions_DuplicateMatchingRecord)",
+      "eccs_eccsreadinessexceptions_Emails": "Email Messages",
+      "eccs_eccsreadinessexceptions_Faxes": "Faxes",
+      "eccs_eccsreadinessexceptions_Letters": "Letters",
+      "eccs_eccsreadinessexceptions_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_eccsreadinessexceptions_PhoneCalls": "Phone Calls",
+      "eccs_eccsreadinessexceptions_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_eccsreadinessexceptions_ProcessSession": "Process Sessions",
+      "eccs_eccsreadinessexceptions_RecurringAppointmentMasters": "Recurring Appointments",
+      "eccs_eccsreadinessexceptions_SyncErrors": "Sync Errors",
+      "eccs_eccsreadinessexceptions_Tasks": "Tasks",
+      "eccs_eccsreadinessexceptionsid": "ECCS Readiness Exceptions",
+      "eccs_facilitycode": "Facility Mnemonic",
+      "eccs_readinessstatus": "Readiness Status",
+      "eccs_snapshotidentifier": "Snapshot ID",
+      "eccs_sourcecode": "Source Mnemonic",
+      "eccs_sourcename": "Source Name",
+      "eccs_synchronizationbatchidentifier": "Sync Batch ID",
+      "eccs_targetcode": "Target Mnemonic",
+      "eccs_targetname": "Target Name",
+      "eccs_wavesubwave": "Wave Subwave",
+      "eccs_worksheettitle": "Worksheet Name",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "ECCS Readiness Exceptions",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ECCS Readiness Exceptions (Views)",
+    "Name": "_eccs_eccsreadinessexceptions_views",
+    "RelatedEntityName": "ECCS Readiness Exceptions",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "274aa880-f04e-4a7c-913a-5fc2d0a4acfc": "ECCS Readiness Exceptions Associated View",
+      "37cf5a99-2d31-4df9-a688-c8ee47e53c03": "Active ECCS Readiness Exceptions",
+      "71e0dae9-f249-4052-898c-17c58b897a55": "Inactive ECCS Readiness Exceptions",
+      "8f3071da-4ba4-4dbe-b40c-9d66c0e4ee80": "ECCS Readiness Exceptions Lookup View",
+      "b974e762-6917-41ca-b3b8-38f2567090e4": "ECCS Readiness Exceptions Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Data Current (ECCS Readiness Exceptions)",
+    "Name": "eccs_eccsreadinessexceptions_eccs_datacurrent",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_datacurrent",
+        "OptionSetReferenceEntityName": "ECCS Readiness Exceptions"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "eccs_datacurrent",
+    "RelatedEntityName": "ECCS Readiness Exceptions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (ECCS Readiness Exceptions)",
+    "Name": "eccs_eccsreadinessexceptions_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Exceptions"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "ECCS Readiness Exceptions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (ECCS Readiness Exceptions)",
+    "Name": "eccs_eccsreadinessexceptions_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Exceptions"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "ECCS Readiness Exceptions",
+    "Type": "OptionSetInfo"
+  }
+]

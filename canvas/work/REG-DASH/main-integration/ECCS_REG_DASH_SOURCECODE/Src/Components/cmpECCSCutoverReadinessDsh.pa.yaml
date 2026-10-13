@@ -29,7 +29,7 @@ ComponentDefinitions:
         DisplayName: CutoverSchedule
         Description: A custom property
         DataType: Table
-        Default: |+
+        Default: |
           =Table(
               {
                   EventName: "",
@@ -38,6 +38,27 @@ ComponentDefinitions:
                   FinishDate: Date(2026, 1, 1)
               }
           )
+      ReadinessExceptions:
+        PropertyKind: Input
+        DisplayName: Readiness Exceptions
+        Description: Dataverse readiness exception records
+        DataType: Table
+        Default: |-
+          =Table({ 'Facility Mnemonic': "", 'Worksheet Name': "", 'Source Mnemonic': "", 'Readiness Status': "" })
+      ReadinessSnapshots:
+        PropertyKind: Input
+        DisplayName: Readiness Snapshots
+        Description: Dataverse readiness snapshot records
+        DataType: Table
+        Default: |-
+          =Table({ 'Total Records': 0, 'Mapped Records': 0, 'No Match Records': 0, 'Readiness Percentage': 0, 'Facility Mnemonic': "", 'Worksheet Name': "", 'Data Current': true })
+      ReadinessSummaries:
+        PropertyKind: Input
+        DisplayName: Readiness Summaries
+        Description: Dataverse readiness status summaries
+        DataType: Table
+        Default: |-
+          =Table({ 'Worksheet Name': "", 'Facility Mnemonic': "", 'Readiness Status': "", 'Record Count': 0 })
       Record:
         PropertyKind: Input
         DisplayName: Record
@@ -55,27 +76,6 @@ ComponentDefinitions:
         Description: A custom property
         DataType: Text
         Default: ="Text"
-      ReadinessSnapshots:
-        PropertyKind: Input
-        DisplayName: Readiness Snapshots
-        Description: Dataverse readiness snapshot records
-        DataType: Table
-        Default: |-
-          =Table({ 'Total Records': 0, 'Mapped Records': 0, 'No Match Records': 0, 'Readiness Percentage': 0, 'Facility Mnemonic': "", 'Worksheet Name': "", 'Data Current': true })
-      ReadinessSummaries:
-        PropertyKind: Input
-        DisplayName: Readiness Summaries
-        Description: Dataverse readiness status summaries
-        DataType: Table
-        Default: |-
-          =Table({ 'Worksheet Name': "", 'Facility Mnemonic': "", 'Readiness Status': "", 'Record Count': 0 })
-      ReadinessExceptions:
-        PropertyKind: Input
-        DisplayName: Readiness Exceptions
-        Description: Dataverse readiness exception records
-        DataType: Table
-        Default: |-
-          =Table({ 'Facility Mnemonic': "", 'Worksheet Name': "", 'Source Mnemonic': "", 'Readiness Status': "" })
     Properties:
       Height: =700
       SelectedRecord: |-
@@ -249,257 +249,338 @@ ComponentDefinitions:
       - lblREGDashTotalKPI:
           Control: ModernText@1.0.0
           Properties:
-            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Total Records', "#,##0"))
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
+            Height: =55
             Size: =24
+            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Total Records', "#,##0"))
+            Width: =220
             X: =125
             Y: =170
-            Width: =220
-            Height: =55
       - lblREGDashMappedKPI:
           Control: ModernText@1.0.0
           Properties:
-            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Mapped Records', "#,##0"))
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
+            Height: =55
             Size: =24
+            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Mapped Records', "#,##0"))
+            Width: =220
             X: =385
             Y: =170
-            Width: =220
-            Height: =55
       - lblREGDashNoMatchKPI:
           Control: ModernText@1.0.0
           Properties:
-            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'No Match Records', "#,##0"))
+            Color: =ColorValue("#E05929")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#E05929")
+            Height: =55
             Size: =24
+            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'No Match Records', "#,##0"))
+            Width: =220
             X: =645
             Y: =170
-            Width: =220
-            Height: =55
       - lblREGDashReadinessKPI:
           Control: ModernText@1.0.0
           Properties:
-            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Readiness Percentage', "0.0") & "%")
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
+            Height: =55
             Size: =24
+            Text: =If(IsEmpty(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))), "No data", Text(First(Filter(cmpECCSCutoverReadinessDsh.ReadinessSnapshots, 'Data Current' = true && IsBlank('Facility Mnemonic') && IsBlank('Worksheet Name'))).'Readiness Percentage', "0.0") & "%")
+            Width: =220
             X: =905
             Y: =170
-            Width: =220
-            Height: =55
       - lblREGDashTotalCaption:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="TOTAL CONFIGURATION RECORDS"
+            Color: =ColorValue("#54585A")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Semibold
-            Color: =ColorValue("#54585A")
+            Height: =30
             Size: =11
+            Text: ="TOTAL CONFIGURATION RECORDS"
+            Width: =235
             X: =125
             Y: =140
-            Width: =235
-            Height: =30
       - lblREGDashMappedCaption:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="MAPPED RECORDS"
+            Color: =ColorValue("#54585A")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Semibold
-            Color: =ColorValue("#54585A")
+            Height: =30
             Size: =11
+            Text: ="MAPPED RECORDS"
+            Width: =235
             X: =385
             Y: =140
-            Width: =235
-            Height: =30
       - lblREGDashNoMatchCaption:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="NO MATCH RECORDS"
+            Color: =ColorValue("#54585A")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Semibold
-            Color: =ColorValue("#54585A")
+            Height: =30
             Size: =11
+            Text: ="NO MATCH RECORDS"
+            Width: =235
             X: =645
             Y: =140
-            Width: =235
-            Height: =30
       - lblREGDashReadinessCaption:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="MAPPING READINESS"
+            Color: =ColorValue("#54585A")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Semibold
-            Color: =ColorValue("#54585A")
+            Height: =30
             Size: =11
+            Text: ="MAPPING READINESS"
+            Width: =235
             X: =905
             Y: =140
-            Width: =235
-            Height: =30
       - lblREGWorksheetChartTitle:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="READINESS BY WORKSHEET"
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
             Size: =14
+            Text: ="READINESS BY WORKSHEET"
+            Width: =450
             X: =125
             Y: =265
-            Width: =450
-            Height: =32
       - lblREGFacilityChartTitle:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="READINESS BY FACILITY"
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
             Size: =14
+            Text: ="READINESS BY FACILITY"
+            Width: =450
             X: =645
             Y: =265
-            Width: =450
-            Height: =32
       - lblREGExceptionsTitle:
           Control: ModernText@1.0.0
           Properties:
-            Text: ="EXCEPTIONS / NO MATCH"
+            Color: =ColorValue("#03173E")
             Font: =Font.'Open Sans'
             FontWeight: =FontWeight.Bold
-            Color: =ColorValue("#03173E")
             Size: =14
-            X: =125
-            Y: =515
+            Text: ="EXCEPTIONS / NO MATCH"
             Width: =450
-            Height: =32
+            X: =127
+            Y: =502
       - galREGWorksheetReadiness:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_OneTextVariant_ver5.0
           Properties:
-            Items: |-
-              =GroupBy(
-                  cmpECCSCutoverReadinessDsh.ReadinessSummaries,
-                  'Worksheet Name',
-                  StatusRows
+            Height: =185
+            Items: |
+              =
+              With(
+                  {
+                      grouped: GroupBy(
+                          cmpECCSCutoverReadinessDsh.ReadinessSummaries,
+                          'Worksheet Name',
+                          StatusRows
+                      )
+                  },
+                  AddColumns(
+                      grouped As ws,
+                      MappedCount,
+                      Sum(
+                          Filter(
+                              ws.StatusRows,
+                              'Readiness Status' = "Mapped"
+                          ),
+                          'Record Count'
+                      ),
+                      NeedsCount,
+                      Sum(
+                          Filter(
+                              ws.StatusRows,
+                              'Readiness Status' = "Needs Mapping"
+                          ),
+                          'Record Count'
+                      ),
+                      IncompleteCount,
+                      Sum(
+                          Filter(
+                              ws.StatusRows,
+                              'Readiness Status' = "Incomplete"
+                          ),
+                          'Record Count'
+                      )
+                  )
               )
+            TemplateSize: =42
+            Width: =480
             X: =125
             Y: =305
-            Width: =480
-            Height: =185
-            TemplateSize: =42
           Children:
             - shpREGWorksheetMappedBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#03173E")
-                  X: =235
-                  Y: =14
                   Height: =14
                   Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Mapped"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
+                  X: =235
+                  Y: =14
             - shpREGWorksheetNeedsMappingBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#E05929")
+                  Height: =14
+                  Width: |+
+                    =Max(
+                        0,
+                        600 * ThisItem.MappedCount /
+                        Max(
+                            1,
+                            ThisItem.MappedCount +
+                            ThisItem.NeedsCount +
+                            ThisItem.IncompleteCount
+                        )
+                    )
                   X: =235 + shpREGWorksheetMappedBar.Width
                   Y: =14
-                  Height: =14
-                  Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Needs Mapping"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
             - shpREGWorksheetIncompleteBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#AEB5BF")
-                  X: =shpREGWorksheetNeedsMappingBar.X + shpREGWorksheetNeedsMappingBar.Width
-                  Y: =14
                   Height: =14
                   Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Incomplete Target"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
+                  X: =shpREGWorksheetNeedsMappingBar.X + shpREGWorksheetNeedsMappingBar.Width
+                  Y: =14
             - lblREGWorksheetRow:
                 Control: ModernText@1.0.0
                 Properties:
-                  Text: =ThisItem.'Worksheet Name'
-                  Font: =Font.'Open Sans'
                   Color: =ColorValue("#03173E")
+                  Font: =Font.'Open Sans'
+                  Height: =30
                   Size: =11
+                  Text: =ThisItem.'Worksheet Name'
+                  Width: =230
                   X: =5
                   Y: =5
-                  Width: =230
-                  Height: =30
-
       - galREGFacilityReadiness:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_OneTextVariant_ver5.0
           Properties:
-            Items: |-
-              =GroupBy(
-                  cmpECCSCutoverReadinessDsh.ReadinessSummaries,
-                  'Facility Mnemonic',
-                  StatusRows
+            Height: =185
+            Items: |
+              =
+              With(
+                  {
+                      grouped: GroupBy(
+                          cmpECCSCutoverReadinessDsh.ReadinessSummaries,
+                          'Facility Mnemonic',
+                          StatusRows
+                      )
+                  },
+                  AddColumns(
+                      grouped As fac,
+                      MappedCount,
+                      Coalesce(
+                          Sum(
+                              Filter(
+                                  fac.StatusRows,
+                                  'Readiness Status' = "Mapped"
+                              ),
+                              'Record Count'
+                          ),
+                          0
+                      ),
+                      NeedsCount,
+                      Coalesce(
+                          Sum(
+                              Filter(
+                                  fac.StatusRows,
+                                  'Readiness Status' = "Needs Mapping"
+                              ),
+                              'Record Count'
+                          ),
+                          0
+                      ),
+                      IncompleteCount,
+                      Coalesce(
+                          Sum(
+                              Filter(
+                                  fac.StatusRows,
+                                  'Readiness Status' = "Incomplete"
+                              ),
+                              'Record Count'
+                          ),
+                          0
+                      )
+                  )
               )
+            TemplateSize: =42
+            Width: =480
             X: =645
             Y: =305
-            Width: =480
-            Height: =185
-            TemplateSize: =42
           Children:
             - shpREGFacilityMappedBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#03173E")
-                  X: =235
-                  Y: =14
                   Height: =14
                   Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Mapped"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
+                  X: =235
+                  Y: =14
             - shpREGFacilityNeedsMappingBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#E05929")
-                  X: =235 + shpREGFacilityMappedBar.Width
-                  Y: =14
                   Height: =14
                   Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Needs Mapping"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
+                  X: =235 + shpREGFacilityMappedBar.Width
+                  Y: =14
             - shpREGFacilityIncompleteBar:
                 Control: Rectangle@2.3.0
                 Properties:
                   Fill: =ColorValue("#AEB5BF")
-                  X: =shpREGFacilityNeedsMappingBar.X + shpREGFacilityNeedsMappingBar.Width
-                  Y: =14
                   Height: =14
                   Width: =If(Sum(ThisItem.StatusRows, 'Record Count') = 0, 0, 225 * Sum(Filter(ThisItem.StatusRows, 'Readiness Status' = "Incomplete Target"), 'Record Count') / Sum(ThisItem.StatusRows, 'Record Count'))
+                  X: =shpREGFacilityNeedsMappingBar.X + shpREGFacilityNeedsMappingBar.Width
+                  Y: =14
             - lblREGFacilityRow:
                 Control: ModernText@1.0.0
                 Properties:
-                  Text: =ThisItem.'Facility Mnemonic'
-                  Font: =Font.'Open Sans'
                   Color: =ColorValue("#03173E")
+                  Font: =Font.'Open Sans'
+                  Height: =30
                   Size: =11
+                  Text: =ThisItem.'Facility Mnemonic'
+                  Width: =230
                   X: =5
                   Y: =5
-                  Width: =230
-                  Height: =30
       - galREGReadinessExceptions:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_OneTextVariant_ver5.0
           Properties:
-            Items: =cmpECCSCutoverReadinessDsh.ReadinessExceptions
-            X: =125
-            Y: =550
-            Width: =1000
-            Height: =125
+            Height: =128
+            Items: |+
+              =
+              cmpECCSCutoverReadinessDsh.ReadinessExceptions
             TemplateSize: =42
+            Width: =1062
+            X: =125
+            Y: =547
           Children:
             - lblREGExceptionRow:
                 Control: ModernText@1.0.0
                 Properties:
-                  Text: =ThisItem.'Facility Mnemonic' & " | " & ThisItem.'Worksheet Name' & " | " & ThisItem.'Source Mnemonic' & " | " & ThisItem.'Readiness Status'
-                  Font: =Font.'Open Sans'
                   Color: =ColorValue("#54585A")
+                  Font: =Font.'Open Sans'
+                  Height: =30
                   Size: =11
+                  Text: =ThisItem.'Facility Mnemonic'
+                  Width: =970
                   X: =5
                   Y: =5
-                  Width: =970
-                  Height: =30

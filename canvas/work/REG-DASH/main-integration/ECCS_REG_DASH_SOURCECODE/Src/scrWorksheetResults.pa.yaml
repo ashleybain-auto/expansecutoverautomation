@@ -15,15 +15,6 @@ Screens:
       LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
       Width: =1200
     Children:
-      - cmpECCSNavigationBarTop_2:
-          Control: CanvasComponent
-          ComponentName: cmpECCSNavigationBarTop
-          Properties:
-            Height: =36
-            OnReportsSelect: =
-            Width: =620
-            X: =567
-            Y: =24
       - cmpDrpdwnFiltersFacilityWksG_2:
           Control: CanvasComponent
           ComponentName: cmpDrpdwnFiltersFacilityWksG
@@ -33,6 +24,7 @@ Screens:
             FacilityMnemonicName: =gblSelectedFacility
             Height: =603
             Records: ="Text"
+            ResetSelections: =true
             WaveSubwave: |-
               =Coalesce(
                   gblSelectedWaveNumber,
@@ -98,3 +90,13 @@ Screens:
             Text: ="Export"
             X: =1049
             Y: =101
+      - cmpECCSNavigationBarTop_2:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            OnRefreshSelect: =false
+            OnReportsSelect: =
+            Width: =620
+            X: =567
+            Y: =24

@@ -1,0 +1,159 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmpDrpdwnFiltersFacilityG:
+    DefinitionType: CanvasComponent
+    Description: Wave Facility Dropdown
+    AccessAppScope: true
+    CustomProperties:
+      FacilityMnemonicName:
+        PropertyKind: Input
+        DisplayName: Facility Mnemonic/Name
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+      Records:
+        PropertyKind: Input
+        DisplayName: Records
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+      SelectedRecord:
+        PropertyKind: Output
+        DisplayName: Selected Record
+        Description: A custom property
+        DataType: Text
+      WaveSubwave:
+        PropertyKind: Input
+        DisplayName: Wave-Subwave
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+    Properties:
+      Height: =75
+      SelectedRecord: ="Text"
+      Width: =620
+    Children:
+      - lblGlbWaveSubwave:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#03173E")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Size: =13
+            Text: ="WAVE - SUBWAVE"
+            Width: =240
+            X: =5
+            Y: =3
+      - drpWaveSubWave:
+          Control: ModernDropdown@1.0.3
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =28
+            ItemDisplayText: =ThisItem.Value
+            Items: |-
+              =Sort(
+                  Distinct(
+                      Filter(
+                          'dim.Ref.Organizations',
+                          !IsBlank('Wave Number') &&
+                          'Wave Number' <> "Wave" &&
+                          'Wave Number' <> "NULL" &&
+                          !IsBlank('SubWave2 Code') &&
+                          'SubWave2 Code' <> "SubWave" &&
+                          'SubWave2 Code' <> "NULL"
+                      ),
+                      'Wave Number' & " - " & 'SubWave2 Code'
+                  ),
+                  Value,
+                  SortOrder.Ascending
+              )
+            OnChange: |-
+              =Set(
+                  gblSelectedWaveNumber,
+                  First(
+                      Split(
+                          drpWaveSubWave.Selected.Value,
+                          " - "
+                      )
+                  ).Value
+              );
+              Set(
+                  gblSelectedSubWaveCode,
+                  Last(
+                      Split(
+                          drpWaveSubWave.Selected.Value,
+                          " - "
+                      )
+                  ).Value
+              );
+              Set(
+                  gblSelectedFacility,
+                  Blank()
+              );
+              Set(
+                  gblSelectedNetworkMnemonic,
+                  Blank()
+              )
+            Size: =12
+            Width: =260
+            X: =5
+            Y: =32
+      - lblGlbFacilityMneName:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#03173E")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Size: =13
+            Text: ="FACILITY MNEMONIC/NAME"
+            Width: =250
+            X: =325
+            Y: =3
+      - drpFacilityMnemName:
+          Control: ModernDropdown@1.0.3
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =28
+            ItemDisplayText: =ThisItem.'Facility Mnemonic'
+            Items: |-
+              =Sort(
+                  Filter(
+                      'dim.Ref.Organizations',
+                      !IsBlank('Facility Mnemonic') &&
+                      'Facility Mnemonic' <> "Facility Mnemonic" &&
+                      'Facility Mnemonic' <> "NULL" &&
+                      (
+                          IsBlank(gblSelectedWaveNumber) ||
+                          'Wave Number' = gblSelectedWaveNumber
+                      ) &&
+                      (
+                          IsBlank(gblSelectedSubWaveCode) ||
+                          'SubWave2 Code' = gblSelectedSubWaveCode
+                      )
+                  ),
+                  'Facility Mnemonic',
+                  SortOrder.Ascending
+              )
+            OnChange: |-
+              =Set(
+                  gblSelectedFacility,
+                  drpFacilityMnemName.Selected.'Facility Mnemonic'
+              );
+              Set(
+                  gblSelectedNetworkMnemonic,
+                  drpFacilityMnemName.Selected.'Network Mnemonic'
+              )
+            Size: =12
+            Width: =285
+            X: =325
+            Y: =32

@@ -1,0 +1,22 @@
+scrProviderCrosswalks As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(232, 232, 232, 1)
+    Height: =700
+    Width: =1200
+
+    cmpDrpdwnFiltersFacilityG_1 As cmpDrpdwnFiltersFacilityG:
+        X: =110
+        Y: =90
+        ZIndex: =1
+
+    cmpHeaderSidePanelGlobal_1 As cmpAppPageTemplateG:
+        HubName: ="Provider Crosswalks"
+        ZIndex: =2
+
+    cmpECCSNavigationBar_1 As cmpECCSNavigationBarTop:
+        OnRefreshSelect: =false
+        OnReportsSelect: =
+        X: =564
+        Y: =20
+        ZIndex: =3
+

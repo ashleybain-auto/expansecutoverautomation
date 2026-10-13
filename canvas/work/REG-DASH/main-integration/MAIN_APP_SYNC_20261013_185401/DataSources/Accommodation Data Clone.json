@@ -1,0 +1,207 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_accommodationdataclones",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_accommodationdataclone",
+    "MaxGetRowsCount": 1000,
+    "Name": "Accommodation Data Clone",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_accommodationdataclone_AsyncOperations": "System Jobs",
+      "eccs_accommodationdataclone_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_accommodationdataclone_DeletedItemReferences": "Deleted Record References",
+      "eccs_accommodationdataclone_DuplicateBaseRecord": "Duplicate Records (eccs_accommodationdataclone_DuplicateBaseRecord)",
+      "eccs_accommodationdataclone_DuplicateMatchingRecord": "Duplicate Records (eccs_accommodationdataclone_DuplicateMatchingRecord)",
+      "eccs_accommodationdataclone_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_accommodationdataclone_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_accommodationdataclone_ProcessSession": "Process Sessions",
+      "eccs_accommodationdataclone_QueueItems": "Queue Items",
+      "eccs_accommodationdataclone_SyncErrors": "Sync Errors",
+      "eccs_accommodationdatacloneid": "Accommodation Data Clone",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_actiontotake_value": "ActionToTake_Value",
+      "eccs_active_target_value": "Active_Target_Value",
+      "eccs_clonedatutc": "ECCS_ClonedAtUtc",
+      "eccs_clonerowid": "ECCS_Clone_RowId",
+      "eccs_databaserecordcount": "DB_RecordCount",
+      "eccs_displaycurrentvalues": "Current in MT56",
+      "eccs_displaycurrentvalues_value": "DisplayCurrentValues_Value",
+      "eccs_excludefromsharepoint_value": "ExcludeFromSharepoint_Value",
+      "eccs_scopekind": "ECCS_ScopeKind",
+      "eccs_scopevalue": "ECCS_ScopeValue",
+      "eccs_sourceaccommodationmnemonic": "Accommodation_Mnem_Source",
+      "eccs_sourceaccommodationname": "Accommodation_Name_Source",
+      "eccs_sourceactivestatus": "Active_Source",
+      "eccs_sourcedatabase": "ECCS_SourceDatabase",
+      "eccs_sourcefacilitymnemonic": "FacilityMnem_Source",
+      "eccs_sourcepacode": "PA_Code_Source",
+      "eccs_sourceprocedure": "ECCS_SourceProcedure",
+      "eccs_sourceserver": "ECCS_SourceServer",
+      "eccs_sourceuser": "ECCS_SourceUser",
+      "eccs_systemupdatedatetime": "System_Update_Datetime",
+      "eccs_systemupdateuser": "System_Update_User",
+      "eccs_targetaccommodationmnemonic": "Accommodation_Mnem_Target",
+      "eccs_targetaccommodationname": "Accommodation_Name_Target",
+      "eccs_targetactivestatus": "Active_Target",
+      "eccs_targetfacilitymnemonic": "FacilityMnem_Target",
+      "eccs_targetmatchmatrix": "TargetMatchMtx",
+      "eccs_targetpacode": "PA_Code_Target",
+      "eccs_updatedatetime": "Update_Datetime",
+      "eccs_updateuser": "Update_User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Accommodation Data Clone",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Accommodation Data Clone (Views)",
+    "Name": "_eccs_accommodationdataclone_views",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3e679f5e-8251-48f3-a85a-5daf2aeccc46": "Inactive Accommodation Data Clone",
+      "6f5b129e-e35c-4ca4-8314-aff23c2fb74b": "Active Accommodation Data Clone",
+      "9f93fbe9-d8b5-f111-aaac-000d3a373ae6": "ECCS Accommodations - Current POC (9f93fbe9-d8b5-f111-aaac-000d3a373ae6)",
+      "e23d2384-a30e-46b8-b29b-f14388ce6650": "Accommodation Data Clone Lookup View",
+      "e488153f-e491-4984-828c-50432ca5b136": "Accommodation Data Clone Advanced Find View",
+      "e8facca6-d9b5-f111-aaac-000d3a373ae6": "ECCS Accommodations - Current POC (e8facca6-d9b5-f111-aaac-000d3a373ae6)",
+      "f87294ef-d288-47f8-9791-ea6d1b47a619": "Accommodation Data Clone Associated View"
+    }
+  },
+  {
+    "DisplayName": "Action To Take (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_eccs_actiontotake",
+    "OptionSetInfoNameMapping": {
+      "0": "None"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_actiontotake",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_actiontotake",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Current in MT56 (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_eccs_displaycurrentvalues",
+    "OptionSetInfoNameMapping": {
+      "0": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_displaycurrentvalues",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_displaycurrentvalues",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Active_Source (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_eccs_sourceactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "N",
+      "1": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_sourceactivestatus",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_sourceactivestatus",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Active_Target (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_eccs_targetactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_targetactivestatus",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_targetactivestatus",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Accommodation Data Clone)",
+    "Name": "eccs_accommodationdataclone_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Accommodation Data Clone"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Accommodation Data Clone",
+    "Type": "OptionSetInfo"
+  }
+]
