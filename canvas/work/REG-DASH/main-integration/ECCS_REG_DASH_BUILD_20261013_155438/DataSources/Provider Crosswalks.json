@@ -1,0 +1,134 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_providercrosswalks",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_providercrosswalk",
+    "MaxGetRowsCount": 1000,
+    "Name": "Provider Crosswalks",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_admittingproviderflag": "REG_Target_AdmittingProviderFlag",
+      "eccs_facilitymnemonic": "FacilityMnem_Source",
+      "eccs_facilityname": "FacilityShortName",
+      "eccs_omrecordcount": "DB_RecordCount_OM",
+      "eccs_orderingproviderflag": "OM_Target_OrderingProviderFlag",
+      "eccs_phaactiverecordcount": "DB_RecordCount_PHA_Active",
+      "eccs_phahistoryrecordcount": "DB_RecordCount_PHA_History",
+      "eccs_provider34code": "Provider34_Source",
+      "eccs_providercrosswalk_AsyncOperations": "System Jobs",
+      "eccs_providercrosswalk_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_providercrosswalk_DeletedItemReferences": "Deleted Record References",
+      "eccs_providercrosswalk_DuplicateBaseRecord": "Duplicate Records (eccs_providercrosswalk_DuplicateBaseRecord)",
+      "eccs_providercrosswalk_DuplicateMatchingRecord": "Duplicate Records (eccs_providercrosswalk_DuplicateMatchingRecord)",
+      "eccs_providercrosswalk_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_providercrosswalk_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_providercrosswalk_ProcessSession": "Process Sessions",
+      "eccs_providercrosswalk_SyncErrors": "Sync Errors",
+      "eccs_providercrosswalkid": "Provider Crosswalk",
+      "eccs_providermnemonic": "ProviderMnemonic_Source",
+      "eccs_providername": "ProviderName_Source",
+      "eccs_providernpinumber": "ProviderNpiNum_Source",
+      "eccs_regadmitrecordcount": "DB_RecordCount_REG_Admit",
+      "eccs_regrecordcount": "DB_RecordCount_REG",
+      "eccs_targetmatchmatrix": "TargetMatchMtx",
+      "eccs_usermnemonicsource": "UserMnemonic_Source",
+      "eccs_usermnemonictarget": "UserMnemonic34_Target",
+      "eccs_waveassigned": "WaveAssigned",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Provider Crosswalks",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Provider Crosswalks (Views)",
+    "Name": "_eccs_providercrosswalk_views",
+    "RelatedEntityName": "Provider Crosswalks",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "296704cb-859e-4759-b161-9586c73e2a46": "Inactive Provider Crosswalks",
+      "30fd0482-ab0d-4b83-9dad-1922f4541c89": "Active Provider Crosswalks",
+      "6b24fdf4-c058-4142-a79f-e070752728ec": "Provider Crosswalk Advanced Find View",
+      "a41d2715-1918-4b18-86f5-1c65e1c20fb6": "Provider Crosswalk Associated View",
+      "bf7a0a0a-5953-4a5e-986b-74c51866ce3c": "Provider Crosswalk Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Action To Take (Provider Crosswalks)",
+    "Name": "eccs_providercrosswalk_eccs_actiontotake",
+    "OptionSetInfoNameMapping": {
+      "0": "None"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_actiontotake",
+        "OptionSetReferenceEntityName": "Provider Crosswalks"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_actiontotake",
+    "RelatedEntityName": "Provider Crosswalks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Provider Crosswalks)",
+    "Name": "eccs_providercrosswalk_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Provider Crosswalks"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Provider Crosswalks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Provider Crosswalks)",
+    "Name": "eccs_providercrosswalk_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Provider Crosswalks"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Provider Crosswalks",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,174 @@
+scrRegistrationLaunchpad As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(245, 247, 250, 1)
+    Height: =700
+    OnVisible: |-
+        =Set(
+            gblRegistrationTab,
+            "Summary"
+        );
+        Set(
+            gblSelectedEnvironment,
+            "Expanse TEST"
+        );
+        Set(
+            gblSelectedWorksheet,
+            "REG Accommodations"
+        )
+    Width: |+
+        =1200
+        
+
+    cmpAppPageTemplateGlbl_1 As cmpAppPageTemplateGlbl:
+        ZIndex: =1
+
+    lblRegLaunchTitle As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Text: ="Registration | Cutover Configuration Hub"
+        Width: =350
+        X: =108
+        Y: =40
+        ZIndex: =2
+
+    btnRegTabSummary As modernButton:
+        Appearance: =ButtonAppearance.Subtle
+        BorderColor: =RGBA(240, 98, 15, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Open Sans'
+        OnSelect: |-
+            =Set(
+                gblRegistrationTab,
+                "Summary"
+            )
+        Size: =13
+        Text: ="Summary"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =90
+        X: =5
+        Y: =116
+        ZIndex: =3
+
+    cmpECCSNavigationBarTop_4 As cmpECCSNavigationBarTop:
+        OnReportsSelect: =
+        X: =578
+        Y: =20
+        ZIndex: =4
+
+    btnRegProviderMapping As modernButton:
+        Align: =Align.Center
+        Appearance: =ButtonAppearance.Subtle
+        BorderColor: =RGBA(240, 98, 15, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Open Sans'
+        Height: =42
+        Icon: ="BriefcaseMedical"
+        Layout: =ButtonLayout.TextOnly
+        OnSelect: |
+            =Notify(
+                "Provider Mapping is being configured.",
+                NotificationType.Information
+            )
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Size: =13
+        Text: ="Provider Mapping"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =90
+        X: =5
+        Y: =432
+        ZIndex: =7
+
+    btnUpdateConfigTool As modernButton:
+        Align: =Align.Center
+        Appearance: =ButtonAppearance.Subtle
+        BorderColor: =RGBA(240, 98, 15, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Open Sans'
+        Height: =42
+        Icon: =
+        Layout: =ButtonLayout.TextOnly
+        OnSelect: |-
+            =Navigate(
+                scrAccommodations,
+                ScreenTransition.Cover
+            )
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Size: =13
+        Text: ="Update ConfigTool"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =90
+        X: =5
+        Y: =209
+        ZIndex: =8
+
+    btnRegTabNoMatchResults As modernButton:
+        Align: =Align.Center
+        Appearance: =ButtonAppearance.Subtle
+        BorderColor: =RGBA(240, 98, 15, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Open Sans'
+        Height: =42
+        Icon: ="DismissCircle"
+        Layout: =ButtonLayout.TextOnly
+        OnSelect: |-
+            =Set(
+                gblSelectedMatchCategory,
+                "NO MATCH"
+            );
+            Navigate(
+                srcMatchDashboard,
+                ScreenTransition.Cover
+            )
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Size: =13
+        Text: ="No Match Dashboard"
+        Width: =90
+        X: =5
+        Y: =356
+        ZIndex: =9
+
+    btnRegXwalkExport As modernButton:
+        Align: =Align.Center
+        Appearance: =ButtonAppearance.Subtle
+        BorderColor: =RGBA(240, 98, 15, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Open Sans'
+        Height: =42
+        Icon: ="ArrowExit"
+        Layout: =ButtonLayout.TextOnly
+        OnSelect: |-
+            =Navigate(
+                scrWorksheetResults,
+                ScreenTransition.Cover
+            )
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Size: =13
+        Text: ="Reg Crosswalks"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =90
+        X: =5
+        Y: =276
+        ZIndex: =10
+

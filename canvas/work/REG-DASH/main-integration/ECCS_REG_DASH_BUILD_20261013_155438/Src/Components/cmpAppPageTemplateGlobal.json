@@ -1,0 +1,85 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "IsWidget": false,
+    "Name": "cmpAppPageTemplateGlobal",
+    "TemplateGuid": "c7fab35b3d15429db6c5a7c453b9a4fa"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Board Subtitle",
+      "Hidden": false,
+      "Name": "BoardSubtitle",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "\"Expanse Automation\"",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Board Title",
+      "Hidden": false,
+      "Name": "BoardTitle",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "\"Expanse Cutover Automation Configuration Suite\"",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Facility Mnemonic Name",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "FacilityMnemonicName",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Records",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "Records",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Selected.Records",
+      "Hidden": true,
+      "Name": "SelectedRecords",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Wave-Subwave",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "WaveSubwave",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "639275187343772733",
+  "Name": "c7fab35b3d15429db6c5a7c453b9a4fa",
+  "OverridableProperties": {},
+  "Version": "1.0"
+}

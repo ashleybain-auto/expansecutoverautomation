@@ -1,0 +1,152 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_dischargedispositionses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_dischargedispositions",
+    "MaxGetRowsCount": 1000,
+    "Name": "Discharge Dispositions",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_activesource": "Active Source",
+      "eccs_billingcodesource": "Billing Code Source",
+      "eccs_comments": "Comments",
+      "eccs_dischargedispositionmnemonicsource": "Discharge Disposition Mnemonic Source",
+      "eccs_dischargedispositionmnemonictarget": "Discharge Disposition Mnemonic Target",
+      "eccs_dischargedispositionnamesource": "Discharge Disposition Name Source",
+      "eccs_dischargedispositionnametarget": "Discharge Disposition Name Target",
+      "eccs_dischargedispositions_AsyncOperations": "System Jobs",
+      "eccs_dischargedispositions_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_dischargedispositions_DeletedItemReferences": "Deleted Record References",
+      "eccs_dischargedispositions_DuplicateBaseRecord": "Duplicate Records (eccs_dischargedispositions_DuplicateBaseRecord)",
+      "eccs_dischargedispositions_DuplicateMatchingRecord": "Duplicate Records (eccs_dischargedispositions_DuplicateMatchingRecord)",
+      "eccs_dischargedispositions_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_dischargedispositions_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_dischargedispositions_ProcessSession": "Process Sessions",
+      "eccs_dischargedispositions_SyncErrors": "Sync Errors",
+      "eccs_dischargedispositionsid": "Discharge Dispositions",
+      "eccs_drgequivalentmnemonicsource": "DRG Equivalent Mnemonic Source",
+      "eccs_expiredsource": "Expired Source",
+      "eccs_networkmnemonicsource": "Network Mnemonic Source",
+      "eccs_targetmatchmatrix": "Target Match Matrix",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Discharge Dispositions",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Discharge Dispositions (Views)",
+    "Name": "_eccs_dischargedispositions_views",
+    "RelatedEntityName": "Discharge Dispositions",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0af17ed6-5205-48b2-9625-281a9a1a11a2": "Discharge Dispositions Associated View",
+      "0f12e8cd-04f4-4296-a34d-c8c73ef673a2": "Inactive Discharge Dispositions",
+      "8177841f-55d9-42d6-a256-b6b59e6fb0a3": "Active Discharge Dispositions",
+      "e494e9d8-c156-47ae-bc6a-ebf8a8c8fcee": "Discharge Dispositions Advanced Find View",
+      "fd2b4bc9-1e53-42fb-8e78-76ad176e7778": "Discharge Dispositions Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Active Source (Discharge Dispositions)",
+    "Name": "eccs_dischargedispositions_eccs_activesource",
+    "OptionSetInfoNameMapping": {
+      "0": "Excel Refreshed: 9/4/2026 9:03:59 AM",
+      "1": "Active_Source",
+      "2": "Y",
+      "3": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_activesource",
+        "OptionSetReferenceEntityName": "Discharge Dispositions"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_activesource",
+    "RelatedEntityName": "Discharge Dispositions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Expired Source (Discharge Dispositions)",
+    "Name": "eccs_dischargedispositions_eccs_expiredsource",
+    "OptionSetInfoNameMapping": {
+      "0": "Expired_Source",
+      "1": "N",
+      "2": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_expiredsource",
+        "OptionSetReferenceEntityName": "Discharge Dispositions"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_expiredsource",
+    "RelatedEntityName": "Discharge Dispositions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Discharge Dispositions)",
+    "Name": "eccs_dischargedispositions_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Discharge Dispositions"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Discharge Dispositions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Discharge Dispositions)",
+    "Name": "eccs_dischargedispositions_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Discharge Dispositions"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Discharge Dispositions",
+    "Type": "OptionSetInfo"
+  }
+]

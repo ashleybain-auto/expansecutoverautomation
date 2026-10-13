@@ -1,0 +1,173 @@
+cmpECCSNavigationBarSide As CanvasComponent:
+    ChildTabPriority: =true
+    ContentLanguage: =""
+    EnableChildFocus: =true
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =485
+    Visible: =true
+    Width: =100
+    X: =0
+    Y: =0
+
+    shpNavigationHeader_1 As rectangle:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =485
+        Width: =100
+        Y: =2
+        ZIndex: =1
+
+    btnHome4_1 As modernButton:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        Height: =31
+        Icon: ="Home"
+        OnSelect: |-
+            =Navigate(
+                scrLaunchPad,
+                ScreenTransition.Fade
+            )
+        Size: =14
+        Text: ="HOME"
+        Width: =100
+        Y: =27
+        ZIndex: =2
+
+    btnBack4_1 As modernButton:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        Height: =31
+        Icon: ="ArrowLeft"
+        OnSelect: =Back()
+        Size: =14
+        Text: ="BACK"
+        Width: =100
+        Y: =129
+        ZIndex: =3
+
+    btnRefresh4_1 As modernButton:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        Height: =31
+        Icon: ="ArrowSync"
+        OnSelect: |-
+            =Switch(
+                App.ActiveScreen,
+                scrRegistrationLaunchpad,
+                    Refresh('Accommodation Data Clone');
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations');
+                    Refresh(Locations);
+                    Refresh(Services);
+                    Refresh(Insurances);
+                    Refresh('Room Beds');
+                    Refresh('Discharge Dispositions');
+                    Refresh('Insurance Auths');
+                    Refresh('Financial Approvers');
+                    Refresh('Financial Classes');
+                    Refresh('Admit Source Mapping'),
+                scrAccommodations,
+                    Refresh('Accommodation Data Clone');
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations'),
+                srcMatchDashboard,
+                    Refresh('Accommodation Data Clone');
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations'),
+                scrWorksheetResults,
+                    Refresh(Locations);
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations'),
+                cmpECCSConfigurations,
+                    Refresh('Accommodation Data Clone');
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations'),
+                scrCutoverReadinessDash,
+                    Refresh('Accommodation Data Clone');
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations');
+                    Refresh(Locations);
+                    Refresh(Services);
+                    Refresh(Insurances);
+                    Refresh('Room Beds');
+                    Refresh('Discharge Dispositions');
+                    Refresh('Insurance Auths');
+                    Refresh('Financial Approvers');
+                    Refresh('Financial Classes');
+                    Refresh('Admit Source Mapping'),
+                scrLaunchPad,
+                    Refresh('Reg Config Categories');
+                    Refresh('dim.Ref.Organizations')
+            )
+        Size: =12
+        Text: ="REFRESH"
+        Width: =100
+        Y: =180
+        ZIndex: =4
+
+    btnNext4_1 As modernButton:
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        Height: =31
+        Icon: ="ArrowRight"
+        Layout: =ButtonLayout.IconAfter
+        OnSelect: |-
+            =Switch(
+                App.ActiveScreen,
+                scrLaunchPad,
+                    Navigate(
+                        scrRegistrationLaunchpad,
+                        ScreenTransition.Fade
+                    ),
+                scrRegistrationLaunchpad,
+                    Navigate(
+                        scrAccommodations,
+                        ScreenTransition.Cover
+                    ),
+                scrAccommodations,
+                    Navigate(
+                        cmpECCSConfigurations,
+                        ScreenTransition.Cover
+                    ),
+                cmpECCSConfigurations,
+                    Navigate(
+                        srcMatchDashboard,
+                        ScreenTransition.Cover
+                    ),
+                srcMatchDashboard,
+                    Navigate(
+                        scrWorksheetResults,
+                        ScreenTransition.Cover
+                    ),
+                scrWorksheetResults,
+                    Navigate(
+                        scrCutoverReadinessDash,
+                        ScreenTransition.Cover
+                    ),
+                scrCutoverReadinessDash,
+                    Navigate(
+                        scrLaunchPad,
+                        ScreenTransition.Fade
+                    ),
+                Navigate(
+                    scrLaunchPad,
+                    ScreenTransition.Fade
+                )
+            )
+        Size: =14
+        Text: ="NEXT"
+        Width: =100
+        Y: =229
+        ZIndex: =5
+
+    btnReportsHub As modernButton:
+        BasePaletteColor: =RGBA(5, 102, 178, 1)
+        BorderStyle: =""
+        Font: =Font.'Open Sans'
+        Height: =31
+        Size: =13
+        Text: ="REPORTS"
+        Width: =100
+        Y: =379
+        ZIndex: =6
+

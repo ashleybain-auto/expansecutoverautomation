@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/modernCard/images/SampleCardImageFluidTexture.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "SampleCardImageFluidTexture",
+  "Path": "/ctrllib/modernCard/images/SampleCardImageFluidTexture.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/modernCard/images/SampleCardImageFluidTexture.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

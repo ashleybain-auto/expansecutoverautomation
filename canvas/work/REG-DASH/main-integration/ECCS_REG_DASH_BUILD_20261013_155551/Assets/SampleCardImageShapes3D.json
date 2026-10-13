@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/modernCard/images/SampleCardImageShapes3D.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "SampleCardImageShapes3D",
+  "Path": "/ctrllib/modernCard/images/SampleCardImageShapes3D.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/modernCard/images/SampleCardImageShapes3D.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

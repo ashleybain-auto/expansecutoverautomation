@@ -1,0 +1,67 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrCutoverReadinessDash:
+    Properties:
+      Fill: =ColorValue("#F5F6F7")
+      Height: =700
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      OnVisible: |
+        =
+        Refresh('ECCS Readiness Snapshots');
+        Refresh('ECCS Readiness Status Summaries');
+        Refresh('ECCS Readiness Exceptions');
+
+        ClearCollect(
+            colECCSReadinessSnapshots,
+            'ECCS Readiness Snapshots'
+        );
+
+        ClearCollect(
+            colECCSReadinessSummary,
+            'ECCS Readiness Status Summaries'
+        );
+
+        ClearCollect(
+            colECCSReadinessExceptions,
+            'ECCS Readiness Exceptions'
+        )
+      Width: =1200
+    Children:
+      - cmpECCSCutoverReadinessDsh_1:
+          Control: CanvasComponent
+          ComponentName: cmpECCSCutoverReadinessDsh
+          Properties:
+            ReadinessSnapshots: ='ECCS Readiness Snapshots'
+            ReadinessSummaries: ='ECCS Readiness Status Summaries'
+            ReadinessExceptions: ='ECCS Readiness Exceptions'
+            BoardSubtitle: ="Text"
+            BoardTitle: ="Text"
+            CutoverSchedule: |-
+              =
+              colECCSCutoverSchedule
+            Height: =700
+            Record: ="Text"
+            WaveSubwave: ="Text"
+            Width: =1200
+      - cmpECCSNavigationBar_Readiness:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            OnReportsSelect: |
+              =
+              Launch(
+                  "https://app.powerbi.com/groups/me/reports/39bad50d-8b49-4db2-a199-2800a3bc53da/c6a949ff475c2b687530?ctid=335a6d75-c3eb-4b1a-ac08-d49338816ca0",
+                  {},
+                  LaunchTarget.New
+              )
+            Width: =620
+            X: =580
+            Y: =20

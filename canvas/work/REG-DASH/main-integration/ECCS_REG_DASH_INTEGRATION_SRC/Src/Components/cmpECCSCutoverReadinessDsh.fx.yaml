@@ -1,0 +1,207 @@
+cmpECCSCutoverReadinessDsh As CanvasComponent:
+    BoardSubtitle: ="Text"
+    BoardTitle: ="Text"
+    ChildTabPriority: =true
+    ContentLanguage: =""
+    CutoverSchedule: |
+        =Table(
+            {
+                EventName: "",
+                Phase: "",
+                StartDate: Date(2026, 1, 1),
+                FinishDate: Date(2026, 1, 1)
+            }
+        )
+    EnableChildFocus: =true
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =700
+    Record: ="Text"
+    SelectedRecord: |-
+        ={SampleStringField: "SampleText", SampleNumberField: 10, SampleBooleanField: true}
+    Visible: =true
+    WaveSubwave: ="Text"
+    Width: =1200
+    X: =0
+    Y: =0
+
+    shpReadinessDash As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E") 
+        Height: =80
+        Width: =1200
+        ZIndex: =1
+
+    shpReadinessSidePanel As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E")
+        Height: =700
+        Width: =100
+        ZIndex: =2
+
+    lblReadinessSubTitle As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Size: =14
+        Text: ="Cutover Automation Configuration Readiness"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =345
+        X: =127
+        Y: =44
+        ZIndex: =3
+
+    lblReadinessDashTitle As modernText:
+        BorderStyle: =""
+        Color: =Color.White
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Bold
+        Height: =44
+        Size: =17
+        Text: ="Expanse Cutover Automation Readiness Dashboard"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =480
+        X: =108
+        Y: =7
+        ZIndex: =4
+
+    txtLogoExpanse As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =13
+        Text: ="Expanse Automation"
+        Width: =94
+        X: =6
+        Y: =53
+        ZIndex: =5
+
+    imgHCALogo2 As image:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =42
+        Image: =HCA_Healthcare_Logo_Extracted
+        Width: =95
+        X: =7
+        Y: =7
+        ZIndex: =6
+
+    lblRegEventDate As modernText:
+        Align: =Align.Right
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: =RGBA(9, 33, 98, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            =With(
+                {
+                    nextEvent: First(
+                        Sort(
+                            Filter(
+                                colECCSCutoverSchedule,
+                                StartDate >= Today()
+                            ),
+                            StartDate,
+                            SortOrder.Ascending
+                        )
+                    )
+                },
+                If(
+                    IsBlank(nextEvent.StartDate),
+                    "No milestone scheduled",
+                    nextEvent.EventName &
+                    " | " &
+                    Text(
+                        nextEvent.StartDate,
+                        "[$-en-US]mmmm d, yyyy"
+                    )
+                )
+            )
+        Width: =310
+        X: =890
+        Y: =83
+        ZIndex: =7
+
+    lblRegCountdown As modernText:
+        Align: =Align.Center
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Size: =22
+        Text: |-
+            =With(
+                {
+                    nextEvent: First(
+                        Sort(
+                            Filter(
+                                colECCSCutoverSchedule,
+                                StartDate >= Now()
+                            ),
+                            StartDate,
+                            SortOrder.Ascending
+                        )
+                    )
+                },
+                If(
+                    IsBlank(nextEvent.StartDate),
+                    "COUNTDOWN NOT CONFIGURED",
+                    With(
+                        {
+                            totalMinutes: DateDiff(
+                                Now(),
+                                nextEvent.StartDate,
+                                TimeUnit.Minutes
+                            )
+                        },
+                        If(
+                            totalMinutes <= 0,
+                            "EVENT ACTIVE",
+                            Int(totalMinutes / 1440) &
+                            "d " &
+                            Mod(
+                                Int(totalMinutes / 60),
+                                24
+                            ) &
+                            "h " &
+                            Mod(
+                                totalMinutes,
+                                60
+                            ) &
+                            "m"
+                        )
+                    )
+                )
+            )
+        Width: =210
+        X: =940
+        Y: =114
+        ZIndex: =8
+
+    lblRegReadiness As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Size: =16
+        Text: ="REGISTRATION READINESS"
+        Width: =240
+        X: =100
+        Y: =82
+        ZIndex: =10
+
