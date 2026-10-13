@@ -1,0 +1,199 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_services",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_service",
+    "MaxGetRowsCount": 1000,
+    "Name": "Services",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_displaycurrentvalues": "Display Current Values",
+      "eccs_excludefromsharepoint": "Exclude From SharePoint",
+      "eccs_service_AsyncOperations": "System Jobs",
+      "eccs_service_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_service_DeletedItemReferences": "Deleted Record References",
+      "eccs_service_DuplicateBaseRecord": "Duplicate Records (eccs_service_DuplicateBaseRecord)",
+      "eccs_service_DuplicateMatchingRecord": "Duplicate Records (eccs_service_DuplicateMatchingRecord)",
+      "eccs_service_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_service_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_service_ProcessSession": "Process Sessions",
+      "eccs_service_SyncErrors": "Sync Errors",
+      "eccs_serviceid": "Service",
+      "eccs_sourceactivestatus": "Source Active Status",
+      "eccs_sourcefacilitymnemonic": "Source Facility Mnemonic",
+      "eccs_sourceservicemnemonic": "Source Service Mnemonic",
+      "eccs_sourceservicename": "Source Service Name",
+      "eccs_sourceservicepacode": "Source Service PA Code",
+      "eccs_systemupdatedatetime": "System Update DateTime",
+      "eccs_systemupdateuser": "System Update User",
+      "eccs_targetactivestatus": "Target Active Status",
+      "eccs_targetfacilitymnemonic": "Target Facility Mnemonic",
+      "eccs_targetmatchmatrix": "Target Match Matrix",
+      "eccs_targetservicemnemonic": "Target Service Mnemonic",
+      "eccs_targetservicename": "Target Service Name",
+      "eccs_targetservicepacode": "Target Service PA Code",
+      "eccs_updatedatetime": "Update DateTime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Services",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Services (Views)",
+    "Name": "_eccs_service_views",
+    "RelatedEntityName": "Services",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "14990bb5-97fa-40fc-9f76-a6c49dc8d560": "Active Services",
+      "4ad775ca-a222-4df7-91c2-4e4c8a1babcf": "Service Lookup View",
+      "8a3f10b8-7e15-4b50-9559-73ea0c353b01": "Service Advanced Find View",
+      "b992526e-5e1d-46f7-9a2e-bbf47ca9f127": "Service Associated View",
+      "f3cd65d9-f18b-469a-b04f-3905b737afd1": "Inactive Services"
+    }
+  },
+  {
+    "DisplayName": "Display Current Values (Services)",
+    "Name": "eccs_service_eccs_displaycurrentvalues",
+    "OptionSetInfoNameMapping": {
+      "0": "DisplayCurrentValues",
+      "1": "Y",
+      "2": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_displaycurrentvalues",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_displaycurrentvalues",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Exclude From SharePoint (Services)",
+    "Name": "eccs_service_eccs_excludefromsharepoint",
+    "OptionSetInfoNameMapping": {
+      "0": "ExcludeFromSharepoint",
+      "1": "N",
+      "2": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_excludefromsharepoint",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_excludefromsharepoint",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Source Active Status (Services)",
+    "Name": "eccs_service_eccs_sourceactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Source",
+      "1": "Y",
+      "2": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_sourceactivestatus",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_sourceactivestatus",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Target Active Status (Services)",
+    "Name": "eccs_service_eccs_targetactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Target",
+      "1": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_targetactivestatus",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_targetactivestatus",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Services)",
+    "Name": "eccs_service_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Services)",
+    "Name": "eccs_service_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Services"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Services",
+    "Type": "OptionSetInfo"
+  }
+]

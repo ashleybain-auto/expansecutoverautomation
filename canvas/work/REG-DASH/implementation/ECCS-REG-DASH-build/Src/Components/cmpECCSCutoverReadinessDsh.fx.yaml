@@ -1,0 +1,607 @@
+cmpECCSCutoverReadinessDsh As CanvasComponent:
+    BoardSubtitle: ="Text"
+    BoardTitle: ="Text"
+    ChildTabPriority: =true
+    ContentLanguage: =""
+    EnableChildFocus: =true
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =700
+    Record: ="Text"
+    SelectedRecord: |-
+        ={SampleStringField: "SampleText", SampleNumberField: 10, SampleBooleanField: true}
+    Visible: =true
+    WaveSubwave: ="Text"
+    Width: =1200
+    X: =0
+    Y: =0
+
+    shpReadinessDash As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E") 
+        Height: =80
+        Width: =1200
+        ZIndex: =1
+
+    shpReadinessSidePanel As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E")
+        Height: =700
+        Width: =100
+        ZIndex: =2
+
+    lblReadinessSubTitle As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Size: =14
+        Text: ="Cutover Automation Configuration Readiness"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =345
+        X: =127
+        Y: =44
+        ZIndex: =3
+
+    lblReadinessDashTitle As modernText:
+        BorderStyle: =""
+        Color: =Color.White
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Bold
+        Height: =44
+        Size: =17
+        Text: ="Expanse Cutover Automation Readiness Dashboard"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =480
+        X: =108
+        Y: =7
+        ZIndex: =4
+
+    txtLogoExpanse As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =13
+        Text: ="Expanse Automation"
+        Width: =94
+        X: =6
+        Y: =53
+        ZIndex: =5
+
+    imgHCALogo2 As image:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =42
+        Image: =HCA_Healthcare_Logo_Extracted
+        Width: =95
+        X: =7
+        Y: =7
+        ZIndex: =6
+
+    lblRegReadiness As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Size: =16
+        Text: ="REGISTRATION READINESS"
+        Width: =240
+        X: =108
+        Y: =132
+        ZIndex: =7
+
+    lblRegEventDate As modernText:
+        Align: =Align.Right
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            =With(
+                {
+                    nextEvent: First(
+                        Sort(
+                            Filter(
+                                colECCSCutoverSchedule,
+                                StartDate >= Today()
+                            ),
+                            StartDate,
+                            SortOrder.Ascending
+                        )
+                    )
+                },
+                If(
+                    IsBlank(nextEvent.StartDate),
+                    "No milestone scheduled",
+                    nextEvent.EventName &
+                    " | " &
+                    Text(
+                        nextEvent.StartDate,
+                        "[$-en-US]mmmm d, yyyy"
+                    )
+                )
+            )
+        Width: =310
+        X: =890
+        Y: =82
+        ZIndex: =8
+
+    lblRegCountdown As modernText:
+        Align: =Align.Center
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Size: =22
+        Text: |-
+            =With(
+                {
+                    nextEvent: First(
+                        Sort(
+                            Filter(
+                                colECCSCutoverSchedule,
+                                StartDate >= Now()
+                            ),
+                            StartDate,
+                            SortOrder.Ascending
+                        )
+                    )
+                },
+                If(
+                    IsBlank(nextEvent.StartDate),
+                    "COUNTDOWN NOT CONFIGURED",
+                    With(
+                        {
+                            totalMinutes: DateDiff(
+                                Now(),
+                                nextEvent.StartDate,
+                                TimeUnit.Minutes
+                            )
+                        },
+                        If(
+                            totalMinutes <= 0,
+                            "EVENT ACTIVE",
+                            Int(totalMinutes / 1440) &
+                            "d " &
+                            Mod(
+                                Int(totalMinutes / 60),
+                                24
+                            ) &
+                            "h " &
+                            Mod(
+                                totalMinutes,
+                                60
+                            ) &
+                            "m"
+                        )
+                    )
+                )
+            )
+        Width: =210
+        X: =990
+        Y: =112
+        ZIndex: =9
+
+    conReadinessGrid As groupContainer.gridLayoutContainer:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Height: =125
+        LayoutGap: =1
+        LayoutGridColumnMinWidth: =0
+        LayoutGridColumns: =5
+        LayoutGridRowMinHeight: =0
+        LayoutGridRows: =2
+        LayoutMode: =LayoutMode.Grid
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingRight: =1
+        PaddingTop: =1
+        Width: =825
+        X: =108
+        Y: =165
+        ZIndex: =10
+
+        txtRegOverallReadiness As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =25
+            Text: |-
+                =Text(
+                    Round(
+                        100 *
+                        Sum(
+                            colRegReadiness,
+                            LiveRecords
+                        ) /
+                        Max(
+                            1,
+                            Sum(
+                                colRegReadiness,
+                                TotalRecords
+                            )
+                        ),
+                        0
+                    )
+                ) & "%"
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        txtRegWorksheetsLoaded As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =25
+            Text: |-
+                =CountRows(
+                    Filter(
+                        colRegReadiness,
+                        TotalRecords > 0
+                    )
+                ) & " / " & CountRows(colRegReadiness)
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        txtRegOverallMapped As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =25
+            Text: |-
+                =Text(
+                    Round(
+                        100 *
+                        (
+                            Sum(
+                                colRegReadiness,
+                                TestRecords
+                            ) +
+                            Sum(
+                                colRegReadiness,
+                                ZconRecords
+                            ) +
+                            Sum(
+                                colRegReadiness,
+                                LiveRecords
+                            )
+                        ) /
+                        Max(
+                            1,
+                            Sum(
+                                colRegReadiness,
+                                TotalRecords
+                            )
+                        ),
+                        0
+                    )
+                ) & "%"
+            X: =40
+            Y: =40
+            ZIndex: =3
+
+        txtRegLiveMapped As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =25
+            Text: |-
+                =Text(
+                    Round(
+                        100 *
+                        Sum(
+                            colRegReadiness,
+                            LiveRecords
+                        ) /
+                        Max(
+                            1,
+                            Sum(
+                                colRegReadiness,
+                                TotalRecords
+                            )
+                        ),
+                        0
+                    )
+                ) & "%"
+            X: =40
+            Y: =40
+            ZIndex: =4
+
+        txtRegNoMatchALL As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =25
+            Text: |-
+                =Text(
+                    Sum(
+                        colRegReadiness,
+                        NoMatchRecords
+                    )
+                )
+            X: =40
+            Y: =40
+            ZIndex: =5
+
+        lblOverallReadiness As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            LayoutGridColumnEnd: =2
+            LayoutGridColumnStart: =1
+            LayoutGridRowEnd: =3
+            LayoutGridRowStart: =2
+            Size: =14
+            Text: ="Overall Readiness"
+            VerticalAlign: =VerticalAlign.Top
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+        lblWorksheets As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =14
+            Text: ="Worksheets"
+            VerticalAlign: =VerticalAlign.Top
+            X: =40
+            Y: =40
+            ZIndex: =7
+
+        lblLiveMapping As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =14
+            Text: ="MAPPED"
+            VerticalAlign: =VerticalAlign.Top
+            X: =40
+            Y: =40
+            ZIndex: =8
+
+        lblOverallNoMatch_1 As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =14
+            Text: ="LIVE"
+            VerticalAlign: =VerticalAlign.Top
+            X: =515
+            Y: =64
+            ZIndex: =9
+
+        lblOverallNoMatch_2 As modernText:
+            Align: =Align.Center
+            BorderStyle: =""
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            LayoutGridColumnEnd: =
+            LayoutGridColumnStart: =
+            LayoutGridRowEnd: =
+            LayoutGridRowStart: =
+            Size: =14
+            Text: ="NO MATCH"
+            VerticalAlign: =VerticalAlign.Top
+            X: =515
+            Y: =64
+            ZIndex: =10
+
+    drpWaveSubwaveFilter2 As modernDropdown:
+        Appearance: =Appearance.FilledDarker
+        BorderStyle: =""
+        Font: =Font.Arial
+        ItemDisplayText: =ThisItem.Value
+        Items: |-
+            =Sort(
+                Distinct(
+                    Filter(
+                        'dim.Ref.Organizations',
+                        !IsBlank('Wave Number') &&
+                        'Wave Number' <> "Wave" &&
+                        'Wave Number' <> "NULL" &&
+                        !IsBlank('SubWave2 Code') &&
+                        'SubWave2 Code' <> "SubWave" &&
+                        'SubWave2 Code' <> "NULL"
+                    ),
+                    'Wave Number' & " - " & 'SubWave2 Code'
+                ),
+                Value,
+                SortOrder.Ascending
+            )
+        OnChange: |-
+            =Set(
+                gblSelectedWaveNumber,
+                First(
+                    Split(
+                        drpWaveSubwaveFilter2.Selected.Value,
+                        " - "
+                    )
+                ).Value
+            );
+            Set(
+                gblSelectedSubWaveCode,
+                Last(
+                    Split(
+                        drpWaveSubwaveFilter2.Selected.Value,
+                        " - "
+                    )
+                ).Value
+            );
+            ClearCollect(
+                colReadinessFacilities,
+                Filter(
+                    'dim.Ref.Organizations',
+                    'Wave Number' = gblSelectedWaveNumber &&
+                    'SubWave2 Code' = gblSelectedSubWaveCode
+                )
+            );
+            ClearCollect(
+                colRegReadiness,
+            
+                {
+                    WorksheetName: "Accommodations",
+                    TotalRecords: CountRows(Filter('Accommodation Data Clone', IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && TargetMatchMtx = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "TEST"))),
+                    ZconRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "ZCON"))),
+                    LiveRecords: CountRows(Filter('Accommodation Data Clone', (IsBlank(gblSelectedWaveNumber) || FacilityMnem_Source in colReadinessFacilities.'Facility Mnemonic') && StartsWith(TargetMatchMtx, "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Locations",
+                    TotalRecords: CountRows(Filter(Locations, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+                    NoMatchRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter(Locations, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Services",
+                    TotalRecords: CountRows(Filter(Services, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+                    NoMatchRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter(Services, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Insurance",
+                    TotalRecords: CountRows(Filter(Insurances, IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic')),
+                    NoMatchRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter(Insurances, (IsBlank(gblSelectedWaveNumber) || 'Source Facility Mnemonic' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "RoomBed",
+                    TotalRecords: CountRows(Filter('Room Beds', IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && 'Target Match Status' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "TEST"))),
+                    ZconRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Room Beds', (IsBlank(gblSelectedWaveNumber) || 'Source Facility Code' in colReadinessFacilities.'Facility Mnemonic') && StartsWith('Target Match Status', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Discharge Disposition",
+                    TotalRecords: CountRows(Filter('Discharge Dispositions', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Discharge Dispositions', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Ins Auth Status",
+                    TotalRecords: CountRows(Filter('Insurance Auths', IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix Note' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "TEST"))),
+                    ZconRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Insurance Auths', (IsBlank(gblSelectedWaveNumber) || 'Network Mnemonic Source' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix Note', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Financial Approver",
+                    TotalRecords: CountRows(Filter('Financial Approvers', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Financial Approvers', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Financial Class",
+                    TotalRecords: CountRows(Filter('Financial Classes', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Target Match Matrix' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "TEST"))),
+                    ZconRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Financial Classes', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Target Match Matrix', "LIVE")))
+                },
+            
+                {
+                    WorksheetName: "Admit Source",
+                    TotalRecords: CountRows(Filter('Admit Source Mapping', IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic')),
+                    NoMatchRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && 'Match Status' = "NO MATCH")),
+                    TestRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "TEST"))),
+                    ZconRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "ZCON"))),
+                    LiveRecords: CountRows(Filter('Admit Source Mapping', (IsBlank(gblSelectedWaveNumber) || 'Source Network Mnemonic' in colReadinessFacilities.'Network Mnemonic') && StartsWith('Match Status', "LIVE")))
+                }
+            );
+        Required: =false
+        ValidationState: =ValidationState.None
+        Width: =225
+        X: =276
+        Y: =92
+        ZIndex: =11
+
+    lblWaveSubwave2 As modernText:
+        Align: =Align.Center
+        AutoHeight: =true
+        BorderStyle: =""
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Size: =16
+        Text: ="WAVE - SUBWAVE"
+        X: =108
+        Y: =92
+        ZIndex: =12
+

@@ -1,0 +1,110 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_insuranceauths",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_insuranceauth",
+    "MaxGetRowsCount": 1000,
+    "Name": "Insurance Auths",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_activesourceflag": "Active Source Flag",
+      "eccs_activetargetflag": "Active Target Flag",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_insuranceauth_AsyncOperations": "System Jobs",
+      "eccs_insuranceauth_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_insuranceauth_DeletedItemReferences": "Deleted Record References",
+      "eccs_insuranceauth_DuplicateBaseRecord": "Duplicate Records (eccs_insuranceauth_DuplicateBaseRecord)",
+      "eccs_insuranceauth_DuplicateMatchingRecord": "Duplicate Records (eccs_insuranceauth_DuplicateMatchingRecord)",
+      "eccs_insuranceauth_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_insuranceauth_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_insuranceauth_ProcessSession": "Process Sessions",
+      "eccs_insuranceauth_SyncErrors": "Sync Errors",
+      "eccs_insuranceauthid": "Insurance Auth",
+      "eccs_insuranceauthorizationstatusmnemo1": "Insurance Authorization Status Mnemonic Source",
+      "eccs_insuranceauthorizationstatusmnemo2": "Insurance Authorization Status Mnemonic Target",
+      "eccs_insuranceauthorizationstatusnameso": "Insurance Authorization Status Name Source",
+      "eccs_insuranceauthorizationstatusnameta": "Insurance Authorization Status Name Target",
+      "eccs_mappedtostatustexttarget": "Mapped To Status Text Target",
+      "eccs_networkmnemonicsource": "Network Mnemonic Source",
+      "eccs_targetmatchmatrixnote": "Target Match Matrix Note",
+      "eccs_updatedatetime": "Update Datetime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Insurance Auths",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Insurance Auths (Views)",
+    "Name": "_eccs_insuranceauth_views",
+    "RelatedEntityName": "Insurance Auths",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "7d98dba6-c3ba-4eb7-b1c6-94dad4141fa2": "Inactive Insurance Auths",
+      "a4d5cd21-5464-47c8-85e1-87e43ccdecf5": "Insurance Auth Associated View",
+      "aeda5998-38cc-47c1-969d-668ca139e73f": "Insurance Auth Lookup View",
+      "dc0d9a91-02df-4169-bbc0-c35770bcaf23": "Insurance Auth Advanced Find View",
+      "e7105a70-c954-48c8-b4ed-7d23a6d9a7df": "Active Insurance Auths"
+    }
+  },
+  {
+    "DisplayName": "Status (Insurance Auths)",
+    "Name": "eccs_insuranceauth_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Insurance Auths"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Insurance Auths",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Insurance Auths)",
+    "Name": "eccs_insuranceauth_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Insurance Auths"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Insurance Auths",
+    "Type": "OptionSetInfo"
+  }
+]

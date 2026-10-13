@@ -1,0 +1,137 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_facilities",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_facility",
+    "MaxGetRowsCount": 1000,
+    "Name": "Insurances",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_displaycurrentvalues": "Display Current Values",
+      "eccs_excludefromsharepoint": "Exclude From SharePoint",
+      "eccs_facility_ActivityPointers": "Activities",
+      "eccs_facility_adx_inviteredemptions": "Invite Redemptions",
+      "eccs_facility_adx_portalcomments": "Portal Comments",
+      "eccs_facility_Appointments": "Appointments",
+      "eccs_facility_AsyncOperations": "System Jobs",
+      "eccs_facility_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_facility_chats": "Teams chats",
+      "eccs_facility_connections1": "Connections (eccs_facility_connections1)",
+      "eccs_facility_connections2": "Connections (eccs_facility_connections2)",
+      "eccs_facility_DeletedItemReferences": "Deleted Record References",
+      "eccs_facility_DuplicateBaseRecord": "Duplicate Records (eccs_facility_DuplicateBaseRecord)",
+      "eccs_facility_DuplicateMatchingRecord": "Duplicate Records (eccs_facility_DuplicateMatchingRecord)",
+      "eccs_facility_Emails": "Email Messages",
+      "eccs_facility_Faxes": "Faxes",
+      "eccs_facility_Letters": "Letters",
+      "eccs_facility_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_facility_PhoneCalls": "Phone Calls",
+      "eccs_facility_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_facility_ProcessSession": "Process Sessions",
+      "eccs_facility_RecurringAppointmentMasters": "Recurring Appointments",
+      "eccs_facility_SyncErrors": "Sync Errors",
+      "eccs_facility_Tasks": "Tasks",
+      "eccs_facilityid": "Facility",
+      "eccs_sourceactivestatus": "Source Active Status",
+      "eccs_sourcedescription": "Source Description",
+      "eccs_sourcefacilitymnemonic": "Source Facility Mnemonic",
+      "eccs_sourcefinancialclass": "Source Financial Class",
+      "eccs_sourcemnemonic": "Source Mnemonic",
+      "eccs_sourcepacode": "Source PA Code",
+      "eccs_systemupdatedatetime": "System Update DateTime",
+      "eccs_systemupdateuser": "System Update User",
+      "eccs_targetactivestatus": "Target Active Status",
+      "eccs_targetaddressline1": "Target Address Line 1",
+      "eccs_targetaddressline2": "Target Address Line 2",
+      "eccs_targetcity": "Target City",
+      "eccs_targetdemorecallflag": "Target Demo Recall Flag",
+      "eccs_targetdescription": "Target Description",
+      "eccs_targetfacilitymnemonic": "Target Facility Mnemonic",
+      "eccs_targetfinancialclass": "Target Financial Class",
+      "eccs_targetmatchmatrix": "Target Match Matrix",
+      "eccs_targetmnemonic": "Target Mnemonic",
+      "eccs_targetpacode": "Target PA Code",
+      "eccs_targetpostalcode": "Target Postal Code",
+      "eccs_targetstate": "Target State",
+      "eccs_updatedatetime": "Update DateTime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Insurances",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Insurances (Views)",
+    "Name": "_eccs_facility_views",
+    "RelatedEntityName": "Insurances",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "41836fec-d2cc-49c9-87fb-2717709df8af": "Facility Lookup View",
+      "5c22c2d5-ab65-4a2d-92d0-53ca06b13350": "Facility Advanced Find View",
+      "a835fa07-68b7-4fa5-b38a-2f6d0e996251": "Active Facilities",
+      "ca1ed1df-c528-4472-b81e-5f79531eb6b8": "Facility Associated View",
+      "f5ecb259-9ad3-46f9-8c93-3bc75718f9ea": "Inactive Facilities"
+    }
+  },
+  {
+    "DisplayName": "Status (Insurances)",
+    "Name": "eccs_facility_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Insurances"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Insurances",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Insurances)",
+    "Name": "eccs_facility_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Insurances"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Insurances",
+    "Type": "OptionSetInfo"
+  }
+]

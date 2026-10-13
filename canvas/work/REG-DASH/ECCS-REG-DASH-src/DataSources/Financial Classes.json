@@ -1,0 +1,152 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_financialclasses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_financialclass",
+    "MaxGetRowsCount": 1000,
+    "Name": "Financial Classes",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_financialclass_AsyncOperations": "System Jobs",
+      "eccs_financialclass_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_financialclass_DeletedItemReferences": "Deleted Record References",
+      "eccs_financialclass_DuplicateBaseRecord": "Duplicate Records (eccs_financialclass_DuplicateBaseRecord)",
+      "eccs_financialclass_DuplicateMatchingRecord": "Duplicate Records (eccs_financialclass_DuplicateMatchingRecord)",
+      "eccs_financialclass_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_financialclass_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_financialclass_ProcessSession": "Process Sessions",
+      "eccs_financialclass_SyncErrors": "Sync Errors",
+      "eccs_financialclassid": "Financial Class",
+      "eccs_sourceactivestatus": "Source Active Status",
+      "eccs_sourcefinancialclassmnemonic": "Source Financial Class Mnemonic",
+      "eccs_sourcefinancialclassname": "Source Financial Class Name",
+      "eccs_sourcenetworkmnemonic": "Source Network Mnemonic",
+      "eccs_systemupdatedatetime": "System Update DateTime",
+      "eccs_systemupdateuser": "System Update User",
+      "eccs_targetactivestatus": "Target Active Status",
+      "eccs_targetfinancialclassmnemonic": "Target Financial Class Mnemonic",
+      "eccs_targetfinancialclassname": "Target Financial Class Name",
+      "eccs_targetmatchmatrix": "Target Match Matrix",
+      "eccs_targetnetworkmnemonic": "Target Network Mnemonic",
+      "eccs_updatedbyuser": "Updated By User",
+      "eccs_updateddatetime": "Updated DateTime",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Financial Classes",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Financial Classes (Views)",
+    "Name": "_eccs_financialclass_views",
+    "RelatedEntityName": "Financial Classes",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "150d9ca9-f3e3-42da-9e14-b485ea50e6b8": "Financial Class Associated View",
+      "43538666-acad-48c6-af4b-2f27a0e8a84e": "Financial Class Lookup View",
+      "d81221ef-79f7-429c-9fc2-2966f4541a48": "Financial Class Advanced Find View",
+      "ddc1ea69-d390-4bff-9996-1a80d1596556": "Active Financial Classes",
+      "e2527ebf-72aa-449b-8c9f-65da86853635": "Inactive Financial Classes"
+    }
+  },
+  {
+    "DisplayName": "Source Active Status (Financial Classes)",
+    "Name": "eccs_financialclass_eccs_sourceactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Source",
+      "1": "Y",
+      "2": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_sourceactivestatus",
+        "OptionSetReferenceEntityName": "Financial Classes"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_sourceactivestatus",
+    "RelatedEntityName": "Financial Classes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Target Active Status (Financial Classes)",
+    "Name": "eccs_financialclass_eccs_targetactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Target"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_targetactivestatus",
+        "OptionSetReferenceEntityName": "Financial Classes"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_targetactivestatus",
+    "RelatedEntityName": "Financial Classes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Financial Classes)",
+    "Name": "eccs_financialclass_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Financial Classes"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Financial Classes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Financial Classes)",
+    "Name": "eccs_financialclass_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Financial Classes"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Financial Classes",
+    "Type": "OptionSetInfo"
+  }
+]

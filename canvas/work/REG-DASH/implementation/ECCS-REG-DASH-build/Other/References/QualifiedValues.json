@@ -1,0 +1,282 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_eccs_accommodationdataclone_forms",
+      "Namespace": "Accommodation Data Clone (Forms)",
+      "Values": {
+        "Information": "287b9f1f-e21b-4bbc-97aa-9f4fe42597c4"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facilityroomassignment_forms",
+      "Namespace": "Room Beds (Forms)",
+      "Values": {
+        "Information": "7b9be22f-9314-4a12-a6bc-c03bb3932fb8"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_location_forms",
+      "Namespace": "Locations (Forms)",
+      "Values": {
+        "Information": "074f6b54-63ae-4b9f-87e7-dbe7fad3041e"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facility_forms",
+      "Namespace": "Insurances (Forms)",
+      "Values": {
+        "Information": "69d1045d-9a9e-437e-9ab3-be3e9f61d196"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_insuranceauth_forms",
+      "Namespace": "Insurance Auths (Forms)",
+      "Values": {
+        "Information": "9de98ffb-0591-4460-afd8-3ad98cabcf34"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_financialclass_forms",
+      "Namespace": "Financial Classes (Forms)",
+      "Values": {
+        "Information": "0e0c6c22-8104-4fc4-8d4f-f6a3bd374530"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_financialapprover_forms",
+      "Namespace": "Financial Approvers (Forms)",
+      "Values": {
+        "Information": "88c91528-8a9a-4f8b-b47b-9e070e1f65f9"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_dischargedispositions_forms",
+      "Namespace": "Discharge Dispositions (Forms)",
+      "Values": {
+        "Information": "8fe79c34-13c0-4ece-8b43-ec2f482e8f4f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_admitsourcemapping_forms",
+      "Namespace": "Admit Source Mapping (Forms)",
+      "Values": {
+        "Information": "6a077c64-6968-4a41-8cea-979c2ecdcf5e"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_regconfigcategory_forms",
+      "Namespace": "Reg Config Categories (Forms)",
+      "Values": {
+        "Information": "cd124cfd-788d-41f7-b63f-fd611d78fbaa"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_service_forms",
+      "Namespace": "Services (Forms)",
+      "Values": {
+        "Information": "34c24e04-3daf-4863-a224-dfa71ef13b6a"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_applicationconfiguration_forms",
+      "Namespace": "Application Configuration (Forms)",
+      "Values": {
+        "Information": "b7a282a3-6c40-45b9-94ed-fc129d4e48c6"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facilityrecord_forms",
+      "Namespace": "Facility Record (Forms)",
+      "Values": {
+        "Information": "534ee24a-83a8-42bf-a67f-d9fa0d1dc66f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facilitylocationupdate_forms",
+      "Namespace": "Facility Location Update (Forms)",
+      "Values": {
+        "Information": "a15688df-4e76-45ca-a85a-dde301b01f5e"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facilitylocation_forms",
+      "Namespace": "Facility Location (Forms)",
+      "Values": {
+        "Information": "6947a725-bbef-489b-9cf1-f2ca419183cc"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_dimreforganization_forms",
+      "Namespace": "dim.Ref.Organizations (Forms)",
+      "Values": {
+        "Information": "0c15a0d0-bc46-47d3-bd99-f27ddb4517d7"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_changelogentry_forms",
+      "Namespace": "Change Log Entry (Forms)",
+      "Values": {
+        "Information": "18f602b9-c568-4fd1-80e4-e2930476d2cd"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_procedurerecord_forms",
+      "Namespace": "Procedure Record (Forms)",
+      "Values": {
+        "Information": "6a4034a9-b842-4d13-8b68-f06c64cad0e8"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_queryscreenmapping_forms",
+      "Namespace": "Query Screen Mapping (Forms)",
+      "Values": {
+        "Information": "62a0ccc9-aa4d-4855-9b2c-4a46e0385f5f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_queryprocedurerecord_forms",
+      "Namespace": "Query Procedure Record (Forms)",
+      "Values": {
+        "Information": "619a7640-68e7-49ac-8476-981cc3c569bc"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_specimensourcemapping_forms",
+      "Namespace": "Specimen Source Mapping (Forms)",
+      "Values": {
+        "Information": "ec208cbd-0dd7-4fac-bc0d-de2f645f204d"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_serverconfiguration1_forms",
+      "Namespace": "Server Configuration (Forms)",
+      "Values": {
+        "Information": "aaf3005d-0b9f-44c0-a5ba-d0f8bb19daab"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_providercrosswalk_forms",
+      "Namespace": "Provider Crosswalks (Forms)",
+      "Values": {
+        "Information": "3a22a842-d136-4204-99ba-b75979a82ccd"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_insurance_forms",
+      "Namespace": "Insurances (Forms)1",
+      "Values": {
+        "Information": "6de39127-0a09-4076-be80-e04925eaf489"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facility_forms",
+      "Namespace": "Facilities (Forms)",
+      "Values": {
+        "Information": "69d1045d-9a9e-437e-9ab3-be3e9f61d196"
+      }
+    },
+    {
+      "Kind": "default.cds_exportsolutionupload_forms",
+      "Namespace": "ExportSolutionUpload (Forms)",
+      "Values": {
+        "Information": "1448e432-b7bc-4a02-bf40-943f58baa625"
+      }
+    },
+    {
+      "Kind": "default.cds_fileattachment_forms",
+      "Namespace": "FileAttachments (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_eccs_discrepancyrecord_forms",
+      "Namespace": "Registration Discrepancy Categories (Forms)",
+      "Values": {
+        "Information": "16256eb1-dcfd-47bb-9cc1-fda55f30b7c6"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_regconfigcategory_forms",
+      "Namespace": "Registration Config Categories (Forms)",
+      "Values": {
+        "Information": "cd124cfd-788d-41f7-b63f-fd611d78fbaa"
+      }
+    },
+    {
+      "Kind": "default.cds_msdyn_aibdatasetrecord_forms",
+      "Namespace": "AI Builder Dataset Records (Forms)",
+      "Values": {
+        "Information": "26bf8b4e-b044-48d4-a684-c03d4cf29deb"
+      }
+    },
+    {
+      "Kind": "default.cds_customapi_forms",
+      "Namespace": "Custom APIs (Forms)",
+      "Values": {
+        "Information": "f64c027c-81b5-4f8e-a16e-1963c4f80c22"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_regconfigtoollist_forms",
+      "Namespace": "REG ConfigTool Lists (Forms)",
+      "Values": {
+        "Information": "4c76e641-56d5-4ffe-8f34-95b57b21717d"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_dischargedisposition_forms",
+      "Namespace": "Discharge Dispositions (Forms)1",
+      "Values": {
+        "Information": "c7538282-ba11-45fd-aa8c-ec17435ce34d"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_admitsource_forms",
+      "Namespace": "Admit Sources (Forms)",
+      "Values": {
+        "Information": "9d64bd11-2ce3-4c1c-b45a-f813bd77291f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_roombed_forms",
+      "Namespace": "Room Beds (Forms)1",
+      "Values": {
+        "Information": "a39cc07a-db1f-427a-b0ff-fdb401f7942f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_accommodations_forms",
+      "Namespace": "Accommodations (Forms)",
+      "Values": {
+        "Information": "04851c87-6c58-44a6-9a3d-dcb097c243b6"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_dischargedispositions_forms",
+      "Namespace": "Discharge Dispositions (Forms)11",
+      "Values": {
+        "Information": "8fe79c34-13c0-4ece-8b43-ec2f482e8f4f"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facilityroomassignment_forms",
+      "Namespace": "Room Beds (Forms)11",
+      "Values": {
+        "Information": "7b9be22f-9314-4a12-a6bc-c03bb3932fb8"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_worksheetcategory_forms",
+      "Namespace": "Worksheet Category (Forms)",
+      "Values": {
+        "Information": "fe3ae911-be10-4d22-8228-88c33ea3dde7"
+      }
+    },
+    {
+      "Kind": "default.cds_eccs_facility_forms",
+      "Namespace": "Insurances (Forms)11",
+      "Values": {
+        "Information": "69d1045d-9a9e-437e-9ab3-be3e9f61d196"
+      }
+    }
+  ]
+}

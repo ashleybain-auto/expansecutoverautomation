@@ -1,0 +1,154 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_admitsourcemappings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_admitsourcemapping",
+    "MaxGetRowsCount": 1000,
+    "Name": "Admit Source Mapping",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_admitsourcemapping_AsyncOperations": "System Jobs",
+      "eccs_admitsourcemapping_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_admitsourcemapping_DeletedItemReferences": "Deleted Record References",
+      "eccs_admitsourcemapping_DuplicateBaseRecord": "Duplicate Records (eccs_admitsourcemapping_DuplicateBaseRecord)",
+      "eccs_admitsourcemapping_DuplicateMatchingRecord": "Duplicate Records (eccs_admitsourcemapping_DuplicateMatchingRecord)",
+      "eccs_admitsourcemapping_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_admitsourcemapping_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_admitsourcemapping_ProcessSession": "Process Sessions",
+      "eccs_admitsourcemapping_SyncErrors": "Sync Errors",
+      "eccs_admitsourcemappingid": "Admit Source Mapping",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_matchstatus": "Match Status",
+      "eccs_sourceactivestatus": "Source Active Status",
+      "eccs_sourceadmitcode": "Source Admit Code",
+      "eccs_sourceadmitdescription": "Source Admit Description",
+      "eccs_sourcenetworkmnemonic": "Source Network Mnemonic",
+      "eccs_systemupdatedatetime": "System Update DateTime",
+      "eccs_systemupdateuser": "System Update User",
+      "eccs_targetactivestatus": "Target Active Status",
+      "eccs_targetadmitcode": "Target Admit Code",
+      "eccs_targetadmitdescription": "Target Admit Description",
+      "eccs_targetnetworkmnemonic": "Target Network Mnemonic",
+      "eccs_updatedatetime": "Update DateTime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Admit Source Mapping",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Admit Source Mapping (Views)",
+    "Name": "_eccs_admitsourcemapping_views",
+    "RelatedEntityName": "Admit Source Mapping",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2931c94c-6e68-47c5-aada-973a4185fa24": "Inactive Admit Source Mapping",
+      "494f878d-1317-446b-b31d-23781dd3d24c": "Admit Source Mapping Lookup View",
+      "bf24e701-829a-4e45-9c74-8ef8b3ad54bd": "Admit Source Mapping Associated View",
+      "ec923eb9-fb44-45d3-98b8-62b5abcfa23b": "Admit Source Mapping Advanced Find View",
+      "fbff21b4-ca62-4784-a009-fc4536200cc2": "Active Admit Source Mapping"
+    }
+  },
+  {
+    "DisplayName": "Source Active Status (Admit Source Mapping)",
+    "Name": "eccs_admitsourcemapping_eccs_sourceactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Source",
+      "1": "N",
+      "2": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_sourceactivestatus",
+        "OptionSetReferenceEntityName": "Admit Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_sourceactivestatus",
+    "RelatedEntityName": "Admit Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Target Active Status (Admit Source Mapping)",
+    "Name": "eccs_admitsourcemapping_eccs_targetactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Target",
+      "1": "N",
+      "2": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_targetactivestatus",
+        "OptionSetReferenceEntityName": "Admit Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_targetactivestatus",
+    "RelatedEntityName": "Admit Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Admit Source Mapping)",
+    "Name": "eccs_admitsourcemapping_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Admit Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Admit Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Admit Source Mapping)",
+    "Name": "eccs_admitsourcemapping_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Admit Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Admit Source Mapping",
+    "Type": "OptionSetInfo"
+  }
+]

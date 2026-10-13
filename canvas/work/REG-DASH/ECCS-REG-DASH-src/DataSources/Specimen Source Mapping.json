@@ -1,0 +1,146 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_specimensourcemappings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_specimensourcemapping",
+    "MaxGetRowsCount": 1000,
+    "Name": "Specimen Source Mapping",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_isactivesource": "Is Active Source",
+      "eccs_sourcefacilitycode": "Source Facility Code",
+      "eccs_sourcerecordcount": "Source Record Count",
+      "eccs_sourcespecimencategorycode": "Source Specimen Category Code",
+      "eccs_sourcespecimencode": "Source Specimen Code",
+      "eccs_sourcespecimendescription": "Source Specimen Description",
+      "eccs_specimensourcemapping_AsyncOperations": "System Jobs",
+      "eccs_specimensourcemapping_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_specimensourcemapping_DeletedItemReferences": "Deleted Record References",
+      "eccs_specimensourcemapping_DuplicateBaseRecord": "Duplicate Records (eccs_specimensourcemapping_DuplicateBaseRecord)",
+      "eccs_specimensourcemapping_DuplicateMatchingRecord": "Duplicate Records (eccs_specimensourcemapping_DuplicateMatchingRecord)",
+      "eccs_specimensourcemapping_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_specimensourcemapping_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_specimensourcemapping_ProcessSession": "Process Sessions",
+      "eccs_specimensourcemapping_SyncErrors": "Sync Errors",
+      "eccs_specimensourcemappingid": "Specimen Source Mapping",
+      "eccs_targetspecimencode": "Target Specimen Code",
+      "eccs_targetspecimendescription": "Target Specimen Description",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Specimen Source Mapping",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Specimen Source Mapping (Views)",
+    "Name": "_eccs_specimensourcemapping_views",
+    "RelatedEntityName": "Specimen Source Mapping",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "115564fa-c58a-42e9-9da0-b42595c40418": "Inactive Specimen Source Mapping",
+      "1ac00abd-ba1b-4372-8d0f-f80ace5f507f": "Specimen Source Mapping Associated View",
+      "61ab333a-db26-4ea7-b95c-2574a9c5e447": "Specimen Source Mapping Advanced Find View",
+      "6a75aa2a-e3ee-4fd9-8bd4-bf3685236f48": "Specimen Source Mapping Lookup View",
+      "88cb3c49-9dea-4740-bd5a-2c352daf1359": "Active Specimen Source Mapping"
+    }
+  },
+  {
+    "DisplayName": "Action To Take (Specimen Source Mapping)",
+    "Name": "eccs_specimensourcemapping_eccs_actiontotake",
+    "OptionSetInfoNameMapping": {
+      "0": "Action To Take",
+      "1": "None"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_actiontotake",
+        "OptionSetReferenceEntityName": "Specimen Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_actiontotake",
+    "RelatedEntityName": "Specimen Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Active Source (Specimen Source Mapping)",
+    "Name": "eccs_specimensourcemapping_eccs_isactivesource",
+    "OptionSetInfoNameMapping": {
+      "0": "Active_Source",
+      "1": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_isactivesource",
+        "OptionSetReferenceEntityName": "Specimen Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_isactivesource",
+    "RelatedEntityName": "Specimen Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Specimen Source Mapping)",
+    "Name": "eccs_specimensourcemapping_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Specimen Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Specimen Source Mapping",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Specimen Source Mapping)",
+    "Name": "eccs_specimensourcemapping_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Specimen Source Mapping"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Specimen Source Mapping",
+    "Type": "OptionSetInfo"
+  }
+]

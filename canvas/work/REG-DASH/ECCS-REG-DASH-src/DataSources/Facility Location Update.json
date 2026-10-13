@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_facilitylocationupdates",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_facilitylocationupdate",
+    "MaxGetRowsCount": 1000,
+    "Name": "Facility Location Update",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_facilitylocationupdate_AsyncOperations": "System Jobs",
+      "eccs_facilitylocationupdate_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_facilitylocationupdate_DeletedItemReferences": "Deleted Record References",
+      "eccs_facilitylocationupdate_DuplicateBaseRecord": "Duplicate Records (eccs_facilitylocationupdate_DuplicateBaseRecord)",
+      "eccs_facilitylocationupdate_DuplicateMatchingRecord": "Duplicate Records (eccs_facilitylocationupdate_DuplicateMatchingRecord)",
+      "eccs_facilitylocationupdate_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_facilitylocationupdate_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_facilitylocationupdate_ProcessSession": "Process Sessions",
+      "eccs_facilitylocationupdate_SyncErrors": "Sync Errors",
+      "eccs_facilitylocationupdateid": "Facility Location Update",
+      "eccs_facilitymnemonicraw": "FacilityMnem_Raw",
+      "eccs_facilitymnemonicsource": "FacilityMnem_Source",
+      "eccs_locationmnemonicraw": "LocationMnem_Raw",
+      "eccs_updatedatetime": "UpdateDateTime",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Facility Location Update",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Facility Location Update (Views)",
+    "Name": "_eccs_facilitylocationupdate_views",
+    "RelatedEntityName": "Facility Location Update",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1aebeadd-1e5f-4626-b480-9fc5950930be": "Inactive Facility Location Update",
+      "32b8781a-59a0-462a-8ce8-5091cf16bd86": "Facility Location Update Advanced Find View",
+      "485af096-42ae-4c07-bab5-6b5bccbd5c5d": "Facility Location Update Associated View",
+      "58696bec-6b9e-4de6-a6fb-40717f190005": "Facility Location Update Lookup View",
+      "b5066579-69a1-4515-8fa0-7df375e79554": "Active Facility Location Update"
+    }
+  },
+  {
+    "DisplayName": "Status (Facility Location Update)",
+    "Name": "eccs_facilitylocationupdate_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Facility Location Update"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Facility Location Update",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Facility Location Update)",
+    "Name": "eccs_facilitylocationupdate_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Facility Location Update"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Facility Location Update",
+    "Type": "OptionSetInfo"
+  }
+]

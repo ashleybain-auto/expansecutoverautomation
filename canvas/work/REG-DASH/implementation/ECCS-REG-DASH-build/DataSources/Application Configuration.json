@@ -1,0 +1,129 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_applicationconfigurations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_applicationconfiguration",
+    "MaxGetRowsCount": 1000,
+    "Name": "Application Configuration",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_applicationconfiguration_AsyncOperations": "System Jobs",
+      "eccs_applicationconfiguration_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_applicationconfiguration_DeletedItemReferences": "Deleted Record References",
+      "eccs_applicationconfiguration_DuplicateBaseRecord": "Duplicate Records (eccs_applicationconfiguration_DuplicateBaseRecord)",
+      "eccs_applicationconfiguration_DuplicateMatchingRecord": "Duplicate Records (eccs_applicationconfiguration_DuplicateMatchingRecord)",
+      "eccs_applicationconfiguration_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_applicationconfiguration_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_applicationconfiguration_ProcessSession": "Process Sessions",
+      "eccs_applicationconfiguration_SyncErrors": "Sync Errors",
+      "eccs_applicationconfigurationid": "Application Configuration",
+      "eccs_applicationidentifier": "AppID",
+      "eccs_applicationstatus": "AppKey",
+      "eccs_applicationvalue": "AppValue",
+      "eccs_facilityidentifier": "FacilityID",
+      "eccs_sourceidentifier": "SourceID",
+      "eccs_updatedby": "UpdateUser",
+      "eccs_updatetimestamp": "UpdateDateTime",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Application Configuration",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Application Configuration (Views)",
+    "Name": "_eccs_applicationconfiguration_views",
+    "RelatedEntityName": "Application Configuration",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3c47560a-50e6-475f-8b7b-221c8002e4be": "Application Configuration Lookup View",
+      "71249c07-0a83-4051-a966-e13ba6b88056": "Application Configuration Advanced Find View",
+      "bc5b2dcf-ed76-4c0d-acb3-aece4a86fa6a": "Active Application Configuration",
+      "cf25cd3c-84ff-470f-ba47-815fc4ae3f90": "Application Configuration Associated View",
+      "db5f5aa4-8f7d-4ed3-b9a9-5fef2cbb4acd": "Inactive Application Configuration"
+    }
+  },
+  {
+    "DisplayName": "AppKey (Application Configuration)",
+    "Name": "eccs_applicationconfiguration_eccs_applicationstatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Postgres_Live_JsonPath",
+      "2": "Postgres_Live_JsonSvcAcct",
+      "3": "Postgres_Test_JsonPath",
+      "4": "Postgres_Test_JsonSvcAcct",
+      "5": "Postgres_Zcon_JsonPath",
+      "6": "Postgres_Zcon_JsonSvcAcct"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_applicationstatus",
+        "OptionSetReferenceEntityName": "Application Configuration"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_applicationstatus",
+    "RelatedEntityName": "Application Configuration",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Application Configuration)",
+    "Name": "eccs_applicationconfiguration_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Application Configuration"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Application Configuration",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Application Configuration)",
+    "Name": "eccs_applicationconfiguration_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Application Configuration"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Application Configuration",
+    "Type": "OptionSetInfo"
+  }
+]

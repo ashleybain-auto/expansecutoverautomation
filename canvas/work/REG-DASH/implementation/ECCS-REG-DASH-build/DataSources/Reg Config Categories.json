@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_regconfigcategories",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_regconfigcategory",
+    "MaxGetRowsCount": 1000,
+    "Name": "Reg Config Categories",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_discrepancycategory": "Discrepancy Category",
+      "eccs_logicalidentifier": "Logical Identifier",
+      "eccs_regconfigcategory_AsyncOperations": "System Jobs",
+      "eccs_regconfigcategory_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_regconfigcategory_connections1": "Connections (eccs_regconfigcategory_connections1)",
+      "eccs_regconfigcategory_connections2": "Connections (eccs_regconfigcategory_connections2)",
+      "eccs_regconfigcategory_DeletedItemReferences": "Deleted Record References",
+      "eccs_regconfigcategory_DuplicateBaseRecord": "Duplicate Records (eccs_regconfigcategory_DuplicateBaseRecord)",
+      "eccs_regconfigcategory_DuplicateMatchingRecord": "Duplicate Records (eccs_regconfigcategory_DuplicateMatchingRecord)",
+      "eccs_regconfigcategory_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_regconfigcategory_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_regconfigcategory_ProcessSession": "Process Sessions",
+      "eccs_regconfigcategory_SyncErrors": "Sync Errors",
+      "eccs_regconfigcategoryid": "Registration Config Category",
+      "eccs_regworksheetname": "Reg Worksheet Name",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Reg Config Categories",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Reg Config Categories (Views)",
+    "Name": "_eccs_regconfigcategory_views",
+    "RelatedEntityName": "Reg Config Categories",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0eeffa6d-c3fe-4cf0-9261-64cf95b9b11c": "Registration Config Category Lookup View",
+      "252ad0f2-ea64-4183-9b36-df990b57ddc5": "Active Registration Config Categories",
+      "2effba68-686a-4fb2-8884-bfb79c14e9e7": "Inactive Registration Config Categories",
+      "426b499b-df51-4f20-abbf-489dcaa523a7": "Registration Config Category Associated View",
+      "79bdd080-2390-4b9e-801b-0eab0786746e": "Registration Config Category Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Reg Config Categories)",
+    "Name": "eccs_regconfigcategory_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Reg Config Categories"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Reg Config Categories",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Reg Config Categories)",
+    "Name": "eccs_regconfigcategory_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Reg Config Categories"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Reg Config Categories",
+    "Type": "OptionSetInfo"
+  }
+]

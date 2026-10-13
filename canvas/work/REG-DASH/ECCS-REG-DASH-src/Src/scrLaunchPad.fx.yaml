@@ -1,0 +1,552 @@
+scrLaunchPad As screen:
+    ContentLanguage: =""
+    Fill: |-
+        =ColorValue("#F5F6F7")
+    OnVisible: |-
+        =ClearCollect(
+            colLaunchModules,
+            {
+                ModuleKey: "REG",
+                ModuleName: "Registration",
+                Description: "Registration configuration",
+                Available: true
+            },
+            {
+                ModuleKey: "PHA",
+                ModuleName: "PHA",
+                Description: "Pharmacy",
+                Available: true
+            },
+            {
+                ModuleKey: "NONMED",
+                ModuleName: "Non-Med",
+                Description: "Procedures and Queries",
+                Available: true
+            },
+            {
+                ModuleKey: "RAD",
+                ModuleName: "RAD",
+                Description: "Radiology",
+                Available: true
+            },
+            {
+                ModuleKey: "LAB",
+                ModuleName: "LAB",
+                Description: "Laboratory",
+                Available: true
+            },
+            {
+                ModuleKey: "DIET",
+                ModuleName: "Diet",
+                Description: "Nutrition",
+                Available: true
+            },
+            {
+                ModuleKey: "LOC",
+                ModuleName: "Level of Care",
+                Description: "Patient Care",
+                Available: true
+            },
+            {
+                ModuleKey: "CNET",
+                ModuleName: "CNET",
+                Description: "Cutover Nursing Entry Tool",
+                Available: false
+            }
+        )
+
+    shpLaunchHeader As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E")
+        Height: =110
+        Width: =Parent.Width
+        ZIndex: =1
+
+    lblLaunchTitle As modernText:
+        BorderStyle: =""
+        Color: =Color.White
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Bold
+        Height: =38
+        Size: =17
+        Text: ="Expanse Cutover Automation Configuration Suite"
+        Width: =450
+        X: =120
+        Y: =16
+        ZIndex: =2
+
+    lblLaunchSubtitle As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =36
+        Size: =13
+        Text: ="Centralized tools for configuration mapping, validation, and updates across Expanse."
+        VerticalAlign: =VerticalAlign.Top
+        Width: =650
+        X: =120
+        Y: =55
+        ZIndex: =3
+
+    shpLaunchRail As rectangle:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        Fill: |-
+            =ColorValue("#03173E")
+        FocusedBorderColor: =
+        Height: =Parent.Height
+        Width: =100
+        ZIndex: =4
+
+    "galRecentActivity As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =RGBA(217, 221, 226, 1)
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =145
+        Items: |-
+            =Table(
+                {
+                    ActivityDate: "9/11/2026",
+                    Tool: "Registration",
+                    Activity: "Uploaded Registration_Source.xlsx",
+                    Status: "Completed"
+                },
+                {
+                    ActivityDate: "9/11/2026",
+                    Tool: "PHA",
+                    Activity: "Ran validation",
+                    Status: "Completed"
+                },
+                {
+                    ActivityDate: "9/10/2026",
+                    Tool: "Non-Med",
+                    Activity: "Pushed 245 updates to TEST",
+                    Status: "Completed"
+                }
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =50
+        Width: =820
+        X: =107
+        Y: =592
+        ZIndex: =5
+
+        Title4 As label:
+            Color: =RGBA(50, 49, 48, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Arial
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Activity
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        NextArrow4 As icon:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Color: =RGBA(166, 166, 166, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =42
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =12
+            PaddingLeft: =12
+            PaddingRight: =12
+            PaddingTop: =12
+            Tooltip: ="View item details"
+            Visible: =false
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            ZIndex: =2
+
+        Separator4 As rectangle:
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
+            Height: =2
+            OnSelect: =Select(Parent)
+            Visible: =false
+            Width: =Parent.TemplateWidth
+            Y: =40
+            ZIndex: =3
+
+        Rectangle13 As rectangle:
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Fill: =RGBA(0, 89, 178, 1)
+            Height: =Parent.TemplateHeight - Separator4.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =4
+
+        lblActivityDate As modernText:
+            BorderStyle: =""
+            Color: =RGBA(84, 88, 90, 1)
+            Font: =Font.Arial
+            Height: =24
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.ActivityDate
+            Width: =100
+            X: =10
+            Y: =8
+            ZIndex: =5
+
+        lblActivityTool As modernText:
+            BorderStyle: =""
+            Color: =RGBA(3, 23, 62, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =24
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.Tool
+            Width: =120
+            X: =120
+            Y: =7
+            ZIndex: =6
+
+        lblActivityDescription As modernText:
+            BorderStyle: =""
+            Color: =RGBA(84, 88, 90, 1)
+            Font: =Font.Arial
+            Height: =24
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.Activity
+            Width: =420
+            X: =250
+            Y: =8
+            ZIndex: =7
+
+        lblActivityStatus As modernText:
+            BorderStyle: =""
+            Color: |-
+                =If(
+                    ThisItem.Status = "Completed",
+                    RGBA(0, 140, 69, 1),
+                    RGBA(224, 89, 41, 1)
+                )
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =24
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.Status
+            Width: =100
+            X: =680
+            Y: =8
+            ZIndex: =8
+
+        lblRecentActivityTitle As modernText:
+            BorderStyle: =""
+            Color: =RGBA(3, 23, 62, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =24
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =13
+            Text: ="Recent Activity"
+            Visible: =false
+            Width: =300
+            X: =460
+            Y: =505
+            ZIndex: =9
+
+        shpActivitySeparator As rectangle:
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Fill: =RGBA(217, 221, 226, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =820
+            Y: =40
+            ZIndex: =10
+
+    lblActivityDateHeader As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: =RGBA(84, 88, 90, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =20
+        Size: =9
+        Text: ="DATE"
+        Width: =100
+        X: =107
+        Y: =563
+        ZIndex: =6
+
+    lblActivityToolHeader As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: =RGBA(84, 88, 90, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =20
+        Size: =9
+        Text: ="TOOL"
+        Width: =120
+        X: =218
+        Y: =563
+        ZIndex: =7
+
+    lblActivityDescriptionHeader As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: =RGBA(84, 88, 90, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =20
+        Size: =9
+        Text: ="ACTIVITY"
+        Width: =420
+        X: =338
+        Y: =563
+        ZIndex: =8
+
+    lblActivityStatusHeader As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: =RGBA(84, 88, 90, 1)
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Bold
+        Height: =20
+        Size: =9
+        Text: ="STATUS"
+        Width: =100
+        X: =775
+        Y: =563
+        ZIndex: =9
+
+    btnAddNewModule As modernButton:
+        BorderStyle: =""
+        Font: =""
+        Height: =47
+        Size: =0
+        Text: ="Add New Module"
+        Visible: =false
+        Width: =172
+        X: =1120
+        Y: =445
+        ZIndex: =10
+
+    galLaunchModules As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: |-
+            =ColorValue("#03173E")
+        DelayItemLoading: =true
+        Height: =300
+        Items: =colLaunchModules
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: |-
+            =Switch(
+                ThisItem.ModuleKey,
+                "REG",
+                    Navigate(
+                        scrRegistrationLaunchpad,
+                        ScreenTransition.Fade
+                    ),
+                "CNET",
+                    Notify(
+                        "CNET is coming soon.",
+                        NotificationType.Information
+                    ),
+                Notify(
+                    ThisItem.ModuleName & " workspace is coming soon.",
+                    NotificationType.Information
+                )
+            )
+        TemplateSize: =120
+        Width: =1060
+        WrapCount: =4
+        X: =120
+        Y: =160
+        ZIndex: =11
+
+        shpModuleTile As rectangle:
+            BorderColor: =RGBA(217, 221, 226, 1)
+            BorderThickness: =1
+            Fill: |-
+                =If(
+                    ThisItem.Available,
+                    RGBA(255, 255, 255, 1),
+                    RGBA(232, 234, 236, 1)
+                )
+            Height: =105
+            OnSelect: =Select(Parent)
+            Width: =245
+            X: =8
+            Y: =8
+            ZIndex: =1
+
+        lblModuleIcon As modernText:
+            AutoHeight: =true
+            BorderStyle: =""
+            Color: |-
+                =If(
+                    ThisItem.Available,
+                    RGBA(224, 89, 41, 1),
+                    RGBA(135, 141, 146, 1)
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =""
+            Height: =28
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: |-
+                =Switch(
+                    ThisItem.ModuleKey,
+                    "REG", "▣",
+                    "PHA", "✚",
+                    "NONMED", "▤",
+                    "RAD", "◉",
+                    "LAB", "△",
+                    "DIET", "□",
+                    "LOC", "▦",
+                    "CNET", "◇",
+                    "•"
+                )
+            Width: =28
+            X: =20
+            Y: =18
+            ZIndex: =2
+
+        lblModuleName As modernText:
+            AutoHeight: =true
+            BorderStyle: =""
+            Color: |-
+                =If(
+                    ThisItem.Available,
+                    RGBA(3, 23, 62, 1),
+                    RGBA(135, 141, 146, 1)
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =26
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =ThisItem.ModuleName
+            Width: =165
+            X: =52
+            Y: =17
+            ZIndex: =3
+
+        lblModuleDescription As modernText:
+            BorderStyle: =""
+            Color: |-
+                =If(
+                    ThisItem.Available,
+                    RGBA(84, 88, 90, 1),
+                    RGBA(135, 141, 146, 1)
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.Arial
+            Height: =31
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Description
+            VerticalAlign: =VerticalAlign.Bottom
+            Width: =195
+            X: =36
+            Y: =43
+            ZIndex: =4
+
+        lblModuleArrow As modernText:
+            AutoHeight: =true
+            BorderStyle: =""
+            Color: |-
+                =If(
+                    ThisItem.Available,
+                    RGBA(3, 23, 62, 1),
+                    RGBA(135, 141, 146, 1)
+                )
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =">"
+            Width: =18
+            X: =218
+            Y: =42
+            ZIndex: =5
+
+    lblNavigationTip As modernText:
+        BorderStyle: =""
+        Font: =Font.Arial
+        Height: =29
+        Size: =11
+        Text: ="Select a module to open its automation workspace."
+        VerticalAlign: =VerticalAlign.Top
+        Width: =450
+        X: =120
+        Y: =126
+        ZIndex: =12
+
+    imgHCALogo As image:
+        BorderColor: |-
+            =ColorValue("#03173E")
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =50
+        Image: =HCA_Healthcare_Logo_Extracted
+        Width: =95
+        X: =7
+        Y: =7
+        ZIndex: =13
+
+    cmpECCSNavigationBar_2 As cmpECCSNavigationBarSide:
+        Y: =141
+        ZIndex: =14
+
+    lblSubtitle As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =45
+        Size: =12
+        Text: ="Expanse Automation"
+        Width: =93
+        X: =9
+        Y: =54
+        ZIndex: =15
+
+    btnNewSolutionAdd As modernButton:
+        BorderStyle: =""
+        Font: =""
+        Height: =43
+        Size: =0
+        Text: ="Add New Solution"
+        Y: =637
+        ZIndex: =16
+

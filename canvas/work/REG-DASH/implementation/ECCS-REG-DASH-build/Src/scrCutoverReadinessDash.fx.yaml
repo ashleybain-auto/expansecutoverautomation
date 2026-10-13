@@ -1,0 +1,15 @@
+scrCutoverReadinessDash As screen:
+    ContentLanguage: =""
+    Fill: |-
+        =ColorValue("#F5F6F7")
+    Height: =700
+    Width: =1200
+
+    cmpECCSCutoverReadinessDsh_1 As cmpECCSCutoverReadinessDsh:
+        ZIndex: =1
+
+    cmpECCSNavigationBar_Readiness As cmpECCSNavigationBarTop:
+        X: =580
+        Y: =43
+        ZIndex: =2
+
