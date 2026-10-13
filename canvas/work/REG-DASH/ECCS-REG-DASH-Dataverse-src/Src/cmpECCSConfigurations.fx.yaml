@@ -1,0 +1,37 @@
+cmpECCSConfigurations As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(232, 232, 232, 1)
+    Height: =700
+    Width: =1200
+
+    cmpECCSNavigationBar_4 As cmpECCSNavigationBarTop:
+        X: =560
+        Y: =25
+        ZIndex: =1
+
+    cmpECCSConfigurationBoard_1 As cmpECCSConfigurationBoard:
+        Records: |-
+            =ForAll(
+                Filter(
+                    'Accommodation Data Clone',
+                    IsBlank(gblSelectedFacility) ||
+                    FacilityMnem_Source = gblSelectedFacility
+                ),
+                {
+                    RecordKey: Text(ECCS_Clone_RowId),
+                    SourceFacility: Coalesce(FacilityMnem_Source, ""),
+                    SourceMnemonic: Coalesce(Accommodation_Mnem_Source, ""),
+                    SourceName: Coalesce(Accommodation_Name_Source, ""),
+                    SourcePACode: Coalesce(PA_Code_Source, ""),
+                    SourceActive: Text(Active_Source),
+                    TargetFacility: Coalesce(FacilityMnem_Target, ""),
+                    TargetMnemonic: Coalesce(Accommodation_Mnem_Target, ""),
+                    TargetName: Coalesce(Accommodation_Name_Target, ""),
+                    TargetPACode: Coalesce(PA_Code_Target, ""),
+                    TargetActive: Text(Active_Target),
+                    TargetMatchMtx: Coalesce(TargetMatchMtx, "")
+                }
+            )
+        X: =6
+        ZIndex: =2
+

@@ -1,0 +1,134 @@
+[
+  {
+    "DisplayName": "dim.Ref.Organizations (Views)",
+    "Name": "_eccs_dimreforganization_views",
+    "RelatedEntityName": "dim.Ref.Organizations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "174692ee-2014-42fc-876b-b0423b03a687": "dim.Ref.Organization Advanced Find View",
+      "346d3428-6f7e-4978-8810-057728074520": "dim.Ref.Organization Lookup View",
+      "3b639ee0-46ea-4145-9254-ad71c4652f3a": "Active dim.Ref.Organizations",
+      "c539b21a-aba3-4302-84b0-ea994457896d": "dim.Ref.Organization Associated View",
+      "fbef565d-7a16-4c47-9c4f-0699ad231907": "Inactive dim.Ref.Organizations"
+    }
+  },
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_dimreforganizations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_dimreforganization",
+    "MaxGetRowsCount": 1000,
+    "Name": "dim.Ref.Organizations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_coidcode": "COID Code",
+      "eccs_coidnumber": "COID Number",
+      "eccs_coidtrackercode": "COID Tracker Code",
+      "eccs_coidtrackernumber": "COID Tracker Number",
+      "eccs_comparisonflag": "Comparison Flag",
+      "eccs_dimreforganization_AsyncOperations": "System Jobs",
+      "eccs_dimreforganization_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_dimreforganization_connections1": "Connections (eccs_dimreforganization_connections1)",
+      "eccs_dimreforganization_connections2": "Connections (eccs_dimreforganization_connections2)",
+      "eccs_dimreforganization_DeletedItemReferences": "Deleted Record References",
+      "eccs_dimreforganization_DuplicateBaseRecord": "Duplicate Records (eccs_dimreforganization_DuplicateBaseRecord)",
+      "eccs_dimreforganization_DuplicateMatchingRecord": "Duplicate Records (eccs_dimreforganization_DuplicateMatchingRecord)",
+      "eccs_dimreforganization_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_dimreforganization_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_dimreforganization_ProcessSession": "Process Sessions",
+      "eccs_dimreforganization_SyncErrors": "Sync Errors",
+      "eccs_dimreforganizationid": "dim.Ref.Organization",
+      "eccs_divisionname": "Division Name",
+      "eccs_facilitymnemonic": "Facility Mnemonic",
+      "eccs_facilityname": "Facility Name",
+      "eccs_marketname": "Market Name",
+      "eccs_networkmnemonic": "Network Mnemonic",
+      "eccs_notes": "Notes",
+      "eccs_subwave2code": "SubWave2 Code",
+      "eccs_subwavecode": "SubWave Code",
+      "eccs_wavenumber": "Wave Number",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "dim.Ref.Organizations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Comparison Flag (dim.Ref.Organizations)",
+    "Name": "eccs_dimreforganization_eccs_comparisonflag",
+    "OptionSetInfoNameMapping": {
+      "0": "YN_Comparison",
+      "1": "Y",
+      "2": "NULL"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_comparisonflag",
+        "OptionSetReferenceEntityName": "dim.Ref.Organizations"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_comparisonflag",
+    "RelatedEntityName": "dim.Ref.Organizations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (dim.Ref.Organizations)",
+    "Name": "eccs_dimreforganization_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "dim.Ref.Organizations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "dim.Ref.Organizations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (dim.Ref.Organizations)",
+    "Name": "eccs_dimreforganization_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "dim.Ref.Organizations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "dim.Ref.Organizations",
+    "Type": "OptionSetInfo"
+  }
+]

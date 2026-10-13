@@ -1,0 +1,111 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_procedurerecords",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_procedurerecord",
+    "MaxGetRowsCount": 1000,
+    "Name": "Procedure Record",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_activeflag": "Active Flag",
+      "eccs_automationlogiccategory": "Automation Logic Category",
+      "eccs_categorymnemonicsource": "Category Mnemonic Source",
+      "eccs_categorymnemonictarget": "Category Mnemonic Target",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_facilitymnemonicsource": "Facility Mnemonic Source",
+      "eccs_groupresponsetargetmatchmatrix": "Group Response Target Match Matrix",
+      "eccs_isexcluded": "Is Excluded",
+      "eccs_procedureinterface": "Procedure Interface",
+      "eccs_proceduremnemonicsource": "Procedure Mnemonic Source",
+      "eccs_proceduremnemonictarget": "Procedure Mnemonic Target",
+      "eccs_procedurename": "Procedure Name",
+      "eccs_procedurenumbersource": "Procedure Number Source",
+      "eccs_procedurerecord_AsyncOperations": "System Jobs",
+      "eccs_procedurerecord_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_procedurerecord_DeletedItemReferences": "Deleted Record References",
+      "eccs_procedurerecord_DuplicateBaseRecord": "Duplicate Records (eccs_procedurerecord_DuplicateBaseRecord)",
+      "eccs_procedurerecord_DuplicateMatchingRecord": "Duplicate Records (eccs_procedurerecord_DuplicateMatchingRecord)",
+      "eccs_procedurerecord_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_procedurerecord_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_procedurerecord_ProcessSession": "Process Sessions",
+      "eccs_procedurerecord_SyncErrors": "Sync Errors",
+      "eccs_procedurerecordid": "Procedure Record",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Procedure Record",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Procedure Record (Views)",
+    "Name": "_eccs_procedurerecord_views",
+    "RelatedEntityName": "Procedure Record",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "6bdb01e8-fa56-4dec-8682-efe8db0ba7ef": "Active Procedure Record",
+      "7756fc62-bbf1-4e25-8c26-8f74e533ace0": "Inactive Procedure Record",
+      "a4acf738-84b7-4991-8296-ef1cd93afc09": "Procedure Record Associated View",
+      "c342637c-eee4-4852-8ae6-10785a0b25c5": "Procedure Record Advanced Find View",
+      "c7d43cf2-a890-45e7-b73a-1efb71d94dec": "Procedure Record Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Procedure Record)",
+    "Name": "eccs_procedurerecord_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Procedure Record"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Procedure Record",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Procedure Record)",
+    "Name": "eccs_procedurerecord_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Procedure Record"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Procedure Record",
+    "Type": "OptionSetInfo"
+  }
+]

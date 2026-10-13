@@ -1,0 +1,639 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrRegistrationLaunchpad:
+    Properties:
+      Fill: =RGBA(245, 247, 250, 1)
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      OnVisible: |-
+        =Set(
+            gblRegistrationTab,
+            "Summary"
+        );
+        Set(
+            gblSelectedEnvironment,
+            "Expanse TEST"
+        );
+        Set(
+            gblSelectedWorksheet,
+            "REG Accommodations"
+        )
+    Children:
+      - shpRegMainHeader:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =ColorValue("#03173E")
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =120
+            Width: =Parent.Width - 120
+            X: =120
+      - shpRegNavRail:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =ColorValue("#03173E")
+            Fill: =RGBA(3, 23, 62, 1)
+            Height: =Parent.Height
+            Width: =105
+      - lblRegExpanse:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =RGBA(224, 89, 41, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =22
+            Size: =11
+            Text: ="Expanse"
+            Width: =80
+            Y: =47
+      - lblRegBreadcrumb:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =RGBA(84, 88, 90, 1)
+            Font: =Font.Arial
+            Height: =20
+            Size: =9
+            Text: ="Config Tools  >  Registration"
+            Width: =350
+            X: =145
+            Y: =15
+      - lblRegLaunchTitle:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =RGBA(3, 23, 62, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =18
+            Text: ="Registration Configuration & Crosswalks"
+            Width: =419
+            X: =130
+            Y: =39
+      - lblRegLaunchDescription:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =RGBA(84, 88, 90, 1)
+            Font: =Font.Arial
+            Size: =12
+            Text: ="Registration configuration, mapping, readiness, and crosswalk management."
+            VerticalAlign: =VerticalAlign.Top
+            Width: =410
+            X: =135
+            Y: =67
+      - btnRegTabSummary:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            OnSelect: |-
+              =Set(
+                  gblRegistrationTab,
+                  "Summary"
+              )
+            Size: =14
+            Text: ="Summary"
+            Width: =150
+            X: =120
+            Y: =117
+      - btnRegTabNoMatchResults:
+          Control: ModernButton@1.0.0
+          Properties:
+            Align: =Align.Center
+            Font: =Font.Arial
+            Icon: ="DismissCircle"
+            OnSelect: |-
+              =Set(
+                  gblSelectedMatchCategory,
+                  "NO MATCH"
+              );
+              Navigate(
+                  srcMatchDashboard,
+                  ScreenTransition.Cover
+              )
+            Size: =13
+            Text: ="No Match Dashboard"
+            Width: =190
+            X: =480
+            Y: =117
+      - btnUpdateConfigTool:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            Icon: ="GlobeArrowUp"
+            OnSelect: |-
+              =Navigate(
+                  scrAccommodations,
+                  ScreenTransition.Cover
+              )
+            Size: =14
+            Text: ="Update Config Tool"
+            Width: =180
+            X: =285
+            Y: =117
+      - lblRegTotalValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =RGBA(3, 23, 62, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            Size: =20
+            Text: |-
+              =CountIf(
+                  'Accommodation Data Clone',
+                  Active_Source = 'Active_Source (Accommodation Data Clone)'.Y
+              )
+            Visible: =gblRegistrationTab = "Summary"
+            Width: =61
+            X: =227
+            Y: =292
+      - lblRegTotalCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =49
+            Size: =14
+            Text: ="Total Active Records:"
+            Width: =95
+            X: =135
+            Y: =292
+      - lblRegMatchedValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =RGBA(0, 140, 69, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Size: =20
+            Text: |-
+              =CountRows(
+                  Filter(
+                      'Accommodation Data Clone',
+                        TargetMatchMtx <> "NO MATCH"
+                  )
+              )
+            VerticalAlign: =VerticalAlign.Bottom
+            Visible: =gblRegistrationTab = "Summary"
+            Width: =65
+            X: =227
+            Y: =378
+      - lblRegMatchedCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Text: ="Matched:"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =75
+            X: =140
+            Y: =384
+      - lblRegNoMatchValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =RGBA(192, 0, 0, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =41
+            Size: =20
+            Text: |-
+              =CountRows(
+                  Filter(
+                      'Accommodation Data Clone',
+                          TargetMatchMtx = "NO MATCH"
+                  )
+              )
+            VerticalAlign: =VerticalAlign.Bottom
+            Visible: =gblRegistrationTab = "Summary"
+            Width: =66
+            X: =215
+            Y: =455
+      - lblRegNoMatchCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            FontWeight: =FontWeight.Semibold
+            Height: =56
+            Text: ="No Match:"
+            Width: =70
+            X: =138
+            Y: =447
+      - btnRegXwalkExport:
+          Control: ModernButton@1.0.0
+          Properties:
+            Align: =Align.Center
+            Font: =Font.Arial
+            Icon: ="ArrowExit"
+            OnSelect: |-
+              =Navigate(
+                  scrWorksheetResults,
+                  ScreenTransition.Cover
+              )
+            Size: =13
+            Text: ="Reg Crosswalks"
+            Width: =170
+            X: =685
+            Y: =117
+      - btnRegReportsHub:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            Icon: ="DocumentBulletList"
+            OnSelect: |
+              =Notify(
+                  "Reports Hub is being configured.",
+                  NotificationType.Information
+              )
+            Size: =13
+            Text: ="Reports"
+            Width: =140
+            X: =870
+            Y: =117
+      - btnRegProviderMapping:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            Icon: ="BriefcaseMedical"
+            OnSelect: |
+              =Notify(
+                  "Provider Mapping is being configured.",
+                  NotificationType.Information
+              )
+            Size: =13
+            Text: ="Provider Mapping"
+            Width: =165
+            X: =1025
+            Y: =117
+      - btnRegTaskList:
+          Control: ModernButton@1.0.0
+          Properties:
+            Align: =Align.Center
+            Font: =Font.Arial
+            Icon: ="CheckmarkCircle"
+            Size: =13
+            Text: ="Cutover Task List"
+            VerticalAlign: =VerticalAlign.Middle
+            Visible: =false
+            Width: =167
+            X: =622
+            Y: =589
+      - imgHCALogo1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =ColorValue("#03173E")
+            Height: =40
+            Image: =HCA_Healthcare_Logo_Extracted
+            Width: =95
+            Y: =4
+      - btnRegDiscAudit:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            Icon: ="DocumentBulletList"
+            Size: =13
+            Text: ="Reg Disc Usage"
+            Visible: =false
+            Width: =150
+            X: =428
+            Y: =637
+      - lblRegReadinessTitle:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#03173E")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Size: =16
+            Text: ="Registration Readiness"
+            Width: =215
+            X: =145
+            Y: =155
+      - lblRegReadinessMappedValue:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#03173E")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =36
+            Size: =20
+            Text: |-
+              =Text(
+                  Round(
+                      100 *
+                      (
+                          Sum(
+                              colRegReadiness,
+                              TestRecords
+                          ) +
+                          Sum(
+                              colRegReadiness,
+                              ZconRecords
+                          ) +
+                          Sum(
+                              colRegReadiness,
+                              LiveRecords
+                          )
+                      ) /
+                      Max(
+                          1,
+                          Sum(
+                              colRegReadiness,
+                              TotalRecords
+                          )
+                      ),
+                      0
+                  )
+              ) & "%"
+            Width: =65
+            X: =125
+            Y: =187
+      - lblRegReadinessMappedCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#54585A")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =12
+            Text: ="MAPPED"
+            Width: =75
+            X: =120
+            Y: =222
+      - lblRegReadinessLiveValue:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#008C45")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =36
+            Size: =20
+            Text: |-
+              =Text(
+                  Round(
+                      100 *
+                      Sum(
+                          colRegReadiness,
+                          LiveRecords
+                      ) /
+                      Max(
+                          1,
+                          Sum(
+                              colRegReadiness,
+                              TotalRecords
+                          )
+                      ),
+                      0
+                  )
+              ) & "%"
+            Width: =50
+            X: =255
+            Y: =197
+      - lblRegReadinessLiveCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#54585A")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =12
+            Text: ="LIVE"
+            Width: =50
+            X: =255
+            Y: =235
+      - lblRegReadinessNoMatchValue:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =Color.Red
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =36
+            Size: =20
+            Text: |-
+              =Text(
+                  Sum(
+                      colRegReadiness,
+                      NoMatchRecords
+                  )
+              )
+            Width: =120
+            X: =340
+            Y: =197
+      - lblRegReadinessNoMatchCaption:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#54585A")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =12
+            Text: ="NO MATCH"
+            Width: =80
+            X: =340
+            Y: =235
+      - lblRegNextMilestone:
+          Control: ModernText@1.0.0
+          Properties:
+            Align: =Align.Center
+            AutoHeight: =true
+            Color: =ColorValue("#03173E")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =17
+            Text: |-
+              =With(
+                  {
+                      nextEvent: First(
+                          Sort(
+                              Filter(
+                                  colECCSCutoverSchedule,
+                                  StartDate >= Today()
+                              ),
+                              StartDate,
+                              SortOrder.Ascending
+                          )
+                      )
+                  },
+                  If(
+                      IsBlank(nextEvent.EventName),
+                      "No milestone scheduled",
+                      nextEvent.EventName &
+                      " | " &
+                      Text(
+                          nextEvent.StartDate,
+                          "[$-en-US]mmmm d, yyyy"
+                      )
+                  )
+              )
+            Width: =300
+            X: =827
+            Y: =15
+      - lblRegCountdownLaunchpad:
+          Control: ModernText@1.0.0
+          Properties:
+            Align: =Align.Center
+            AutoHeight: =true
+            Color: =ColorValue("#E05929")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Height: =40
+            Size: =20
+            Text: |-
+              =With(
+                  {
+                      nextEvent: First(
+                          Sort(
+                              Filter(
+                                  colECCSCutoverSchedule,
+                                  StartDate >= Now()
+                              ),
+                              StartDate,
+                              SortOrder.Ascending
+                          )
+                      )
+                  },
+                  If(
+                      IsBlank(nextEvent.EventName),
+                      "COUNTDOWN NOT CONFIGURED",
+                      With(
+                          {
+                              totalMinutes: DateDiff(
+                                  Now(),
+                                  nextEvent.StartDate,
+                                  TimeUnit.Minutes
+                              )
+                          },
+                          If(
+                              totalMinutes <= 0,
+                              "EVENT ACTIVE",
+                              Int(totalMinutes / 1440) &
+                              "d " &
+                              Mod(
+                                  Int(totalMinutes / 60),
+                                  24
+                              ) &
+                              "h " &
+                              Mod(
+                                  totalMinutes,
+                                  60
+                              ) &
+                              "m"
+                          )
+                      )
+                  )
+              )
+            Width: =200
+            X: =877
+            Y: =47
+      - lblRegWorksheetReadinessHeader:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Color: =ColorValue("#03173E")
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =17
+            Text: ="Registration Worksheet Readiness"
+            Underline: =true
+            Width: =300
+            X: =863
+            Y: =173
+      - lblRegWorksheetReadiness:
+          Control: ModernText@1.0.0
+          Properties:
+            Align: =Align.Right
+            Color: =ColorValue("#54585A")
+            Font: =Font.Arial
+            Height: =248
+            Size: =16
+            Text: |-
+              =Concat(
+                  Sort(
+                      colRegReadiness,
+                      WorksheetName,
+                      SortOrder.Ascending
+                  ),
+                  WorksheetName &
+                  "    " &
+                  Text(TotalRecords) &
+                  " records    " &
+                  Text(
+                      Round(
+                          100 *
+                          (
+                              TestRecords +
+                              ZconRecords +
+                              LiveRecords
+                          ) /
+                          Max(
+                              1,
+                              TotalRecords
+                          ),
+                          0
+                      )
+                  ) &
+                  "% mapped    " &
+                  Text(
+                      Round(
+                          100 *
+                          LiveRecords /
+                          Max(
+                              1,
+                              TotalRecords
+                          ),
+                          0
+                      )
+                  ) &
+                  "% LIVE    " &
+                  Text(NoMatchRecords) &
+                  " NO MATCH" &
+                  Char(10)
+              )
+            VerticalAlign: =VerticalAlign.Top
+            Width: =604
+            X: =744
+            Y: =207
+      - cmpECCSNavigationBar_3:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarSide
+          Properties:
+            Height: =485
+            Width: =100
+      - btnProvXwalkReport:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.Arial
+            Icon: ="BriefcaseMedical"
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =13
+            Text: ="Provider Crosswalk"
+            Visible: =false
+            Width: =160
+            X: =428
+            Y: =589
+      - btnRegAuditReports:
+          Control: ModernButton@1.0.0
+          Properties:
+            Icon: ="Alert"
+            Text: ="Readiness Reports"
+            Visible: =false
+            Width: =176
+            X: =613
+            Y: =637

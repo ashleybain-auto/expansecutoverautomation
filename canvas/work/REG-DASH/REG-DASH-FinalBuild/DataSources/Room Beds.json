@@ -1,0 +1,241 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_facilityroomassignments",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_facilityroomassignment",
+    "MaxGetRowsCount": 1000,
+    "Name": "Room Beds",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_displaycurrentvalues": "Display Current Values",
+      "eccs_excludefromsharepoint": "Exclude From SharePoint",
+      "eccs_facilityroomassignment_ActivityPointers": "Activities",
+      "eccs_facilityroomassignment_adx_inviteredemptions": "Invite Redemptions",
+      "eccs_facilityroomassignment_adx_portalcomments": "Portal Comments",
+      "eccs_facilityroomassignment_Appointments": "Appointments",
+      "eccs_facilityroomassignment_AsyncOperations": "System Jobs",
+      "eccs_facilityroomassignment_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_facilityroomassignment_chats": "Teams chats",
+      "eccs_facilityroomassignment_connections1": "Connections (eccs_facilityroomassignment_connections1)",
+      "eccs_facilityroomassignment_connections2": "Connections (eccs_facilityroomassignment_connections2)",
+      "eccs_facilityroomassignment_DeletedItemReferences": "Deleted Record References",
+      "eccs_facilityroomassignment_DuplicateBaseRecord": "Duplicate Records (eccs_facilityroomassignment_DuplicateBaseRecord)",
+      "eccs_facilityroomassignment_DuplicateMatchingRecord": "Duplicate Records (eccs_facilityroomassignment_DuplicateMatchingRecord)",
+      "eccs_facilityroomassignment_Emails": "Email Messages",
+      "eccs_facilityroomassignment_Faxes": "Faxes",
+      "eccs_facilityroomassignment_Letters": "Letters",
+      "eccs_facilityroomassignment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_facilityroomassignment_PhoneCalls": "Phone Calls",
+      "eccs_facilityroomassignment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_facilityroomassignment_ProcessSession": "Process Sessions",
+      "eccs_facilityroomassignment_QueueItems": "Queue Items",
+      "eccs_facilityroomassignment_RecurringAppointmentMasters": "Recurring Appointments",
+      "eccs_facilityroomassignment_SharePointDocumentLocations": "Document Locations",
+      "eccs_facilityroomassignment_SyncErrors": "Sync Errors",
+      "eccs_facilityroomassignment_Tasks": "Tasks",
+      "eccs_facilityroomassignmentid": "Facility Room Assignment",
+      "eccs_sourceaccommodationtype": "Source Accommodation Type",
+      "eccs_sourceactivestatus": "Source Active Status",
+      "eccs_sourcebedcode": "Source Bed Code",
+      "eccs_sourcefacilitycode": "Source Facility Code",
+      "eccs_sourcelocationcode": "Source Location Code",
+      "eccs_sourcerateaccommodationprocedureco": "Source Rate Accommodation Procedure Code",
+      "eccs_sourceroomcode": "Source Room Code",
+      "eccs_sourceservicetype": "Source Service Type",
+      "eccs_systemupdatedatetime": "System Update DateTime",
+      "eccs_systemupdateuser": "System Update User",
+      "eccs_targetaccommodationtype": "Target Accommodation Type",
+      "eccs_targetbedcode": "Target Bed Code",
+      "eccs_targetfacilitycode": "Target Facility Code",
+      "eccs_targetlocationcode": "Target Location Code",
+      "eccs_targetmatchstatus": "Target Match Status",
+      "eccs_targetrateaccommodationprocedureco": "Target Rate Accommodation Procedure Code",
+      "eccs_targetroomcode": "Target Room Code",
+      "eccs_targetservicetype": "Target Service Type",
+      "eccs_updatedatetime": "Update DateTime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msft_datastate": "msft_DataState",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Room Beds",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Room Beds (Views)",
+    "Name": "_eccs_facilityroomassignment_views",
+    "RelatedEntityName": "Room Beds",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "17a35c5f-1ca1-41fe-bd4e-d3cd63f63c7b": "Facility Room Assignment Lookup View",
+      "3691a326-7b11-4315-ad5f-114b3798be25": "Facility Room Assignment Associated View",
+      "7c8212f6-3040-454e-99ec-744627947703": "Active Facility Room Assignment",
+      "87169e9b-c2d7-4677-84c3-805a658da122": "Inactive Facility Room Assignment",
+      "bed9f29e-81de-4cfa-b66d-b8cceca73629": "Facility Room Assignment Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Action To Take (Room Beds)",
+    "Name": "eccs_facilityroomassignment_eccs_actiontotake",
+    "OptionSetInfoNameMapping": {
+      "0": "Action To Take",
+      "1": "None"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_actiontotake",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_actiontotake",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Display Current Values (Room Beds)",
+    "Name": "eccs_facilityroomassignment_eccs_displaycurrentvalues",
+    "OptionSetInfoNameMapping": {
+      "0": "DisplayCurrentValues",
+      "1": "N",
+      "2": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_displaycurrentvalues",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_displaycurrentvalues",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Exclude From SharePoint (Room Beds)",
+    "Name": "eccs_facilityroomassignment_eccs_excludefromsharepoint",
+    "OptionSetInfoNameMapping": {
+      "0": "ExcludeFromSharepoint",
+      "1": "Y",
+      "2": "N"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_excludefromsharepoint",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_excludefromsharepoint",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Source Active Status (Room Beds)",
+    "Name": "eccs_facilityroomassignment_eccs_sourceactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Excel Refreshed: 9/4/2026 9:03:50 AM",
+      "1": "Active_Source",
+      "2": "N",
+      "3": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_sourceactivestatus",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_sourceactivestatus",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Room Beds)",
+    "Name": "eccs_facilityroomassignment_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Room Beds)",
+    "Name": "eccs_facilityroomassignment_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "DataState",
+    "Name": "msft_datastate",
+    "OptionSetInfoNameMapping": {
+      "0": "Default",
+      "1": "Retain"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msft_datastate",
+        "OptionSetReferenceEntityName": "Room Beds"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msft_datastate",
+    "RelatedEntityName": "Room Beds",
+    "Type": "OptionSetInfo"
+  }
+]

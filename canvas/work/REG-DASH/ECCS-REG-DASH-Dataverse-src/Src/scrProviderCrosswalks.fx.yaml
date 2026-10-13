@@ -1,0 +1,1174 @@
+scrProviderCrosswalks As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(232, 232, 232, 1)
+    Height: =700
+    Width: =1200
+
+    cmpECCSNavigationBar_1 As cmpECCSNavigationBarTop:
+        X: =570
+        Y: =45
+        ZIndex: =1
+
+    cmpHeaderSidePanelGlobal_1 As cmpAppPageTemplateG:
+        HubName: ="Provider Crosswalks"
+        ZIndex: =2
+
+    frmProviderCrosswalk As form.ModernForm:
+        AcceptsFocus: =true
+        BorderColor: =RGBA(0, 89, 178, 1)
+        DataSource: =Filter('Provider Crosswalks', 'Provider Crosswalks (Views)'.'Provider Crosswalk Lookup View')
+        DefaultMode: =FormMode.View
+        NumberOfColumns: =4
+        Width: =1094
+        X: =106
+        Y: =85
+        ZIndex: =3
+
+        WaveAssigned_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_waveassigned"
+            Default: =ThisItem.WaveAssigned
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,WaveAssigned)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey13 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                ZIndex: =2
+
+        FacilityShortName_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_facilityname"
+            Default: =ThisItem.FacilityShortName
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,FacilityShortName)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =1
+            Y: =0
+            ZIndex: =2
+
+            DataCardKey30 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue29 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                ZIndex: =2
+
+        FacilityMnem_Source_DataCard3 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_facilitymnemonic"
+            Default: =ThisItem.FacilityMnem_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,FacilityMnem_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =2
+            Y: =0
+            ZIndex: =3
+
+            DataCardKey43 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue42 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+                ZIndex: =2
+
+        "'Provider Crosswalk_DataCard1' As typedDataCard.modernTextualViewCard":
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_providercrosswalkid"
+            Default: =ThisItem.'Provider Crosswalk'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,'Provider Crosswalk')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =3
+            Y: =0
+            ZIndex: =4
+
+            DataCardKey21 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue20 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey21.Y + DataCardKey21.Height + 4
+                ZIndex: =2
+
+        TargetMatchMtx_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_targetmatchmatrix"
+            Default: =ThisItem.TargetMatchMtx
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,TargetMatchMtx)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =0
+            Y: =1
+            ZIndex: =5
+
+            DataCardKey39 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue38 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey39.Y + DataCardKey39.Height + 4
+                ZIndex: =2
+
+        UserMnemonic_Source_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_usermnemonicsource"
+            Default: =ThisItem.UserMnemonic_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,UserMnemonic_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =1
+            Y: =1
+            ZIndex: =6
+
+            DataCardKey12 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue11 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey12.Y + DataCardKey12.Height + 4
+                ZIndex: =2
+
+        Provider34_Source_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_provider34code"
+            Default: =ThisItem.Provider34_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,Provider34_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =2
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey35 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue34 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey35.Y + DataCardKey35.Height + 4
+                ZIndex: =2
+
+        UserMnemonic_Target_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_usermnemonictarget"
+            Default: =ThisItem.UserMnemonic34_Target
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,UserMnemonic34_Target)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =3
+            Y: =1
+            ZIndex: =8
+
+            DataCardKey11 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue10 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey11.Y + DataCardKey11.Height + 4
+                ZIndex: =2
+
+        ProviderMnemonic_Source_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_providermnemonic"
+            Default: =ThisItem.ProviderMnemonic_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderMnemonic_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =0
+            Y: =2
+            ZIndex: =9
+
+            DataCardKey36 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue35 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey36.Y + DataCardKey36.Height + 4
+                ZIndex: =2
+
+        ProviderName_Source_DataCard3 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_providername"
+            Default: =ThisItem.ProviderName_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderName_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =1
+            Y: =2
+            ZIndex: =10
+
+            DataCardKey37 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue36 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey37.Y + DataCardKey37.Height + 4
+                ZIndex: =2
+
+        ProviderNpiNum_Source_DataCard3 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_providernpinumber"
+            Default: =ThisItem.ProviderNpiNum_Source
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,ProviderNpiNum_Source)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =2
+            Y: =2
+            ZIndex: =11
+
+            DataCardKey38 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue37 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey38.Y + DataCardKey38.Height + 4
+                ZIndex: =2
+
+        DB_RecordCount_PHA_Active_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_phaactiverecordcount"
+            Default: =ThisItem.DB_RecordCount_PHA_Active
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_PHA_Active)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =3
+            Y: =2
+            ZIndex: =12
+
+            DataCardKey32 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue31 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey32.Y + DataCardKey32.Height + 4
+                ZIndex: =2
+
+        DB_RecordCount_PHA_History_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_phahistoryrecordcount"
+            Default: =ThisItem.DB_RecordCount_PHA_History
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_PHA_History)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =0
+            Y: =3
+            ZIndex: =13
+
+            DataCardKey31 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue30 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+                ZIndex: =2
+
+        DB_RecordCount_OM_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_omrecordcount"
+            Default: =ThisItem.DB_RecordCount_OM
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_OM)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =1
+            Y: =3
+            ZIndex: =14
+
+            DataCardKey33 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue32 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey33.Y + DataCardKey33.Height + 4
+                ZIndex: =2
+
+        OM_Target_OrderingProviderFlag_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_orderingproviderflag"
+            Default: =ThisItem.OM_Target_OrderingProviderFlag
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,OM_Target_OrderingProviderFlag)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =2
+            Y: =3
+            ZIndex: =15
+
+            DataCardKey34 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue33 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey34.Y + DataCardKey34.Height + 4
+                ZIndex: =2
+
+        DB_RecordCount_REG_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_regrecordcount"
+            Default: =ThisItem.DB_RecordCount_REG
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_REG)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =3
+            Y: =3
+            ZIndex: =16
+
+            DataCardKey28 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue27 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey28.Y + DataCardKey28.Height + 4
+                ZIndex: =2
+
+        REG_Target_AdmittingProviderFlag_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_admittingproviderflag"
+            Default: =ThisItem.REG_Target_AdmittingProviderFlag
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,REG_Target_AdmittingProviderFlag)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =0
+            Y: =4
+            ZIndex: =17
+
+            DataCardKey40 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue39 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey40.Y + DataCardKey40.Height + 4
+                ZIndex: =2
+
+        DB_RecordCount_REG_Admit_DataCard2 As typedDataCard.modernTextualViewCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="eccs_regadmitrecordcount"
+            Default: =ThisItem.DB_RecordCount_REG_Admit
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,DB_RecordCount_REG_Admit)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =1
+            Y: =4
+            ZIndex: =18
+
+            DataCardKey29 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue28 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+                ZIndex: =2
+
+        "'Modified On_DataCard1' As typedDataCard.modernTextualViewCard":
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: ="modifiedon"
+            Default: =ThisItem.'Modified On'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Provider Crosswalks'],DataSourceInfo.DisplayName,'Modified On')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =2
+            Y: =4
+            ZIndex: =19
+
+            DataCardKey20 As modernText:
+                BorderStyle: =""
+                Font: =""
+                FontWeight: =FontWeight.Semibold
+                Height: =22
+                PaddingBottom: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue19 As modernTextInput:
+                AccessibleLabel: =Parent.DisplayName
+                Appearance: =Appearance.FilledDarker
+                BorderStyle: =""
+                Default: =Parent.Default
+                DisplayMode: =DisplayMode.View
+                Font: =""
+                Placeholder: ="Enter text"
+                Required: =false
+                TriggerOutput: =TriggerOutput.Keypress
+                ValidationState: =ValidationState.None
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey20.Y + DataCardKey20.Height + 4
+                ZIndex: =2
+
+        DataCard1 As typedDataCard.blankCard:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            ContentLanguage: =""
+            DataField: =""
+            DisplayMode: =DisplayMode.Edit
+            DisplayName: =""
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =200
+            LayoutHeight: =0
+            LayoutWidth: =0
+            LayoutX: =0
+            LayoutY: =0
+            maximumHeight: =7680
+            maximumWidth: =1366
+            minimumHeight: =20
+            minimumWidth: =20
+            Required: =false
+            Visible: =true
+            Width: =273
+            WidthFit: =false
+            X: =3
+            Y: =4
+            ZIndex: =20
+

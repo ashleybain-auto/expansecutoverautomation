@@ -1,0 +1,77 @@
+scrWorksheetResults As screen:
+    ContentLanguage: =""
+    Fill: =RGBA(232, 232, 232, 1)
+
+    cmpDrpdwnFiltersFacilityWks_Bulk As cmpDrpdwnFiltersFacilityWksG:
+        Height: =150
+        Width: =900
+        Y: =88
+        ZIndex: =1
+
+    Import2 As import:
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 51, 102, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        Size: =15
+        Text: ="Import Data"
+        X: =1167
+        Y: =133
+        ZIndex: =2
+
+    Export2 As export:
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 51, 102, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        Size: =15
+        Text: ="Export Data"
+        X: =1167
+        Y: =220
+        ZIndex: =3
+
+    shpWorkSheetHeader As rectangle:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Fill: |-
+            =ColorValue("#03173E")
+        Height: =88
+        Width: =1366
+        ZIndex: =4
+
+    lblResultTitle As modernText:
+        BorderStyle: =""
+        Color: =Color.White
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Bold
+        Height: =48
+        PaddingBottom: =2
+        PaddingLeft: =2
+        PaddingRight: =2
+        PaddingTop: =2
+        Size: =20
+        Text: ="Expanse Cutover & Configuration Suite"
+        Width: =500
+        X: =28
+        ZIndex: =5
+
+    lblResultSubtitle As modernText:
+        AutoHeight: =true
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#E05929")
+        Font: =Font.'Open Sans'
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Text: ="Registration | Worksheet Bulk Import/Export"
+        Width: =477
+        X: =28
+        Y: =38
+        ZIndex: =6
+
+    cmpECCSNavigationBar_5 As cmpECCSNavigationBarTop:
+        X: =696
+        Y: =26
+        ZIndex: =7
+

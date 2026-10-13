@@ -1,0 +1,106 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_financialapprovers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_financialapprover",
+    "MaxGetRowsCount": 1000,
+    "Name": "Financial Approvers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_financialapprover_AsyncOperations": "System Jobs",
+      "eccs_financialapprover_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_financialapprover_DeletedItemReferences": "Deleted Record References",
+      "eccs_financialapprover_DuplicateBaseRecord": "Duplicate Records (eccs_financialapprover_DuplicateBaseRecord)",
+      "eccs_financialapprover_DuplicateMatchingRecord": "Duplicate Records (eccs_financialapprover_DuplicateMatchingRecord)",
+      "eccs_financialapprover_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_financialapprover_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_financialapprover_ProcessSession": "Process Sessions",
+      "eccs_financialapprover_SyncErrors": "Sync Errors",
+      "eccs_financialapproverid": "Financial Approver",
+      "eccs_sourcefinancialapproverdescription": "Source Financial Approver Description",
+      "eccs_sourcefinancialapprovermnemonic": "Source Financial Approver Mnemonic",
+      "eccs_sourcenetworkmnemonic": "Source Network Mnemonic",
+      "eccs_targetfinancialapproverdescription": "Target Financial Approver Description",
+      "eccs_targetfinancialapprovermnemonic": "Target Financial Approver Mnemonic",
+      "eccs_targetmatchmatrix": "Target Match Matrix",
+      "eccs_updatedatetime": "Update DateTime",
+      "eccs_updateuser": "Update User",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Financial Approvers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Financial Approvers (Views)",
+    "Name": "_eccs_financialapprover_views",
+    "RelatedEntityName": "Financial Approvers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4cf04be2-63f5-4470-b6ae-451bfe0d7c29": "Inactive Financial Approvers",
+      "86bdc516-a2dc-412a-8873-2e49fb718cb4": "Financial Approver Lookup View",
+      "8a78d9af-6927-4d6f-a99c-a6b1a9f17fb9": "Financial Approver Advanced Find View",
+      "9c8b700f-dfef-44be-8ff2-f9b06c499d01": "Financial Approver Associated View",
+      "da9529c0-9f20-4f7e-8b21-b0296901b9ff": "Active Financial Approvers"
+    }
+  },
+  {
+    "DisplayName": "Status (Financial Approvers)",
+    "Name": "eccs_financialapprover_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Financial Approvers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Financial Approvers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Financial Approvers)",
+    "Name": "eccs_financialapprover_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Financial Approvers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Financial Approvers",
+    "Type": "OptionSetInfo"
+  }
+]

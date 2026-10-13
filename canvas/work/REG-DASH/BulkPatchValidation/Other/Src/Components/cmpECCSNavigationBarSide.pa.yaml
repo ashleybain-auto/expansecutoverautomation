@@ -1,0 +1,174 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmpECCSNavigationBarSide:
+    DefinitionType: CanvasComponent
+    Description: Site Navigation
+    AccessAppScope: true
+    Properties:
+      Height: =485
+      Width: =100
+    Children:
+      - shpNavigationHeader_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =485
+            Width: =100
+            Y: =2
+      - btnHome4_1:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =31
+            Icon: ="Home"
+            OnSelect: |-
+              =Navigate(
+                  scrLaunchPad,
+                  ScreenTransition.Fade
+              )
+            Size: =14
+            Text: ="HOME"
+            Width: =100
+            Y: =27
+      - btnBack4_1:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =31
+            Icon: ="ArrowLeft"
+            OnSelect: =Back()
+            Size: =14
+            Text: ="BACK"
+            Width: =100
+            Y: =129
+      - btnRefresh4_1:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =31
+            Icon: ="ArrowSync"
+            OnSelect: |-
+              =Switch(
+                  App.ActiveScreen,
+                  scrRegistrationLaunchpad,
+                      Refresh('Accommodation Data Clone');
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations');
+                      Refresh(Locations);
+                      Refresh(Services);
+                      Refresh(Insurances);
+                      Refresh('Room Beds');
+                      Refresh('Discharge Dispositions');
+                      Refresh('Insurance Auths');
+                      Refresh('Financial Approvers');
+                      Refresh('Financial Classes');
+                      Refresh('Admit Source Mapping'),
+                  scrAccommodations,
+                      Refresh('Accommodation Data Clone');
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations'),
+                  srcMatchDashboard,
+                      Refresh('Accommodation Data Clone');
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations'),
+                  scrWorksheetResults,
+                      Refresh(Locations);
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations'),
+                  cmpECCSConfigurations,
+                      Refresh('Accommodation Data Clone');
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations'),
+                  scrCutoverReadinessDash,
+                      Refresh('Accommodation Data Clone');
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations');
+                      Refresh(Locations);
+                      Refresh(Services);
+                      Refresh(Insurances);
+                      Refresh('Room Beds');
+                      Refresh('Discharge Dispositions');
+                      Refresh('Insurance Auths');
+                      Refresh('Financial Approvers');
+                      Refresh('Financial Classes');
+                      Refresh('Admit Source Mapping'),
+                  scrLaunchPad,
+                      Refresh('Reg Config Categories');
+                      Refresh('dim.Ref.Organizations')
+              )
+            Size: =12
+            Text: ="REFRESH"
+            Width: =100
+            Y: =180
+      - btnNext4_1:
+          Control: ModernButton@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =31
+            Icon: ="ArrowRight"
+            Layout: =ButtonLayout.IconAfter
+            OnSelect: |-
+              =Switch(
+                  App.ActiveScreen,
+                  scrLaunchPad,
+                      Navigate(
+                          scrRegistrationLaunchpad,
+                          ScreenTransition.Fade
+                      ),
+                  scrRegistrationLaunchpad,
+                      Navigate(
+                          scrAccommodations,
+                          ScreenTransition.Cover
+                      ),
+                  scrAccommodations,
+                      Navigate(
+                          cmpECCSConfigurations,
+                          ScreenTransition.Cover
+                      ),
+                  cmpECCSConfigurations,
+                      Navigate(
+                          srcMatchDashboard,
+                          ScreenTransition.Cover
+                      ),
+                  srcMatchDashboard,
+                      Navigate(
+                          scrWorksheetResults,
+                          ScreenTransition.Cover
+                      ),
+                  scrWorksheetResults,
+                      Navigate(
+                          scrCutoverReadinessDash,
+                          ScreenTransition.Cover
+                      ),
+                  scrCutoverReadinessDash,
+                      Navigate(
+                          scrLaunchPad,
+                          ScreenTransition.Fade
+                      ),
+                  Navigate(
+                      scrLaunchPad,
+                      ScreenTransition.Fade
+                  )
+              )
+            Size: =14
+            Text: ="NEXT"
+            Width: =100
+            Y: =229
+      - btnReportsHub:
+          Control: ModernButton@1.0.0
+          Properties:
+            BasePaletteColor: =RGBA(5, 102, 178, 1)
+            Font: =Font.'Open Sans'
+            Height: =31
+            Size: =13
+            Text: ="REPORTS"
+            Width: =100
+            Y: =379

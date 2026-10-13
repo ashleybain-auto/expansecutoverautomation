@@ -1,0 +1,443 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmpECCSConfigurationBoard:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    CustomProperties:
+      BoardTitle:
+        PropertyKind: Input
+        DisplayName: Board Title
+        Description: A custom property
+        DataType: Text
+        Default: ="Expanse Cutover Configuration & Suite"
+      Records:
+        PropertyKind: Input
+        DisplayName: Records
+        Description: Records Table
+        DataType: Table
+        Default: |-
+          =Table(
+              {
+                  RecordKey: "",
+                  SourceFacility: "",
+                  SourceMnemonic: "",
+                  SourceName: "",
+                  SourcePACode: "",
+                  SourceActive: "",
+                  TargetFacility: "",
+                  TargetMnemonic: "",
+                  TargetName: "",
+                  TargetPACode: "",
+                  TargetActive: "",
+                  TargetMatchMtx: ""
+              }
+          )
+      SelectedRecord:
+        PropertyKind: Output
+        DisplayName: Selected Record
+        Description: A custom property
+        DataType: Record
+      WaveSubwaveFacilitySearch:
+        PropertyKind: Input
+        DisplayName: Wave Subwave - Facility Search
+        Description: A custom property
+        RaiseOnReset: true
+        DataType: Text
+        Default: ="Text"
+      WorksheetName:
+        PropertyKind: Input
+        DisplayName: Worksheet Name
+        Description: A custom property
+        DataType: Text
+        Default: ="Registration | Configuration Review"
+    Properties:
+      Fill: =ColorValue("#F5F7FA")
+      Height: =700
+      SelectedRecord: =galBoardRecords.Selected
+      Width: =1200
+    Children:
+      - shpHeaderTitle:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =ColorValue("#03173E")
+            Height: =80
+            Width: =Parent.Width
+      - galBoardRecords:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_ThreeTextVariant_ver5.0
+          Properties:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            FocusedBorderThickness: =2
+            Height: =483
+            Items: =cmpECCSConfigurationBoard.Records
+            NavigationStep: =2
+            OnSelect: =
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TabIndex: =0
+            TemplateSize: =68
+            Transition: =Transition.Pop
+            Width: =485
+            X: =39
+            Y: =157
+          Children:
+            - Title1:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(50, 49, 48, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =12
+                  Text: =ThisItem.SourceFacility
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 86
+                  X: =16
+                  Y: =(Parent.TemplateHeight - (Self.Size*1.8 + Subtitle1.Size*1.8 + 2 + Body1.Size*1.8)) / 2
+            - Subtitle1:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.TargetName
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Title1.Width
+                  X: =Title1.X
+                  Y: =Title1.Y + Title1.Height
+            - Body1:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.TargetMnemonic
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Title1.Width
+                  X: =20
+                  Y: =25
+            - NextArrow1:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  AccessibleLabel: =Self.Tooltip
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  Color: =RGBA(166, 166, 166, 1)
+                  Height: =55
+                  Icon: =Icon.ChevronRight
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =16
+                  PaddingLeft: =16
+                  PaddingRight: =16
+                  PaddingTop: =16
+                  Tooltip: ="View item details"
+                  Width: |
+                    =66
+                  X: =419
+                  Y: =6
+            - Separator1:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =4
+                  OnSelect: =Select(Parent)
+                  Width: =Parent.TemplateWidth
+                  Y: =Parent.TemplateHeight - Self.Height
+            - Rectangle1:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 89, 178, 1)
+                  Fill: =RGBA(0, 89, 178, 1)
+                  FocusedBorderThickness: =0
+                  Height: =Parent.TemplateHeight - Separator1.Height
+                  OnSelect: =Select(Parent)
+                  Visible: =ThisItem.IsSelected
+                  Width: =4
+      - SrcActiveValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: |-
+              =Text(
+                  galBoardRecords.Selected.SourceActive
+              )
+            X: =825
+            Y: =225
+      - Source Active Caption:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Active Source"
+            X: =Parent.Width * 0.52
+            Y: =225
+      - SrcPAcodeValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.SourcePACode
+            X: =825
+            Y: =200
+      - Source PA Code Caption:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Source PA Code"
+            X: =Parent.Width * 0.52
+            Y: |
+              =200
+      - SrcNameValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.SourceName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =375
+            X: =825
+            Y: =175
+      - Source Name Caption:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Source Name"
+            X: =Parent.Width * 0.52
+            Y: =175
+      - SrcMnemValue:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.SourceMnemonic
+            X: =825
+            Y: =150
+      - Source Mnemonic Caption:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Source Mnemonic"
+            X: =Parent.Width * 0.52
+            Y: |
+              =150
+      - SrcFacilityValue:
+          Control: ModernText@1.0.0
+          Properties:
+            OnSelect: =
+            Text: =galBoardRecords.Selected.SourceFacility
+            X: |
+              =825
+            Y: =125
+      - Source Facility Caption:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Source Facility"
+            X: =Parent.Width * 0.52
+            Y: |
+              =125
+      - lblBoardCurrentHeading:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#03173E")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =42
+            Size: =16
+            Text: ="SOURCE CONFIGURATION"
+            Width: =400
+            X: =624
+            Y: =90
+      - lblBoardTitle:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =Color.White
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            Size: =20
+            Text: ="Expanse Cutover Configuration Suite"
+            Width: =409
+      - lblBoardWorksheet:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#E05929")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =37
+            Text: =cmpECCSConfigurationBoard.WorksheetName
+            Width: =350
+            Y: =43
+      - lblBoardProposedHeading:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: =ColorValue("#E05929")
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =45
+            Size: =16
+            Text: ="TARGET CONFIGURATION"
+            Width: =250
+            X: =Parent.Width * 0.52
+            Y: =260
+      - lblTargetFacilityValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.TargetFacility
+            X: =825
+            Y: =300
+      - lblTargetFacilityCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Target Facility"
+            X: =Parent.Width * 0.52
+            Y: =300
+      - lblTargetMnemonicValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Height: =25
+            Text: =galBoardRecords.Selected.TargetMnemonic
+            X: =825
+            Y: =325
+      - lblTargetMnemonicCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Text: ="Target Mnemonic"
+            X: =Parent.Width * 0.52
+            Y: =325
+      - lblTargetNameValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            AutoHeight: =true
+            Height: =25
+            Text: =galBoardRecords.Selected.TargetName
+            X: =825
+            Y: =350
+      - lblTargetNameCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Target Name"
+            X: =Parent.Width * 0.52
+            Y: =350
+      - lblTargetPACodeValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.TargetPACode
+            X: =825
+            Y: =375
+      - lblTargetPACodeCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Target PA Code"
+            X: =Parent.Width * 0.52
+            Y: =375
+      - lblTargetActiveValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: =galBoardRecords.Selected.TargetActive
+            X: =825
+            Y: =402
+      - lblTargetActiveCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            Text: ="Target Active"
+            X: =Parent.Width * 0.52
+            Y: =400
+      - lblTargetMatchValue1:
+          Control: ModernText@1.0.0
+          Properties:
+            Color: |-
+              =If(
+                  Upper(
+                      Coalesce(
+                          galBoardRecords.Selected.TargetMatchMtx,
+                          ""
+                      )
+                  ) = "NO MATCH",
+                  Color.Red,
+                  ColorValue("#03173E")
+              )
+            Font: =Font.'Open Sans'
+            FontWeight: |-
+              =If(
+                  Upper(
+                      Coalesce(
+                          galBoardRecords.Selected.TargetMatchMtx,
+                          ""
+                      )
+                  ) = "NO MATCH",
+                  FontWeight.Bold,
+                  FontWeight.Normal
+              )
+            Height: =40
+            Text: =galBoardRecords.Selected.TargetMatchMtx
+            Width: =511
+            X: =Parent.Width * 0.52
+            Y: =480
+      - lblTargetMatchCaption1:
+          Control: ModernText@1.0.0
+          Properties:
+            Font: =Font.'Open Sans'
+            FontWeight: =
+            Text: ="Target Match"
+            X: =Parent.Width * 0.52
+            Y: =450
+      - btnModWkstValu:
+          Control: ModernButton@1.0.0
+          Properties:
+            BasePaletteColor: =RGBA(249, 83, 109, 1)
+            Height: =39
+            Icon: ="Edit"
+            OnSelect: |-
+              =If(
+                  IsBlank(galBoardRecords.Selected),
+                  Notify(
+                      "Select a configuration record before modifying worksheet values.",
+                      NotificationType.Warning
+                  ),
+                  Set(
+                      gblSelectedAccommodation,
+                      galBoardRecords.Selected
+                  );
+                  Set(
+                      gblDashboardExpanded,
+                      false
+                  );
+                  Navigate(
+                      scrAccommodations,
+                      ScreenTransition.Fade
+                  )
+              )
+            Size: =15
+            Text: ="Modify Worksheet Values"
+            Width: =232
+            X: =743
+            Y: =545
+      - btnPushUpdatestoDB:
+          Control: ModernButton@1.0.0
+          Properties:
+            BasePaletteColor: =RGBA(156, 220, 79, 1)
+            Height: =39
+            Icon: ="GlobeSync"
+            Size: =15
+            Text: ="Sync Updates to DB"
+            Width: =232
+            X: =743
+            Y: =601

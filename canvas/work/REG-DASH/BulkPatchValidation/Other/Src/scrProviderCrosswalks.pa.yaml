@@ -1,0 +1,48 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  scrProviderCrosswalks:
+    Properties:
+      Fill: =RGBA(232, 232, 232, 1)
+      Height: =700
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      Width: =1200
+    Children:
+      - cmpDrpdwnFiltersFacilityG_1:
+          Control: CanvasComponent
+          ComponentName: cmpDrpdwnFiltersFacilityG
+          Properties:
+            FacilityMnemonicName: ="Text"
+            Height: =75
+            Records: ="Text"
+            WaveSubwave: ="Text"
+            Width: =620
+            X: =110
+            Y: =90
+      - cmpHeaderSidePanelGlobal_1:
+          Control: CanvasComponent
+          ComponentName: cmpAppPageTemplateG
+          Properties:
+            BoardSubtitle: ="Expanse Automation"
+            BoardTitle: ="Expanse Cutover Automation Configuration Suite"
+            Height: =700
+            HubName: ="Provider Crosswalks"
+            Records: ="Text"
+            WaveSubwaveFacility: ="Text"
+            Width: =1200
+            WorksheetName: ="Text"
+      - cmpECCSNavigationBar_1:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            OnReportsSelect: =
+            Width: =620
+            X: =564
+            Y: =20

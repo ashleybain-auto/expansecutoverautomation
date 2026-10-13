@@ -1,0 +1,127 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_facilitylocations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_facilitylocation",
+    "MaxGetRowsCount": 1000,
+    "Name": "Facility Location",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_databasesource": "Database_Source",
+      "eccs_directorysource": "Directory_Source",
+      "eccs_facilitylocation_AsyncOperations": "System Jobs",
+      "eccs_facilitylocation_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_facilitylocation_DeletedItemReferences": "Deleted Record References",
+      "eccs_facilitylocation_DuplicateBaseRecord": "Duplicate Records (eccs_facilitylocation_DuplicateBaseRecord)",
+      "eccs_facilitylocation_DuplicateMatchingRecord": "Duplicate Records (eccs_facilitylocation_DuplicateMatchingRecord)",
+      "eccs_facilitylocation_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_facilitylocation_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_facilitylocation_ProcessSession": "Process Sessions",
+      "eccs_facilitylocation_SyncErrors": "Sync Errors",
+      "eccs_facilitylocationid": "Facility Location",
+      "eccs_facilitymnemonicsource": "FacilityMnem_Source",
+      "eccs_facilityprefixaccount": "FacilityPrefix_Acct",
+      "eccs_facilityprefixmrn": "FacilityPrefix_Mrn",
+      "eccs_insertdatetime": "insert_datetime",
+      "eccs_locationactivestatus": "LocationActive",
+      "eccs_locationmnemonic": "LocationMnem",
+      "eccs_locationname": "LocationName",
+      "eccs_locationtype": "LocationType",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Facility Location",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Facility Location (Views)",
+    "Name": "_eccs_facilitylocation_views",
+    "RelatedEntityName": "Facility Location",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "231b820d-68ec-4455-bd8e-21a8720de0a0": "Inactive Facility Location",
+      "7b83958f-7fdf-4c7b-99f5-df5f5fe4b7ec": "Facility Location Lookup View",
+      "a775d2a5-b341-4680-8750-781d9ffbd0a8": "Active Facility Location",
+      "b8c64a92-975f-4fa4-b1c9-21258552702d": "Facility Location Advanced Find View",
+      "ef2e0e4a-12b5-430b-8cdf-8c595d521627": "Facility Location Associated View"
+    }
+  },
+  {
+    "DisplayName": "LocationActive (Facility Location)",
+    "Name": "eccs_facilitylocation_eccs_locationactivestatus",
+    "OptionSetInfoNameMapping": {
+      "0": "N",
+      "1": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_locationactivestatus",
+        "OptionSetReferenceEntityName": "Facility Location"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_locationactivestatus",
+    "RelatedEntityName": "Facility Location",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Facility Location)",
+    "Name": "eccs_facilitylocation_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Facility Location"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Facility Location",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Facility Location)",
+    "Name": "eccs_facilitylocation_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Facility Location"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Facility Location",
+    "Type": "OptionSetInfo"
+  }
+]

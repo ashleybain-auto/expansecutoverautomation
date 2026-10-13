@@ -1,0 +1,13 @@
+REG-DASH bulk patch
+Input: /mnt/data/ECCS - Registration Cutover Config (2).msapp
+Backup: /mnt/data/REG_DASH_Bulk_VSCode/output/ORIGINAL_20261013_174608.msapp
+Patched: /mnt/data/REG_DASH_Bulk_VSCode/output/ECCS_REG_DASH_PATCHED_20261013_174608.msapp
+Original SHA256: ca02e3f3fec3a124ae68652b00c4cb5a40d99a621e4b8728ec33fb650c563d13
+Backup SHA256: ca02e3f3fec3a124ae68652b00c4cb5a40d99a621e4b8728ec33fb650c563d13
+Patched SHA256: 29467857d2670e1cc6b6a3ef96015aef8798dad213f298af4d3df8b29c897263
+App.OnStart: initialize colReadinessFacilities
+Screen.OnVisible: removed standalone equals line
+Component: appended 4 native KPI cards; blank-table display is No data
+ZIP integrity: PASS
+PAC pack / Studio App Checker: NOT YET VERIFIED
+No Dataverse records were created or populated.

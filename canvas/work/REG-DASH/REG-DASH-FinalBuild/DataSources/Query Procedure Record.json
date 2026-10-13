@@ -1,0 +1,131 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_queryprocedurerecords",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_queryprocedurerecord",
+    "MaxGetRowsCount": 1000,
+    "Name": "Query Procedure Record",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_actiontotake": "Action To Take",
+      "eccs_categorymnemonictarget": "Category Mnemonic Target",
+      "eccs_databaserecordcount": "Database Record Count",
+      "eccs_facilitymnemonicsource": "Facility Mnemonic Source",
+      "eccs_ifqueriespresent": "If Queries Present",
+      "eccs_iftruequeryresponsetarget": "If TRUE Query Response Target",
+      "eccs_proceduremnemonictarget": "Procedure Mnemonic Target",
+      "eccs_querymnemonictarget": "Query Mnemonic Target",
+      "eccs_queryprocedurerecord_AsyncOperations": "System Jobs",
+      "eccs_queryprocedurerecord_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_queryprocedurerecord_DeletedItemReferences": "Deleted Record References",
+      "eccs_queryprocedurerecord_DuplicateBaseRecord": "Duplicate Records (eccs_queryprocedurerecord_DuplicateBaseRecord)",
+      "eccs_queryprocedurerecord_DuplicateMatchingRecord": "Duplicate Records (eccs_queryprocedurerecord_DuplicateMatchingRecord)",
+      "eccs_queryprocedurerecord_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_queryprocedurerecord_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_queryprocedurerecord_ProcessSession": "Process Sessions",
+      "eccs_queryprocedurerecord_SyncErrors": "Sync Errors",
+      "eccs_queryprocedurerecordid": "Query Procedure Record",
+      "eccs_queryrequired": "Query Required",
+      "eccs_queryresponsebehavior": "Query Response Behavior",
+      "eccs_queryresponsetarget": "Query Response Target",
+      "eccs_queryvaluetypetarget": "Query Value Type Target",
+      "eccs_screenmnemonictarget": "Screen Mnemonic Target",
+      "eccs_sourceofqueryonorder": "Source Of Query On Order",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Query Procedure Record",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Query Procedure Record (Views)",
+    "Name": "_eccs_queryprocedurerecord_views",
+    "RelatedEntityName": "Query Procedure Record",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "029e5782-90b7-4da4-b72d-04d0ac9c3758": "Query Procedure Record Advanced Find View",
+      "22c083a7-c762-4a2a-bbbc-10e01d416fb9": "Query Procedure Record Lookup View",
+      "67ca3740-185f-45e1-a3e2-f40ed9571cce": "Query Procedure Record Associated View",
+      "766cb134-d61e-4131-858a-1d22ee36093a": "Inactive Query Procedure Record",
+      "aba9fd32-1fc2-44e5-ae95-967cfa69968a": "Active Query Procedure Record"
+    }
+  },
+  {
+    "DisplayName": "Query Required (Query Procedure Record)",
+    "Name": "eccs_queryprocedurerecord_eccs_queryrequired",
+    "OptionSetInfoNameMapping": {
+      "0": "QueryRequired",
+      "1": "Y"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_queryrequired",
+        "OptionSetReferenceEntityName": "Query Procedure Record"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "eccs_queryrequired",
+    "RelatedEntityName": "Query Procedure Record",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Query Procedure Record)",
+    "Name": "eccs_queryprocedurerecord_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Query Procedure Record"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Query Procedure Record",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Query Procedure Record)",
+    "Name": "eccs_queryprocedurerecord_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Query Procedure Record"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Query Procedure Record",
+    "Type": "OptionSetInfo"
+  }
+]

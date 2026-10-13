@@ -1,0 +1,374 @@
+cmpDrpdwnFiltersFacilityWksG As CanvasComponent:
+    BoardSubtitle: ="Text"
+    BoardTitle: ="Text"
+    ChildTabPriority: =true
+    ContentLanguage: =""
+    EnableChildFocus: =true
+    FacilityMnemonicName: ="Text"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =500
+    Records: ="Text"
+    SelectedRecord: =galWaveFacilityWkstGlobal.Selected
+    Visible: =true
+    WaveSubwave: ="Text"
+    Width: =625
+    WorksheetName: ="Text"
+    X: =0
+    Y: =0
+
+    "galWaveFacilityWkstGlobal As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: |-
+            =ColorValue("#03173E")
+        DelayItemLoading: =true
+        Height: =349
+        Items: |-
+            =Switch(
+                Substitute(
+                    Trim(
+                        Coalesce(
+                            gblSelectedWorksheet,
+                            ""
+                        )
+                    ),
+                    "REG ",
+                    ""
+                ),
+            
+                "Accommodations",
+                    ForAll(
+                        Filter(
+                            'Accommodation Data Clone',
+                            IsBlank(gblSelectedFacility) ||
+                            FacilityMnem_Source = gblSelectedFacility
+                        ),
+                        {
+                            RecordKey: Text(ECCS_Clone_RowId),
+                            WorksheetName: "Accommodations",
+            
+                            SourceFacility: Coalesce(
+                                FacilityMnem_Source,
+                                ""
+                            ),
+                            SourceMnemonic: Coalesce(
+                                Accommodation_Mnem_Source,
+                                ""
+                            ),
+                            SourceName: Coalesce(
+                                Accommodation_Name_Source,
+                                ""
+                            ),
+                            SourcePACode: Coalesce(
+                                PA_Code_Source,
+                                ""
+                            ),
+                            SourceActive: Text(
+                                Active_Source
+                            ),
+            
+                            TargetFacility: Coalesce(
+                                FacilityMnem_Target,
+                                ""
+                            ),
+                            TargetMnemonic: Coalesce(
+                                Accommodation_Mnem_Target,
+                                ""
+                            ),
+                            TargetName: Coalesce(
+                                Accommodation_Name_Target,
+                                ""
+                            ),
+                            TargetPACode: Coalesce(
+                                PA_Code_Target,
+                                ""
+                            ),
+                            TargetActive: Coalesce(
+                                Active_Target_Value,
+                                ""
+                            ),
+                            TargetMatchMtx: Coalesce(
+                                TargetMatchMtx,
+                                ""
+                            ),
+            
+                            ReadOnly: false
+                        }
+                    ),
+            
+                FirstN(
+                    Table(
+                        {
+                            RecordKey: "",
+                            WorksheetName: "",
+                            SourceFacility: "",
+                            SourceMnemonic: "",
+                            SourceName: "",
+                            SourcePACode: "",
+                            SourceActive: "",
+                            TargetFacility: "",
+                            TargetMnemonic: "",
+                            TargetName: "",
+                            TargetPACode: "",
+                            TargetActive: "",
+                            TargetMatchMtx: "",
+                            ReadOnly: true
+                        }
+                    ),
+                    0
+                )
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =50
+        Width: =625
+        Y: =151
+        ZIndex: =1
+
+        scrFilterGalleryG As label:
+            Color: =RGBA(50, 49, 48, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Arial
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: =ThisItem.RecordKey
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + subWkstSelectGlobal.Size * 1.8)) / 2
+            ZIndex: =1
+
+        subWkstSelectGlobal As label:
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.Arial
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: =
+            VerticalAlign: =VerticalAlign.Top
+            Width: =scrFilterGalleryG.Width
+            X: =scrFilterGalleryG.X
+            Y: =scrFilterGalleryG.Y + scrFilterGalleryG.Height
+            ZIndex: =2
+
+        NextArrow6 As icon:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Color: =RGBA(166, 166, 166, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="View item details"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator6 As rectangle:
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =2
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =4
+
+        Rectangle5 As rectangle:
+            BorderColor: |-
+                =ColorValue("#03173E")
+            Fill: =RGBA(0, 89, 178, 1)
+            Height: =Parent.TemplateHeight - Separator6.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =5
+
+    drpWaveSubWaveG As modernDropdown:
+        Appearance: =Appearance.FilledDarker
+        BorderStyle: =""
+        Font: =Font.Arial
+        Height: =26
+        ItemDisplayText: =ThisItem.Value
+        Items: |-
+            =Sort(
+                Distinct(
+                    Filter(
+                        'dim.Ref.Organizations',
+                        !IsBlank('Wave Number') &&
+                        'Wave Number' <> "Wave" &&
+                        'Wave Number' <> "NULL" &&
+                        !IsBlank('SubWave2 Code') &&
+                        'SubWave2 Code' <> "SubWave" &&
+                        'SubWave2 Code' <> "NULL"
+                    ),
+                    'Wave Number' & " - " & 'SubWave2 Code'
+                ),
+                Value,
+                SortOrder.Ascending
+            )
+        OnChange: |-
+            =Set(
+                gblSelectedWaveNumber,
+                First(
+                    Split(
+                        drpWaveSubWaveG.Selected.Value,
+                        " - "
+                    )
+                ).Value
+            );
+            Set(
+                gblSelectedSubWaveCode,
+                Last(
+                    Split(
+                        drpWaveSubWaveG.Selected.Value,
+                        " - "
+                    )
+                ).Value
+            );
+            Set(
+                gblSelectedFacility,
+                Blank()
+            );
+            Set(
+                gblSelectedNetworkMnemonic,
+                Blank()
+            )
+        Required: =false
+        Size: =12
+        ValidationState: =ValidationState.None
+        Width: =210
+        X: =8
+        Y: =32
+        ZIndex: =2
+
+    lblGlbWaveSubwaveG As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =13
+        Text: ="WAVE - SUBWAVE"
+        Width: =240
+        X: =5
+        Y: =3
+        ZIndex: =3
+
+    drpFacilityMnemNameG As modernDropdown:
+        Appearance: =Appearance.FilledDarker
+        BorderStyle: =""
+        Font: =Font.Arial
+        Height: =26
+        ItemDisplayText: =ThisItem.'Facility Mnemonic'
+        Items: |-
+            =Sort(
+                Filter(
+                    'dim.Ref.Organizations',
+                    !IsBlank('Facility Mnemonic') &&
+                    'Facility Mnemonic' <> "Facility Mnemonic" &&
+                    'Facility Mnemonic' <> "NULL" &&
+                    (
+                        IsBlank(gblSelectedWaveNumber) ||
+                        'Wave Number' = gblSelectedWaveNumber
+                    ) &&
+                    (
+                        IsBlank(gblSelectedSubWaveCode) ||
+                        'SubWave2 Code' = gblSelectedSubWaveCode
+                    )
+                ),
+                'Facility Mnemonic',
+                SortOrder.Ascending
+            )
+        OnChange: |-
+            =Set(
+                gblSelectedFacility,
+                drpFacilityMnemNameG.Selected.'Facility Mnemonic'
+            );
+            Set(
+                gblSelectedNetworkMnemonic,
+                drpFacilityMnemNameG.Selected.'Network Mnemonic'
+            )
+        Required: =false
+        Size: =12
+        ValidationState: =ValidationState.None
+        Width: =285
+        X: =325
+        Y: =32
+        ZIndex: =4
+
+    lblGlbFacilityMneNameG As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Size: =13
+        Text: ="FACILITY MNEMONIC/NAME"
+        Width: =250
+        X: =325
+        Y: =3
+        ZIndex: =5
+
+    drpRegWorksheetG As modernDropdown:
+        Appearance: =Appearance.FilledDarker
+        BorderStyle: =""
+        Font: =Font.Arial
+        Height: =26
+        ItemDisplayText: =ThisItem.'Reg Worksheet Name'
+        Items: |-
+            =Sort(
+                Filter(
+                    'Reg Config Categories',
+                    'Reg Worksheet Name' <> "REG ALL" &&
+                    'Reg Worksheet Name' <> "REG [INSERT-UPLOAD]"
+                ),
+                'Reg Worksheet Name',
+                SortOrder.Ascending
+            )
+        OnChange: |-
+            =Set(
+                gblSelectedWorksheet,
+                drpRegWorksheetG.Selected.'Reg Worksheet Name'
+            )
+        Required: =false
+        Size: =12
+        ValidationState: =ValidationState.None
+        X: =8
+        Y: =102
+        ZIndex: =6
+
+    lblRegWorksheetsG As modernText:
+        BorderStyle: =""
+        Color: |-
+            =ColorValue("#03173E")
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Size: =13
+        Text: ="REG WORKSHEET NAME"
+        Width: =200
+        X: =5
+        Y: =68
+        ZIndex: =7
+

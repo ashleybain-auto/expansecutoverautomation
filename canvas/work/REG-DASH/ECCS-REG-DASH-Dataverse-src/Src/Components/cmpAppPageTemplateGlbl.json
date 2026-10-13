@@ -1,0 +1,85 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "IsWidget": false,
+    "Name": "cmpAppPageTemplateGlbl",
+    "TemplateGuid": "4932aca0604f45b2ae99b402c34b7f34"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Board Subtitle",
+      "Hidden": false,
+      "Name": "BoardSubtitle",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "\"Expanse Automation\"",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Board Title",
+      "Hidden": false,
+      "Name": "BoardTitle",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "\"Expanse Cutover Configuration Suite\" ",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Records",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "Records",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Selected Record",
+      "Hidden": true,
+      "Name": "SelectedRecord",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Wave Subwave-Facility",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "WaveSubwaveFacility",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Worksheet Name",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "WorksheetName",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.349\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "639268960268744256",
+  "Name": "4932aca0604f45b2ae99b402c34b7f34",
+  "OverridableProperties": {},
+  "Version": "1.0"
+}

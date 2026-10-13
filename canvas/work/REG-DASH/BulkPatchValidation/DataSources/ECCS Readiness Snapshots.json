@@ -1,0 +1,140 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "eccs_readinesssnapshots",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "eccs_readinesssnapshot",
+    "MaxGetRowsCount": 1000,
+    "Name": "ECCS Readiness Snapshots",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "eccs_dataasofdate": "Data As Of",
+      "eccs_facilitycode": "Facility Mnemonic",
+      "eccs_incompletetargetrecordcount": "Incomplete Target Records",
+      "eccs_iscurrentsnapshot": "Data Current",
+      "eccs_mappedrecordcount": "Mapped Records",
+      "eccs_readinesspercentage": "Readiness Percentage",
+      "eccs_readinesssnapshot_ActivityPointers": "Activities",
+      "eccs_readinesssnapshot_adx_inviteredemptions": "Invite Redemptions",
+      "eccs_readinesssnapshot_adx_portalcomments": "Portal Comments",
+      "eccs_readinesssnapshot_Appointments": "Appointments",
+      "eccs_readinesssnapshot_AsyncOperations": "System Jobs",
+      "eccs_readinesssnapshot_BulkDeleteFailures": "Bulk Delete Failures",
+      "eccs_readinesssnapshot_chats": "Teams chats",
+      "eccs_readinesssnapshot_DeletedItemReferences": "Deleted Record References",
+      "eccs_readinesssnapshot_DuplicateBaseRecord": "Duplicate Records (eccs_readinesssnapshot_DuplicateBaseRecord)",
+      "eccs_readinesssnapshot_DuplicateMatchingRecord": "Duplicate Records (eccs_readinesssnapshot_DuplicateMatchingRecord)",
+      "eccs_readinesssnapshot_Emails": "Email Messages",
+      "eccs_readinesssnapshot_Faxes": "Faxes",
+      "eccs_readinesssnapshot_Letters": "Letters",
+      "eccs_readinesssnapshot_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "eccs_readinesssnapshot_PhoneCalls": "Phone Calls",
+      "eccs_readinesssnapshot_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "eccs_readinesssnapshot_ProcessSession": "Process Sessions",
+      "eccs_readinesssnapshot_RecurringAppointmentMasters": "Recurring Appointments",
+      "eccs_readinesssnapshot_SyncErrors": "Sync Errors",
+      "eccs_readinesssnapshot_Tasks": "Tasks",
+      "eccs_readinesssnapshotid": "Readiness Snapshot",
+      "eccs_snapshotidentifier": "Snapshot ID",
+      "eccs_synchronizationbatchidentifier": "Sync Batch ID",
+      "eccs_totalrecordcount": "Total Records",
+      "eccs_unmatchedrecordcount": "No Match Records",
+      "eccs_wavesubwave": "Wave Subwave",
+      "eccs_worksheettitle": "Worksheet Name",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "ECCS Readiness Snapshots",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ECCS Readiness Snapshots (Views)",
+    "Name": "_eccs_readinesssnapshot_views",
+    "RelatedEntityName": "ECCS Readiness Snapshots",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1ef7d547-c81e-4dba-adc5-5883f15de6bb": "Readiness Snapshot Lookup View",
+      "562442f6-5f67-45be-9c25-172d91da59c1": "Inactive Readiness Snapshots",
+      "98b5bec5-8158-4ab8-be6f-24cd7fef373e": "Readiness Snapshot Associated View",
+      "9b365e2b-d17e-4a3f-8953-2ab54a74d9e8": "Active Readiness Snapshots",
+      "b00514a3-e8eb-45de-aab1-9e6782b539ba": "Readiness Snapshot Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Data Current (ECCS Readiness Snapshots)",
+    "Name": "eccs_readinesssnapshot_eccs_iscurrentsnapshot",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "eccs_iscurrentsnapshot",
+        "OptionSetReferenceEntityName": "ECCS Readiness Snapshots"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "eccs_iscurrentsnapshot",
+    "RelatedEntityName": "ECCS Readiness Snapshots",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (ECCS Readiness Snapshots)",
+    "Name": "eccs_readinesssnapshot_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Snapshots"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "ECCS Readiness Snapshots",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (ECCS Readiness Snapshots)",
+    "Name": "eccs_readinesssnapshot_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "ECCS Readiness Snapshots"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "ECCS Readiness Snapshots",
+    "Type": "OptionSetInfo"
+  }
+]

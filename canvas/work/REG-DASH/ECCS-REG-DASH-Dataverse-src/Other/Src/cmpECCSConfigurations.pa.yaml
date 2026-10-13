@@ -1,0 +1,57 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  cmpECCSConfigurations:
+    Properties:
+      Fill: =RGBA(232, 232, 232, 1)
+      Height: =700
+      LoadingSpinnerColor: =RGBA(0, 51, 102, 1)
+      Width: =1200
+    Children:
+      - cmpECCSNavigationBar_4:
+          Control: CanvasComponent
+          ComponentName: cmpECCSNavigationBarTop
+          Properties:
+            Height: =36
+            Width: =620
+            X: =560
+            Y: =25
+      - cmpECCSConfigurationBoard_1:
+          Control: CanvasComponent
+          ComponentName: cmpECCSConfigurationBoard
+          Properties:
+            BoardTitle: ="Expanse Cutover Configuration & Suite"
+            Fill: =ColorValue("#F5F7FA")
+            Height: =700
+            Records: |-
+              =ForAll(
+                  Filter(
+                      'Accommodation Data Clone',
+                      IsBlank(gblSelectedFacility) ||
+                      FacilityMnem_Source = gblSelectedFacility
+                  ),
+                  {
+                      RecordKey: Text(ECCS_Clone_RowId),
+                      SourceFacility: Coalesce(FacilityMnem_Source, ""),
+                      SourceMnemonic: Coalesce(Accommodation_Mnem_Source, ""),
+                      SourceName: Coalesce(Accommodation_Name_Source, ""),
+                      SourcePACode: Coalesce(PA_Code_Source, ""),
+                      SourceActive: Text(Active_Source),
+                      TargetFacility: Coalesce(FacilityMnem_Target, ""),
+                      TargetMnemonic: Coalesce(Accommodation_Mnem_Target, ""),
+                      TargetName: Coalesce(Accommodation_Name_Target, ""),
+                      TargetPACode: Coalesce(PA_Code_Target, ""),
+                      TargetActive: Text(Active_Target),
+                      TargetMatchMtx: Coalesce(TargetMatchMtx, "")
+                  }
+              )
+            WaveSubwaveFacilitySearch: ="Text"
+            Width: =1200
+            WorksheetName: ="Registration | Configuration Review"
+            X: =6
