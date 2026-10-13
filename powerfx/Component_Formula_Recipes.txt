@@ -1,0 +1,25 @@
+These formulas are for existing/new child controls within cmpECCSCutoverReadinessDsh. They are NOT an importable app patch.
+
+THEME
+Header Fill: ColorValue("#03173E")
+Orange: ColorValue("#E05929")
+Body text: ColorValue("#54585A")
+
+KPI TEXT CONTROLS (replace label name with actual existing control names)
+Total: Text(Coalesce(cmpECCSCutoverReadinessDsh.InputKPIs.TotalRecords, 0), "#,##0")
+Mapped: Text(Coalesce(cmpECCSCutoverReadinessDsh.InputKPIs.MappedRecords, 0), "#,##0")
+No Match: Text(Coalesce(cmpECCSCutoverReadinessDsh.InputKPIs.NoMatchRecords, 0), "#,##0")
+Readiness: Text(Coalesce(cmpECCSCutoverReadinessDsh.InputKPIs.ReadinessPct, 0), "0.0%")
+
+WORKSHEET STATUS GALLERY
+Items: SortByColumns(cmpECCSCutoverReadinessDsh.InputWorksheetSummary, "WorksheetName", SortOrder.Ascending)
+Status segment Fill: Switch(ThisItem.ReadinessStatus, "Mapped", ColorValue("#03173E"), "Needs Mapping", ColorValue("#E05929"), ColorValue("#A1A1AA"))
+For native stacked bars, build a worksheet parent gallery with an inner status gallery; each status segment Width = Max(0, Parent.TemplateWidth * ThisItem.RecordCount / Max(1, Sum(Filter(cmpECCSCutoverReadinessDsh.InputWorksheetSummary, WorksheetName = ThisItem.WorksheetName), RecordCount)))
+NOTE: The example width expression requires separate scoped aliases (As) for outer/inner ThisItem to avoid ambiguity; implement after inspecting current gallery structure.
+
+EXCEPTION GALLERY
+Items: cmpECCSCutoverReadinessDsh.InputExceptions
+Visible: cmpECCSCutoverReadinessDsh.InputShowExceptions
+
+DATA QUALITY
+Show data-as-of timestamp on parent screen; no-match totals and readiness are taken from precomputed Dataverse snapshots, not recalculated inside component.

@@ -1,0 +1,18 @@
+Table,Grain,Field,Type,Required,Notes
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,SnapshotId,Text,Yes,Use same published snapshot across all tables
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,WaveSubwave,Text,Yes,Filter
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,FacilityMnemonic,Text,Yes,ALL aggregate if supported
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,WorksheetName,Text,Yes,ALL aggregate if supported
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,TotalRecords,Whole Number,Yes,Match Power BI measure
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,MappedRecords,Whole Number,Yes,Match Power BI measure
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,NoMatchRecords,Whole Number,Yes,Match Power BI measure
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,ReadinessPct,Decimal,Yes,Fraction 0-1 after normalization
+ECCS_ReadinessSnapshot,Snapshot+Wave+Facility+Worksheet,IsCurrent,Yes/No,Yes,Publish atomically
+ECCS_ReadinessByStatus,Snapshot+Wave+Facility+Worksheet+Status,ReadinessStatus,Text,Yes,Mapped/Needs Mapping/Incomplete Target
+ECCS_ReadinessByStatus,Snapshot+Wave+Facility+Worksheet+Status,RecordCount,Whole Number,Yes,Status segment count
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,SourceRecordId,Text,Yes,Must be unique within snapshot
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,SourceMnemonic,Text,Yes,Source key
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,SourceName,Text,No,Source description
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,TargetMnemonic,Text,No,Target key
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,TargetName,Text,No,Target description
+ECCS_ReadinessException,Snapshot+UniqueSourceRecord,ReadinessStatus,Text,Yes,Exception classification

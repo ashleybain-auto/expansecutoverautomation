@@ -1,0 +1,20 @@
+COMPONENT: cmpECCSCutoverReadinessDsh
+Create these custom input properties in Power Apps Studio if absent. Power Fx property names/types must match exactly.
+
+InputKPIs              Input / Record
+InputWorksheetSummary  Input / Table
+InputFacilitySummary   Input / Table
+InputExceptions        Input / Table
+InputWaveSubwave       Input / Text
+InputFacility          Input / Text
+InputWorksheet         Input / Text
+InputCompactMode       Input / Boolean
+InputShowExceptions    Input / Boolean
+
+EXPECTED RECORD SHAPES
+InputKPIs: {TotalRecords: Number, MappedRecords: Number, NoMatchRecords: Number, ReadinessPct: Number}
+InputWorksheetSummary: [{WorksheetName: Text, ReadinessStatus: Text, RecordCount: Number}]
+InputFacilitySummary: [{FacilityMnemonic: Text, ReadinessStatus: Text, RecordCount: Number}]
+InputExceptions: [{FacilityMnemonic: Text, WorksheetName: Text, SourceMnemonic: Text, SourceName: Text, TargetMnemonic: Text, TargetName: Text, ReadinessStatus: Text}]
+
+PERCENT CONTRACT: ReadinessPct is a decimal fraction, e.g. 0.372 for 37.2%. Normalize in data layer after verifying measure.

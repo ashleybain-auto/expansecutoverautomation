@@ -1,0 +1,18 @@
+PARENT SCREEN - ILLUSTRATIVE FORMULAS (after actual Dataverse logical names and columns are validated)
+
+cmpECCSCutoverReadinessDsh.InputKPIs =
+With(
+  {r: LookUp(ECCS_ReadinessSnapshot, WaveSubwave = varSelectedWave && FacilityMnemonic = varSelectedFacility && WorksheetName = varSelectedWorksheet && IsCurrent = true)},
+  {TotalRecords: Coalesce(r.TotalRecords,0), MappedRecords: Coalesce(r.MappedRecords,0), NoMatchRecords: Coalesce(r.NoMatchRecords,0), ReadinessPct: Coalesce(r.ReadinessPct,0)}
+)
+
+cmpECCSCutoverReadinessDsh.InputWorksheetSummary =
+Filter(ECCS_ReadinessByStatus, WaveSubwave = varSelectedWave && IsCurrent = true && (varSelectedFacility = "ALL" || FacilityMnemonic = varSelectedFacility))
+
+cmpECCSCutoverReadinessDsh.InputFacilitySummary =
+Filter(ECCS_ReadinessByStatus, WaveSubwave = varSelectedWave && IsCurrent = true && (varSelectedWorksheet = "ALL" || WorksheetName = varSelectedWorksheet))
+
+cmpECCSCutoverReadinessDsh.InputExceptions =
+Filter(ECCS_ReadinessException, WaveSubwave = varSelectedWave && IsCurrent = true && (varSelectedFacility = "ALL" || FacilityMnemonic = varSelectedFacility) && (varSelectedWorksheet = "ALL" || WorksheetName = varSelectedWorksheet))
+
+CAUTION: Actual Dataverse display names, lookup/choice types, delegation and snapshot keys must be confirmed. 'ALL' is a proposed aggregate key, not present in the PBIX definition. Avoid client-side aggregation of large exception tables.
