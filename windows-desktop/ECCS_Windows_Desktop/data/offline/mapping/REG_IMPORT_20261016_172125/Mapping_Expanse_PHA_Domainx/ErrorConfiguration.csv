@@ -1,0 +1,16 @@
+﻿,,Excel Refreshed: 9/1/2026 11:39:59 AM,,,,,
+,,,,,,,
+WaveAssigned,FacilityMnem_Target,ErrorCategory,EstimatedErrorPercentage,ActualErrorPercentage,Action To Take,update_user,update_datetime
+1C,COCCC,Drug not Active,0.12,0.2,None,IIU4396,46230.43347762732
+1C,COCCC,Invalid Ordering Doctor,0.1,,None,IIU4396,46230.43720320602
+1C,COCCC,Mismatch of vaccine,0.12,0.12,None,HGE3782,46230.3997150463
+1C,COCCC,Mnemonic - DELETE,0.12,0.12,None,HGE3782,46230.40368480324
+1C,COCCC,Protocol mnemonic doesn't exist in OM,0.12,0.12,None,HGE3782,46230.40201157407
+1C,COCHR,Protocol validation error,0.12,0.12,None,HGE3782,46230.40201450232
+1C,COCHR,Response for exceeds defined length,0.12,0.12,None,HGE3782,46230.402015196756
+1C,COCHR,Test,0.2,0.2,None,HGE3782,46230.40606435185
+1C,COCHR,TEST 2,,,None,HGE3782,46230.599722025465
+1C,COCPD,Drug Restricted by Site,0.12,0.12,None,HGE3782,46230.4020158912
+1C,COCPD,Invalid Fluid,0.12,0.12,None,HGE3782,46230.40201658565
+1C,COCPD,"REJ RXO 1, RXC 2, or ZCM 2 must be populated",0.12,0.12,None,HGE3782,46230.402017280096
+1C,COCPD,Test,0.11,0.11,None,HGE3782,46230.59972133102

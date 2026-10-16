@@ -1,0 +1,57 @@
+ECCS-WIN STEP 01.02I.10B
+SOURCE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)
+WORKSHEETS: 14
+
+WORKSHEET: Accommodations
+HEADER ROW: 3
+HEADER: FacilityMnem_Source,Accommodation_Mnem_Source,Accommodation_Name_Source,PA_Code_Source,Active_Source,TargetMatchMtx,DB_RecordCount,FacilityMnem_Target,Accommodation_Mnem_Target,Accommodation_Name_Target,PA_Code_Target,Active_Target,DisplayCurrentValues,ExcludeFromSharepoint,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: AdmitSource
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,AdmitSource_Code_Source,AdmitSource_Description_Source,Active_Source,TargetMatchMtx,DB_RecordCount,NetworkMnem_Target,AdmitSource_Code_Target,AdmitSource_Description_Target,Active_Target,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: County
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,CountyMnem_Source,CountyName_Source,TargetMatchMtx,CountyMnem_Target,CountyName_Target,Action To Take,Update_User,Update_Datetime
+
+WORKSHEET: DischargeDisposition
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,DischargeDisposition_Mnem_Source,Active_Source,DrgEquivalent_Mnem_Source,DischargeDisposition_Name_Source,Expired_Source,Billing_Code_Source,TargetMatchMtx,DischargeDisposition_Mnem_Target,DischargeDisposition_Name_Target,Comments,Action To Take
+
+WORKSHEET: ErrorCategories
+HEADER: NOT IDENTIFIED
+
+WORKSHEET: FinancialApprover
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,Fin_Approver_Mnem_Source,Fin_Approver_Desc_Source,TargetMatchMtx,Fin_Approver_Mnem_Target,Fin_Approver_Desc_Target,Action To Take,Update_User,Update_Datetime
+
+WORKSHEET: FinancialClass
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,FinClassMnem_Source,FinClassName_Source,Active_Source,TargetMatchMtx,DB_RecordCount,NetworkMnem_Target,FinClassMnem_Target,FinClassName_Target,Active_Target,Action To Take,updated_user,updated_datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: InsAuthStatus
+HEADER ROW: 3
+HEADER: NetworkMnem_Source,InsAuthStatus_Mnem_Source,InsAuthStatus_Name_Source,DB_RecordCount,Active_Source,TargetMatchMtx,InsAuthStatus_Mnem_Target,InsAuthStatus_Name_Target,Active_Target,MappedTo_StatusText_Target,Action To Take,Update_User,Update_Datetime
+
+WORKSHEET: Instructions
+HEADER: NOT IDENTIFIED
+
+WORKSHEET: Insurance
+HEADER ROW: 3
+HEADER: FacilityMnem_Source,Mnemonic_Source,Description_Source,Financial_Class_Source,PACode_Source,Active_Source,TargetMatchMtx,DB_RecordCount,FacilityMnem_Target,Mnemonic_Target,Description_Target,Financial_Class_Target,PACode_Target,Demo_Recall_Flag_Target,Address_Line1_Target,Address_Line2_Target,City_Target,State_Target,Postal_Code_Target,Active_Target,DisplayCurrentValues,ExcludeFromSharepoint,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: Locations
+HEADER ROW: 3
+HEADER: FacilityMnem_Source,LocationMnem_Source,LocationName_Source,Type_Source,Pa_Code_Source,LocationActive_Source,TargetMatchMtx,DB_RecordCount,FacilityMnem_Target,LocationMnem_Target,LocationName_Target,Type_Target,Pa_Code_Target,LocationActive_Target,Express_Reg_Location,Express_Tracker_Location,DisplayCurrentValues,ExcludeFromSharepoint,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: RoomBed
+HEADER ROW: 3
+HEADER: FacilityMnem_Source,RoomMnem_Source,Active_Source,BedMnem_Source,TargetMatchMtx,DB_RecordCount,LocationMnem_Source,Accommodation_Source,Service_Source,RateAccomNameProcCd_Source,FacilityMnem_Target,RoomMnem_Target,BedMnem_Target,LocationMnem_Target,Accommodation_Target,Service_Target,RateAccomNameProcCd_Target,DisplayCurrentValues,ExcludeFromSharepoint,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: Services
+HEADER ROW: 3
+HEADER: FacilityMnem_Source,ServiceMnem_Source,ServiceName_Source,ServicePAcode_Source,Active_Source,TargetMatchMtx,DB_RecordCount,FacilityMnem_Target,ServiceMnem_Target,ServiceName_Target,ServicePAcode_Target,Active_Target,DisplayCurrentValues,ExcludeFromSharepoint,Action To Take,Update_User,Update_Datetime,System_Update_User,System_Update_Datetime
+
+WORKSHEET: Settings
+HEADER: NOT IDENTIFIED
+

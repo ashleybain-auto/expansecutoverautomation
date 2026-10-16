@@ -1,0 +1,171 @@
+ECCS-WIN STEP 01.02I.10A
+REG CSV FILES: 42
+
+WORKSHEET: Accommodations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Accommodations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:02:51 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: AdmitSource
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\AdmitSource.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:06:23 AM,,,,,,,,,,,,
+
+WORKSHEET: County
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\County.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:04:06 AM,,,,,,
+
+WORKSHEET: DischargeDisposition
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\DischargeDisposition.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:59 AM,,,,,,,,,
+
+WORKSHEET: ErrorCategories
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\ErrorCategories.csv
+HEADER: ,,,Excel Refreshed: 9/8/2026 9:27:06 AM,
+
+WORKSHEET: FinancialApprover
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\FinancialApprover.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:35 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,
+
+WORKSHEET: FinancialClass
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\FinancialClass.csv
+HEADER: ,,Excel Refreshed: 9/8/2026 9:34:15 AM,,,,,,,,,,,,
+
+WORKSHEET: InsAuthStatus
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\InsAuthStatus.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:25 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,,,,,
+
+WORKSHEET: Instructions
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Instructions.csv
+HEADER: ,,,,,,,,,,,,,,
+
+WORKSHEET: Insurance
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Insurance.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:37 AM,,,,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Locations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Locations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:06 AM,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: RoomBed
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\RoomBed.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:50 AM,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Services
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Services.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:20 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: Settings
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\Mapping_Expanse_REG_Domainx(1)\Settings.csv
+HEADER: Servers,Environment,,Database,Environment,,Settings,,
+
+WORKSHEET: Accommodations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Accommodations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:02:51 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: AdmitSource
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\AdmitSource.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:06:23 AM,,,,,,,,,,,,
+
+WORKSHEET: County
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\County.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:04:06 AM,,,,,,
+
+WORKSHEET: DischargeDisposition
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\DischargeDisposition.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:59 AM,,,,,,,,,
+
+WORKSHEET: ErrorCategories
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\ErrorCategories.csv
+HEADER: ,,,Excel Refreshed: 9/8/2026 9:27:06 AM,
+
+WORKSHEET: FinancialApprover
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\FinancialApprover.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:35 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,
+
+WORKSHEET: FinancialClass
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\FinancialClass.csv
+HEADER: ,,Excel Refreshed: 9/8/2026 9:34:15 AM,,,,,,,,,,,,
+
+WORKSHEET: InsAuthStatus
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\InsAuthStatus.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:25 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,,,,,
+
+WORKSHEET: Instructions
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Instructions.csv
+HEADER: ,,,,,,,,,,,,,,
+
+WORKSHEET: Insurance
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Insurance.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:37 AM,,,,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Locations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Locations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:06 AM,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: RoomBed
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\RoomBed.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:50 AM,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Services
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Services.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:20 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: Settings
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172125\Mapping_Expanse_REG_Domainx(1)\Settings.csv
+HEADER: Servers,Environment,,Database,Environment,,Settings,,
+
+WORKSHEET: Accommodations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Accommodations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:02:51 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: AdmitSource
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\AdmitSource.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:06:23 AM,,,,,,,,,,,,
+
+WORKSHEET: County
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\County.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:04:06 AM,,,,,,
+
+WORKSHEET: DischargeDisposition
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\DischargeDisposition.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:59 AM,,,,,,,,,
+
+WORKSHEET: ErrorCategories
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\ErrorCategories.csv
+HEADER: ,,,Excel Refreshed: 9/8/2026 9:27:06 AM,
+
+WORKSHEET: FinancialApprover
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\FinancialApprover.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:35 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,
+
+WORKSHEET: FinancialClass
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\FinancialClass.csv
+HEADER: ,,Excel Refreshed: 9/8/2026 9:34:15 AM,,,,,,,,,,,,
+
+WORKSHEET: InsAuthStatus
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\InsAuthStatus.csv
+HEADER: ,Excel Refreshed: 9/4/2026 9:04:25 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,,,,,
+
+WORKSHEET: Instructions
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Instructions.csv
+HEADER: ,,,,,,,,,,,,,,
+
+WORKSHEET: Insurance
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Insurance.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:37 AM,,,,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Locations
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Locations.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:06 AM,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: RoomBed
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\RoomBed.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:50 AM,,,,,,,,,,,,,,,,,,,,,
+
+WORKSHEET: Services
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Services.csv
+HEADER: ,,Excel Refreshed: 9/4/2026 9:03:20 AM,,,,,,,,,,,,,,,,
+
+WORKSHEET: Settings
+FILE: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317\Mapping_Expanse_REG_Domainx(1)\Settings.csv
+HEADER: Servers,Environment,,Database,Environment,,Settings,,
+

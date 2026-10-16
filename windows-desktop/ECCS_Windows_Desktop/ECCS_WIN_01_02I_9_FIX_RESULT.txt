@@ -1,0 +1,7 @@
+ECCS-WIN STEP 01.02I.9B-FIX
+Mapping ZIP: C:\Users\QXA4067\Downloads\ECCS_Mapping_Tools_CMC_EXCLUDED_CSV.zip
+Extraction: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\REG_IMPORT_20261016_172317
+CSV worksheets: 43
+Excluded-code matches: 0
+Facility reference: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\data\offline\mapping\dim.ref.orgs_CMC_EXCLUDED.xlsx
+Status: PASS

@@ -1,0 +1,39 @@
+﻿,Excel Refreshed: 9/4/2026 9:04:35 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,
+,,,,,,,,
+NetworkMnem_Source,Fin_Approver_Mnem_Source,Fin_Approver_Desc_Source,TargetMatchMtx,Fin_Approver_Mnem_Target,Fin_Approver_Desc_Target,Action To Take,Update_User,Update_Datetime
+FLA,ADMIN,Escalated-Admin Approved,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,UDP4850,45855.43306373843
+FLA,BELOW,Below Threshold,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,LRL2482,46197.63087523148
+FLA,CFO,Escalated-CFO Approved,"TEST (2026-08-31),LIVE (2026-08-31)",CFO,CFO,None,IIU4396,45832.581137037036
+FLA,FC,Financial Counselor,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,,
+FLA,NR,Not Required,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,,
+FLA,PAD,Escalated-PAD Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAD,PT Access Director,None,,
+FLA,PAM,Escalated-PAM Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAM,PT Access Manager,None,,
+FLA,PP,Prompt Pay Discount,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,,
+FLA,TL,Escalated-Team Lead Appvd,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,LRL2482,46197.63087584491
+FLB,ADMIN,Escalated-Admin Approved,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,UDP4850,45855.43306373843
+FLB,BELOW,Below Threshold,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,LRL2482,46197.63087523148
+FLB,CFO,Escalated-CFO Approved,"TEST (2026-08-31),LIVE (2026-08-31)",CFO,CFO,None,IIU4396,45832.581137037036
+FLB,FC,Financial Counselor,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,,
+FLB,NR,Not Required,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,,
+FLB,PAD,Escalated-PAD Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAD,PT Access Director,None,,
+FLB,PAM,Escalated-PAM Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAM,PT Access Manager,None,,
+FLB,PP,Prompt Pay Discount,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,,
+FLB,TL,Escalated-Team Lead Appvd,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,LRL2482,46197.63087584491
+FLB2,ADMIN,Escalated-Admin Approved,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,UDP4850,45855.43306373843
+FLB2,BELOW,Below Threshold,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,LRL2482,46197.63087523148
+FLB2,CFO,Escalated-CFO Approved,"TEST (2026-08-31),LIVE (2026-08-31)",CFO,CFO,None,IIU4396,45832.581137037036
+FLB2,FC,Financial Counselor,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,,
+FLB2,NR,Not Required,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,,
+FLB2,PAD,Escalated-PAD Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAD,PT Access Director,None,,
+FLB2,PAM,Escalated-PAM Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAM,PT Access Manager,None,,
+FLB2,PP,Prompt Pay Discount,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,,
+FLB2,TL,Escalated-Team Lead Appvd,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,LRL2482,46197.63087584491
+FLE,ADMIN,Escalated-Admin Approved,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,UDP4850,45855.43306373843
+FLE,BELOW,Below Threshold,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,LRL2482,46197.63087523148
+FLE,CFO,Escalated-CFO Approved,"TEST (2026-08-31),LIVE (2026-08-31)",CFO,CFO,None,IIU4396,45832.581137037036
+FLE,FC,Financial Counselor,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,,
+FLE,NR,Not Required,"TEST (2026-08-31),LIVE (2026-08-31)",NR,Not Required,None,,
+FLE,PAD,Escalated-PAD Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAD,PT Access Director,None,,
+FLE,PAM,Escalated-PAM Approved,"TEST (2026-08-31),LIVE (2026-08-31)",PAM,PT Access Manager,None,,
+FLE,PP,Prompt Pay Discount,"TEST (2026-08-31),LIVE (2026-08-31)",ADMIN,Administrative,None,,
+FLE,TL,Escalated-Team Lead Appvd,"TEST (2026-08-31),LIVE (2026-08-31)",FC,Financial Counselor,None,LRL2482,46197.63087584491

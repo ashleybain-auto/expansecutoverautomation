@@ -1,0 +1,227 @@
+﻿,,,,,,,,,,,
+,,Excel Refreshed: 9/11/2026 4:02:45 PM,,,,,,,,,
+FacilityMnem_Source,FacilityShortName,DivisionName,WaveAssigned,PriorityMnem_Source,PriorityDesc_Source,ActiveFlag_Source,MtxComparison,DB_RecordCount,PriorityMnem_Target,PriorityDesc_Target,Action To Take
+COCAG,Doctors Hospital,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,9.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCAG,Doctors Hospital,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,315.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCAG,Doctors Hospital,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,1316.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCAG,Doctors Hospital,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,503.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCAG,Doctors Hospital,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,22.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCAR,Medical City Arlington,North Texas Division,3B,1,ESI 1 / Resuscitation,Y,NO MATCH,6.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCAR,Medical City Arlington,North Texas Division,3B,2,ESI 2 / Emergent,Y,NO MATCH,301.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCAR,Medical City Arlington,North Texas Division,3B,3,ESI 3 / Urgent,Y,NO MATCH,819.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCAR,Medical City Arlington,North Texas Division,3B,4,ESI 4 / Semi-Urgent,Y,NO MATCH,360.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCAR,Medical City Arlington,North Texas Division,3B,5,ESI 5 / Non-Urgent,Y,NO MATCH,14.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCARG,Medical City Argyle,North Texas Division,3B,1,ESI 1 / Resuscitation,Y,NO MATCH,0.0,,,None
+COCARG,Medical City Argyle,North Texas Division,3B,2,ESI 2 / Emergent,Y,NO MATCH,0.0,,,None
+COCARG,Medical City Argyle,North Texas Division,3B,3,ESI 3 / Urgent,Y,NO MATCH,1.0,,,None
+COCARG,Medical City Argyle,North Texas Division,3B,4,ESI 4 / Semi-Urgent,Y,NO MATCH,0.0,,,None
+COCARG,Medical City Argyle,North Texas Division,3B,5,ESI 5 / Non-Urgent,Y,NO MATCH,0.0,,,None
+COCAT,HCA Florida Aventura Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,26.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCAT,HCA Florida Aventura Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,504.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCAT,HCA Florida Aventura Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,531.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCAT,HCA Florida Aventura Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,40.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCAT,HCA Florida Aventura Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,1.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCBM,HCA Houston Southeast,Gulf Coast Division,2D,1,ESI 1/Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCBM,HCA Houston Southeast,Gulf Coast Division,2D,2,ESI 2/Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCBM,HCA Houston Southeast,Gulf Coast Division,2D,3,ESI 3/Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCBM,HCA Houston Southeast,Gulf Coast Division,2D,4,ESI 4/Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCBM,HCA Houston Southeast,Gulf Coast Division,2D,5,ESI 5/Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCCL,HCA Houston Clear Lake,Gulf Coast Division,2D,1,ESI 1/Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCCL,HCA Houston Clear Lake,Gulf Coast Division,2D,2,ESI 2/Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCCL,HCA Houston Clear Lake,Gulf Coast Division,2D,3,ESI 3/Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCCL,HCA Houston Clear Lake,Gulf Coast Division,2D,4,ESI 4/Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCCL,HCA Houston Clear Lake,Gulf Coast Division,2D,5,ESI 5/Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCCN,HCA Florida Lake Monroe Hospital,North Florida Division,2D,1,ESI 1 / Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCCN,HCA Florida Lake Monroe Hospital,North Florida Division,2D,2,ESI 2 / Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCCN,HCA Florida Lake Monroe Hospital,North Florida Division,2D,3,ESI 3 / Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCCN,HCA Florida Lake Monroe Hospital,North Florida Division,2D,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCCN,HCA Florida Lake Monroe Hospital,North Florida Division,2D,5,ESI 5 / Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCDAB,Colleton Medical Center,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,3.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCDAB,Colleton Medical Center,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,154.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCDAB,Colleton Medical Center,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,340.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCDAB,Colleton Medical Center,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,282.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCDAB,Colleton Medical Center,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,11.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCDAE,Medical City Las Colinas,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,2.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCDAE,Medical City Las Colinas,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,82.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCDAE,Medical City Las Colinas,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,291.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCDAE,Medical City Las Colinas,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,108.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCDAE,Medical City Las Colinas,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,7.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCDCT,Medical City Decatur,North Texas Division,3B,1,ESI 1 / Resuscitation,Y,NO MATCH,4.0,,,None
+COCDCT,Medical City Decatur,North Texas Division,3B,2,ESI 2 / Emergent,Y,NO MATCH,98.0,,,None
+COCDCT,Medical City Decatur,North Texas Division,3B,3,ESI 3 / Urgent,Y,NO MATCH,182.0,,,None
+COCDCT,Medical City Decatur,North Texas Division,3B,4,ESI 4 / Semi-Urgent,Y,NO MATCH,79.0,,,None
+COCDCT,Medical City Decatur,North Texas Division,3B,5,ESI 5 / Non-Urgent,Y,NO MATCH,1.0,,,None
+COCDL,Medical City Dallas,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCDL,Medical City Dallas,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,203.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCDL,Medical City Dallas,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,778.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCDL,Medical City Dallas,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,413.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCDL,Medical City Dallas,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,53.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCDR,Medical City Denton,North Texas Division,3B,1,ESI 1 / Resuscitation,Y,NO MATCH,2.0,,,None
+COCDR,Medical City Denton,North Texas Division,3B,2,ESI 2 / Emergent,Y,NO MATCH,11.0,,,None
+COCDR,Medical City Denton,North Texas Division,3B,3,ESI 3 / Urgent,Y,NO MATCH,8.0,,,None
+COCDR,Medical City Denton,North Texas Division,3B,4,ESI 4 / Semi-Urgent,Y,NO MATCH,3.0,,,None
+COCDR,Medical City Denton,North Texas Division,3B,5,ESI 5 / Non-Urgent,Y,NO MATCH,0.0,,,None
+COCFPA,Medical City Frisco,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCFPA,Medical City Frisco,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,56.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCFPA,Medical City Frisco,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,198.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCFPA,Medical City Frisco,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,83.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCFPA,Medical City Frisco,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,2.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCFV,Fairview Park Hospital,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,2.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCFV,Fairview Park Hospital,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,205.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCFV,Fairview Park Hospital,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,429.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCFV,Fairview Park Hospital,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,100.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCFV,Fairview Park Hospital,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,19.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,1,ESI 1 / Resuscitation,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,2,ESI 2 / Emergent,Y,NO MATCH,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,3,ESI 3 / Urgent,Y,NO MATCH,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,4,ESI 4 / Semi-Urgent,Y,NO MATCH,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,5,ESI 5 / Non-Urgent,Y,NO MATCH,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,CAID,MEDICAID - Out of County,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,CFO,CFO Agreement,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,MC,Transfer - Out of Days,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,MC-S,Medicare - Stay at GO,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,MM,Medicaid - Stay at GO,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,NTBHA,NTBHA,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,PI,Transfer Out of Network,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,PI-S,PI - Stay at GO,Y,NO MATCH,0.0,,,None
+COCGBE,Medical City Green Oaks Hospital,North Texas Division,3D,PI/MC-V,PI/MC - Need to Verify,Y,NO MATCH,0.0,,,None
+COCHRA,HCA Florida Highlands Hospital,East Florida Division,5C,1,ESI 1 / RESUSCITATION,Y,"TEST 2026-06-22,LIVE 2026-08-04",1.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCHRA,HCA Florida Highlands Hospital,East Florida Division,5C,2,ESI 2 / EMERGENT,Y,"TEST 2026-06-22,LIVE 2026-08-04",45.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCHRA,HCA Florida Highlands Hospital,East Florida Division,5C,3,ESI 3 / URGENT,Y,"TEST 2026-06-22,LIVE 2026-08-04",177.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCHRA,HCA Florida Highlands Hospital,East Florida Division,5C,4,ESI 4 / SEMI-URGENT,Y,"TEST 2026-06-22,LIVE 2026-08-04",32.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCHRA,HCA Florida Highlands Hospital,East Florida Division,5C,5,ESI 5 / NON-URGENT,Y,"TEST 2026-06-22,LIVE 2026-08-04",1.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCKN,HCA Florida Kendall Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,47.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCKN,HCA Florida Kendall Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,322.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCKN,HCA Florida Kendall Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,971.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCKN,HCA Florida Kendall Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,61.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCKN,HCA Florida Kendall Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,2.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCLE,Medical City Lewisville,North Texas Division,3B,1,ESI 1/Resuscitation,Y,NO MATCH,9.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCLE,Medical City Lewisville,North Texas Division,3B,2,ESI 2/Emergent,Y,NO MATCH,83.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCLE,Medical City Lewisville,North Texas Division,3B,3,ESI 3/Urgent,Y,NO MATCH,412.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCLE,Medical City Lewisville,North Texas Division,3B,4,ESI 4/Semi-Urgent,Y,NO MATCH,142.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCLE,Medical City Lewisville,North Texas Division,3B,5,ESI 5/Non-Urgent,Y,NO MATCH,33.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCLOA,HCA Live Oak Mental Health & Wellness,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCLOA,HCA Live Oak Mental Health & Wellness,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCLOA,HCA Live Oak Mental Health & Wellness,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCLOA,HCA Live Oak Mental Health & Wellness,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCLOA,HCA Live Oak Mental Health & Wellness,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMCB,Medical City Alliance,North Texas Division,3B,1,ESI 1/Resuscitation,Y,NO MATCH,3.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMCB,Medical City Alliance,North Texas Division,3B,2,ESI 2/Emergent,Y,NO MATCH,234.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMCB,Medical City Alliance,North Texas Division,3B,3,ESI 3/Urgent,Y,NO MATCH,566.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMCB,Medical City Alliance,North Texas Division,3B,4,ESI 4/Semi-Urgent,Y,NO MATCH,414.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMCB,Medical City Alliance,North Texas Division,3B,5,ESI 5/Non-Urgent,Y,NO MATCH,42.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMCE,Medical City Heart Spine,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMCE,Medical City Heart Spine,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,11.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMCE,Medical City Heart Spine,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,11.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMCE,Medical City Heart Spine,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMCE,Medical City Heart Spine,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMCS,Medical City Sachse,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,2.0,,,None
+COCMCS,Medical City Sachse,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,52.0,,,None
+COCMCS,Medical City Sachse,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,113.0,,,None
+COCMCS,Medical City Sachse,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,45.0,,,None
+COCMCS,Medical City Sachse,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,6.0,,,None
+COCMCW,Medical City Weatherford,North Texas Division,3B,1,ESI 1 / Resuscitation,Y,NO MATCH,1.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMCW,Medical City Weatherford,North Texas Division,3B,2,ESI 2 / Emergent,Y,NO MATCH,98.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMCW,Medical City Weatherford,North Texas Division,3B,3,ESI 3 / Urgent,Y,NO MATCH,343.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMCW,Medical City Weatherford,North Texas Division,3B,4,ESI 4 / Semi-Urgent,Y,NO MATCH,77.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMCW,Medical City Weatherford,North Texas Division,3B,5,ESI 5 / Non-Urgent,Y,NO MATCH,2.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMHB,HCA Florida Mercy Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,25.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMHB,HCA Florida Mercy Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,261.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMHB,HCA Florida Mercy Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,317.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMHB,HCA Florida Mercy Hospital,East Florida Division,3A,4,ESI 4 / Less urgent,Y,ZCON 2026-09-03,26.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMHB,HCA Florida Mercy Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,1.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMK,Medical City McKinney,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,1.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMK,Medical City McKinney,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,205.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMK,Medical City McKinney,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,345.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMK,Medical City McKinney,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,161.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMK,Medical City McKinney,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,10.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCMN,HCA Houston Mainland,Gulf Coast Division,2D,1,ESI 1/Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCMN,HCA Houston Mainland,Gulf Coast Division,2D,2,ESI 2/Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCMN,HCA Houston Mainland,Gulf Coast Division,2D,3,ESI 3/Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCMN,HCA Houston Mainland,Gulf Coast Division,2D,4,ESI 4/Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCMN,HCA Houston Mainland,Gulf Coast Division,2D,5,ESI 5/Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCNH,Medical City North Hills,North Texas Division,3B,1,ESI 1/Resuscitation,Y,NO MATCH,1.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCNH,Medical City North Hills,North Texas Division,3B,2,ESI 2/Emergent,Y,NO MATCH,107.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCNH,Medical City North Hills,North Texas Division,3B,3,ESI 3/Urgent,Y,NO MATCH,294.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCNH,Medical City North Hills,North Texas Division,3B,4,ESI 4/Semi-Urgent,Y,NO MATCH,86.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCNH,Medical City North Hills,North Texas Division,3B,5,ESI 5/Non-Urgent,Y,NO MATCH,8.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCNW,HCA Florida Northwest Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,3.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCNW,HCA Florida Northwest Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,518.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCNW,HCA Florida Northwest Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,150.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCNW,HCA Florida Northwest Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,5.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCNW,HCA Florida Northwest Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,1.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCOMC,Oviedo Medical Center,North Florida Division,2D,1,ESI 1 / Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCOMC,Oviedo Medical Center,North Florida Division,2D,2,ESI 2 / Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCOMC,Oviedo Medical Center,North Florida Division,2D,3,ESI 3 / Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCOMC,Oviedo Medical Center,North Florida Division,2D,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCOMC,Oviedo Medical Center,North Florida Division,2D,5,ESI 5 / Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCOS,HCA Florida Osceola Hospital,North Florida Division,2D,1,ESI 1 / Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCOS,HCA Florida Osceola Hospital,North Florida Division,2D,2,ESI 2 / Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCOS,HCA Florida Osceola Hospital,North Florida Division,2D,3,ESI 3 / Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCOS,HCA Florida Osceola Hospital,North Florida Division,2D,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCOS,HCA Florida Osceola Hospital,North Florida Division,2D,5,ESI 5 / Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCPL,Medical City Plano,North Texas Division,3D,1,ESI 1/Resuscitation,Y,NO MATCH,0.0,,,None
+COCPL,Medical City Plano,North Texas Division,3D,2,ESI 2/Emergent,Y,NO MATCH,10.0,,,None
+COCPL,Medical City Plano,North Texas Division,3D,3,ESI 3/Urgent,Y,NO MATCH,24.0,,,None
+COCPL,Medical City Plano,North Texas Division,3D,4,ESI 4/Semi-Urgent,Y,NO MATCH,1.0,,,None
+COCPL,Medical City Plano,North Texas Division,3D,5,ESI 5/Non-Urgent,Y,NO MATCH,0.0,,,None
+COCPMA,HCA Florida Poinciana Hospital,North Florida Division,2D,1,ESI 1 / Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCPMA,HCA Florida Poinciana Hospital,North Florida Division,2D,2,ESI 2 / Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCPMA,HCA Florida Poinciana Hospital,North Florida Division,2D,3,ESI 3 / Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCPMA,HCA Florida Poinciana Hospital,North Florida Division,2D,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCPMA,HCA Florida Poinciana Hospital,North Florida Division,2D,5,ESI 5 / Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCPMC,HCA Houston Pearland,Gulf Coast Division,2D,1,ESI 1 / Resuscitation,Y,ZCON 2026-06-23,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCPMC,HCA Houston Pearland,Gulf Coast Division,2D,2,ESI 2 / Emergent,Y,ZCON 2026-06-23,0.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCPMC,HCA Houston Pearland,Gulf Coast Division,2D,3,ESI 3 / Urgent,Y,ZCON 2026-06-23,0.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCPMC,HCA Houston Pearland,Gulf Coast Division,2D,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-06-23,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCPMC,HCA Houston Pearland,Gulf Coast Division,2D,5,ESI 5 / Non-Urgent,Y,ZCON 2026-06-23,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCPZ,Medical City Fort Worth,North Texas Division,3B,1,ESI 1/Resuscitation,Y,NO MATCH,1.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCPZ,Medical City Fort Worth,North Texas Division,3B,2,ESI 2/Emergent,Y,NO MATCH,72.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCPZ,Medical City Fort Worth,North Texas Division,3B,3,ESI 3/Urgent,Y,NO MATCH,291.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCPZ,Medical City Fort Worth,North Texas Division,3B,4,ESI 4/Semi-Urgent,Y,NO MATCH,100.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCPZ,Medical City Fort Worth,North Texas Division,3B,5,ESI 5/Non-Urgent,Y,NO MATCH,6.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCQR,HCA Florida Raulerson Hospital,East Florida Division,3C,1,ESI 1 / Resuscitation,Y,NO MATCH,2.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCQR,HCA Florida Raulerson Hospital,East Florida Division,3C,2,ESI 2 / Emergent,Y,NO MATCH,28.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCQR,HCA Florida Raulerson Hospital,East Florida Division,3C,3,ESI 3 / Urgent,Y,NO MATCH,260.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCQR,HCA Florida Raulerson Hospital,East Florida Division,3C,4,ESI 4 / Semi-Urgent,Y,NO MATCH,70.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCQR,HCA Florida Raulerson Hospital,East Florida Division,3C,5,ESI 5 / Non-Urgent,Y,NO MATCH,2.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCQV,Grand Strand Medical Center,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,40.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCQV,Grand Strand Medical Center,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,976.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCQV,Grand Strand Medical Center,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,978.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCQV,Grand Strand Medical Center,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,153.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCQV,Grand Strand Medical Center,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,18.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCRA,Rapides Regional Medical Center,North Texas Division,5C,1,ESI 1/RESUSCITATION,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCRA,Rapides Regional Medical Center,North Texas Division,5C,2,ESI 2/EMERGENT,Y,NO MATCH,11.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCRA,Rapides Regional Medical Center,North Texas Division,5C,3,ESI 3/URGENT,Y,NO MATCH,6.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCRA,Rapides Regional Medical Center,North Texas Division,5C,4,ESI 4/LESS-URGENT,Y,NO MATCH,3.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCRA,Rapides Regional Medical Center,North Texas Division,5C,5,ESI 5/NON-URGENT,Y,NO MATCH,1.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCSUM,HCA Summerville Medical Center,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCSUM,HCA Summerville Medical Center,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,22.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCSUM,HCA Summerville Medical Center,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,35.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCSUM,HCA Summerville Medical Center,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,31.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCSUM,HCA Summerville Medical Center,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,6.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCTR,Trident Regional Medical Center,South Atlantic Division,3C,1,ESI 1/RESUSCITATION,Y,NO MATCH,2.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCTR,Trident Regional Medical Center,South Atlantic Division,3C,2,ESI 2/EMERGENT,Y,NO MATCH,48.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCTR,Trident Regional Medical Center,South Atlantic Division,3C,3,ESI 3/URGENT,Y,NO MATCH,26.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCTR,Trident Regional Medical Center,South Atlantic Division,3C,4,ESI 4/SEMI-URGENT,Y,NO MATCH,8.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCTR,Trident Regional Medical Center,South Atlantic Division,3C,5,ESI 5/NON-URGENT,Y,NO MATCH,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCUH,HCA Florida Woodmont Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCUH,HCA Florida Woodmont Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,108.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCUH,HCA Florida Woodmont Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,429.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCUH,HCA Florida Woodmont Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,6.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCUH,HCA Florida Woodmont Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCUHA,HCA Florida University Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,0.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCUHA,HCA Florida University Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,124.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCUHA,HCA Florida University Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,471.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCUHA,HCA Florida University Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,37.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCUHA,HCA Florida University Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,7.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCWS,HCA Florida Westside Hospital,East Florida Division,3A,1,ESI 1 / Resuscitation,Y,ZCON 2026-09-03,11.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCWS,HCA Florida Westside Hospital,East Florida Division,3A,2,ESI 2 / Emergent,Y,ZCON 2026-09-03,127.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCWS,HCA Florida Westside Hospital,East Florida Division,3A,3,ESI 3 / Urgent,Y,ZCON 2026-09-03,127.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCWS,HCA Florida Westside Hospital,East Florida Division,3A,4,ESI 4 / Semi-Urgent,Y,ZCON 2026-09-03,0.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCWS,HCA Florida Westside Hospital,East Florida Division,3A,5,ESI 5 / Non-Urgent,Y,ZCON 2026-09-03,0.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None
+COCXG,HCA Florida St Lucie Hospital,East Florida Division,3C,1,RESUSCITATION,Y,NO MATCH,2.0,1 ESI / Resuscitation,1 ESI / Resuscitation,None
+COCXG,HCA Florida St Lucie Hospital,East Florida Division,3C,2,EMERGENT,Y,NO MATCH,252.0,2 ESI / Emergent,2 ESI / Emergent,None
+COCXG,HCA Florida St Lucie Hospital,East Florida Division,3C,3,URGENT,Y,NO MATCH,613.0,3 ESI / Urgent,3 ESI / Urgent,None
+COCXG,HCA Florida St Lucie Hospital,East Florida Division,3C,4,SEMI-URGENT,Y,NO MATCH,111.0,4 ESI / Semi-Urgent,4 ESI / Semi-Urgent,None
+COCXG,HCA Florida St Lucie Hospital,East Florida Division,3C,5,NON-URGENT,Y,NO MATCH,4.0,5 ESI / Non-Urgent,5 ESI / Non-Urgent,None

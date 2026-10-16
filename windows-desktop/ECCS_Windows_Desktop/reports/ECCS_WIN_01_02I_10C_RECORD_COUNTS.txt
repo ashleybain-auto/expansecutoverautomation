@@ -1,0 +1,16 @@
+
+Worksheet            HeaderRow CandidateDataRows  FileKB
+---------            --------- -----------------  ------
+Accommodations               3               298   44.70
+AdmitSource                  3               226   28.80
+County                       3                 4    0.30
+DischargeDisposition         3               907   59.10
+FinancialApprover            3                36    4.00
+FinancialClass               3                84   11.30
+InsAuthStatus                3                88    9.60
+Insurance                    3              5530  976.80
+Locations                    3              2200  345.20
+RoomBed                      3             29529 2428.80
+Services                     3               592  100.10
+
+

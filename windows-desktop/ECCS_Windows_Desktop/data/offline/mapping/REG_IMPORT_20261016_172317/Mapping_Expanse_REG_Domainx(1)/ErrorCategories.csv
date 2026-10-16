@@ -1,0 +1,145 @@
+﻿,,,Excel Refreshed: 9/8/2026 9:27:06 AM,
+,,,,
+Discrepancy_FieldName,DB_RecordCount,Perform_Comparison,Discrepancy_Category,Action To Take
+Adm_Bed,0.0,Y,Patient Demographics,None
+Adm_Location,0.0,Y,Patient Demographics,None
+Adm_Location_Desc,0.0,N,Patient Demographics,None
+Adm_Pat_Service,0.0,Y,Patient Demographics,None
+Adm_PriorityMnem,0.0,Y,Patient Demographics,None
+Adm_Room,0.0,Y,Patient Demographics,None
+Adm_Room_Preference,0.0,N,Patient Demographics,None
+Adm_Room_Rate,0.0,Y,Patient Demographics,None
+Adm_Room_Service,0.0,N,Patient Demographics,None
+Adm_Source,0.0,Y,Patient Demographics,None
+CPT_Code1,0.0,Y,Coding & Financials,None
+CPT_Code2,0.0,Y,Coding & Financials,None
+CPT_Code3,0.0,Y,Coding & Financials,None
+CPT_Code4,0.0,Y,Coding & Financials,None
+CPT_Code5,0.0,Y,Coding & Financials,None
+Custom_CutoverPatient_Flag,0.0,N,UNMAPPED,None
+EntitledToMedicare,0.0,Y,Insurance Info,None
+Fin_EstAmtDue,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Charges,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Co_Ins_Percent,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Co_Ins_Percent_Eq,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Co_Ins_Percent_Eq_Ded_Copay,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Date,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Ded_Copay,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_Ded_Copay_Eq,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_OOP_Est,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_OOP_Est_GT_Met,0.0,Y,Coding & Financials,None
+Fin_EstAmtDue_OOP_Leftover,0.0,Y,Coding & Financials,None
+Fin_EstPay_Amt_Due,0.0,Y,Coding & Financials,None
+Fin_EstPay_Amt_Requested,0.0,Y,Coding & Financials,None
+Fin_EstPay_Approved_By,0.0,Y,Coding & Financials,None
+Fin_EstPay_Comment,0.0,N,Coding & Financials,None
+Fin_EstPay_Dep_Received,0.0,Y,Coding & Financials,None
+Fin_EstPay_Dep_Required,0.0,Y,Coding & Financials,None
+Fin_EstPay_Type,0.0,Y,Coding & Financials,None
+Fin_Express,0.0,Y,Coding & Financials,None
+Fin_GoodFaith_Est_Charges1,0.0,Y,Coding & Financials,None
+Fin_GoodFaith_Est_Charges2,0.0,Y,Coding & Financials,None
+Fin_GoodFaith_Est_Charges3,0.0,Y,Coding & Financials,None
+Fin_GoodFaith_Est_Date,0.0,Y,Coding & Financials,None
+Fin_PreReg_Status,0.0,Y,Coding & Financials,None
+Guar_DOB,0.0,N,Guarantor Demographics,None
+Guar_Email,0.0,N,Guarantor Demographics,None
+Guar_FirstName,0.0,Y,Guarantor Demographics,None
+Guar_FullName,0.0,N,Guarantor Demographics,None
+Guar_LastName,0.0,Y,Guarantor Demographics,None
+Guar_Pat_Relation_Mnem,0.0,Y,Patient Demographics,None
+Guar_Phone,0.0,Y,Guarantor Demographics,None
+Guar_SSN,0.0,Y,Guarantor Demographics,None
+Ins1_Addr_City,0.0,N,Insurance Info,None
+Ins1_Addr_State,0.0,N,Insurance Info,None
+Ins1_Addr_Street1,0.0,N,Insurance Info,None
+Ins1_Addr_Street2,0.0,N,Insurance Info,None
+Ins1_Addr_Zip,0.0,N,Insurance Info,None
+Ins1_Eligibility_Status,0.0,Y,Insurance Info,None
+Ins1_Eligibility_Status_Date,0.0,Y,Insurance Info,None
+Ins1_Group_Number,0.0,Y,Insurance Info,None
+Ins1_Insurance_Mnemonic,0.0,Y,Insurance Info,None
+Ins1_Insurance_Name,0.0,Y,Insurance Info,None
+Ins1_New_Auth_AuthNumber,0.0,Y,Insurance Info,None
+Ins1_New_Auth_EffDate,0.0,Y,Insurance Info,None
+Ins1_New_Auth_Status,0.0,Y,Insurance Info,None
+Ins1_Policy_Number,0.0,Y,Insurance Info,None
+Ins1_Subscriber_FirstName,0.0,Y,Insurance Info,None
+Ins1_Subscriber_LastName,0.0,Y,Insurance Info,None
+Ins1_Subscriber_Name,0.0,N,Insurance Info,None
+Ins1_Subscriber_Relation_Mnem,0.0,N,Insurance Info,None
+Ins2_Addr_City,0.0,N,Insurance Info,None
+Ins2_Addr_State,0.0,N,Insurance Info,None
+Ins2_Addr_Street1,0.0,N,Insurance Info,None
+Ins2_Addr_Street2,0.0,N,Insurance Info,None
+Ins2_Addr_Zip,0.0,N,Insurance Info,None
+Ins2_Eligibility_Status,0.0,N,Insurance Info,None
+Ins2_Eligibility_Status_Date,0.0,N,Insurance Info,None
+Ins2_Group_Number,0.0,N,Insurance Info,None
+Ins2_Insurance_Mnemonic,0.0,Y,Insurance Info,None
+Ins2_Insurance_Name,0.0,N,Insurance Info,None
+Ins2_New_Auth_AuthNumber,0.0,Y,Insurance Info,None
+Ins2_New_Auth_EffDate,0.0,N,Insurance Info,None
+Ins2_New_Auth_Status,0.0,N,Insurance Info,None
+Ins2_Policy_Number,0.0,N,Insurance Info,None
+Ins2_Subscriber_FirstName,0.0,N,Insurance Info,None
+Ins2_Subscriber_LastName,0.0,N,Insurance Info,None
+Ins2_Subscriber_Name,0.0,N,Insurance Info,None
+Ins2_Subscriber_Relation_Mnem,0.0,N,Insurance Info,None
+Ins3_Addr_City,0.0,N,Insurance Info,None
+Ins3_Addr_State,0.0,N,Insurance Info,None
+Ins3_Addr_Street1,0.0,N,Insurance Info,None
+Ins3_Addr_Street2,0.0,N,Insurance Info,None
+Ins3_Addr_Zip,0.0,N,Insurance Info,None
+Ins3_Eligibility_Status,0.0,N,Insurance Info,None
+Ins3_Eligibility_Status_Date,0.0,N,Insurance Info,None
+Ins3_Group_Number,0.0,N,Insurance Info,None
+Ins3_Insurance_Mnemonic,0.0,Y,Insurance Info,None
+Ins3_Insurance_Name,0.0,N,Insurance Info,None
+Ins3_New_Auth_AuthNumber,0.0,Y,Insurance Info,None
+Ins3_New_Auth_EffDate,0.0,N,Insurance Info,None
+Ins3_New_Auth_Status,0.0,N,Insurance Info,None
+Ins3_Policy_Number,0.0,N,Insurance Info,None
+Ins3_Subscriber_FirstName,0.0,N,Insurance Info,None
+Ins3_Subscriber_LastName,0.0,N,Insurance Info,None
+Ins3_Subscriber_Name,0.0,N,Insurance Info,None
+Ins3_Subscriber_Relation_Mnem,0.0,N,Insurance Info,None
+NOA1_Comp,0.0,Y,Coding & Financials,None
+NOA1_Date,0.0,N,Coding & Financials,None
+NOA1_Meth,0.0,N,Coding & Financials,None
+NOA1_Time,0.0,N,Coding & Financials,None
+NOA1_Type,0.0,Y,Coding & Financials,None
+NOA1_Usr,0.0,N,Coding & Financials,None
+Pat_Addr_Email,0.0,Y,Patient Demographics,None
+Pat_Addr_Line1,0.0,Y,Patient Demographics,None
+Pat_Admit_Date,0.0,Y,Patient Demographics,None
+Pat_Admit_Time,0.0,Y,Patient Demographics,None
+Pat_Discharge_Date,0.0,Y,Patient Demographics,None
+Pat_Discharge_Time,0.0,Y,Patient Demographics,None
+Pat_DOB,0.0,Y,Patient Demographics,None
+Pat_FinancialClass,0.0,N,Patient Demographics,None
+Pat_FirstName,0.0,Y,Patient Demographics,None
+Pat_FullName,0.0,N,Patient Demographics,None
+Pat_LastName,0.0,Y,Patient Demographics,None
+Pat_MedicalRecordNumber,0.0,N,Patient Demographics,None
+Pat_MiddleName,0.0,Y,Patient Demographics,None
+Pat_RegType,0.0,Y,Patient Demographics,None
+Pat_RegType_Desc,0.0,N,Patient Demographics,None
+Pat_Sex,0.0,Y,Patient Demographics,None
+Pat_SSN,0.0,Y,Patient Demographics,None
+Pat_StatusType,0.0,Y,Patient Demographics,None
+Pat_Suffix,0.0,N,Patient Demographics,None
+Provider_Admitting_Name,0.0,N,Provider Info,None
+Provider_Admitting_ProvMnem,0.0,Y,Provider Info,None
+Provider_Admitting_User34,0.0,N,Provider Info,None
+Provider_Admitting_UserMnem,0.0,N,Provider Info,None
+Provider_Attending_Name,0.0,N,Provider Info,None
+Provider_Attending_ProvMnem,0.0,Y,Provider Info,None
+Provider_Attending_User34,0.0,N,Provider Info,None
+Provider_Attending_UserMnem,0.0,N,Provider Info,None
+Provider_PrimaryCare_Name,0.0,N,Provider Info,None
+Provider_PrimaryCare_ProvMnem,0.0,Y,Provider Info,None
+Provider_PrimaryCare_User34,0.0,N,Provider Info,None
+Provider_PrimaryCare_UserMnem,0.0,N,Provider Info,None
+Provider_Referring_Name,0.0,N,Provider Info,None
+Provider_Referring_ProvMnem,0.0,Y,Provider Info,None

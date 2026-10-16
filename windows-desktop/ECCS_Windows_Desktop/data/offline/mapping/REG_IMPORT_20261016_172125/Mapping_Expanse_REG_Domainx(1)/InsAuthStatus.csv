@@ -1,0 +1,91 @@
+﻿,Excel Refreshed: 9/4/2026 9:04:25 AM,,,,Note: This is a Corp Dictionary--Any updates will apply to ALL Networks,,,,,,,
+,,,,,,,,,,,,
+NetworkMnem_Source,InsAuthStatus_Mnem_Source,InsAuthStatus_Name_Source,DB_RecordCount,Active_Source,TargetMatchMtx,InsAuthStatus_Mnem_Target,InsAuthStatus_Name_Target,Active_Target,MappedTo_StatusText_Target,Action To Take,Update_User,Update_Datetime
+FLA,_NOTINMAGIC_01,_NOTINMAGIC_01,0.0,N,NO MATCH,APPROVED.,Approved,Y,Approved,None,UDP4850,45790.73173255787
+FLA,_NOTINMAGIC_02,_NOTINMAGIC_02,0.0,N,NO MATCH,PHYOB,Physician Obtained,Y,Approved,None,UDP4850,45790.73173295139
+FLA,_NOTINMAGIC_03,_NOTINMAGIC_03,0.0,N,NO MATCH,CANCELLED.,Cancelled,Y,Cancelled,None,UDP4850,45790.73173329861
+FLA,_NOTINMAGIC_04,_NOTINMAGIC_04,0.0,N,NO MATCH,CLOSED.,Closed,Y,Closed,None,UDP4850,45790.731733645836
+FLA,_NOTINMAGIC_05,_NOTINMAGIC_05,0.0,N,NO MATCH,DENIED.,Denied,Y,Denied,None,UDP4850,45790.73173399305
+FLA,_NOTINMAGIC_06,_NOTINMAGIC_06,0.0,N,NO MATCH,EXPIRED.,Expired,Y,Expired,None,UDP4850,45790.731734340276
+FLA,_NOTINMAGIC_07,_NOTINMAGIC_07,0.0,N,NO MATCH,_NOTINMAGIC_07,_NOTINMAGIC_07,N,_NOTINMAGIC_07,None,UDP4850,45790.732612534724
+FLA,AAPIN,Approved Inpatient,298.0,Y,FLA-LIVE (2026-08-31),AAPIN,Approved Inpatient,Y,Approved,None,QXA4067,46119.578740046294
+FLA,APINO,Approved Observation,6.0,Y,FLA-LIVE (2026-08-31),APINO,Approved Observation,Y,Approved,None,,
+FLA,APNICU,Approved NICU,0.0,Y,FLA-LIVE (2026-08-31),APNICU,Approved NICU,Y,Approved,None,,
+FLA,APPOP,Approved Outpatient,0.0,Y,FLA-LIVE (2026-08-31),APPOP,Approved Outpatient,Y,Approved,None,,
+FLA,APPSDC,Approved Same Day Surgery,11.0,Y,FLA-LIVE (2026-08-31),APPSDC,Approved Same Day Surgery,Y,Approved,None,,
+FLA,DENCLI,Denied Clinical Request,0.0,Y,FLA-LIVE (2026-08-31),DENCLI,Denied Clinical Request,Y,Denied,None,,
+FLA,DENDIS,Denied After Discharge,0.0,Y,FLA-LIVE (2026-08-31),DENDIS,Denied After Discharge,Y,Denied,None,,
+FLA,DENIH,Denied in House,0.0,Y,FLA-LIVE (2026-08-31),DENIH,Denied in House,Y,Denied,None,,
+FLA,DENOP,Denied Outpatient,0.0,Y,FLA-LIVE (2026-08-31),DENOP,Denied Outpatient,Y,Denied,None,,
+FLA,DENP2P,Denied Peer to Peer,0.0,Y,FLA-LIVE (2026-08-31),DENP2P,Denied Peer to Peer,Y,Denied,None,,
+FLA,NOTREQINS,Auth Not Req Per Insurance Co,175.0,Y,FLA-LIVE (2026-08-31),NOTREQINS,Auth Not Req Per Insurance Co,Y,Approved,None,,
+FLA,NOTREQSDC,Not Required SDC,11.0,Y,FLA-LIVE (2026-08-31),NOTREQSDC,Not Required SDC,Y,Approved,None,,
+FLA,PEDAU,Pending Authorization,6.0,Y,NO MATCH,PEDAU,Pending Authorization,Y,Pending,None,,
+FLA,PENDCLI,Pending Clinical,0.0,N,NO MATCH,PENDING.,Pending,Y,Pending,None,,
+FLA,PENDING,Pending,0.0,Y,NO MATCH,PENDING.,Pending,Y,Pending,None,DOF3224,45832.58679545139
+FLB,_NOTINMAGIC_01,_NOTINMAGIC_01,0.0,N,NO MATCH,APPROVED.,Approved,Y,Approved,None,UDP4850,45790.73173255787
+FLB,_NOTINMAGIC_02,_NOTINMAGIC_02,0.0,N,NO MATCH,PHYOB,Physician Obtained,Y,Approved,None,UDP4850,45790.73173295139
+FLB,_NOTINMAGIC_03,_NOTINMAGIC_03,0.0,N,NO MATCH,CANCELLED.,Cancelled,Y,Cancelled,None,UDP4850,45790.73173329861
+FLB,_NOTINMAGIC_04,_NOTINMAGIC_04,0.0,N,NO MATCH,CLOSED.,Closed,Y,Closed,None,UDP4850,45790.731733645836
+FLB,_NOTINMAGIC_05,_NOTINMAGIC_05,0.0,N,NO MATCH,DENIED.,Denied,Y,Denied,None,UDP4850,45790.73173399305
+FLB,_NOTINMAGIC_06,_NOTINMAGIC_06,0.0,N,NO MATCH,EXPIRED.,Expired,Y,Expired,None,UDP4850,45790.731734340276
+FLB,_NOTINMAGIC_07,_NOTINMAGIC_07,0.0,N,NO MATCH,_NOTINMAGIC_07,_NOTINMAGIC_07,N,_NOTINMAGIC_07,None,UDP4850,45790.732612534724
+FLB,AAPIN,Approved Inpatient,79.0,Y,FLB-LIVE (2026-08-31),AAPIN,Approved Inpatient,Y,Approved,None,QXA4067,46119.578740046294
+FLB,APINO,Approved Observation,4.0,Y,FLB-LIVE (2026-08-31),APINO,Approved Observation,Y,Approved,None,,
+FLB,APNICU,Approved NICU,0.0,Y,FLB-LIVE (2026-08-31),APNICU,Approved NICU,Y,Approved,None,,
+FLB,APPOP,Approved Outpatient,1.0,Y,FLB-LIVE (2026-08-31),APPOP,Approved Outpatient,Y,Approved,None,,
+FLB,APPSDC,Approved Same Day Surgery,2.0,Y,FLB-LIVE (2026-08-31),APPSDC,Approved Same Day Surgery,Y,Approved,None,,
+FLB,DENCLI,Denied Clinical Request,0.0,Y,FLB-LIVE (2026-08-31),DENCLI,Denied Clinical Request,Y,Denied,None,,
+FLB,DENDIS,Denied After Discharge,0.0,Y,FLB-LIVE (2026-08-31),DENDIS,Denied After Discharge,Y,Denied,None,,
+FLB,DENIH,Denied in House,0.0,Y,FLB-LIVE (2026-08-31),DENIH,Denied in House,Y,Denied,None,,
+FLB,DENOP,Denied Outpatient,0.0,Y,FLB-LIVE (2026-08-31),DENOP,Denied Outpatient,Y,Denied,None,,
+FLB,DENP2P,Denied Peer to Peer,0.0,Y,FLB-LIVE (2026-08-31),DENP2P,Denied Peer to Peer,Y,Denied,None,,
+FLB,NOTREQINS,Auth Not Req Per Insurance Co,65.0,Y,FLB-LIVE (2026-08-31),NOTREQINS,Auth Not Req Per Insurance Co,Y,Approved,None,,
+FLB,NOTREQSDC,Not Required SDC,0.0,Y,FLB-LIVE (2026-08-31),NOTREQSDC,Not Required SDC,Y,Approved,None,,
+FLB,PEDAU,Pending Authorization,0.0,Y,NO MATCH,PEDAU,Pending Authorization,Y,Pending,None,,
+FLB,PENDCLI,Pending Clinical,0.0,N,NO MATCH,PENDING.,Pending,Y,Pending,None,,
+FLB,PENDING,Pending,1.0,Y,NO MATCH,PENDING.,Pending,Y,Pending,None,DOF3224,45832.58679545139
+FLB2,_NOTINMAGIC_01,_NOTINMAGIC_01,0.0,N,NO MATCH,APPROVED.,Approved,Y,Approved,None,UDP4850,45790.73173255787
+FLB2,_NOTINMAGIC_02,_NOTINMAGIC_02,0.0,N,NO MATCH,PHYOB,Physician Obtained,Y,Approved,None,UDP4850,45790.73173295139
+FLB2,_NOTINMAGIC_03,_NOTINMAGIC_03,0.0,N,NO MATCH,CANCELLED.,Cancelled,Y,Cancelled,None,UDP4850,45790.73173329861
+FLB2,_NOTINMAGIC_04,_NOTINMAGIC_04,0.0,N,NO MATCH,CLOSED.,Closed,Y,Closed,None,UDP4850,45790.731733645836
+FLB2,_NOTINMAGIC_05,_NOTINMAGIC_05,0.0,N,NO MATCH,DENIED.,Denied,Y,Denied,None,UDP4850,45790.73173399305
+FLB2,_NOTINMAGIC_06,_NOTINMAGIC_06,0.0,N,NO MATCH,EXPIRED.,Expired,Y,Expired,None,UDP4850,45790.731734340276
+FLB2,_NOTINMAGIC_07,_NOTINMAGIC_07,0.0,N,NO MATCH,_NOTINMAGIC_07,_NOTINMAGIC_07,N,_NOTINMAGIC_07,None,UDP4850,45790.732612534724
+FLB2,AAPIN,Approved Inpatient,585.0,Y,FLB2-LIVE (2026-08-31),AAPIN,Approved Inpatient,Y,Approved,None,QXA4067,46119.578740046294
+FLB2,APINO,Approved Observation,23.0,Y,FLB2-LIVE (2026-08-31),APINO,Approved Observation,Y,Approved,None,,
+FLB2,APNICU,Approved NICU,0.0,Y,FLB2-LIVE (2026-08-31),APNICU,Approved NICU,Y,Approved,None,,
+FLB2,APPOP,Approved Outpatient,1.0,Y,FLB2-LIVE (2026-08-31),APPOP,Approved Outpatient,Y,Approved,None,,
+FLB2,APPSDC,Approved Same Day Surgery,19.0,Y,FLB2-LIVE (2026-08-31),APPSDC,Approved Same Day Surgery,Y,Approved,None,,
+FLB2,DENCLI,Denied Clinical Request,0.0,Y,FLB2-LIVE (2026-08-31),DENCLI,Denied Clinical Request,Y,Denied,None,,
+FLB2,DENDIS,Denied After Discharge,0.0,Y,FLB2-LIVE (2026-08-31),DENDIS,Denied After Discharge,Y,Denied,None,,
+FLB2,DENIH,Denied in House,0.0,Y,FLB2-LIVE (2026-08-31),DENIH,Denied in House,Y,Denied,None,,
+FLB2,DENOP,Denied Outpatient,0.0,Y,FLB2-LIVE (2026-08-31),DENOP,Denied Outpatient,Y,Denied,None,,
+FLB2,DENP2P,Denied Peer to Peer,0.0,Y,FLB2-LIVE (2026-08-31),DENP2P,Denied Peer to Peer,Y,Denied,None,,
+FLB2,NOTREQINS,Auth Not Req Per Insurance Co,584.0,Y,FLB2-LIVE (2026-08-31),NOTREQINS,Auth Not Req Per Insurance Co,Y,Approved,None,,
+FLB2,NOTREQSDC,Not Required SDC,27.0,Y,FLB2-LIVE (2026-08-31),NOTREQSDC,Not Required SDC,Y,Approved,None,,
+FLB2,PEDAU,Pending Authorization,0.0,Y,NO MATCH,PEDAU,Pending Authorization,Y,Pending,None,,
+FLB2,PENDCLI,Pending Clinical,0.0,N,NO MATCH,PENDING.,Pending,Y,Pending,None,,
+FLB2,PENDING,Pending,5.0,Y,NO MATCH,PENDING.,Pending,Y,Pending,None,DOF3224,45832.58679545139
+FLE,_NOTINMAGIC_01,_NOTINMAGIC_01,0.0,N,NO MATCH,APPROVED.,Approved,Y,Approved,None,UDP4850,45790.73173255787
+FLE,_NOTINMAGIC_02,_NOTINMAGIC_02,0.0,N,NO MATCH,PHYOB,Physician Obtained,Y,Approved,None,UDP4850,45790.73173295139
+FLE,_NOTINMAGIC_03,_NOTINMAGIC_03,0.0,N,NO MATCH,CANCELLED.,Cancelled,Y,Cancelled,None,UDP4850,45790.73173329861
+FLE,_NOTINMAGIC_04,_NOTINMAGIC_04,0.0,N,NO MATCH,CLOSED.,Closed,Y,Closed,None,UDP4850,45790.731733645836
+FLE,_NOTINMAGIC_05,_NOTINMAGIC_05,0.0,N,NO MATCH,DENIED.,Denied,Y,Denied,None,UDP4850,45790.73173399305
+FLE,_NOTINMAGIC_06,_NOTINMAGIC_06,0.0,N,NO MATCH,EXPIRED.,Expired,Y,Expired,None,UDP4850,45790.731734340276
+FLE,_NOTINMAGIC_07,_NOTINMAGIC_07,0.0,N,NO MATCH,_NOTINMAGIC_07,_NOTINMAGIC_07,N,_NOTINMAGIC_07,None,UDP4850,45790.732612534724
+FLE,AAPIN,Approved Inpatient,198.0,Y,FLE-LIVE (2026-08-31),AAPIN,Approved Inpatient,Y,Approved,None,QXA4067,46119.578740046294
+FLE,APINO,Approved Observation,3.0,Y,FLE-LIVE (2026-08-31),APINO,Approved Observation,Y,Approved,None,,
+FLE,APNICU,Approved NICU,0.0,Y,FLE-LIVE (2026-08-31),APNICU,Approved NICU,Y,Approved,None,,
+FLE,APPOP,Approved Outpatient,0.0,Y,FLE-LIVE (2026-08-31),APPOP,Approved Outpatient,Y,Approved,None,,
+FLE,APPSDC,Approved Same Day Surgery,3.0,Y,FLE-LIVE (2026-08-31),APPSDC,Approved Same Day Surgery,Y,Approved,None,,
+FLE,DENCLI,Denied Clinical Request,0.0,Y,FLE-LIVE (2026-08-31),DENCLI,Denied Clinical Request,Y,Denied,None,,
+FLE,DENDIS,Denied After Discharge,0.0,Y,FLE-LIVE (2026-08-31),DENDIS,Denied After Discharge,Y,Denied,None,,
+FLE,DENIH,Denied in House,0.0,Y,FLE-LIVE (2026-08-31),DENIH,Denied in House,Y,Denied,None,,
+FLE,DENOP,Denied Outpatient,0.0,Y,FLE-LIVE (2026-08-31),DENOP,Denied Outpatient,Y,Denied,None,,
+FLE,DENP2P,Denied Peer to Peer,0.0,Y,FLE-LIVE (2026-08-31),DENP2P,Denied Peer to Peer,Y,Denied,None,,
+FLE,NOTREQINS,Auth Not Req Per Insurance Co,119.0,Y,FLE-LIVE (2026-08-31),NOTREQINS,Auth Not Req Per Insurance Co,Y,Approved,None,,
+FLE,NOTREQSDC,Not Required SDC,6.0,Y,FLE-LIVE (2026-08-31),NOTREQSDC,Not Required SDC,Y,Approved,None,,
+FLE,PEDAU,Pending Authorization,0.0,Y,NO MATCH,PEDAU,Pending Authorization,Y,Pending,None,,
+FLE,PENDCLI,Pending Clinical,0.0,N,NO MATCH,PENDING.,Pending,Y,Pending,None,,
+FLE,PENDING,Pending,0.0,Y,NO MATCH,PENDING.,Pending,Y,Pending,None,DOF3224,45832.58679545139
