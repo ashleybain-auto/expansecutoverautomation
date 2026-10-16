@@ -1,0 +1,9 @@
+ECCS-WIN 01.02E
+Offline architecture: approved
+SQLite repository: implemented
+Seven source screen names: mapped to navigation
+Worksheet filtering: prototype only (not Power Fx equivalent)
+Enterprise adapters: pending
+Power Fx business parity: pending
+Windows .exe: not built
+Live data writes: none

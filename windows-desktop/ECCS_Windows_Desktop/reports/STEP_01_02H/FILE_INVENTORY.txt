@@ -1,0 +1,11 @@
+
+FullName                                                                                                                                         Length
+--------                                                                                                                                         ------
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\__init__.py                         0
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\config_editor.py                 5954
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\main.py                          4055
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\main.py.backup_20261016_141207   3831
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\main.py.backup_20261016_142448   3840
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\app\storage.py                       1546
+
+

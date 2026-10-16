@@ -1,0 +1,25 @@
+ECCS-WIN STEP 01.02H.3A
+Full-suite diagnostic
+Date: 10/16/2026 16:40:03
+Exit code: 2
+
+PYTEST OUTPUT:
+============================= test session starts =============================
+platform win32 -- Python 3.14.6, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026
+configfile: pyproject.toml
+collecting ... collected 5 items / 1 error
+
+=================================== ERRORS ====================================
+_ ERROR collecting windows-desktop/ECCS_Windows_Desktop/tests/test_source_aligned.py _
+import file mismatch:
+imported module 'test_source_aligned' has this __file__ attribute:
+  C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\patch_staging_0102h\tests\test_source_aligned.py
+which is not the same as the test file we want to collect:
+  C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\windows-desktop\ECCS_Windows_Desktop\tests\test_source_aligned.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+=========================== short test summary info ===========================
+ERROR tests\test_source_aligned.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.21s ===============================

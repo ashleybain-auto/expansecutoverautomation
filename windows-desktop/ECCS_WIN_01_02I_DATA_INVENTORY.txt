@@ -1,0 +1,9 @@
+
+FullName                                                                                                                   Extension Length LastWriteTime
+--------                                                                                                                   --------- ------ -------------
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\reference\Dataverse_Data_Contract.csv             .csv        1801 10/13/2026 8:17:09 AM
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\generated\powerapps\UPLOAD\config\app-config.json .json       1577 10/6/2026 5:12:16 PM
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\config\eccs.config.json                           .json       1150 10/6/2026 5:12:16 PM
+C:\Users\QXA4067\Project - CLEAN\ExpanseCutoverAutomationSuite-10.6.2026\config\schemas\migration-manifest.schema.json     .json       1032 10/6/2026 5:12:16 PM
+
+
