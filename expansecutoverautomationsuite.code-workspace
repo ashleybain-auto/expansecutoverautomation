@@ -1,8 +1,21 @@
 {
   "folders": [
-    { "name": "ECCS ConfigTool Factory", "path": "." },
-    { "name": "Canvas App - Active", "path": "canvas/active" },
-    { "name": "Canvas Demo References", "path": "canvas/reference" }
+    {
+      "name": "ECCS ConfigTool Factory",
+      "path": "."
+    },
+    {
+      "name": "Canvas App - Active",
+      "path": "canvas/active"
+    },
+    {
+      "name": "Canvas Demo References",
+      "path": "canvas/reference"
+    },
+    {
+      "name": "[ashleybain-auto/expansecutoverautomation source archive]",
+      "uri": "codeql-zip-archive://1-175/c:\\Users\\QXA4067\\AppData\\Roaming\\Code\\User\\workspaceStorage\\a15020b08f3ce70d5a334894ef2b90c0\\GitHub.vscode-codeql\\ashleybain-auto-expansecutoverautomation-1\\codeql_db\\src.zip"
+    }
   ],
   "settings": {
     "files.exclude": {
